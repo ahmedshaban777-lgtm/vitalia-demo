@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vitalia | فيتاليا - كوزمتكس ومستلزمات طبية</title>
-<meta name="description" content="Vitalia - فيتاليا: كوزمتكس، عناية بالبشرة والشعر، ومستلزمات طبية. اطلب على واتساب ويوصلك لباب البيت.">
+<meta name="description" content="Vitalia - فيتاليا: معاينة تصميم لموقع كوزمتكس ومستلزمات طبية. كل المحتوى توضيحي.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
@@ -46,9 +46,8 @@ nav.scrolled{background:rgba(11,16,35,.88);backdrop-filter:blur(14px);box-shadow
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{color:#c9c2d8;font-weight:500;font-size:.95rem;transition:color .2s}
 .nav-links a:hover{color:#fff}
-.nav-cta{background:var(--grad);color:#0b1023;font-weight:800;padding:10px 22px;border-radius:999px;font-size:.9rem;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 20px rgba(240,185,92,.3)}
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(240,185,92,.45)}
 .burger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+.demo-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#ffd9e6;font-weight:700;font-size:.78rem;padding:8px 16px;border-radius:999px}
 
 /* ============ HERO ============ */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;background:radial-gradient(900px 500px at 85% -5%,rgba(224,69,123,.32),transparent 60%),radial-gradient(700px 480px at 8% 100%,rgba(240,185,92,.22),transparent 55%),linear-gradient(165deg,#0b1023 0%,#161233 55%,#241a3f 100%);overflow:hidden;color:#fff}
@@ -59,31 +58,26 @@ nav.scrolled{background:rgba(11,16,35,.88);backdrop-filter:blur(14px);box-shadow
 @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,-26px) scale(1.08)}}
 .hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
 .hero .tag{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);padding:8px 18px;border-radius:999px;font-size:.85rem;color:#ffd9e6;font-weight:700}
-.hero h1{font-size:clamp(2.1rem,4.8vw,3.4rem);font-weight:900;margin:20px 0 16px}
-.hero p.lead{color:#cfc8de;font-size:1.1rem;max-width:520px}
+.hero h1{font-size:clamp(2.4rem,5.4vw,3.8rem);font-weight:900;margin:20px 0 8px}
+.hero h1 .sub{display:block;font-size:clamp(1.15rem,2.4vw,1.6rem);font-weight:800;margin-top:12px}
+.hero p.lead{color:#cfc8de;font-size:1.08rem;max-width:520px;margin-top:16px}
 .hero-btns{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;padding:15px 30px;border-radius:15px;font-size:1rem;transition:transform .15s,box-shadow .15s;border:none;cursor:pointer;font-family:'Cairo'}
 .btn-grad{background:var(--grad);color:#0b1023;box-shadow:0 12px 28px rgba(224,69,123,.35)}
 .btn-grad:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(224,69,123,.5)}
 .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.2)}
 .btn-ghost:hover{border-color:var(--gold)}
-.hero-trust{display:flex;gap:24px;margin-top:38px;flex-wrap:wrap}
-.hero-trust .t{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.92rem;color:#e8e2f2}
-.hero-trust .ic{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font-size:1.1rem}
 
 /* Hero visual */
 .hero-visual{position:relative}
 .hero-visual .board{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:26px;backdrop-filter:blur(12px);box-shadow:0 30px 70px rgba(0,0,0,.35);padding:26px}
 .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.mini{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px;text-align:center;transition:transform .25s,border-color .25s}
+.mini{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px 16px;text-align:center;transition:transform .25s,border-color .25s}
 .mini:hover{transform:translateY(-4px);border-color:rgba(240,185,92,.5)}
 .mini .pic{font-size:2.5rem;margin-bottom:8px}
 .mini b{display:block;font-size:.92rem;color:#fff}
-.mini span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;font-size:.85rem}
 .hero-visual .float{position:absolute;background:#fff;border-radius:14px;padding:10px 17px;font-size:.82rem;font-weight:800;color:var(--ink);box-shadow:0 16px 34px rgba(0,0,0,.3);display:flex;align-items:center;gap:8px;animation:floaty 5s ease-in-out infinite}
 .float.f1{top:-20px;inset-inline-start:-16px}
-.float.f2{bottom:-20px;inset-inline-end:-12px;animation-delay:-2.5s}
-.float .dot{width:9px;height:9px;border-radius:50%;background:var(--wa)}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 
 /* ============ TICKER ============ */
@@ -109,30 +103,13 @@ nav.scrolled{background:rgba(11,16,35,.88);backdrop-filter:blur(14px);box-shadow
 .prod{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
 .prod:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
 .prod .thumb{aspect-ratio:1/.8;display:grid;place-items:center;font-size:3.6rem;position:relative}
-.prod .thumb .off{position:absolute;top:13px;inset-inline-start:13px;background:var(--rose2);color:#fff;font-size:.72rem;font-weight:800;padding:4px 11px;border-radius:999px;box-shadow:0 6px 14px rgba(224,69,123,.4)}
 .prod .body{padding:17px 17px 19px;display:flex;flex-direction:column;flex:1}
 .prod .catname{font-size:.75rem;color:var(--rose2);font-weight:800}
 .prod h3{font-size:.99rem;font-weight:800;color:var(--ink);margin:5px 0 9px}
 .prod .price-row{margin-top:auto;display:flex;align-items:baseline;gap:8px}
 .prod .price{font-family:'Cairo';font-weight:900;font-size:1.28rem;color:var(--ink)}
-.prod .old{font-size:.85rem;color:#c3b9ac;text-decoration:line-through}
-.prod .order{margin-top:13px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;font-weight:800;font-size:.89rem;padding:11px;border-radius:12px;transition:background .2s,transform .15s}
-.prod .order:hover{background:var(--wa2);transform:translateY(-2px)}
-.prod .order svg{width:17px;height:17px;fill:#fff}
-
-/* ============ OFFERS ============ */
-.offers{position:relative;background:radial-gradient(700px 400px at 85% 10%,rgba(240,185,92,.2),transparent 60%),linear-gradient(160deg,#141a35,#241a3f);color:#fff;overflow:hidden}
-.offers::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(600px 400px at 50% 0%,#000,transparent 80%)}
-.offers .section-head h2{color:#fff}
-.offers .section-head .kicker{background:rgba(255,255,255,.1);color:var(--gold);border-color:rgba(240,185,92,.3)}
-.offers .section-head p{color:#c5bed8}
-.offer-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.offer{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius);padding:32px 24px;text-align:center;backdrop-filter:blur(8px);transition:transform .25s,border-color .25s}
-.offer:hover{transform:translateY(-6px);border-color:rgba(240,185,92,.45)}
-.offer .pct{font-family:'Cairo';font-weight:900;font-size:2.3rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
-.offer h3{font-size:1.12rem;font-weight:800}
-.offer p{color:#c5bed8;font-size:.9rem;margin:8px 0 14px}
-.offer .code{display:inline-block;background:rgba(255,255,255,.09);border:1px dashed rgba(240,185,92,.5);color:var(--gold);font-weight:800;font-size:.8rem;padding:6px 16px;border-radius:999px}
+.prod .demo-note{margin-top:13px;display:flex;align-items:center;justify-content:center;gap:8px;background:#f4eff2;color:#8a8496;font-weight:700;font-size:.82rem;padding:10px;border-radius:12px;border:1px dashed #ddd2d9}
+.sample-flag{display:inline-flex;align-items:center;gap:8px;background:#fdf0f4;border:1px solid rgba(224,69,123,.25);color:var(--rose2);font-weight:800;font-size:.82rem;padding:7px 18px;border-radius:999px;margin:0 auto}
 
 /* ============ BRANCHES ============ */
 .branches-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
@@ -148,29 +125,23 @@ nav.scrolled{background:rgba(11,16,35,.88);backdrop-filter:blur(14px);box-shadow
 .map-ph b{display:block;font-family:'Cairo';font-weight:800;color:var(--ink)}
 .map-ph span{color:var(--muted);font-size:.87rem}
 
-/* ============ CTA ============ */
-.cta{position:relative;background:radial-gradient(800px 420px at 50% 120%,rgba(224,69,123,.35),transparent 65%),linear-gradient(160deg,#0b1023,#161233);color:#fff;text-align:center;overflow:hidden}
-.cta h2{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:900;margin-bottom:14px}
-.cta p{color:#cfc8de;max-width:560px;margin:0 auto 30px}
-.btn-wa{display:inline-flex;align-items:center;gap:11px;background:var(--wa);color:#fff;font-family:'Cairo';font-weight:800;font-size:1.08rem;padding:16px 36px;border-radius:16px;transition:transform .15s,box-shadow .15s;box-shadow:0 14px 32px rgba(37,211,102,.35)}
-.btn-wa:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(37,211,102,.5)}
-.cta .alt{display:block;margin-top:18px;color:#9a93b5;font-size:.92rem}
+/* ============ CONTACT PLACEHOLDER ============ */
+.contact{position:relative;background:radial-gradient(800px 420px at 50% 120%,rgba(224,69,123,.35),transparent 65%),linear-gradient(160deg,#0b1023,#161233);color:#fff;text-align:center;overflow:hidden}
+.contact h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:900;margin-bottom:14px}
+.contact p{color:#cfc8de;max-width:560px;margin:0 auto 26px}
+.contact .ph-box{display:inline-block;background:rgba(255,255,255,.07);border:1.5px dashed rgba(240,185,92,.5);border-radius:18px;padding:26px 40px}
+.contact .ph-box b{display:block;font-family:'Cairo';font-weight:800;font-size:1.05rem;color:var(--gold)}
+.contact .ph-box span{color:#c5bed8;font-size:.9rem}
 
 /* ============ FOOTER ============ */
 footer{background:#070a18;color:#8d87a3;padding:36px 0;text-align:center;font-size:.9rem}
 footer b{color:#cfc8de}
-
-/* ============ FLOATING WA ============ */
-.wa-float{position:fixed;bottom:22px;inset-inline-start:22px;z-index:70;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px rgba(37,211,102,.45);transition:transform .2s}
-.wa-float:hover{transform:scale(1.1)}
-.wa-float svg{width:30px;height:30px;fill:#fff}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:960px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .cats{grid-template-columns:repeat(2,1fr)}
   .prod-grid{grid-template-columns:repeat(2,1fr)}
-  .offer-grid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
   .branches-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
@@ -178,16 +149,14 @@ footer b{color:#cfc8de}
   .nav-links.open{display:flex}
   .nav-links a{display:block;padding:13px 6%;font-size:1rem}
   .burger{display:block}
-  .nav-cta{padding:9px 16px;font-size:.82rem}
+  .demo-pill{display:none}
   .hero{padding:120px 0 70px}
   .cats{grid-template-columns:repeat(2,1fr);gap:14px}
   .prod-grid{grid-template-columns:repeat(2,1fr);gap:14px}
   .prod .thumb{font-size:2.7rem}
   .prod .price{font-size:1.1rem}
   .section{padding:64px 0}
-  .hero-trust{gap:16px}
   .float.f1{inset-inline-start:2px}
-  .float.f2{inset-inline-end:2px}
 }
 @media(max-width:380px){
   .prod-grid{grid-template-columns:1fr}
@@ -206,10 +175,10 @@ footer b{color:#cfc8de}
     <ul class="nav-links" id="navLinks">
       <li><a href="#cats">الأقسام</a></li>
       <li><a href="#products">المنتجات</a></li>
-      <li><a href="#offers">العروض</a></li>
       <li><a href="#branches">الفروع</a></li>
+      <li><a href="#contact">تواصل</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">اطلب الآن</a>
+    <span class="demo-pill">معاينة تصميم - محتوى توضيحي</span>
     <button class="burger" id="burger" aria-label="القائمة">☰</button>
   </div>
 </nav>
@@ -219,30 +188,24 @@ footer b{color:#cfc8de}
   <span class="orb o1"></span><span class="orb o2"></span>
   <div class="wrap hero-grid">
     <div>
-      <span class="tag">✦ كوزمتكس ومستلزمات طبية في مكان واحد</span>
-      <h1>كل اللي يكمّل <span class="grad-text">جمالك وصحتك</span><br>يوصلك لباب البيت</h1>
-      <p class="lead">مكياج وعناية بالبشرة والشعر، وأجهزة ومستلزمات طبية - اختار اللي محتاجه وابعت طلبك على واتساب، والتوصيل علينا.</p>
+      <span class="tag">✦ نموذج معاينة تجريبي</span>
+      <h1><span class="grad-text">Vitalia</span><span class="sub">كوزمتكس ومستلزمات طبية</span></h1>
+      <p class="lead">معاينة تصميم لموقع متجر كوزمتكس ومستلزمات طبية. الأقسام والمنتجات والأسعار المعروضة عينة توضيحية فقط.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn btn-grad">اطلب على واتساب 🛵</a>
+        <a href="#cats" class="btn btn-grad">شوف الأقسام</a>
         <a href="#products" class="btn btn-ghost">شوف المنتجات</a>
-      </div>
-      <div class="hero-trust">
-        <div class="t"><span class="ic">🛵</span> توصيل في نفس اليوم</div>
-        <div class="t"><span class="ic">💵</span> الدفع كاش عند الاستلام</div>
-        <div class="t"><span class="ic">↩️</span> استبدال مجاني</div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="float f1"><span class="dot"></span> التوصيل متاح الآن</div>
+      <div class="float f1">✦ معاينة تصميم</div>
       <div class="board">
         <div class="mini-grid">
-          <div class="mini"><div class="pic">💄</div><b>كوزمتكس ومكياج</b><span>من ٧٥ ج</span></div>
-          <div class="mini"><div class="pic">🧴</div><b>عناية بالبشرة والشعر</b><span>من ٦٠ ج</span></div>
-          <div class="mini"><div class="pic">🩺</div><b>مستلزمات طبية</b><span>من ٤٥ ج</span></div>
-          <div class="mini"><div class="pic">🌿</div><b>فيتامينات ومكملات</b><span>من ٩٥ ج</span></div>
+          <div class="mini"><div class="pic">💄</div><b>كوزمتكس ومكياج</b></div>
+          <div class="mini"><div class="pic">🧴</div><b>عناية بالبشرة والشعر</b></div>
+          <div class="mini"><div class="pic">🩺</div><b>مستلزمات طبية</b></div>
+          <div class="mini"><div class="pic">🌿</div><b>فيتامينات ومكملات</b></div>
         </div>
       </div>
-      <div class="float f2">✦ تشكيلة بتتجدد كل أسبوع</div>
     </div>
   </div>
 </header>
@@ -260,14 +223,14 @@ footer b{color:#cfc8de}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">الأقسام</span>
-      <h2>٤ أقسام تغطي كل احتياجاتك</h2>
-      <p>اختار القسم وابعتلنا اللي محتاجه - ولو مش لاقي حاجة اسأل عليها وهنوفرهالك</p>
+      <h2>٤ أقسام رئيسية</h2>
+      <p>اختار أي قسم لاستعراض شكل التصفح في المعاينة</p>
     </div>
     <div class="cats">
-      <a href="#products" class="cat reveal"><div class="icon">💄</div><h3>كوزمتكس ومكياج</h3><p>أحمر شفايف، ماسكرا، فاونديشن، وكل أدوات المكياج</p></a>
-      <a href="#products" class="cat reveal"><div class="icon">🧴</div><h3>عناية بالبشرة والشعر</h3><p>غسول، مرطبات، سيروم، وواقي شمس لكل الأنواع</p></a>
+      <a href="#products" class="cat reveal"><div class="icon">💄</div><h3>كوزمتكس ومكياج</h3><p>أحمر شفايف، ماسكرا، فاونديشن، وأدوات المكياج</p></a>
+      <a href="#products" class="cat reveal"><div class="icon">🧴</div><h3>عناية بالبشرة والشعر</h3><p>غسول، مرطبات، سيروم، وواقي شمس</p></a>
       <a href="#products" class="cat reveal"><div class="icon">🩺</div><h3>مستلزمات طبية</h3><p>أجهزة قياس، ترمومترات، ومستلزمات الإسعافات الأولية</p></a>
-      <a href="#products" class="cat reveal"><div class="icon">🌿</div><h3>فيتامينات ومكملات</h3><p>فيتامينات ومكملات غذائية للعناية اليومية</p></a>
+      <a href="#products" class="cat reveal"><div class="icon">🌿</div><h3>فيتامينات ومكملات</h3><p>فيتامينات ومكملات غذائية</p></a>
     </div>
   </div>
 </section>
@@ -277,27 +240,11 @@ footer b{color:#cfc8de}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">الكتالوج</span>
-      <h2>الأكثر طلبًا</h2>
-      <p>دوس «اطلب» على أي منتج وهيفتح واتساب برسالة جاهزة - كمّل باقي طلبك في نفس الرسالة</p>
+      <h2>عينة من المنتجات</h2>
+      <p>الأصناف والأسعار المعروضة توضيحية لأغراض المعاينة فقط - مش عروض بيع حقيقية</p>
     </div>
     <div class="prod-grid" id="prodGrid"></div>
-    <p style="text-align:center;color:var(--muted);font-size:.88rem;margin-top:28px">دي عينة من الكتالوج - اسأل على أي صنف مش موجود هنا وهنرد عليك بالسعر والتوفر.</p>
-  </div>
-</section>
-
-<!-- OFFERS -->
-<section class="section offers" id="offers">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="kicker">عروض الأسبوع</span>
-      <h2>خصومات حقيقية مش كلام</h2>
-      <p>العروض بتتجدد كل أسبوع - اطلب قبل نهاية العرض</p>
-    </div>
-    <div class="offer-grid">
-      <div class="offer reveal"><div class="pct">-٢٠٪</div><h3>على كل العناية بالبشرة</h3><p>غسول + مرطب + واقي شمس من نفس المجموعة</p><span class="code">كود: SKIN20</span></div>
-      <div class="offer reveal"><div class="pct">٢+١</div><h3>على المكياج المختار</h3><p>اشتري قطعتين من أدوات المكياج والتالتة هدية</p><span class="code">كود: GLAM3</span></div>
-      <div class="offer reveal"><div class="pct">🛵</div><h3>توصيل مجاني</h3><p>لأي طلب فوق ٥٠٠ جنيه داخل المدينة</p><span class="code">تلقائي عند الطلب</span></div>
-    </div>
+    <p style="text-align:center;margin-top:28px"><span class="sample-flag">⚠️ منتجات وأسعار توضيحية - أزرار الطلب غير مفعّلة في المعاينة</span></p>
   </div>
 </section>
 
@@ -305,16 +252,15 @@ footer b{color:#cfc8de}
 <section class="section" id="branches">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">الفروع والمواعيد</span>
-      <h2>قريبين منك دايمًا</h2>
+      <span class="kicker">الفروع</span>
+      <h2>أماكن الفروع</h2>
+      <p>البيانات المعروضة placeholders توضيحية - تتستبدل ببيانات العميل عند التسليم</p>
     </div>
     <div class="branches-grid">
       <div class="branch reveal">
         <h3><span class="ic">📍</span> الفرع الرئيسي - وسط البلد</h3>
         <ul>
           <li>العنوان: ١٢ شارع الجمهورية، وسط البلد (عنوان تجريبي)</li>
-          <li>المواعيد: يوميًا من ٩ صباحًا لـ ١٢ منتصف الليل</li>
-          <li>التوصيل: كل مناطق المدينة خلال ٦٠-٩٠ دقيقة</li>
           <li>التليفون: <bdi dir="ltr">0100 000 0000</bdi> (رقم تجريبي)</li>
         </ul>
       </div>
@@ -322,9 +268,7 @@ footer b{color:#cfc8de}
         <h3><span class="ic">📍</span> فرع التجمع</h3>
         <ul>
           <li>العنوان: ٤٥ شارع التسعين، التجمع الخامس (عنوان تجريبي)</li>
-          <li>المواعيد: يوميًا من ١٠ صباحًا لـ ١١ مساءً</li>
-          <li>متاح استشارة على اختيار منتجات العناية طوال المواعيد</li>
-          <li>نفس رقم الطلبات: <bdi dir="ltr">0100 000 0000</bdi></li>
+          <li>التليفون: <bdi dir="ltr">0100 000 0000</bdi> (رقم تجريبي)</li>
         </ul>
       </div>
     </div>
@@ -336,51 +280,44 @@ footer b{color:#cfc8de}
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section cta" id="contact">
+<!-- CONTACT PLACEHOLDER -->
+<section class="section contact" id="contact">
   <div class="wrap reveal">
-    <h2>محتاج حاجة من <span class="grad-text">Vitalia</span>؟ ابعت طلبك دلوقتي</h2>
-    <p>رسالة واتساب واحدة كفاية - اكتب اللي محتاجه وهنرد عليك بالسعر والتوفر ووقت التوصيل خلال دقائق.</p>
-    <a class="btn-wa" href="https://wa.me/201000000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20Vitalia" target="_blank" rel="noopener">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" style="vertical-align:-4px"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 2 .5 4 1.5 5.7L.5 23.5l6-1.6c1.7.9 3.5 1.4 5.5 1.4 6.3 0 11.4-5.1 11.4-11.4S18.3.5 12 .5zm0 20.9c-1.7 0-3.4-.5-4.8-1.3l-.4-.2-3.6 1 1-3.5-.2-.4a9.3 9.3 0 0 1-1.4-5c0-5.2 4.2-9.4 9.4-9.4s9.4 4.2 9.4 9.4-4.2 9.4-9.4 9.4zm5.2-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
-      اطلب على واتساب
-    </a>
-    <span class="alt">أو اتصل مباشرة: <bdi dir="ltr">0100 000 0000</bdi> (رقم تجريبي)</span>
+    <h2>بيانات <span class="grad-text">التواصل</span></h2>
+    <p>في النسخة النهائية يتضاف هنا رقم الواتساب والتليفون الخاصين بالعميل، وزر الطلب بيتفعّل على رقمه.</p>
+    <div class="ph-box">
+      <b>مساحة مخصصة لبيانات التواصل</b>
+      <span>(زر واتساب + رقم تليفون - placeholders في المعاينة)</span>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <b>Vitalia - كوزمتكس ومستلزمات طبية</b><br>
-    موقع تجريبي لعرض نموذج تصميم - جميع الأسماء والمنتجات والأسعار والأرقام placeholders
+    موقع تجريبي لعرض نموذج تصميم - جميع الأسماء والمنتجات والأسعار والأرقام توضيحية (placeholders)
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/201000000000" target="_blank" rel="noopener" aria-label="واتساب">
-  <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 2 .5 4 1.5 5.7L.5 23.5l6-1.6c1.7.9 3.5 1.4 5.5 1.4 6.3 0 11.4-5.1 11.4-11.4S18.3.5 12 .5zm0 20.9c-1.7 0-3.4-.5-4.8-1.3l-.4-.2-3.6 1 1-3.5-.2-.4a9.3 9.3 0 0 1-1.4-5c0-5.2 4.2-9.4 9.4-9.4s9.4 4.2 9.4 9.4-4.2 9.4-9.4 9.4zm5.2-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
-</a>
-
 <script>
-var WA='https://wa.me/201000000000?text=';
 var products=[
- {e:'💄',c:'كوزمتكس ومكياج',n:'أحمر شفايف مطفي - درجات متعددة',p:120,o:150,off:'-٢٠٪',bg:'linear-gradient(135deg,#ffe3ee,#ffc9dd)'},
- {e:'✨',c:'عناية بالبشرة',n:'سيروم فيتامين سي (٣٠ مل)',p:240,o:null,bg:'linear-gradient(135deg,#fff3d9,#ffe3ab)'},
- {e:'☀️',c:'عناية بالبشرة',n:'واقي شمس SPF50+ (٥٠ مل)',p:185,o:230,off:'-٢٠٪',bg:'linear-gradient(135deg,#fff0cf,#ffdf9e)'},
- {e:'🧴',c:'عناية بالبشرة',n:'غسول يومي للبشرة الحساسة',p:160,o:null,bg:'linear-gradient(135deg,#e6f0ff,#d2e3ff)'},
- {e:'💆‍♀️',c:'عناية بالشعر',n:'زيت شعر مغذي بالأرجان (١٠٠ مل)',p:145,o:180,off:'خصم',bg:'linear-gradient(135deg,#fdeedd,#f9ddb8)'},
- {e:'🩺',c:'مستلزمات طبية',n:'جهاز قياس ضغط ديجيتال',p:850,o:990,off:'-١٥٪',bg:'linear-gradient(135deg,#f1eaff,#e0d3ff)'},
- {e:'🌡️',c:'مستلزمات طبية',n:'ترمومتر ديجيتال سريع القياس',p:95,o:120,off:'خصم',bg:'linear-gradient(135deg,#e4f7f1,#cdefe2)'},
- {e:'🌿',c:'فيتامينات ومكملات',n:'فيتامين د3 - ٦٠ كبسولة',p:95,o:120,off:'خصم',bg:'linear-gradient(135deg,#eef7e3,#dcefc8)'}
+ {e:'💄',c:'كوزمتكس ومكياج',n:'أحمر شفايف مطفي - درجات متعددة',p:'١٢٠ ج',bg:'linear-gradient(135deg,#ffe3ee,#ffc9dd)'},
+ {e:'✨',c:'عناية بالبشرة',n:'سيروم فيتامين سي (٣٠ مل)',p:'٢٤٠ ج',bg:'linear-gradient(135deg,#fff3d9,#ffe3ab)'},
+ {e:'☀️',c:'عناية بالبشرة',n:'واقي شمس SPF50+ (٥٠ مل)',p:'١٨٥ ج',bg:'linear-gradient(135deg,#fff0cf,#ffdf9e)'},
+ {e:'🧴',c:'عناية بالبشرة',n:'غسول يومي للبشرة الحساسة',p:'١٦٠ ج',bg:'linear-gradient(135deg,#e6f0ff,#d2e3ff)'},
+ {e:'💆‍♀️',c:'عناية بالشعر',n:'زيت شعر مغذي بالأرجان (١٠٠ مل)',p:'١٤٥ ج',bg:'linear-gradient(135deg,#fdeedd,#f9ddb8)'},
+ {e:'🩺',c:'مستلزمات طبية',n:'جهاز قياس ضغط ديجيتال',p:'٨٥٠ ج',bg:'linear-gradient(135deg,#f1eaff,#e0d3ff)'},
+ {e:'🌡️',c:'مستلزمات طبية',n:'ترمومتر ديجيتال سريع القياس',p:'٩٥ ج',bg:'linear-gradient(135deg,#e4f7f1,#cdefe2)'},
+ {e:'🌿',c:'فيتامينات ومكملات',n:'فيتامين د3 - ٦٠ كبسولة',p:'٩٥ ج',bg:'linear-gradient(135deg,#eef7e3,#dcefc8)'}
 ];
 var grid=document.getElementById('prodGrid');
 products.forEach(function(x,i){
-  var msg=encodeURIComponent('السلام عليكم، عايز أطلب: '+x.n+' ('+x.p+' ج)');
   grid.innerHTML+=
   '<div class="prod reveal" style="transition-delay:'+(i%4*70)+'ms">'+
-    '<div class="thumb" style="background:'+x.bg+'">'+x.e+(x.off?'<span class="off">'+x.off+'</span>':'')+'</div>'+
+    '<div class="thumb" style="background:'+x.bg+'">'+x.e+'</div>'+
     '<div class="body"><span class="catname">'+x.c+'</span><h3>'+x.n+'</h3>'+
-    '<div class="price-row"><span class="price">'+x.p+' ج</span>'+(x.o?'<span class="old">'+x.o+' ج</span>':'')+'</div>'+
-    '<a class="order" target="_blank" rel="noopener" href="'+WA+msg+'"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 2 .5 4 1.5 5.7L.5 23.5l6-1.6c1.7.9 3.5 1.4 5.5 1.4 6.3 0 11.4-5.1 11.4-11.4S18.3.5 12 .5zm0 20.9c-1.7 0-3.4-.5-4.8-1.3l-.4-.2-3.6 1 1-3.5-.2-.4a9.3 9.3 0 0 1-1.4-5c0-5.2 4.2-9.4 9.4-9.4s9.4 4.2 9.4 9.4-4.2 9.4-9.4 9.4z"/></svg>اطلب على واتساب</a>'+
+    '<div class="price-row"><span class="price">'+x.p+'</span></div>'+
+    '<span class="demo-note">زر طلب تجريبي - غير مفعّل</span>'+
     '</div></div>';
 });
 document.getElementById('burger').addEventListener('click',function(){
