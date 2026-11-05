@@ -98,13 +98,29 @@ nav{position:fixed;inset-inline:0;top:0;z-index:60;background:rgba(253,249,245,.
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(50%)}}
 
 /* ============ CATEGORIES ============ */
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
 .cat{position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);padding:36px 22px;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;overflow:hidden}
 .cat::after{content:'';position:absolute;inset-inline:0;bottom:0;height:4px;background:var(--grad);transform:scaleX(0);transition:transform .3s;transform-origin:center}
 .cat:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
 .cat:hover::after{transform:scaleX(1)}
 .cat .icon{width:72px;height:72px;margin:0 auto 16px;border-radius:22px;display:grid;place-items:center;font-size:2.1rem;background:linear-gradient(135deg,var(--rosebg),var(--goldbg));box-shadow:inset 0 0 0 1px rgba(224,69,123,.12)}
 .cat h3{font-size:1.06rem;font-weight:800;color:var(--ink)}
+/* Per-category accents (user-approved color coding) */
+.cat:nth-child(1) .icon{background:linear-gradient(135deg,#fdf0f4,#fce0ea);box-shadow:inset 0 0 0 1px rgba(224,69,123,.18)}
+.cat:nth-child(2) .icon{background:linear-gradient(135deg,#fbf3e6,#f7e7c8);box-shadow:inset 0 0 0 1px rgba(217,154,58,.2)}
+.cat:nth-child(3) .icon{background:linear-gradient(135deg,#fdeee7,#fbdfd3);box-shadow:inset 0 0 0 1px rgba(233,138,112,.2)}
+.cat:nth-child(4) .icon{background:linear-gradient(135deg,#f6edf5,#eedeee);box-shadow:inset 0 0 0 1px rgba(155,92,148,.18)}
+.cat:nth-child(5) .icon{background:linear-gradient(135deg,#ecf6f4,#dcefea);box-shadow:inset 0 0 0 1px rgba(79,158,149,.18)}
+.cat:nth-child(1)::after{background:linear-gradient(90deg,#e0457b,#f07ba4)}
+.cat:nth-child(2)::after{background:linear-gradient(90deg,#d99a3a,#f0c05c)}
+.cat:nth-child(3)::after{background:linear-gradient(90deg,#e98a70,#f4b49a)}
+.cat:nth-child(4)::after{background:linear-gradient(90deg,#9b5c94,#c48cbd)}
+.cat:nth-child(5)::after{background:linear-gradient(90deg,#4f9e95,#7fc4bb)}
+.mini:nth-child(1){background:#fdf0f4}
+.mini:nth-child(2){background:#fbf3e6}
+.mini:nth-child(3){background:#fdeee7}
+.mini:nth-child(4){background:#f6edf5}
+.mini:nth-child(5){background:#ecf6f4}
 .cat p{color:var(--muted);font-size:.87rem;margin-top:7px}
 
 /* ============ PRODUCTS ============ */
@@ -239,10 +255,11 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
       <div class="float f1">✦ معاينة تصميم</div>
       <div class="board">
         <div class="mini-grid">
-          <div class="mini"><div class="pic">💄</div><b>كوزمتكس ومكياج</b></div>
-          <div class="mini"><div class="pic">🧴</div><b>عناية بالبشرة والشعر</b></div>
-          <div class="mini"><div class="pic">🩺</div><b>مستلزمات طبية</b></div>
-          <div class="mini"><div class="pic">🌿</div><b>فيتامينات ومكملات</b></div>
+          <div class="mini"><div class="pic">💇‍♀️</div><b>عنايه بالشعر</b></div>
+          <div class="mini"><div class="pic">🧴</div><b>عنايه بالبشرة</b></div>
+          <div class="mini"><div class="pic">🤱</div><b>الأم والطفل</b></div>
+          <div class="mini"><div class="pic">🏥</div><b>المستلزمات الطبية للصيدليات</b></div>
+          <div class="mini" style="grid-column:1/-1"><div class="pic">🩺</div><b>المستلزمات الطبية للعيادات</b></div>
         </div>
       </div>
     </div>
@@ -252,8 +269,8 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>VITALIA <i>✦</i> كوزمتكس <i>✦</i> عناية بالبشرة <i>✦</i> عناية بالشعر <i>✦</i> مستلزمات طبية <i>✦</i> فيتامينات ومكملات <i>✦</i></span>
-    <span>VITALIA <i>✦</i> كوزمتكس <i>✦</i> عناية بالبشرة <i>✦</i> عناية بالشعر <i>✦</i> مستلزمات طبية <i>✦</i> فيتامينات ومكملات <i>✦</i></span>
+    <span>VITALIA <i>✦</i> عنايه بالشعر <i>✦</i> عنايه بالبشرة <i>✦</i> الأم والطفل <i>✦</i> المستلزمات الطبية للصيدليات <i>✦</i> المستلزمات الطبية للعيادات <i>✦</i></span>
+    <span>VITALIA <i>✦</i> عنايه بالشعر <i>✦</i> عنايه بالبشرة <i>✦</i> الأم والطفل <i>✦</i> المستلزمات الطبية للصيدليات <i>✦</i> المستلزمات الطبية للعيادات <i>✦</i></span>
   </div>
 </div>
 
@@ -262,14 +279,15 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">الأقسام</span>
-      <h2>٤ أقسام رئيسية</h2>
+      <h2>٥ أقسام رئيسية</h2>
       <p>اختار أي قسم لاستعراض شكل التصفح في المعاينة</p>
     </div>
     <div class="cats">
-      <a href="#products" class="cat reveal"><div class="icon">💄</div><h3>كوزمتكس ومكياج</h3><p>أحمر شفايف، ماسكرا، فاونديشن، وأدوات المكياج</p></a>
-      <a href="#products" class="cat reveal"><div class="icon">🧴</div><h3>عناية بالبشرة والشعر</h3><p>غسول، مرطبات، سيروم، وواقي شمس</p></a>
-      <a href="#products" class="cat reveal"><div class="icon">🩺</div><h3>مستلزمات طبية</h3><p>أجهزة قياس، ترمومترات، ومستلزمات الإسعافات الأولية</p></a>
-      <a href="#products" class="cat reveal"><div class="icon">🌿</div><h3>فيتامينات ومكملات</h3><p>فيتامينات ومكملات غذائية</p></a>
+      <a href="#products" class="cat reveal"><div class="icon">💇‍♀️</div><h3>عنايه بالشعر</h3></a>
+      <a href="#products" class="cat reveal"><div class="icon">🧴</div><h3>عنايه بالبشرة</h3></a>
+      <a href="#products" class="cat reveal"><div class="icon">🤱</div><h3>الأم والطفل</h3></a>
+      <a href="#products" class="cat reveal"><div class="icon">🏥</div><h3>المستلزمات الطبية للصيدليات</h3></a>
+      <a href="#products" class="cat reveal"><div class="icon">🩺</div><h3>المستلزمات الطبية للعيادات</h3></a>
     </div>
   </div>
 </section>
@@ -340,14 +358,12 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
 
 <script>
 var products=[
- {e:'💄',c:'كوزمتكس ومكياج',n:'أحمر شفايف مطفي - درجات متعددة',p:'١٢٠ ج',bg:'linear-gradient(135deg,#ffe3ee,#ffc9dd)'},
- {e:'✨',c:'عناية بالبشرة',n:'سيروم فيتامين سي (٣٠ مل)',p:'٢٤٠ ج',bg:'linear-gradient(135deg,#fff3d9,#ffe3ab)'},
- {e:'☀️',c:'عناية بالبشرة',n:'واقي شمس SPF50+ (٥٠ مل)',p:'١٨٥ ج',bg:'linear-gradient(135deg,#fff0cf,#ffdf9e)'},
- {e:'🧴',c:'عناية بالبشرة',n:'غسول يومي للبشرة الحساسة',p:'١٦٠ ج',bg:'linear-gradient(135deg,#e6f0ff,#d2e3ff)'},
- {e:'💆‍♀️',c:'عناية بالشعر',n:'زيت شعر مغذي بالأرجان (١٠٠ مل)',p:'١٤٥ ج',bg:'linear-gradient(135deg,#fdeedd,#f9ddb8)'},
- {e:'🩺',c:'مستلزمات طبية',n:'جهاز قياس ضغط ديجيتال',p:'٨٥٠ ج',bg:'linear-gradient(135deg,#f1eaff,#e0d3ff)'},
- {e:'🌡️',c:'مستلزمات طبية',n:'ترمومتر ديجيتال سريع القياس',p:'٩٥ ج',bg:'linear-gradient(135deg,#e4f7f1,#cdefe2)'},
- {e:'🌿',c:'فيتامينات ومكملات',n:'فيتامين د3 - ٦٠ كبسولة',p:'٩٥ ج',bg:'linear-gradient(135deg,#eef7e3,#dcefc8)'}
+ {e:'✨',c:'عنايه بالبشرة',n:'سيروم فيتامين سي (٣٠ مل)',p:'٢٤٠ ج',bg:'linear-gradient(135deg,#fff3d9,#ffe3ab)'},
+ {e:'☀️',c:'عنايه بالبشرة',n:'واقي شمس SPF50+ (٥٠ مل)',p:'١٨٥ ج',bg:'linear-gradient(135deg,#fff0cf,#ffdf9e)'},
+ {e:'🧴',c:'عنايه بالبشرة',n:'غسول يومي للبشرة الحساسة',p:'١٦٠ ج',bg:'linear-gradient(135deg,#e6f0ff,#d2e3ff)'},
+ {e:'💆‍♀️',c:'عنايه بالشعر',n:'زيت شعر مغذي بالأرجان (١٠٠ مل)',p:'١٤٥ ج',bg:'linear-gradient(135deg,#fdeedd,#f9ddb8)'},
+ {e:'🩺',c:'المستلزمات الطبية للعيادات',n:'جهاز قياس ضغط ديجيتال',p:'٨٥٠ ج',bg:'linear-gradient(135deg,#f1eaff,#e0d3ff)'},
+ {e:'🌡️',c:'المستلزمات الطبية للعيادات',n:'ترمومتر ديجيتال سريع القياس',p:'٩٥ ج',bg:'linear-gradient(135deg,#e4f7f1,#cdefe2)'}
 ];
 var grid=document.getElementById('prodGrid');
 products.forEach(function(x,i){
