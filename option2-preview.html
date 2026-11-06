@@ -449,11 +449,12 @@ function ctlCard(co,p){
 }
 function ctlScope(){
  var list=[];
+ var searching=ctlState.q!=='';
  CTL_COMPANIES.forEach(function(co){
-  if(ctlState.co!=='all'&&co.id!==ctlState.co)return;
+  if(!searching&&ctlState.co!=='all'&&co.id!==ctlState.co)return;
   co.products.forEach(function(p){list.push({co:co,p:p});});
  });
- if(ctlState.cat!=='الكل')list=list.filter(function(x){return x.p.cat===ctlState.cat;});
+ if(!searching&&ctlState.cat!=='الكل')list=list.filter(function(x){return x.p.cat===ctlState.cat;});
  if(ctlState.q){
   var q=ctlState.q.toLowerCase();
   list=list.filter(function(x){return x.p.n.toLowerCase().indexOf(q)>-1||x.co.ar.indexOf(ctlState.q)>-1||(x.co.en&&x.co.en.toLowerCase().indexOf(q)>-1);});
