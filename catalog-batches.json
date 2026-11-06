@@ -2,7 +2,7 @@
   "batch_1a": {
     "date": "2026-11-06",
     "status": "published",
-    "products": 52,
+    "products": 60,
     "companies": [
       "vatika",
       "eva",
@@ -16,7 +16,7 @@
     ],
     "note": "His actual item names matched item-level to verified photos already in assets. Web-scrape attempt for 116 more photos returned poisoned results and was discarded; OBF search API was down (503); retry to top up toward ~150.",
     "match_breakdown": {
-      "exact": 50,
+      "exact": 58,
       "illustrative_same_type": 2,
       "photo_pending": 0
     },
