@@ -416,11 +416,11 @@ var ctlGrid=document.getElementById('ctlGrid'),ctlCompanies=document.getElementB
     ctlMoreWrap=document.getElementById('ctlMoreWrap'),ctlMore=document.getElementById('ctlMore'),
     ctlStats=document.getElementById('ctlStats');
 var ctlTotal=CTL_COMPANIES.reduce(function(s,c){return s+c.products.length;},0);
-var ctlPend=0,ctlNote=0;
-CTL_COMPANIES.forEach(function(c){c.products.forEach(function(p){if(p.pending)ctlPend++;else if(p.note)ctlNote++;});});
-var ctlExact=ctlTotal-ctlPend-ctlNote;
-ctlStats.innerHTML='<b>'+arDig(CTL_COMPANIES.length)+'</b> شركة · <b>'+arDig(ctlTotal)+'</b> منتج'+
- '<br><span class="ctl-substats">'+arDig(ctlExact)+' صورة مطابقة · '+arDig(ctlNote)+' صورة توضيحية · '+arDig(ctlPend)+' بدون صورة بعد</span>';
+var ctlPend=0,ctlNote=0,ctlGroups=0,ctlSkus=0;
+CTL_COMPANIES.forEach(function(c){c.products.forEach(function(p){if(p.v){ctlGroups++;return;}ctlSkus++;if(p.pending)ctlPend++;else if(p.note)ctlNote++;});});
+var ctlExact=ctlSkus-ctlPend-ctlNote;
+ctlStats.innerHTML='<b>'+arDig(CTL_COMPANIES.length)+'</b> شركة · <b>'+arDig(ctlSkus)+'</b> منتج من القائمة + <b>'+arDig(ctlGroups)+'</b> مجموعات عينات'+
+ '<br><span class="ctl-substats">من منتجات القائمة: '+arDig(ctlExact)+' صورة مطابقة · '+arDig(ctlNote)+' صورة توضيحية · '+arDig(ctlPend)+' بدون صورة بعد</span>';
 function ctlCard(co,p){
  var card=document.createElement('div');card.className='ctl-card';
  var thumb=document.createElement('div');thumb.className='ctl-thumb';
