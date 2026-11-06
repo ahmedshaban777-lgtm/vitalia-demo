@@ -2,7 +2,7 @@
   "batch_1a": {
     "date": "2026-11-06",
     "status": "published",
-    "products": 36,
+    "products": 44,
     "companies": [
       "vatika",
       "eva",
@@ -16,11 +16,11 @@
     ],
     "note": "His actual item names matched item-level to verified photos already in assets. Web-scrape attempt for 116 more photos returned poisoned results and was discarded; OBF search API was down (503); retry to top up toward ~150.",
     "match_breakdown": {
-      "exact": 35,
+      "exact": 43,
       "illustrative_same_type": 1,
       "photo_pending": 0
     },
-    "reconciliation": "2026-11-06: removed 3 mismatched photo bindings (dove Advanced Care roll-on, dove spray misbound as roll-on, dove caring bath vs shower gel) - items kept with photo pending; 12 same-line photos labeled illustrative (size/form unconfirmed); garnier micellar verified classic (clear liquid, red cap). | 2026-11-06 upgrades: replaced 9 size-note photos with exact Jumia Egypt packshots (nivea soft 200ml, pearl&beauty 150ml, black&white 150ml, sun protect&moisture 200ml, dove beauty cream 150g, vaseline cocoa radiant 400ml, vaseline essential-healing/nourishing-moisture EG pack 400ml, johnsons bedtime bath 300ml, johnsons oil-balancing gel wash 150ml); lux 75g soap keeps size-note (no 75g packshot found on Jumia)."
+    "reconciliation": "2026-11-06: removed 3 mismatched photo bindings (dove Advanced Care roll-on, dove spray misbound as roll-on, dove caring bath vs shower gel) - items kept with photo pending; 12 same-line photos labeled illustrative (size/form unconfirmed); garnier micellar verified classic (clear liquid, red cap). | 2026-11-06 upgrades: replaced 9 size-note photos with exact Jumia Egypt packshots (nivea soft 200ml, pearl&beauty 150ml, black&white 150ml, sun protect&moisture 200ml, dove beauty cream 150g, vaseline cocoa radiant 400ml, vaseline essential-healing/nourishing-moisture EG pack 400ml, johnsons bedtime bath 300ml, johnsons oil-balancing gel wash 150ml); lux 75g soap keeps size-note (no 75g packshot found on Jumia). | batch1b progress: +8 nivea exact packshots (sticks, roll-ons, energy shower, micellar rose, shave gel, sun spray)."
   },
   "batch_1b_pending": {
     "target": "~150 products",
