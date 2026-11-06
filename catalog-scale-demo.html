@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitalia - نموذج الكتالوج الكبير (معاينة توضيحية)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#fdf9f5; --rosebg:#fdf0f4; --goldbg:#fbf3e6;
+  --rose2:#e0457b; --gold2:#d99a3a;
+  --grad:linear-gradient(120deg,var(--rose2),var(--gold2));
+  --card:#ffffff; --ink:#2a1830; --muted:#7d7286;
+  --line:#f0e4e2; --radius:20px; --shadow:0 18px 44px rgba(122,46,84,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;color:var(--ink);background:var(--ivory);line-height:1.75}
+h1,h2,h3{font-family:'Cairo',sans-serif;line-height:1.35}
+.wrap{width:min(1060px,92%);margin-inline:auto}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+header.top{padding:52px 0 8px;text-align:center}
+.pill{display:inline-block;background:#fff;border:1px solid rgba(224,69,123,.25);color:var(--rose2);font-weight:800;font-size:.82rem;padding:7px 18px;border-radius:999px;margin-bottom:14px}
+header.top h1{font-size:clamp(1.45rem,3.2vw,2rem);font-weight:900}
+header.top p{color:var(--muted);max-width:660px;margin:10px auto 0;font-size:.96rem}
+.stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:22px auto 0;max-width:760px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 22px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-family:'Cairo';font-weight:900;font-size:1.25rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:.78rem;color:var(--muted);font-weight:700}
+.bar{position:sticky;top:0;z-index:10;background:rgba(253,249,245,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);margin-top:24px}
+.bar .wrap{display:flex;gap:10px;padding:12px 0;align-items:center;flex-wrap:wrap}
+.crumbs{display:flex;align-items:center;gap:8px;font-family:'Cairo';font-weight:800;font-size:.9rem}
+.crumbs button{border:none;background:none;color:var(--rose2);cursor:pointer;font:inherit;padding:0}
+.crumbs button:hover{text-decoration:underline}
+.crumbs .sep{color:var(--muted)}
+.search{margin-inline-start:auto;position:relative}
+.search input{border:1.5px solid var(--line);border-radius:999px;padding:9px 40px 9px 16px;font-family:'Tajawal';font-size:.9rem;width:min(300px,62vw);background:#fff;color:var(--ink)}
+.search input:focus{outline:none;border-color:var(--rose2)}
+.search .sic{position:absolute;top:50%;inset-inline-start:14px;transform:translateY(-50%);color:var(--muted);font-size:.85rem;pointer-events:none}
+.sec{padding:34px 0 4px}
+.sec h2{font-size:1.3rem;font-weight:900;margin-bottom:4px}
+.sec .sub{color:var(--muted);font-size:.86rem;margin-bottom:18px}
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:.18s;display:flex;flex-direction:column}
+.ccard:hover{transform:translateY(-3px)}
+.ccard .cthumb{height:120px;display:grid;place-items:center;background:#fff;border-bottom:1px solid var(--line)}
+.ccard .cthumb img{max-height:104px;max-width:88%;object-fit:contain}
+.mono{width:64px;height:64px;border-radius:18px;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:'Cairo';font-weight:900;font-size:1.5rem;opacity:.85}
+.ccard .cbody{padding:12px 14px 14px}
+.ccard .cname{font-family:'Cairo';font-weight:800;font-size:.98rem}
+.ccard .cmeta{font-size:.76rem;color:var(--muted);font-weight:700}
+.ctag{display:inline-block;background:var(--goldbg);border:1px solid rgba(217,154,58,.25);color:var(--gold2);font-weight:800;font-size:.72rem;padding:3px 10px;border-radius:999px;margin-top:6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 18px;font-family:'Cairo';font-weight:800;font-size:.88rem;color:var(--ink);cursor:pointer;transition:.2s}
+.chip.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(224,69,123,.3)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.pcard .pthumb{height:150px;display:grid;place-items:center;background:#fff;border-bottom:1px solid var(--line);position:relative}
+.pcard .pthumb img{max-height:136px;max-width:88%;object-fit:contain}
+.pcard .pthumb .fam{position:absolute;bottom:6px;inset-inline:6px;background:rgba(42,24,48,.78);color:#fff;font-size:.68rem;font-weight:700;padding:4px 8px;border-radius:8px;text-align:center}
+.pcard .pbody{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pcard .pname{font-family:'Cairo';font-weight:800;font-size:.94rem}
+.pcard .pmeta{font-size:.74rem;color:var(--muted);font-weight:700}
+.vars{display:flex;gap:6px;flex-wrap:wrap}
+.vchip{border:1.5px solid var(--line);background:var(--ivory);border-radius:10px;padding:5px 11px;font-family:'Cairo';font-weight:700;font-size:.78rem;cursor:pointer;transition:.15s;color:var(--ink)}
+.vchip.on{background:var(--rosebg);border-color:var(--rose2);color:var(--rose2)}
+.vcount{font-size:.74rem;color:var(--muted)}
+.prow{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--line);padding-top:10px;margin-top:auto}
+.price{font-family:'Cairo';font-weight:800;font-size:.85rem;color:var(--muted)}
+.price b{color:var(--ink)}
+.order-demo{background:#faf4f6;color:#a4959e;font-weight:700;font-size:.74rem;padding:6px 12px;border-radius:9px;border:1px dashed #e6d5dc}
+.more-wrap{text-align:center;margin:20px 0 6px}
+.more{background:#fff;border:1.5px solid rgba(224,69,123,.35);color:var(--rose2);font-family:'Cairo';font-weight:800;font-size:.92rem;padding:10px 30px;border-radius:999px;cursor:pointer;transition:.2s}
+.more:hover{background:var(--rosebg)}
+.shown{font-size:.78rem;color:var(--muted);text-align:center;margin-top:8px}
+.note-band{margin:40px 0 56px;background:linear-gradient(160deg,var(--goldbg),var(--rosebg));border:1.5px dashed rgba(217,154,58,.5);border-radius:var(--radius);padding:26px 28px}
+.note-band b{display:block;font-family:'Cairo';font-weight:800;margin-bottom:10px}
+.note-band ul{list-style:none;color:var(--muted);font-size:.9rem}
+.note-band li{padding:5px 0}
+.note-band li::before{content:'✦ ';color:var(--gold2)}
+.hidden{display:none}
+@media(max-width:900px){.cgrid{grid-template-columns:repeat(2,1fr)}.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.pgrid{grid-template-columns:1fr}.search{width:100%}.search input{width:100%}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="pill">✦ نموذج الكتالوج الكبير - معاينة توضيحية</span>
+    <h1>إزاي ننظّم <span class="grad-text">شركات كتير ومنتجات كتير</span><br>من غير ما نعرض ٢٠٠ منتج قصاد العميل</h1>
+    <p>الفكرة: الواجهة مدخل للكتالوج، مش عرض كامل. العميل يختار الشركة ← القسم، والمنتجات تظهر على دفعات صغيرة، ومعاهم بحث مباشر باسم المنتج. دي تجربة تنظيم ببيانات توضيحية، مش وعد بأداء نهائي.</p>
+    <div class="stats">
+      <div class="stat"><b id="st-comp">-</b><span>شركة في الكتالوج</span></div>
+      <div class="stat"><b id="st-cat">-</b><span>قسم</span></div>
+      <div class="stat"><b id="st-prod">-</b><span>منتج (كلهم موجودين)</span></div>
+      <div class="stat"><b>٦</b><span>بس اللي بينزلوا في كل دفعة</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="crumbs" id="crumbs"></div>
+    <div class="search">
+      <input id="q" type="search" placeholder="ابحث باسم المنتج أو الشركة... مثال: معطر">
+      <span class="sic">🔍</span>
+    </div>
+  </div>
+</div>
+
+<main id="app"></main>
+
+<div class="wrap">
+  <div class="note-band">
+    <b>إزاي بنتعامل مع الحجم الكبير في النموذج ده</b>
+    <ul>
+      <li>الواجهة مدخل للكتالوج مش عرض كامل: شركات ← أقسام ← منتجات على دفعات، ومعاهم بحث باسم المنتج يوصّل مباشرة.</li>
+      <li>فاتيكا وإيفا بعيناتك الفعلية. الشركات من ٣ لـ ١٢ والمنتجات المرقّمة «منتج توضيحي» بيانات مولّدة لتوضيح الفكرة بس - مش منتجات أو شركات حقيقية.</li>
+      <li>المنتج الجديد = سطر واحد في ملف الكتالوج (شركة ← قسم ← منتج + اختيارات + صورة + سعر)، من غير تعديل تصميم.</li>
+      <li>الصور مضغوطة وبتنزل كسولًا مع السكرول وعلى دفعات - ده بيقلّل اللي بينزل في أول فتحة، وسرعة كتالوج بأعداد حقيقية محتاجة اختبار فعلي، مش ضمان من النموذج.</li>
+      <li>الأسعار «غير محدد بعد» عمدًا، وأزرار الطلب غير مفعّلة - محتوى توضيحي للمعاينة فقط.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+var ar=function(n){return String(n).replace(/\d/g,function(d){return '٠١٢٣٤٥٦٧٨٩'[d];});};
+var BATCH=6;
+
+// Real sample data (his actual photos)
+var companies=[
+ {id:'vatika',name:'فاتيكا',latin:'Vatika',cat:'عنايه بالشعر',real:true,thumb:'assets/vatika-hammam-blackseed.webp',
+  cats:['كريمات'],products:[
+   {name:'حمام كريم',cat:'كريمات',variants:[
+     {n:'حبة البركة',img:'assets/vatika-hammam-blackseed.webp',solo:true},
+     {n:'زيتون',img:'assets/vatika-hammam-olive.webp',solo:true}]},
+   {name:'كريم ستايلنج',cat:'كريمات',variants:[
+     {n:'لوز أسباني',img:'assets/vatika-styling-almond.webp',solo:true},
+     {n:'حنا ولوز وألوفيرا',img:'assets/vatika-styling-henna.webp',solo:true}]}
+  ]},
+ {id:'eva',name:'إيفا',latin:'Eva',cat:'العطور ومعطرات الجسم',real:true,thumb:'assets/eva-redglamour.webp',
+  cats:['معطرات الجسم'],products:[
+   {name:'سينسز - معطر جسم',cat:'معطرات الجسم',variants:[
+     {n:'Red Glamour',img:'assets/eva-redglamour.webp',solo:true,vol:'الحجم المكتوب على عبوة Red Glamour: ٢٤٠ مل'},
+     {n:'Love Tale',img:'assets/eva-senses-studio.webp'},
+     {n:'In the Clouds',img:'assets/eva-senses-studio.webp'},
+     {n:'Mystic Orchid',img:'assets/eva-senses-studio.webp'},
+     {n:'Night Out',img:'assets/eva-senses-studio.webp'},
+     {n:'Summer Twist',img:'assets/eva-senses-studio.webp'},
+     {n:'Cozy Dream',img:'assets/eva-senses-live.webp'},
+     {n:'Gold Spell',img:'assets/eva-senses-live.webp'}]}
+  ]}
+];
+
+// Generated placeholder scale data - clearly demo-only
+var demoCats=[['كريمات','زيوت'],['زيوت','كريمات']];
+var pnum=0;
+for(var i=3;i<=12;i++){
+ var cats=demoCats[i%2];
+ var co={id:'demo'+i,name:'شركة توضيحية '+ar(i),latin:'',cat:i%2?'عنايه بالبشرة':'عنايه بالشعر',real:false,thumb:null,cats:cats.slice(),products:[]};
+ for(var c=0;c<cats.length;c++){
+  for(var k=0;k<10;k++){
+   pnum++;
+   co.products.push({name:'منتج توضيحي '+ar(pnum),cat:cats[c],variants:null});
+  }
+ }
+ companies.push(co);
+}
+
+var totalProds=companies.reduce(function(s,c){return s+c.products.length;},0);
+var totalCats=companies.reduce(function(s,c){return s+c.cats.length;},0);
+document.getElementById('st-comp').textContent=ar(companies.length);
+document.getElementById('st-cat').textContent=ar(totalCats);
+document.getElementById('st-prod').textContent=ar(totalProds);
+
+var app=document.getElementById('app');
+var crumbs=document.getElementById('crumbs');
+var state={view:'home',co:null,cat:'الكل',shown:BATCH,query:''};
+
+function el(html){var d=document.createElement('div');d.innerHTML=html;return d.firstElementChild;}
+
+function productCard(co,p){
+ var card=document.createElement('div');card.className='pcard';
+ var thumb=document.createElement('div');thumb.className='pthumb';
+ var v0=p.variants?p.variants[0]:null;
+ if(v0){var im=document.createElement('img');im.loading='lazy';im.src=v0.img;im.alt=p.name;thumb.appendChild(im);}
+ else{var m=document.createElement('div');m.className='mono';m.textContent='✦';thumb.appendChild(m);}
+ var fam=document.createElement('span');fam.className='fam';fam.hidden=true;fam.textContent='من صورة المجموعة - صورة العبوة المنفردة تُضاف لاحقًا';
+ thumb.appendChild(fam);
+ var body=document.createElement('div');body.className='pbody';
+ body.innerHTML='<div class="pname">'+p.name+'</div><div class="pmeta">'+co.name+' · '+p.cat+(p.variants?'':' · بيانات توضيحية')+'</div>';
+ if(p.variants){
+  var vars=document.createElement('div');vars.className='vars';
+  p.variants.forEach(function(v,idx){
+   var b=document.createElement('button');b.className='vchip'+(idx===0?' on':'');b.textContent=v.n;
+   b.addEventListener('click',function(){
+    vars.querySelectorAll('.vchip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+    var img=thumb.querySelector('img');img.src=v.img;img.alt=p.name+' - '+v.n;
+    fam.hidden=!!v.solo;
+    vol.style.display=v.vol?'':'none';vol.textContent=v.vol||'';
+   });
+   vars.appendChild(b);
+  });
+  body.appendChild(vars);
+  var cnt=document.createElement('span');cnt.className='vcount';
+  cnt.textContent=ar(p.variants.length)+(co.id==='eva'?' روائح = اختيارات لنفس المنتج، مش منتجات منفصلة':' اختيارات من العينات المرسلة');
+  body.appendChild(cnt);
+  var vol=document.createElement('span');vol.className='vcount';
+  vol.textContent=v0.vol||'';vol.style.display=v0.vol?'':'none';
+  body.appendChild(vol);
+ }
+ var row=document.createElement('div');row.className='prow';
+ row.innerHTML='<span class="price">السعر: <b>غير محدد بعد</b></span><span class="order-demo">زر طلب تجريبي - غير مفعّل</span>';
+ body.appendChild(row);
+ card.appendChild(thumb);card.appendChild(body);
+ return card;
+}
+
+function companyCard(co){
+ var card=document.createElement('div');card.className='ccard';
+ var th=document.createElement('div');th.className='cthumb';
+ if(co.thumb){var im=document.createElement('img');im.loading='lazy';im.src=co.thumb;im.alt=co.name;th.appendChild(im);}
+ else{var m=document.createElement('div');m.className='mono';m.textContent=ar(companies.indexOf(co)+1);th.appendChild(m);}
+ var bd=document.createElement('div');bd.className='cbody';
+ bd.innerHTML='<div class="cname">'+co.name+(co.latin?' <span style="color:var(--muted);font-weight:600;font-size:.8rem">'+co.latin+'</span>':'')+'</div>'
+  +'<div class="cmeta">'+ar(co.products.length)+' منتج · '+ar(co.cats.length)+' قسم'+(co.real?'':' · توضيحية')+'</div>'
+  +'<span class="ctag">'+co.cat+'</span>';
+ card.appendChild(th);card.appendChild(bd);
+ card.addEventListener('click',function(){state.view='company';state.co=co;state.cat='الكل';state.shown=BATCH;window.scrollTo({top:0});render();});
+ return card;
+}
+
+function render(){
+ app.innerHTML='';
+ crumbs.innerHTML='';
+ if(state.query){renderSearch();return;}
+ if(state.view==='home'){
+  crumbs.innerHTML='<span style="color:var(--muted)">كل الشركات</span>';
+  var featured=el('<section class="sec wrap"><h2>مختارات من العينات الفعلية</h2><div class="sub">شوية منتجات مختارة على الواجهة - مش الكتالوج كله</div></section>');
+  var fg=document.createElement('div');fg.className='pgrid';
+  fg.appendChild(productCard(companies[0],companies[0].products[0]));
+  fg.appendChild(productCard(companies[0],companies[0].products[1]));
+  fg.appendChild(productCard(companies[1],companies[1].products[0]));
+  featured.appendChild(fg);app.appendChild(featured);
+  var sec=el('<section class="sec wrap"><h2>اختار الشركة</h2><div class="sub">'+ar(companies.length)+' شركة في الكتالوج - كل شركة بتفتح أقسامها ومنتجاتها</div></section>');
+  var cg=document.createElement('div');cg.className='cgrid';
+  companies.forEach(function(co){cg.appendChild(companyCard(co));});
+  sec.appendChild(cg);app.appendChild(sec);
+ }else{
+  var co=state.co;
+  crumbs.innerHTML='';
+  var back=document.createElement('button');back.textContent='كل الشركات';
+  back.addEventListener('click',function(){state.view='home';state.co=null;window.scrollTo({top:0});render();});
+  crumbs.appendChild(back);
+  crumbs.appendChild(el('<span class="sep">‹</span>'));
+  crumbs.appendChild(el('<span>'+co.name+'</span>'));
+  var head=el('<section class="sec wrap" style="padding-bottom:0"><h2>'+co.name+(co.latin?' <span style="color:var(--muted);font-weight:700;font-size:1rem">'+co.latin+'</span>':'')+' <span class="ctag">'+co.cat+'</span></h2><div class="sub">'+ar(co.products.length)+' منتج في '+ar(co.cats.length)+' قسم'+(co.real?' - بعينات فعلية':' - شركة توضيحية ببيانات مولّدة')+'</div></section>');
+  app.appendChild(head);
+  var sec=document.createElement('section');sec.className='sec wrap';
+  var chips=document.createElement('div');chips.className='chips';
+  ['الكل'].concat(co.cats).forEach(function(cn){
+   var b=document.createElement('button');b.className='chip'+(state.cat===cn?' on':'');b.textContent=cn;
+   b.addEventListener('click',function(){state.cat=cn;state.shown=BATCH;render();});
+   chips.appendChild(b);
+  });
+  sec.appendChild(chips);
+  var list=state.cat==='الكل'?co.products:co.products.filter(function(p){return p.cat===state.cat;});
+  var grid=document.createElement('div');grid.className='pgrid';
+  list.slice(0,state.shown).forEach(function(p){grid.appendChild(productCard(co,p));});
+  sec.appendChild(grid);
+  var info=document.createElement('div');info.className='shown';
+  info.textContent='معروض '+ar(Math.min(state.shown,list.length))+' من '+ar(list.length)+' منتج';
+  sec.appendChild(info);
+  if(list.length>state.shown){
+   var mw=document.createElement('div');mw.className='more-wrap';
+   var mb=document.createElement('button');mb.className='more';
+   mb.textContent='عرض المزيد ('+ar(Math.min(BATCH,list.length-state.shown))+' من '+ar(list.length-state.shown)+' متبقي)';
+   mb.addEventListener('click',function(){state.shown+=BATCH;render();});
+   mw.appendChild(mb);sec.appendChild(mw);
+  }
+  app.appendChild(sec);
+ }
+}
+
+function renderSearch(){
+ crumbs.innerHTML='<span style="color:var(--muted)">نتائج البحث</span>';
+ var q=state.query.trim();
+ var matches=[];
+ companies.forEach(function(co){
+  if(co.name.indexOf(q)>-1){co.products.forEach(function(p){matches.push({co:co,p:p});});}
+  else{co.products.forEach(function(p){if(p.name.indexOf(q)>-1||p.cat.indexOf(q)>-1){matches.push({co:co,p:p});}});}
+ });
+ var sec=el('<section class="sec wrap"><h2>بحث: «'+q+'»</h2><div class="sub">'+ar(matches.length)+' نتيجة في الكتالوج كله'+(matches.length>12?' - بنعرض أول ١٢ بس':'')+'</div></section>');
+ var grid=document.createElement('div');grid.className='pgrid';
+ matches.slice(0,12).forEach(function(m){grid.appendChild(productCard(m.co,m.p));});
+ sec.appendChild(grid);
+ if(!matches.length){sec.appendChild(el('<div class="shown">مفيش نتائج مطابقة في البيانات التوضيحية</div>'));}
+ app.appendChild(sec);
+}
+
+var qInput=document.getElementById('q');
+var deb=null;
+qInput.addEventListener('input',function(){
+ clearTimeout(deb);
+ deb=setTimeout(function(){state.query=qInput.value;render();},250);
+});
+render();
+</script>
+</body>
+</html>
