@@ -191,6 +191,44 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
   .prod-grid{grid-template-columns:1fr}
   .cats{grid-template-columns:1fr 1fr;gap:12px}
 }
+
+/* ============ CATALOG ============ */
+.ctl{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 24px}
+.ctl-toolbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.ctl-search{position:relative;flex:1;min-width:240px}
+.ctl-search input{width:100%;border:1.5px solid var(--line);border-radius:999px;padding:11px 44px 11px 18px;font-family:'Tajawal';font-size:.95rem;background:var(--ivory);color:var(--ink)}
+.ctl-search input:focus{outline:none;border-color:var(--rose2)}
+.ctl-search .sic{position:absolute;top:50%;inset-inline-start:16px;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none}
+.ctl-stats{font-family:'Cairo';font-weight:800;font-size:.86rem;color:var(--muted)}
+.ctl-stats b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.05rem}
+.ctl-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.ctl-sub{margin-bottom:20px}
+.ctl-chip{border:1.5px solid var(--line);background:var(--ivory);border-radius:999px;padding:7px 18px;font-family:'Cairo';font-weight:800;font-size:.88rem;color:var(--ink);cursor:pointer;transition:.2s}
+.ctl-chip.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(224,69,123,.3)}
+.ctl-sub .ctl-chip{font-size:.8rem;padding:5px 14px}
+.ctl-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.ctl-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.ctl-thumb{position:relative;background:#fff;display:grid;place-items:center;padding:14px;min-height:190px;border-bottom:1px solid var(--line)}
+.ctl-thumb img{max-height:170px;max-width:100%;object-fit:contain}
+.ctl-thumb .fam{position:absolute;bottom:8px;inset-inline:8px;background:rgba(42,24,48,.78);color:#fff;font-size:.68rem;font-weight:700;padding:4px 8px;border-radius:8px;text-align:center}
+.ctl-body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ctl-brand{font-size:.72rem;color:var(--gold2);font-weight:800}
+.ctl-body h3{font-size:.98rem;font-weight:800;line-height:1.5}
+.ctl-cat{display:inline-block;background:var(--rosebg);border:1px solid rgba(224,69,123,.18);color:var(--rose2);font-weight:800;font-size:.7rem;padding:3px 10px;border-radius:999px;width:fit-content}
+.ctl-vars{display:flex;gap:6px;flex-wrap:wrap}
+.ctl-vchip{border:1.5px solid var(--line);background:var(--ivory);border-radius:10px;padding:5px 11px;font-family:'Cairo';font-weight:700;font-size:.76rem;cursor:pointer;transition:.15s;color:var(--ink)}
+.ctl-vchip.on{background:var(--rosebg);border-color:var(--rose2);color:var(--rose2)}
+.ctl-vnote{font-size:.72rem;color:var(--muted)}
+.ctl-pricerow{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--line);padding-top:10px;margin-top:auto}
+.ctl-price{font-family:'Cairo';font-weight:800;font-size:.84rem;color:var(--muted)}
+.ctl-price b{color:var(--ink)}
+.ctl-order{background:#faf4f6;color:#a4959e;font-weight:700;font-size:.72rem;padding:6px 12px;border-radius:9px;border:1px dashed #e6d5dc}
+.ctl-shown{text-align:center;font-size:.8rem;color:var(--muted);margin-top:18px}
+.ctl-morewrap{text-align:center;margin-top:10px}
+.ctl-more{background:#fff;border:1.5px solid rgba(224,69,123,.35);color:var(--rose2);font-family:'Cairo';font-weight:800;font-size:.95rem;padding:11px 34px;border-radius:999px;cursor:pointer;transition:.2s}
+.ctl-more:hover{background:var(--rosebg)}
+.ctl-morewrap.hidden{display:none}
+@media(max-width:760px){.ctl{padding:18px 14px}.ctl-thumb{min-height:160px}.ctl-thumb img{max-height:140px}}
 </style>
 </head>
 <body>
@@ -297,11 +335,21 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">الكتالوج</span>
-      <h2>عينة من المنتجات</h2>
-      <p>الأصناف والأسعار المعروضة توضيحية لأغراض المعاينة فقط - مش عروض بيع حقيقية</p>
+      <h2>تصفّح الكتالوج الكامل</h2>
+      <p>١١ شركة و١٥٦ منتج للتجربة - اختار الشركة والقسم، والمنتجات بتظهر على دفعات صغيرة، ومعاهم بحث مباشر. الأسماء والصور لمنتجات موجودة فعلًا لأغراض المعاينة فقط - الأسعار «غير محدد بعد» وأزرار الطلب غير مفعّلة</p>
     </div>
-    <div class="prod-grid" id="prodGrid"></div>
-    <p style="text-align:center;margin-top:28px"><span class="sample-flag">⚠️ منتجات وأسعار توضيحية - أزرار الطلب غير مفعّلة في المعاينة</span></p>
+    <div class="ctl reveal" id="ctl">
+      <div class="ctl-toolbar">
+        <div class="ctl-search"><input id="ctlQ" type="search" placeholder="ابحث باسم المنتج أو الشركة... مثال: shampoo أو كريم"><span class="sic">🔍</span></div>
+        <div class="ctl-stats" id="ctlStats"></div>
+      </div>
+      <div class="ctl-chips" id="ctlCompanies"></div>
+      <div class="ctl-chips ctl-sub" id="ctlCats"></div>
+      <div class="prod-grid" id="ctlGrid"></div>
+      <div class="ctl-shown" id="ctlShown"></div>
+      <div class="ctl-morewrap" id="ctlMoreWrap"><button class="ctl-more" id="ctlMore"></button></div>
+    </div>
+    <p style="text-align:center;margin-top:28px"><span class="sample-flag">⚠️ صور المنتجات الحقيقية من قاعدة بيانات مفتوحة (Open Beauty Facts) لأغراض المعاينة - تتبدل بمنتجات وصور العميل الفعلية، والأسعار غير محددة، والطلب غير مفعّل</span></p>
   </div>
 </section>
 
@@ -357,24 +405,99 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
 </footer>
 
 <script>
-var products=[
- {e:'✨',c:'عنايه بالبشرة',n:'سيروم فيتامين سي (٣٠ مل)',p:'٢٤٠ ج',bg:'linear-gradient(135deg,#fff3d9,#ffe3ab)'},
- {e:'☀️',c:'عنايه بالبشرة',n:'واقي شمس SPF50+ (٥٠ مل)',p:'١٨٥ ج',bg:'linear-gradient(135deg,#fff0cf,#ffdf9e)'},
- {e:'🧴',c:'عنايه بالبشرة',n:'غسول يومي للبشرة الحساسة',p:'١٦٠ ج',bg:'linear-gradient(135deg,#e6f0ff,#d2e3ff)'},
- {e:'💆‍♀️',c:'عنايه بالشعر',n:'زيت شعر مغذي بالأرجان (١٠٠ مل)',p:'١٤٥ ج',bg:'linear-gradient(135deg,#fdeedd,#f9ddb8)'},
- {e:'🩺',c:'المستلزمات الطبية للعيادات',n:'جهاز قياس ضغط ديجيتال',p:'٨٥٠ ج',bg:'linear-gradient(135deg,#f1eaff,#e0d3ff)'},
- {e:'🌡️',c:'المستلزمات الطبية للعيادات',n:'ترمومتر ديجيتال سريع القياس',p:'٩٥ ج',bg:'linear-gradient(135deg,#e4f7f1,#cdefe2)'}
-];
-var grid=document.getElementById('prodGrid');
-products.forEach(function(x,i){
-  grid.innerHTML+=
-  '<div class="prod reveal" style="transition-delay:'+(i%4*70)+'ms">'+
-    '<div class="thumb" style="background:'+x.bg+'">'+x.e+'</div>'+
-    '<div class="body"><span class="catname">'+x.c+'</span><h3>'+x.n+'</h3>'+
-    '<div class="price-row"><span class="price">'+x.p+'</span></div>'+
-    '<span class="demo-note">زر طلب تجريبي - غير مفعّل</span>'+
-    '</div></div>';
+var CTL_COMPANIES=[{"id":"vatika","ar":"فاتيكا","products":[{"n":"حمام كريم","cat":"كريمات","v":[{"n":"حبة البركة","img":"assets/vatika-hammam-blackseed.webp","solo":true},{"n":"زيتون","img":"assets/vatika-hammam-olive.webp","solo":true}]},{"n":"كريم ستايلنج","cat":"كريمات","v":[{"n":"لوز أسباني","img":"assets/vatika-styling-almond.webp","solo":true},{"n":"حنا ولوز وألوفيرا","img":"assets/vatika-styling-henna.webp","solo":true}]}]},{"id":"eva","ar":"إيفا","products":[{"n":"سينسز - معطر جسم","cat":"معطرات الجسم","v":[{"n":"Red Glamour","img":"assets/eva-redglamour.webp","solo":true,"vol":"الحجم المكتوب على عبوة Red Glamour: ٢٤٠ مل"},{"n":"Love Tale","img":"assets/eva-senses-studio.webp"},{"n":"In the Clouds","img":"assets/eva-senses-studio.webp"},{"n":"Mystic Orchid","img":"assets/eva-senses-studio.webp"},{"n":"Night Out","img":"assets/eva-senses-studio.webp"},{"n":"Summer Twist","img":"assets/eva-senses-studio.webp"},{"n":"Cozy Dream","img":"assets/eva-senses-live.webp"},{"n":"Gold Spell","img":"assets/eva-senses-live.webp"}]}]},{"id":"nivea","ar":"نيفيا","en":"Nivea","products":[{"n":"Nivea Creeme","cat":"عناية عامة","img":"assets/real-nivea-1.webp"},{"n":"body lotion","cat":"لوشن","img":"assets/real-nivea-2.webp"},{"n":"Nivea Creme","cat":"كريمات","img":"assets/real-nivea-3.webp"},{"n":"Crema","cat":"عناية عامة","img":"assets/real-nivea-4.webp"},{"n":"Black and white","cat":"عناية عامة","img":"assets/real-nivea-5.webp"},{"n":"NIVEA Pearl & Beauty Deodorant Spray","cat":"مزيل عرق","img":"assets/real-nivea-6.webp"},{"n":"Nivea bodymilk verzorgend","cat":"عناية عامة","img":"assets/real-nivea-7.webp"},{"n":"Creme","cat":"كريمات","img":"assets/real-nivea-8.webp"},{"n":"NIVEA","cat":"عناية عامة","img":"assets/real-nivea-9.webp"},{"n":"Naturally Good","cat":"عناية عامة","img":"assets/real-nivea-10.webp"},{"n":"protect & hydrate","cat":"عناية عامة","img":"assets/real-nivea-11.webp"},{"n":"duschbad frau","cat":"عناية عامة","img":"assets/real-nivea-12.webp"},{"n":"Nivea Man FRESH OCEAN 0% Aluminium (ACH) 48h Deo-Schutz Antibakteriell","cat":"مزيل عرق","img":"assets/real-nivea-13.webp"},{"n":"baume riche réparateur et soin","cat":"عناية عامة","img":"assets/real-nivea-14.webp"},{"n":"Réveil Express Fraîcheur 24H Agrumes","cat":"عناية عامة","img":"assets/real-nivea-15.webp"},{"n":"Protege y cuida","cat":"عناية عامة","img":"assets/real-nivea-16.webp"},{"n":"Nivea Soft moisturising cream","cat":"كريمات","img":"assets/real-nivea-17.webp"},{"n":"nivea cocoa butter","cat":"عناية عامة","img":"assets/real-nivea-18.webp"}]},{"id":"garnier","ar":"غارنييه","en":"Garnier","products":[{"n":"garnier","cat":"عناية عامة","img":"assets/real-garnier-1.webp"},{"n":"Ultra Doux","cat":"عناية عامة","img":"assets/real-garnier-2.webp"},{"n":"Garnier Ultra DOUX","cat":"عناية عامة","img":"assets/real-garnier-3.webp"},{"n":"Shampooing nutrition profonde","cat":"عناية عامة","img":"assets/real-garnier-4.webp"},{"n":"Sensitive expert + Spf 50+","cat":"عناية عامة","img":"assets/real-garnier-5.webp"},{"n":"Wahre Schätze Pflegende Spülung Argan Camelia-Öl","cat":"عناية عامة","img":"assets/real-garnier-6.webp"},{"n":"Après-shampoing nutrition profonde","cat":"شامبو","img":"assets/real-garnier-7.webp"},{"n":"Enfant sensitive expert + Spf 50+ Spay","cat":"عناية عامة","img":"assets/real-garnier-8.webp"},{"n":"Skin Active Solution Micellaire Tout En 1 Peaux Sèches et Sensibles","cat":"عناية عامة","img":"assets/real-garnier-9.webp"},{"n":"Shampooing doux Ultra Doux","cat":"عناية عامة","img":"assets/real-garnier-10.webp"},{"n":"Shampoing nutrition Ultra Doux Avocat et Karité","cat":"شامبو","img":"assets/real-garnier-11.webp"},{"n":"Solution micellaire","cat":"عناية عامة","img":"assets/real-garnier-12.webp"},{"n":"Baume nourrissant multi usage vitamine E","cat":"عناية عامة","img":"assets/real-garnier-13.webp"},{"n":"Body superfood","cat":"عناية عامة","img":"assets/real-garnier-14.webp"},{"n":"Garnier Ambre Solaire Sensitive Expert SPF50+ Zonbeschermende Mist","cat":"عناية عامة","img":"assets/real-garnier-15.webp"},{"n":"Garnier SkinActive Hyaluronzuur en Aloë Vera Hydraterende Dagcrème","cat":"عناية عامة","img":"assets/real-garnier-16.webp"},{"n":"L'huile merveilleuse aux huiles d'argan et de camelia","cat":"زيوت","img":"assets/real-garnier-17.webp"},{"n":"Shampoing illuminant camomille","cat":"شامبو","img":"assets/real-garnier-18.webp"}]},{"id":"loreal","ar":"لوريال باريس","en":"L'Oréal Paris","products":[{"n":"Huile extraordinaire","cat":"زيوت","img":"assets/real-loreal-1.webp"},{"n":"L’orale paris","cat":"عناية عامة","img":"assets/real-loreal-2.webp"},{"n":"Gel douche Total Clean 5 en 1 (format XL)","cat":"غسول","img":"assets/real-loreal-3.webp"},{"n":"L'Oréal Paris Elvive Extraordinary Oil Hair Oil","cat":"العناية بالشعر","img":"assets/real-loreal-4.webp"},{"n":"Elseve Total Repair 5 Shampoo","cat":"شامبو","img":"assets/real-loreal-5.webp"},{"n":"Revitalift Soin hydratant nuit","cat":"عناية عامة","img":"assets/real-loreal-6.webp"},{"n":"Rose & Géranium Shampooing Eclat","cat":"عناية عامة","img":"assets/real-loreal-7.webp"},{"n":"Elvive Shampoo Hyaluron Pure","cat":"شامبو","img":"assets/real-loreal-8.webp"},{"n":"Age Perfect Lait Nettoyant Peaux Matures","cat":"عناية عامة","img":"assets/real-loreal-9.webp"},{"n":"Hydra Energetic Gel douche Taurine 100mg","cat":"غسول","img":"assets/real-loreal-10.webp"},{"n":"Shampoing vitalité","cat":"شامبو","img":"assets/real-loreal-11.webp"},{"n":"L’Oréal Paris Elseve Hydra [Hyaluronic] Nem ile Dolgunlaştıran Serum","cat":"سيروم","img":"assets/real-loreal-12.webp"},{"n":"Elseve Liss-Intense Shampooing disciplinant (Maxi format)","cat":"عناية عامة","img":"assets/real-loreal-13.webp"},{"n":"Hydra Sensitive Gel douche sève de Bouleau (format XL)","cat":"غسول","img":"assets/real-loreal-14.webp"},{"n":"Máscara Elvive total repair 5","cat":"عناية عامة","img":"assets/real-loreal-15.webp"},{"n":"Elseve Nutri-gloss Luminizer Shampooing haute brillance","cat":"عناية عامة","img":"assets/real-loreal-16.webp"},{"n":"L’Oréal Paris Elseve Mucizevi Yağ Saç Güzelleştirici Krem","cat":"عناية عامة","img":"assets/real-loreal-17.webp"},{"n":"Make-up Entferner","cat":"عناية عامة","img":"assets/real-loreal-18.webp"}]},{"id":"dove","ar":"دوف","en":"Dove","products":[{"n":"Dove Original Anti-persperant","cat":"عناية عامة","img":"assets/real-dove-1.webp"},{"n":"Go fresh","cat":"عناية عامة","img":"assets/real-dove-2.webp"},{"n":"DOVE Déodorant Femme Anti-Transpirant Stick Original 50ml","cat":"مزيل عرق","img":"assets/real-dove-3.webp"},{"n":"Beauty cream bar","cat":"كريمات","img":"assets/real-dove-4.webp"},{"n":"Dove spray mujer","cat":"عناية عامة","img":"assets/real-dove-5.webp"},{"n":"refreshing beauty cream bar","cat":"كريمات","img":"assets/real-dove-6.webp"},{"n":"Déodorant Spray compressé Anti-Transpirant Original","cat":"مزيل عرق","img":"assets/real-dove-7.webp"},{"n":"Dove","cat":"عناية عامة","img":"assets/real-dove-8.webp"},{"n":"Nourishing body cream","cat":"كريمات","img":"assets/real-dove-9.webp"},{"n":"Dove Advanced Care Anti-Transpirant Deodorant Roller Original 50 ML","cat":"مزيل عرق","img":"assets/real-dove-10.webp"},{"n":"Antiperspirant","cat":"مزيل عرق","img":"assets/real-dove-11.webp"},{"n":"DOVE Beauty cream","cat":"كريمات","img":"assets/real-dove-12.webp"},{"n":"Dove Savon Pain de Toilette Exfoliating Anti-Bactérien x1","cat":"صابون","img":"assets/real-dove-13.webp"},{"n":"Soft caring bath","cat":"عناية عامة","img":"assets/real-dove-14.webp"},{"n":"Original beauty bar","cat":"صابون","img":"assets/real-dove-15.webp"},{"n":"Dove Original 72h Antitranspirant Deodorant Stick","cat":"مزيل عرق","img":"assets/real-dove-16.webp"},{"n":"Dove zero original 100ml","cat":"عناية عامة","img":"assets/real-dove-17.webp"},{"n":"dove nourishing body care","cat":"عناية عامة","img":"assets/real-dove-18.webp"}]},{"id":"vaseline","ar":"فازلين","en":"Vaseline","products":[{"n":"Original Pure Petroleum Jelly","cat":"عناية عامة","img":"assets/real-vaseline-1.webp"},{"n":"Cocoa Radient","cat":"عناية عامة","img":"assets/real-vaseline-2.webp"},{"n":"Vaseline lip therapy","cat":"عناية عامة","img":"assets/real-vaseline-3.webp"},{"n":"Original Protecting Jelly","cat":"عناية عامة","img":"assets/real-vaseline-4.webp"},{"n":"Vaseline Aloe Soothe Bodylotion","cat":"عناية عامة","img":"assets/real-vaseline-5.webp"},{"n":"Vaseline Intensive care hand cream","cat":"كريمات","img":"assets/real-vaseline-6.webp"},{"n":"Vaseline Aloe Vera Lippenbalsem","cat":"عناية عامة","img":"assets/real-vaseline-7.webp"},{"n":"Vaseline Intensive Care Essential Healing Bodylotion","cat":"عناية عامة","img":"assets/real-vaseline-8.webp"},{"n":"Vaseline Original Lippenbalsem","cat":"عناية عامة","img":"assets/real-vaseline-9.webp"},{"n":"Cocoa Butter Lip Therapy","cat":"عناية عامة","img":"assets/real-vaseline-10.webp"},{"n":"Vaseline Intensive Care Advanced Repair Bodylotion","cat":"عناية عامة","img":"assets/real-vaseline-11.webp"},{"n":"Vaseline Advanced Repair Intensive Rescue Bodylotion","cat":"عناية عامة","img":"assets/real-vaseline-12.webp"},{"n":"Blue Seal Pure Petroleum Jelly Original","cat":"عناية عامة","img":"assets/real-vaseline-13.webp"},{"n":"Vaseline Intensive Care Aloë Soothe Bodylotion","cat":"عناية عامة","img":"assets/real-vaseline-14.webp"},{"n":"Cocoa Radiant 72HR Moisture","cat":"عناية عامة","img":"assets/real-vaseline-15.webp"},{"n":"Skin Protecting Jelly Original","cat":"عناية عامة","img":"assets/real-vaseline-16.webp"},{"n":"Intensive Care Nourishing Moisture","cat":"عناية عامة","img":"assets/real-vaseline-17.webp"},{"n":"Vaseline Healthy Hands & Stronger Nails Handlotion","cat":"عناية عامة","img":"assets/real-vaseline-18.webp"}]},{"id":"palmolive","ar":"بالموليف","en":"Palmolive","products":[{"n":"shampoo con aloe vera palmolive","cat":"شامبو","img":"assets/real-palmolive-1.webp"},{"n":"Milk and honey clean and care hand wash","cat":"عناية عامة","img":"assets/real-palmolive-2.webp"},{"n":"Palmolive Naturals Amandel Handzeep","cat":"عناية عامة","img":"assets/real-palmolive-3.webp"},{"n":"Roll-On Soft floral","cat":"عناية عامة","img":"assets/real-palmolive-4.webp"},{"n":"Palmolive For Men Classic Scheercrème","cat":"عناية عامة","img":"assets/real-palmolive-5.webp"},{"n":"Roll on deoderant","cat":"عناية عامة","img":"assets/real-palmolive-6.webp"},{"n":"Olive & Milk","cat":"عناية عامة","img":"assets/real-palmolive-7.webp"},{"n":"Palmolive Hygiene-Plus Kitchen Antibacteriële Handzeep","cat":"عناية عامة","img":"assets/real-palmolive-8.webp"},{"n":"Naturals latte e oliva","cat":"عناية عامة","img":"assets/real-palmolive-9.webp"},{"n":"Feel the message","cat":"عناية عامة","img":"assets/real-palmolive-10.webp"},{"n":"Milk & Honey Hand Wash","cat":"عناية عامة","img":"assets/real-palmolive-11.webp"},{"n":"Naturals Antipelliculaire","cat":"عناية عامة","img":"assets/real-palmolive-12.webp"},{"n":"Optims","cat":"عناية عامة","img":"assets/real-palmolive-13.webp"},{"n":"pure arctic","cat":"عناية عامة","img":"assets/real-palmolive-14.webp"},{"n":"Crema corporal neutro balance","cat":"عناية عامة","img":"assets/real-palmolive-15.webp"},{"n":"Refreshing","cat":"عناية عامة","img":"assets/real-palmolive-16.webp"},{"n":"Palmolive Hygiene Plus Family Handzeep","cat":"عناية عامة","img":"assets/real-palmolive-17.webp"},{"n":"Naturals Long & Shine","cat":"عناية عامة","img":"assets/real-palmolive-18.webp"}]},{"id":"johnsons","ar":"جونسون","en":"Johnson's","products":[{"n":"softcteam","cat":"عناية عامة","img":"assets/real-johnsons-1.webp"},{"n":"Creme bons sonhos","cat":"كريمات","img":"assets/real-johnsons-2.webp"},{"n":"Baby Oil","cat":"زيوت","img":"assets/real-johnsons-3.webp"},{"n":"Johnson’s baby powder","cat":"عناية عامة","img":"assets/real-johnsons-4.webp"},{"n":"Champú","cat":"عناية عامة","img":"assets/real-johnsons-5.webp"},{"n":"Johnson's Milk+Rice Cream","cat":"كريمات","img":"assets/real-johnsons-6.webp"},{"n":"ALOE VERA","cat":"عناية عامة","img":"assets/real-johnsons-7.webp"},{"n":"Bedtime Lotion","cat":"لوشن","img":"assets/real-johnsons-8.webp"},{"n":"Head-to-toe Wash & Shampoo","cat":"شامبو","img":"assets/real-johnsons-9.webp"},{"n":"Johnson’s Baby Shampoo","cat":"شامبو","img":"assets/real-johnsons-10.webp"},{"n":"Cotton touch baño","cat":"عناية عامة","img":"assets/real-johnsons-11.webp"},{"n":"Jabón glicerinado","cat":"عناية عامة","img":"assets/real-johnsons-12.webp"},{"n":"mildness","cat":"عناية عامة","img":"assets/real-johnsons-13.webp"},{"n":"johnson’s face care","cat":"عناية عامة","img":"assets/real-johnsons-14.webp"},{"n":"Kolay Tarama Spreyi","cat":"عناية عامة","img":"assets/real-johnsons-15.webp"},{"n":"Dulces sueños baño para bebé","cat":"عناية عامة","img":"assets/real-johnsons-16.webp"},{"n":"Face & body lotion","cat":"لوشن","img":"assets/real-johnsons-17.webp"},{"n":"Shiny Drops Shampoo","cat":"شامبو","img":"assets/real-johnsons-18.webp"}]},{"id":"lux","ar":"لوكس","en":"Lux","products":[{"n":"Radiant Body Wash","cat":"غسول","img":"assets/real-lux-1.webp"},{"n":"Jabón Lux","cat":"عناية عامة","img":"assets/real-lux-2.webp"},{"n":"Magical Spell body wash","cat":"غسول","img":"assets/real-lux-3.webp"},{"n":"lux soap","cat":"صابون","img":"assets/real-lux-4.webp"},{"n":"Radiant Glow Rose","cat":"عناية عامة","img":"assets/real-lux-5.webp"},{"n":"Shake me up","cat":"عناية عامة","img":"assets/real-lux-6.webp"},{"n":"Lux wake me up soap","cat":"صابون","img":"assets/real-lux-7.webp"},{"n":"Shampoo Dimension by Lux Olio di Avocado","cat":"شامبو","img":"assets/real-lux-8.webp"},{"n":"AVON DE BEAUTE","cat":"عناية عامة","img":"assets/real-lux-9.webp"},{"n":"Sabonete líquido para mãos","cat":"عناية عامة","img":"assets/real-lux-10.webp"},{"n":"savon mains","cat":"صابون","img":"assets/real-lux-11.webp"},{"n":"Jabón con glicerina orquídea negra","cat":"عناية عامة","img":"assets/real-lux-12.webp"},{"n":"Sakura Bloom Soap","cat":"صابون","img":"assets/real-lux-13.webp"},{"n":"Heavenly Milk Shower Cream","cat":"كريمات","img":"assets/real-lux-14.webp"}]},{"id":"cantu","ar":"كانتو","en":"Cantu","products":[{"n":"Cantu Shea Butter Leave In Conditioning Repair Cream","cat":"كريمات","img":"assets/real-cantu-1.webp"},{"n":"Cantu Shea Butter Activator Cream","cat":"كريمات","img":"assets/real-cantu-2.webp"},{"n":"Shea Butter Leave In Conditioning Cream (for Natural Hair)","cat":"كريمات","img":"assets/real-cantu-3.webp"},{"n":"Cantu Grapeseed Strengthening Shampoo With Shea Butter 400ml","cat":"شامبو","img":"assets/real-cantu-4.webp"},{"n":"Cantu Guava Scalp Care Shampoo","cat":"شامبو","img":"assets/real-cantu-5.webp"},{"n":"Cantu Next Day Curl Revitalizer Spray","cat":"عناية عامة","img":"assets/real-cantu-6.webp"},{"n":"Twist & lock gel","cat":"عناية عامة","img":"assets/real-cantu-7.webp"},{"n":"cantu condition","cat":"عناية عامة","img":"assets/real-cantu-8.webp"},{"n":"Cantu Guava Scalp Care Conditioner","cat":"بلسم","img":"assets/real-cantu-9.webp"},{"n":"Weightless Protect + Shine Gloss","cat":"عناية عامة","img":"assets/real-cantu-10.webp"},{"n":"Hydrating Cream Conditioner","cat":"بلسم","img":"assets/real-cantu-11.webp"},{"n":"Shea Butter Cream Pomade","cat":"كريمات","img":"assets/real-cantu-12.webp"},{"n":"Shea Butter 3 in 1 Shampoo Conditioner Body Wash","cat":"شامبو","img":"assets/real-cantu-13.webp"}]}];
+var CTL_BATCH=6;
+var ctlState={co:'all',cat:'الكل',shown:CTL_BATCH,q:''};
+function arDig(n){return String(n).replace(/\d/g,function(d){return '٠١٢٣٤٥٦٧٨٩'[d];});}
+var ctlGrid=document.getElementById('ctlGrid'),ctlCompanies=document.getElementById('ctlCompanies'),
+    ctlCats=document.getElementById('ctlCats'),ctlShown=document.getElementById('ctlShown'),
+    ctlMoreWrap=document.getElementById('ctlMoreWrap'),ctlMore=document.getElementById('ctlMore'),
+    ctlStats=document.getElementById('ctlStats');
+var ctlTotal=CTL_COMPANIES.reduce(function(s,c){return s+c.products.length;},0);
+ctlStats.innerHTML='<b>'+arDig(CTL_COMPANIES.length)+'</b> شركة · <b>'+arDig(ctlTotal)+'</b> منتج';
+function ctlCard(co,p){
+ var card=document.createElement('div');card.className='ctl-card';
+ var thumb=document.createElement('div');thumb.className='ctl-thumb';
+ var v0=p.v?p.v[0]:null;
+ var im=document.createElement('img');im.loading='lazy';im.src=v0?v0.img:p.img;im.alt=p.n;thumb.appendChild(im);
+ var fam=document.createElement('span');fam.className='fam';fam.hidden=true;fam.textContent='من صورة المجموعة - صورة العبوة المنفردة تُضاف لاحقًا';
+ thumb.appendChild(fam);
+ var body=document.createElement('div');body.className='ctl-body';
+ body.innerHTML='<span class="ctl-brand">'+co.ar+(co.en?' · '+co.en:'')+'</span><h3>'+p.n+'</h3><span class="ctl-cat">'+p.cat+'</span>';
+ if(p.v){
+  var vars=document.createElement('div');vars.className='ctl-vars';
+  p.v.forEach(function(v,idx){
+   var b=document.createElement('button');b.className='ctl-vchip'+(idx===0?' on':'');b.textContent=v.n;
+   b.addEventListener('click',function(){
+    vars.querySelectorAll('.ctl-vchip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+    im.src=v.img;im.alt=p.n+' - '+v.n;
+    fam.hidden=!!v.solo;
+    vol.style.display=v.vol?'':'none';vol.textContent=v.vol||'';
+   });
+   vars.appendChild(b);
+  });
+  body.appendChild(vars);
+  var vol=document.createElement('span');vol.className='ctl-vnote';
+  vol.textContent=v0.vol||'';vol.style.display=v0.vol?'':'none';
+  body.appendChild(vol);
+ }
+ var row=document.createElement('div');row.className='ctl-pricerow';
+ row.innerHTML='<span class="ctl-price">السعر: <b>غير محدد بعد</b></span><span class="ctl-order">زر طلب تجريبي - غير مفعّل</span>';
+ body.appendChild(row);
+ card.appendChild(thumb);card.appendChild(body);
+ return card;
+}
+function ctlScope(){
+ var list=[];
+ CTL_COMPANIES.forEach(function(co){
+  if(ctlState.co!=='all'&&co.id!==ctlState.co)return;
+  co.products.forEach(function(p){list.push({co:co,p:p});});
+ });
+ if(ctlState.cat!=='الكل')list=list.filter(function(x){return x.p.cat===ctlState.cat;});
+ if(ctlState.q){
+  var q=ctlState.q.toLowerCase();
+  list=list.filter(function(x){return x.p.n.toLowerCase().indexOf(q)>-1||x.co.ar.indexOf(ctlState.q)>-1||(x.co.en&&x.co.en.toLowerCase().indexOf(q)>-1);});
+ }
+ return list;
+}
+function ctlRenderChips(){
+ ctlCompanies.innerHTML='';
+ [['all','كل الشركات']].concat(CTL_COMPANIES.map(function(c){return [c.id,c.ar];})).forEach(function(pair){
+  var b=document.createElement('button');b.className='ctl-chip'+(ctlState.co===pair[0]?' on':'');b.textContent=pair[1];
+  b.addEventListener('click',function(){ctlState.co=pair[0];ctlState.cat='الكل';ctlState.shown=CTL_BATCH;ctlRender();});
+  ctlCompanies.appendChild(b);
+ });
+ var cats=['الكل'];
+ CTL_COMPANIES.forEach(function(co){
+  if(ctlState.co!=='all'&&co.id!==ctlState.co)return;
+  co.products.forEach(function(p){if(cats.indexOf(p.cat)<0)cats.push(p.cat);});
+ });
+ ctlCats.innerHTML='';
+ cats.forEach(function(cn){
+  var b=document.createElement('button');b.className='ctl-chip'+(ctlState.cat===cn?' on':'');b.textContent=cn;
+  b.addEventListener('click',function(){ctlState.cat=cn;ctlState.shown=CTL_BATCH;ctlRender();});
+  ctlCats.appendChild(b);
+ });
+}
+function ctlRender(){
+ ctlRenderChips();
+ var list=ctlScope();
+ ctlGrid.innerHTML='';
+ list.slice(0,ctlState.shown).forEach(function(x){ctlGrid.appendChild(ctlCard(x.co,x.p));});
+ ctlShown.textContent=list.length?('معروض '+arDig(Math.min(ctlState.shown,list.length))+' من '+arDig(list.length)+' منتج'):'مفيش نتائج مطابقة';
+ if(list.length>ctlState.shown){
+  ctlMoreWrap.classList.remove('hidden');
+  ctlMore.textContent='عرض المزيد ('+arDig(Math.min(CTL_BATCH,list.length-ctlState.shown))+' من '+arDig(list.length-ctlState.shown)+' متبقي)';
+ }else{ctlMoreWrap.classList.add('hidden');}
+ if(typeof revealVisible==='function')revealVisible();
+}
+ctlMore.addEventListener('click',function(){ctlState.shown+=CTL_BATCH;ctlRender();});
+var ctlQ=document.getElementById('ctlQ'),ctlDeb=null;
+ctlQ.addEventListener('input',function(){
+ clearTimeout(ctlDeb);
+ ctlDeb=setTimeout(function(){ctlState.q=ctlQ.value.trim();ctlState.shown=CTL_BATCH;ctlRender();},250);
 });
+ctlRender();
 document.getElementById('burger').addEventListener('click',function(){
   document.getElementById('navLinks').classList.toggle('open');
 });
