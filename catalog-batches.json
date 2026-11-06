@@ -2,53 +2,18 @@
  "batch_1a": {
   "date": "2026-11-06",
   "status": "published",
-  "products": 146,
-  "companies": 18,
-  "note": "last: +sheglam 5 exact 3 pending (batch1b); pending=13",
+  "products": 153,
+  "companies": 19,
+  "note": "ALL 150 QUEUED ITEMS PLACED: 18 brands; pending=13 awaiting final retry pass",
   "match_breakdown": {
-   "sku_exact": 126,
-   "size_note": 4,
+   "sku_exact": 132,
+   "size_note": 5,
    "pending": 13,
    "variant_groups": 3
   },
   "reconciliation": "2026-11-06: removed 3 mismatched photo bindings (dove Advanced Care roll-on, dove spray misbound as roll-on, dove caring bath vs shower gel) - items kept with photo pending; 12 same-line photos labeled illustrative (size/form unconfirmed); garnier micellar verified classic (clear liquid, red cap). | 2026-11-06 upgrades: replaced 9 size-note photos with exact Jumia Egypt packshots (nivea soft 200ml, pearl&beauty 150ml, black&white 150ml, sun protect&moisture 200ml, dove beauty cream 150g, vaseline cocoa radiant 400ml, vaseline essential-healing/nourishing-moisture EG pack 400ml, johnsons bedtime bath 300ml, johnsons oil-balancing gel wash 150ml); lux 75g soap keeps size-note (no 75g packshot found on Jumia). | batch1b progress: +8 nivea exact packshots (sticks, roll-ons, energy shower, micellar rose, shave gel, sun spray). | Note: garlux verification montage showed 12 images but 11 were bound - the 12th (garnier Ultra Doux HAIRFOOD pineapple 3-in-1) was downloaded and verified but NOT bound because his item says الترا ديتوكس (Ultra Detox); variant line unconfirmed, kept photo-pending.",
-  "remaining_queue": [
-   {
-    "id": "beesline",
-    "ar": "بيزلين",
-    "products": [
-     {
-      "n": "بيزلين رول أون إنارة فورية فيتامين سي",
-      "q": "Beesline whitening roll on deodorant vitamin C"
-     },
-     {
-      "n": "بيزلين رول أون العود العربي",
-      "q": "Beesline roll on deodorant Arabian Oud"
-     },
-     {
-      "n": "بيزلين الإنارة الفورية تونر للوجه",
-      "q": "Beesline instant bright facial toner"
-     },
-     {
-      "n": "بيزلين الإنارة الفورية سيرم فيتامين سي واي",
-      "q": "Beesline instant bright serum vitamin C E"
-     },
-     {
-      "n": "بيزلين الترا صن سكرين كريم",
-      "q": "Beesline ultra screen cream SPF50"
-     },
-     {
-      "n": "بيزلين الإنارة الفورية ماء ميسيلار 400 مل",
-      "q": "Beesline instant bright micellar water fragrance free"
-     },
-     {
-      "n": "بيزلين الإنارة الفورية غسول 150 مل",
-      "q": "Beesline instant bright face wash 150ml"
-     }
-    ]
-   }
-  ],
-  "queue_count": 1
+  "remaining_queue": [],
+  "queue_count": 0
  },
  "batch_1b_pending": {
   "target": "~150 products",
