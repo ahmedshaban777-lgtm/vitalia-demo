@@ -14,11 +14,17 @@
    "lux",
    "cantu"
   ],
-  "note": "His actual item names matched item-level to verified photos already in assets. Web-scrape attempt for 116 more photos returned poisoned results and was discarded; OBF search API was down (503); retry to top up toward ~150."
+  "note": "His actual item names matched item-level to verified photos already in assets. Web-scrape attempt for 116 more photos returned poisoned results and was discarded; OBF search API was down (503); retry to top up toward ~150.",
+  "match_breakdown": {
+   "exact": 21,
+   "illustrative_same_type": 12,
+   "photo_pending": 3
+  },
+  "reconciliation": "2026-11-06: removed 3 mismatched photo bindings (dove Advanced Care roll-on, dove spray misbound as roll-on, dove caring bath vs shower gel) - items kept with photo pending; 12 same-line photos labeled illustrative (size/form unconfirmed); garnier micellar verified classic (clear liquid, red cap)."
  },
  "batch_1b_pending": {
   "target": "~150 products",
   "needs": "OBF retry (rexona, sunsilk, sensodyne, gillette, pantene, neutrogena, penduline, bobana, beesline, sheglam + more per existing brands)",
-  "selection": "/tmp/selection.json (this agent), queries EN per item"
+  "selection": "~/vitalia-batch1/selection.json (private, this agent), queries EN per item"
  }
 }
