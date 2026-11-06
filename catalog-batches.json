@@ -2,46 +2,17 @@
  "batch_1a": {
   "date": "2026-11-06",
   "status": "published",
-  "products": 120,
-  "companies": 14,
-  "note": "last: +pantene 7 exact 1 pending (batch1b); pending=9",
+  "products": 126,
+  "companies": 15,
+  "note": "last: +neutrogena 6 exact (batch1b); pending=9",
   "match_breakdown": {
-   "exact": 107,
+   "sku_exact": 110,
    "size_note": 4,
-   "pending": 9
+   "pending": 9,
+   "variant_groups": 3
   },
   "reconciliation": "2026-11-06: removed 3 mismatched photo bindings (dove Advanced Care roll-on, dove spray misbound as roll-on, dove caring bath vs shower gel) - items kept with photo pending; 12 same-line photos labeled illustrative (size/form unconfirmed); garnier micellar verified classic (clear liquid, red cap). | 2026-11-06 upgrades: replaced 9 size-note photos with exact Jumia Egypt packshots (nivea soft 200ml, pearl&beauty 150ml, black&white 150ml, sun protect&moisture 200ml, dove beauty cream 150g, vaseline cocoa radiant 400ml, vaseline essential-healing/nourishing-moisture EG pack 400ml, johnsons bedtime bath 300ml, johnsons oil-balancing gel wash 150ml); lux 75g soap keeps size-note (no 75g packshot found on Jumia). | batch1b progress: +8 nivea exact packshots (sticks, roll-ons, energy shower, micellar rose, shave gel, sun spray). | Note: garlux verification montage showed 12 images but 11 were bound - the 12th (garnier Ultra Doux HAIRFOOD pineapple 3-in-1) was downloaded and verified but NOT bound because his item says الترا ديتوكس (Ultra Detox); variant line unconfirmed, kept photo-pending.",
   "remaining_queue": [
-   {
-    "id": "neutrogena",
-    "ar": "نيتروجينا",
-    "products": [
-     {
-      "n": "نيتروجينا هيدرا بوست واتر جل 50 مل",
-      "q": "Neutrogena hydro boost water gel 50ml"
-     },
-     {
-      "n": "نيتروجينا ديب كلين غسول عميق جل",
-      "q": "Neutrogena deep clean gel facial cleanser"
-     },
-     {
-      "n": "نيتروجينا مقشر يومي منعش وردي",
-      "q": "Neutrogena pink grapefruit daily scrub"
-     },
-     {
-      "n": "نيتروجينا كريم لليدين",
-      "q": "Neutrogena norwegian formula hand cream"
-     },
-     {
-      "n": "نيتروجينا ماء ميسيلار منظف ثلاثي المفعول 400 مل",
-      "q": "Neutrogena micellar water triple action 400ml"
-     },
-     {
-      "n": "نيتروجينا ديب كلين مقشر يومي منشط",
-      "q": "Neutrogena deep clean invigorating foaming scrub"
-     }
-    ]
-   },
    {
     "id": "penduline",
     "ar": "بندولين",
@@ -175,7 +146,7 @@
     ]
    }
   ],
-  "queue_count": 5
+  "queue_count": 4
  },
  "batch_1b_pending": {
   "target": "~150 products",
