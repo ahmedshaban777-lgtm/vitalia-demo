@@ -370,7 +370,7 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
       <p>١٥٠ صنفًا من قائمة فيتاليا الفعلية، مع ٣ مجموعات عينات توضيحية. اختار الشركة والقسم، والمنتجات بتظهر على دفعات صغيرة، ومعاهم بحث مباشر. الصور الحقيقية للمنتجات من مصادر عامة ومطابقة للنوع (اللي لسه بيتظبط مكتوب عليه «صورة توضيحية» أو «صورة المنتج تُضاف قريبًا») - الأسعار والمخزون تجريبيان وليسا للبيع - لا يتم استقبال طلبات حقيقية</p>
     </div>
     <div class="ctl reveal" id="ctl">
-      <div class="vc-note">معاينة فقط: أسعار ومخزون وهميان وليسا للبيع أو مرجعًا لمخزن حقيقي. السلة والتجربة محفوظتان على هذا المتصفح فقط.</div><div class="demo-tools"><button class="primary" id="vcOpenCart">السلة التجريبية <span id="vcCount">٠</span></button><button id="vcOpenStock">معاينة مرجع المخزون</button></div><div class="ctl-toolbar">
+      <div class="vc-note">معاينة فقط: أسعار ومخزون وهميان وليسا للبيع أو مرجعًا لمخزن حقيقي. السلة والتجربة محفوظتان على هذا المتصفح فقط.</div><div class="demo-tools"><button class="primary" id="vcOpenCart">🛒 السلة التجريبية <span id="vcCount">٠</span></button><button id="vcOpenStock">معاينة مرجع المخزون</button></div><div class="ctl-toolbar">
         <div class="ctl-search"><input id="ctlQ" type="search" placeholder="ابحث باسم المنتج أو الشركة... مثال: shampoo أو كريم"><span class="sic">🔍</span></div>
         <div class="ctl-sort"><select id="ctlSort" aria-label="ترتيب المنتجات"><option value="default">الترتيب الأصلي</option><option value="alpha">أبجدي (أ - ي)</option></select></div>
         <div class="ctl-stats" id="ctlStats"></div>
@@ -612,8 +612,8 @@ window.addEventListener('resize',revealVisible,{passive:true});
 window.addEventListener('load',revealVisible);
 revealVisible();
 </script>
-<button class="vc-float" id="vcFloat" aria-label="فتح السلة التجريبية">السلة <span id="vcFloatCount">٠</span></button>
-<div class="vc-overlay" id="vcOverlay" role="dialog" aria-modal="true" aria-labelledby="vcTitle"><div class="vc-panel"><div class="vc-head"><h2 id="vcTitle">تجربة السلة والمخزون</h2><button class="vc-btn" id="vcClose" aria-label="إغلاق السلة والمخزون">✕</button></div><div class="vc-content"><div class="vc-tabs"><button class="vc-btn" id="vcTabCart">السلة</button><button class="vc-btn" id="vcTabStock">مرجع المخزون</button></div><div class="vc-note">بيانات وهمية للتجربة فقط، وليست للبيع. لا إرسال طلبات أو دفع، ولا اتصال بمخزن حقيقي. ليست لوحة إدارة محمية.</div><div id="vcView"></div></div></div></div><div id="vcLive" role="status" aria-live="polite" style="position:fixed;top:80px;inset-inline:10%;z-index:120;pointer-events:none;text-align:center"></div>
-<script src="preview-cart.js"></script>
+<button class="vc-float" id="vcFloat" aria-label="فتح السلة التجريبية">🛒 السلة <span id="vcFloatCount">٠</span></button>
+<div class="vc-overlay" id="vcOverlay" role="dialog" aria-modal="true" aria-labelledby="vcTitle"><div class="vc-panel"><div class="vc-head"><h2 id="vcTitle">تجربة السلة والمخزون</h2><button class="vc-btn" id="vcClose" aria-label="إغلاق السلة والمخزون">✕</button></div><div class="vc-content"><div class="vc-tabs"><button class="vc-btn" id="vcTabCart">🛒 السلة</button><button class="vc-btn" id="vcTabStock">مرجع المخزون</button></div><div class="vc-note">بيانات وهمية للتجربة فقط، وليست للبيع. لا إرسال طلبات أو دفع، ولا اتصال بمخزن حقيقي. ليست لوحة إدارة محمية.</div><div id="vcView"></div></div></div></div><div id="vcLive" role="status" aria-live="polite" style="position:fixed;top:80px;inset-inline:10%;z-index:120;pointer-events:none;text-align:center"></div>
+<script src="preview-cart.js?v=cart-entry-2"></script>
 </body>
 </html>
