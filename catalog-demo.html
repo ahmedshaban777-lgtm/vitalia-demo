@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitalia - نموذج تنظيم الكتالوج (معاينة توضيحية)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#fdf9f5; --rosebg:#fdf0f4; --goldbg:#fbf3e6;
+  --rose2:#e0457b; --gold2:#d99a3a;
+  --grad:linear-gradient(120deg,var(--rose2),var(--gold2));
+  --card:#ffffff; --ink:#2a1830; --muted:#7d7286;
+  --line:#f0e4e2; --radius:20px; --shadow:0 18px 44px rgba(122,46,84,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;color:var(--ink);background:var(--ivory);line-height:1.75}
+h1,h2,h3{font-family:'Cairo',sans-serif;line-height:1.35}
+.wrap{width:min(1060px,92%);margin-inline:auto}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+header.top{padding:56px 0 10px;text-align:center}
+.pill{display:inline-block;background:#fff;border:1px solid rgba(224,69,123,.25);color:var(--rose2);font-weight:800;font-size:.82rem;padding:7px 18px;border-radius:999px;margin-bottom:14px}
+header.top h1{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:900}
+header.top p{color:var(--muted);max-width:640px;margin:10px auto 0;font-size:.98rem}
+.filters{position:sticky;top:0;z-index:10;background:rgba(253,249,245,.92);backdrop-filter:blur(10px);border-block:1px solid var(--line);margin-top:26px}
+.filters .wrap{display:flex;gap:10px;padding:12px 0;align-items:center;flex-wrap:wrap}
+.filters b{font-family:'Cairo';font-size:.9rem;color:var(--muted)}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 20px;font-family:'Cairo';font-weight:800;font-size:.92rem;color:var(--ink);cursor:pointer;transition:.2s}
+.chip.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(224,69,123,.3)}
+.company{padding:44px 0 8px}
+.company-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.company-head h2{font-size:1.5rem;font-weight:900}
+.company-head .cat-tag{background:var(--rosebg);border:1px solid rgba(224,69,123,.2);color:var(--rose2);font-weight:800;font-size:.78rem;padding:5px 14px;border-radius:999px}
+.company-head span.note{color:var(--muted);font-size:.85rem}
+.types{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.tcard .photo{position:relative;background:#fff;display:grid;place-items:center;padding:18px;min-height:300px}
+.tcard .photo img{max-height:290px;max-width:100%;object-fit:contain;border-radius:12px}
+.tcard .photo .fam{position:absolute;bottom:10px;inset-inline:10px;background:rgba(42,24,48,.78);color:#fff;font-size:.75rem;font-weight:700;padding:6px 12px;border-radius:10px;text-align:center}
+.tcard .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px}
+.tcard .tname{font-family:'Cairo';font-weight:800;font-size:1.08rem}
+.tcard .tname small{display:block;font-size:.78rem;color:var(--muted);font-weight:600}
+.vars{display:flex;gap:8px;flex-wrap:wrap}
+.vchip{border:1.5px solid var(--line);background:var(--ivory);border-radius:12px;padding:7px 14px;font-family:'Cairo';font-weight:700;font-size:.84rem;cursor:pointer;transition:.15s;color:var(--ink)}
+.vchip.on{background:var(--rosebg);border-color:var(--rose2);color:var(--rose2)}
+.vcount{font-size:.78rem;color:var(--muted)}
+.price-row{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+.price{font-family:'Cairo';font-weight:800;font-size:.95rem;color:var(--muted)}
+.price b{color:var(--ink)}
+.order-demo{background:#faf4f6;color:#a4959e;font-weight:700;font-size:.8rem;padding:8px 16px;border-radius:10px;border:1px dashed #e6d5dc}
+.note-band{margin:44px 0 60px;background:linear-gradient(160deg,var(--goldbg),var(--rosebg));border:1.5px dashed rgba(217,154,58,.5);border-radius:var(--radius);padding:26px 28px}
+.note-band b{display:block;font-family:'Cairo';font-weight:800;margin-bottom:10px}
+.note-band ul{list-style:none;color:var(--muted);font-size:.92rem}
+.note-band li{padding:5px 0}
+.note-band li::before{content:'✦ ';color:var(--gold2)}
+@media(max-width:760px){
+  .types{grid-template-columns:1fr}
+  .tcard .photo{min-height:240px}
+  .tcard .photo img{max-height:230px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="pill">✦ نموذج تنظيم الكتالوج - معاينة توضيحية بصور عينات فعلية</span>
+    <h1>إزاي هننظّم <span class="grad-text">منتجات كتير</span> من غير ما الموقع يتقل</h1>
+    <p>كل شركة ليها أنواع منتجات، وكل نوع ليه اختيارات (روائح/مكونات/أحجام). الصفحة بتحمّل صورًا مضغوطة خفيفة، والصور البعيدة عن الشاشة مش بتنزل غير لما توصلها بالسكرول.</p>
+  </div>
+</header>
+
+<div class="filters">
+  <div class="wrap">
+    <b>الشركة:</b>
+    <button class="chip on" data-f="all">الكل</button>
+    <button class="chip" data-f="vatika">فاتيكا</button>
+    <button class="chip" data-f="eva">إيفا</button>
+  </div>
+</div>
+
+<!-- ===================== VATIKA ===================== -->
+<section class="company" id="c-vatika">
+  <div class="wrap">
+    <div class="company-head">
+      <h2>فاتيكا <span style="font-family:'Cairo';font-weight:700">Vatika</span></h2>
+      <span class="cat-tag">القسم: عنايه بالشعر</span>
+      <span class="note">نوعان من المنتجات - لكل نوع اختياراته</span>
+    </div>
+    <div class="types">
+
+      <div class="tcard" data-type>
+        <div class="photo">
+          <img data-photo loading="lazy" src="assets/vatika-hammam-blackseed.webp" alt="حمام كريم فاتيكا - حبة البركة">
+          <span class="fam" data-fam hidden></span>
+        </div>
+        <div class="body">
+          <div class="tname">حمام كريم فاتيكا <small>Hammam Cream - نوع منتج واحد بعدة اختيارات</small></div>
+          <div class="vars" data-vars>
+            <button class="vchip on" data-img="assets/vatika-hammam-blackseed.webp">حبة البركة</button>
+            <button class="vchip" data-img="assets/vatika-hammam-olive.webp">زيتون</button>
+          </div>
+          <span class="vcount">٢ اختيارات من العينات المرسلة - الباقي يُضاف لنفس النوع</span>
+          <div class="price-row">
+            <span class="price">السعر: <b>غير محدد بعد</b></span>
+            <span class="order-demo">زر طلب تجريبي - غير مفعّل</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard" data-type>
+        <div class="photo">
+          <img data-photo loading="lazy" src="assets/vatika-styling-almond.webp" alt="كريم شعر ستايلنج فاتيكا - لوز أسباني">
+          <span class="fam" data-fam hidden></span>
+        </div>
+        <div class="body">
+          <div class="tname">كريم شعر ستايلنج فاتيكا <small>Styling Hair Cream - نوع تاني مختلف، مش اختيار من اللي فوق</small></div>
+          <div class="vars" data-vars>
+            <button class="vchip on" data-img="assets/vatika-styling-almond.webp">لوز أسباني</button>
+            <button class="vchip" data-img="assets/vatika-styling-henna.webp">حنا ولوز وألوفيرا</button>
+          </div>
+          <span class="vcount">٢ اختيارات من العينات المرسلة</span>
+          <div class="price-row">
+            <span class="price">السعر: <b>غير محدد بعد</b></span>
+            <span class="order-demo">زر طلب تجريبي - غير مفعّل</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EVA ===================== -->
+<section class="company" id="c-eva">
+  <div class="wrap">
+    <div class="company-head">
+      <h2>إيفا <span style="font-family:'Cairo';font-weight:700">Eva</span></h2>
+      <span class="cat-tag">القسم: عنايه بالبشرة</span>
+      <span class="note">نوع واحد بروائح كتيرة - مثال الشركة صاحبة الاختيارات الكتير</span>
+    </div>
+    <div class="types">
+
+      <div class="tcard" data-type>
+        <div class="photo">
+          <img data-photo loading="lazy" src="assets/eva-redglamour.webp" alt="إيفا سينسز - Red Glamour">
+          <span class="fam" data-fam hidden>من صورة المجموعة - صورة العبوة المنفردة تُضاف لاحقًا</span>
+        </div>
+        <div class="body">
+          <div class="tname">إيفا سينسز - معطر جسم ٢٤٠ مل <small>Senses Fine Fragrance Mist - الروائح كلها اختيارات لنفس المنتج، مش منتجات منفصلة</small></div>
+          <div class="vars" data-vars>
+            <button class="vchip on" data-img="assets/eva-redglamour.webp" data-solo>Red Glamour</button>
+            <button class="vchip" data-img="assets/eva-senses-studio.webp">Love Tale</button>
+            <button class="vchip" data-img="assets/eva-senses-studio.webp">In the Clouds</button>
+            <button class="vchip" data-img="assets/eva-senses-studio.webp">Mystic Orchid</button>
+            <button class="vchip" data-img="assets/eva-senses-studio.webp">Night Out</button>
+            <button class="vchip" data-img="assets/eva-senses-studio.webp">Summer Twist</button>
+            <button class="vchip" data-img="assets/eva-senses-live.webp">Cozy Dream</button>
+            <button class="vchip" data-img="assets/eva-senses-live.webp">Gold Spell</button>
+          </div>
+          <span class="vcount">٨ روائح ظاهرة في العينات - تنضاف روائح جديدة كسطر واحد في الكتالوج</span>
+          <div class="price-row">
+            <span class="price">السعر: <b>غير محدد بعد</b></span>
+            <span class="order-demo">زر طلب تجريبي - غير مفعّل</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="note-band">
+    <b>إزاي بنتعامل مع الكتالوج في النموذج ده</b>
+    <ul>
+      <li>الصور دي عينات فعلية أرسلها صاحب الشغل - صور المجموعة بتوضّح عائلة المنتج ومش بتحتسب منتجًا لوحدها، وصورة العبوة المنفردة لكل رائحة تنضاف لما تتوفّر.</li>
+      <li>الأسعار لسه «غير محددة» عمدًا - تتكتب من قائمة أسعار المورّد، وممكن كل اختيار يبقى له سعره الخاص.</li>
+      <li>المنتج الجديد = سطر واحد في ملف الكتالوج (شركة ← نوع ← اختيار + صورة + سعر)، من غير أي تعديل في التصميم.</li>
+      <li>كل الصور مضغوطة (النموذج كله حوالي ١٤٠ كيلوبايت) وبتنزل كسولًا مع السكرول - عشان كده آلاف المنتجات مش بتقلّل سرعة الفتح.</li>
+      <li>محتوى توضيحي للمعاينة فقط - أزرار الطلب غير مفعّلة.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+// Company filter
+document.querySelectorAll('.chip').forEach(function(c){
+  c.addEventListener('click',function(){
+    document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on');});
+    c.classList.add('on');
+    var f=c.dataset.f;
+    document.querySelectorAll('.company').forEach(function(s){
+      s.style.display = (f==='all' || s.id==='c-'+f) ? '' : 'none';
+    });
+  });
+});
+// Variant switching per type card
+document.querySelectorAll('[data-type]').forEach(function(card){
+  var img=card.querySelector('[data-photo]'), fam=card.querySelector('[data-fam]');
+  card.querySelectorAll('.vchip').forEach(function(v){
+    v.addEventListener('click',function(){
+      card.querySelectorAll('.vchip').forEach(function(x){x.classList.remove('on');});
+      v.classList.add('on');
+      img.src=v.dataset.img;
+      img.alt=v.textContent;
+      fam.hidden = v.hasAttribute('data-solo');
+    });
+  });
+});
+</script>
+</body>
+</html>
