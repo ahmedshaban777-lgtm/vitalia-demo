@@ -206,7 +206,7 @@ document.querySelectorAll('[data-type]').forEach(function(card){
       v.classList.add('on');
       img.src=v.dataset.img;
       img.alt=v.textContent;
-      fam.hidden = v.hasAttribute('data-solo');
+      fam.hidden = v.hasAttribute('data-solo') || fam.textContent.trim()==='';
     });
   });
 });
