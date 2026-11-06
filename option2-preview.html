@@ -426,7 +426,7 @@ function ctlCard(co,p){
  var thumb=document.createElement('div');thumb.className='ctl-thumb';
  var v0=p.v?p.v[0]:null;
  var im=document.createElement('img');im.loading='lazy';
- if(p.pending){im.hidden=true;var ph=document.createElement('div');ph.className='ctl-pending';ph.textContent='صورة المنتج تُضاف قريبًا';thumb.appendChild(ph);}
+ if(p.pending){im.hidden=true;var ph=document.createElement('div');ph.className='ctl-pending';ph.textContent='صورة المنتج غير متاحة حاليًا';thumb.appendChild(ph);}
  else{im.src=v0?v0.img:p.img;im.alt=p.n;thumb.appendChild(im);}
  var fam=document.createElement('span');fam.className='fam';fam.hidden=true;fam.textContent='من صورة المجموعة - صورة العبوة المنفردة تُضاف لاحقًا';
  if(p.note){fam.hidden=false;fam.textContent=p.note;}
