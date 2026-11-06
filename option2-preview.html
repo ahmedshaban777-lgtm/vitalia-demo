@@ -231,6 +231,29 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
 .ctl-more:hover{background:var(--rosebg)}
 .ctl-morewrap.hidden{display:none}
 @media(max-width:760px){.ctl{padding:18px 14px}.ctl-thumb{min-height:160px}.ctl-thumb img{max-height:140px}}
+/* ============ BROWSING IMPROVEMENTS 2026-11-06 ============ */
+.ctl-sort{display:flex;align-items:center}
+.ctl-sort select{border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;font-family:'Tajawal';font-weight:700;font-size:.9rem;background:var(--ivory);color:var(--ink);cursor:pointer}
+.ctl-sort select:focus{outline:none;border-color:var(--rose2)}
+.mnav{display:none}
+@media(max-width:760px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  .mnav{display:flex;position:fixed;bottom:0;inset-inline:0;z-index:60;background:rgba(253,249,245,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(122,46,84,.08);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .mnav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 4px 8px;font-family:'Cairo';font-weight:800;font-size:.72rem;color:var(--muted);transition:.2s}
+  .mnav a .ic{font-size:1.15rem;line-height:1}
+  .mnav a:active{color:var(--rose2)}
+  #ctlCompanies{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+  #ctlCompanies .ctl-chip{flex:0 0 auto;white-space:nowrap}
+}
+.pdm{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(42,24,48,.5);backdrop-filter:blur(4px)}
+.pdm.open{display:flex}
+.pdm-card{background:var(--ivory);border-radius:var(--radius);box-shadow:var(--shadow);max-width:460px;width:100%;max-height:88vh;overflow:auto;position:relative;border:1px solid var(--line)}
+.pdm-x{position:absolute;top:10px;inset-inline-end:10px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:.95rem;cursor:pointer;z-index:2}
+.pdm-thumb{background:#fff;display:grid;place-items:center;padding:26px 18px;border-bottom:1px solid var(--line);min-height:280px}
+.pdm-thumb img{max-height:260px;max-width:100%;object-fit:contain}
+.pdm-note{padding:8px 14px;font-size:.72rem;color:var(--muted);background:#fff;border-bottom:1px solid var(--line)}
+.pdm-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:9px}
+.pdm-body h3{font-size:1.12rem;font-weight:800;line-height:1.5}
 </style>
 </head>
 <body>
@@ -343,6 +366,7 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
     <div class="ctl reveal" id="ctl">
       <div class="ctl-toolbar">
         <div class="ctl-search"><input id="ctlQ" type="search" placeholder="ابحث باسم المنتج أو الشركة... مثال: shampoo أو كريم"><span class="sic">🔍</span></div>
+        <div class="ctl-sort"><select id="ctlSort" aria-label="ترتيب المنتجات"><option value="default">الترتيب الأصلي</option><option value="alpha">أبجدي (أ - ي)</option></select></div>
         <div class="ctl-stats" id="ctlStats"></div>
       </div>
       <div class="ctl-chips" id="ctlCompanies"></div>
@@ -399,6 +423,20 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
   </div>
 </section>
 
+<div class="pdm" id="pdm" role="dialog" aria-modal="true" aria-label="تفاصيل المنتج">
+  <div class="pdm-card">
+    <button class="pdm-x" id="pdmX" aria-label="إغلاق">✕</button>
+    <div class="pdm-thumb" id="pdmThumb"></div>
+    <div class="pdm-body" id="pdmBody"></div>
+  </div>
+</div>
+<nav class="mnav" aria-label="تنقل سريع">
+  <a href="#topnav"><span class="ic">🏠</span>الرئيسية</a>
+  <a href="#products"><span class="ic">🛍️</span>المنتجات</a>
+  <a href="#branches"><span class="ic">📍</span>الفروع</a>
+  <a href="#contact"><span class="ic">📞</span>تواصل</a>
+</nav>
+
 <footer>
   <div class="wrap">
     <b><span class="fmark"><svg style="height:24px;width:auto;vertical-align:-4px" viewBox="0 6 320 92" aria-label="Vitalia"><use href="#vword"/></svg></span> كوزمتكس ومستلزمات طبية</b><br>
@@ -409,7 +447,7 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
 <script>
 var CTL_COMPANIES=[{"id":"vatika","ar":"فاتيكا","products":[{"n":"حمام كريم","cat":"كريمات","v":[{"n":"حبة البركة","img":"assets/vatika-hammam-blackseed.webp","solo":true},{"n":"زيتون","img":"assets/vatika-hammam-olive.webp","solo":true}]},{"n":"كريم ستايلنج","cat":"كريمات","v":[{"n":"لوز أسباني","img":"assets/vatika-styling-almond.webp","solo":true},{"n":"حنا ولوز وألوفيرا","img":"assets/vatika-styling-henna.webp","solo":true}]}]},{"id":"eva","ar":"إيفا","products":[{"n":"سينسز - معطر جسم","cat":"معطرات الجسم","v":[{"n":"Red Glamour","img":"assets/eva-redglamour.webp","solo":true,"vol":"الحجم المكتوب على عبوة Red Glamour: ٢٤٠ مل"},{"n":"Love Tale","img":"assets/eva-senses-studio.webp"},{"n":"In the Clouds","img":"assets/eva-senses-studio.webp"},{"n":"Mystic Orchid","img":"assets/eva-senses-studio.webp"},{"n":"Night Out","img":"assets/eva-senses-studio.webp"},{"n":"Summer Twist","img":"assets/eva-senses-studio.webp"},{"n":"Cozy Dream","img":"assets/eva-senses-live.webp"},{"n":"Gold Spell","img":"assets/eva-senses-live.webp"}]}]},{"id":"nivea","ar":"نيفيا","en":"Nivea","products":[{"n":"نيفيا كريم أزرق","cat":"كريمات","img":"assets/real-nivea-8.webp"},{"n":"نيفيا سوفت كريم أبيض 200 مل","cat":"كريمات","img":"assets/real-nivea-20.webp"},{"n":"نيفيا كريم زبدة كاكاو","cat":"كريمات","img":"assets/real-nivea-19.webp"},{"n":"نيفيا اسبراي حريمي بيرل آند بيوتي 150 مل","cat":"مزيل عرق","img":"assets/real-nivea-21.webp"},{"n":"نيفيا اسبراي رجالي بلاك آند وايت 150 مل","cat":"مزيل عرق","img":"assets/real-nivea-22.webp"},{"n":"نيفيا صن لوشن بروتكت آند مويستشر","cat":"صن سكرين","img":"assets/real-nivea-23.webp"},{"n":"نيفيا استيك حريمي بيرل آند بيوتي 50 مل","cat":"مزيل عرق","img":"assets/real-nivea-24.webp"},{"n":"نيفيا استيك رجالي بلاك آند وايت انفيزيبل 50 مل","cat":"مزيل عرق","img":"assets/real-nivea-25.webp"},{"n":"نيفيا رول أون حريمي بيرل آند بيوتي 50 مل","cat":"مزيل عرق","img":"assets/real-nivea-26.webp"},{"n":"نيفيا رول أون رجالي ديب دارك وود 50 مل","cat":"مزيل عرق","img":"assets/real-nivea-27.webp"},{"n":"نيفيا شاور جل انرجي للرجال 250 مل","cat":"غسول","img":"assets/real-nivea-28.webp"},{"n":"نيفيا ماء ميسيلار بماء الورد 400 مل","cat":"ميسيلار","img":"assets/real-nivea-29.webp"},{"n":"نيفيا جل حلاقة للبشرة الحساسة 200 مل","cat":"حلاقة","img":"assets/real-nivea-30.webp"},{"n":"نيفيا صن اسبراي بروتكت آند مويستشر","cat":"صن سكرين","img":"assets/real-nivea-31.webp"},{"n":"نيفيا غسول رغوي للوجه بماء الورد 150 مل","cat":"غسول","img":"assets/real-nivea-32.webp"}]},{"id":"dove","ar":"دوف","en":"Dove","products":[{"n":"دوف استيك أوريجينال","cat":"مزيل عرق","img":"assets/real-dove-3.webp"},{"n":"دوف اسبراي بالخيار والشاي الأخضر","cat":"مزيل عرق","img":"assets/real-dove-2.webp"},{"n":"دوف رول أون الأصلي","cat":"مزيل عرق","img":"assets/real-dove-19.webp"},{"n":"دوف رول أون بالخيار والشاي الأخضر","cat":"مزيل عرق","img":"assets/real-dove-20.webp"},{"n":"دوف كريم الجمال 150 جم","cat":"كريمات","img":"assets/real-dove-22.webp"},{"n":"دوف شاور مرطب التغذية بعمق 500 مل","cat":"غسول","img":"assets/real-dove-21.webp"},{"n":"دوف رول أون بانتعاش الرمان","cat":"مزيل عرق","img":"assets/real-dove-23.webp"},{"n":"دوف اسبراي موحد لون البشرة","cat":"مزيل عرق","img":"assets/real-dove-24.webp"},{"n":"دوف شامبو بالزيوت المغذية 180 مل","cat":"شامبو","img":"assets/real-dove-25.webp","note":"صورة توضيحية لنفس النوع - الحجم المعروض 400 مل بدل 180 مل"},{"n":"دوف بلسم إصلاح مكثف 350 مل","cat":"بلسم","img":"assets/real-dove-26.webp"},{"n":"دوف صابون","cat":"صابون","img":"assets/real-dove-27.webp"},{"n":"دوف هاندووش بالأفوكادو 500 مل","cat":"غسول","img":"assets/real-dove-28.webp"},{"n":"دوف بديل الزيت بالزيوت المغذية للشعر","cat":"بديل زيت","img":"assets/real-dove-29.webp"},{"n":"دوف استيك بالخيار والشاي الأخضر","cat":"مزيل عرق","img":"assets/real-dove-30.webp"}]},{"id":"vaseline","ar":"فازلين","en":"Vaseline","products":[{"n":"فازلين ليب ثيرابي روزي ليب","cat":"كريمات","img":"assets/real-vaseline-3.webp"},{"n":"فازلين ليب ثيرابي أوريجينال 20 جم","cat":"كريمات","img":"assets/real-vaseline-9.webp"},{"n":"فازلين ليب ثيرابي كاكاو بتر 20 جم","cat":"كريمات","img":"assets/real-vaseline-10.webp"},{"n":"فازلين لوشن إشراقة الكاكاو 400 مل","cat":"لوشن","img":"assets/real-vaseline-19.webp"},{"n":"فازلين لوشن العناية الأساسية 400 مل","cat":"لوشن","img":"assets/real-vaseline-20.webp"},{"n":"فازلين لوشن العناية المركزة بالأيدي والأظافر","cat":"كريمات","img":"assets/real-vaseline-18.webp"},{"n":"فازلين لوشن اللون الموحد إشراقة مثالية 200 مل","cat":"لوشن","img":"assets/real-vaseline-21.webp"},{"n":"فازلين لوشن ترطيب برودة الثلج 400 مل","cat":"لوشن","img":"assets/real-vaseline-22.webp"},{"n":"فازلين زيت تونك للشعر","cat":"زيوت","img":"assets/real-vaseline-23.webp"},{"n":"ليفر فازلين جلي الأصلي 100 مل","cat":"كريمات","img":"assets/real-vaseline-24.webp"}]},{"id":"johnsons","ar":"جونسون","en":"Johnson's","products":[{"n":"جونسون سوفت كريم","cat":"كريمات","img":"assets/real-johnsons-1.webp"},{"n":"جونسون رغوة حمام ما قبل النوم 300 مل","cat":"أم وطفل","img":"assets/real-johnsons-20.webp"},{"n":"جونسون زيت أطفال عادي","cat":"أم وطفل","img":"assets/real-johnsons-3.webp"},{"n":"جونسون شامبو جولد","cat":"أم وطفل","img":"assets/real-johnsons-5.webp"},{"n":"جونسون زيت أطفال بالصبار","cat":"أم وطفل","img":"assets/real-johnsons-7.webp"},{"n":"جونسون غسول جل موازن للبشرة الدهنية والمختلطة 150 مل","cat":"غسول","img":"assets/real-johnsons-21.webp"},{"n":"جونسون سائل استحمام رغوة لافندر","cat":"أم وطفل","img":"assets/real-johnsons-19.webp"},{"n":"جونسون كولونيا أطفال دريم 100 مل","cat":"أم وطفل","img":"assets/real-johnsons-22.webp"},{"n":"جونسون بلسم أطفال","cat":"أم وطفل","img":"assets/real-johnsons-23.webp"},{"n":"جونسون غسول جل منعش بشرة عادية","cat":"غسول","img":"assets/real-johnsons-24.webp"},{"n":"جونسون شامبو لا تشابك","cat":"أم وطفل","img":"assets/real-johnsons-25.webp"},{"n":"جونسون مناديل تنظيف لطيف 72 منديل","cat":"أم وطفل","img":"assets/real-johnsons-26.webp"},{"n":"جونسون كولونيا أطفال ندى الصباح 100 مل","cat":"أم وطفل","img":"assets/real-johnsons-27.webp"},{"n":"جونسون لوشن أطفال سوفت","cat":"أم وطفل","img":"assets/real-johnsons-28.webp"}]},{"id":"garnier","ar":"غارنييه","en":"Garnier","products":[{"n":"غارنييه بلسم فروكتيس هير فود 350 مل","cat":"بلسم","pending":true},{"n":"غارنييه الترا ديتوكس حمام زيت وليف إن وماسك للشعر","cat":"العناية بالشعر","pending":true},{"n":"غارنييه مياه ميسيلار كلاسيك","cat":"ميسيلار","img":"assets/real-garnier-9.webp"},{"n":"غارنييه شامبو فروكتيس هير فود 350 مل","cat":"شامبو","img":"assets/real-garnier-10.webp"},{"n":"غارنييه فاست برايت سيرم فيتامين سي","cat":"العناية بالبشرة","img":"assets/real-garnier-11.webp"},{"n":"غارنييه فاست برايت غسول جل منقي للوجه","cat":"غسول","img":"assets/real-garnier-12.webp"},{"n":"غارنييه كريم فاست فيرنس","cat":"كريمات","img":"assets/real-garnier-13.webp"},{"n":"غارنييه مياه ميسيلار بحمض الساليسيليك 400 مل","cat":"ميسيلار","img":"assets/real-garnier-14.webp"},{"n":"غارنييه مياه ميسيلار بفيتامين سي","cat":"ميسيلار","img":"assets/real-garnier-15.webp"},{"n":"غارنييه فاست برايت مقشر للوجه","cat":"العناية بالبشرة","img":"assets/real-garnier-16.webp"}]},{"id":"lux","ar":"لوكس","en":"Lux","products":[{"n":"لوكس شاور بالجريب فروت المنعش 500 مل","cat":"غسول","img":"assets/lux-gf.webp"},{"n":"لوكس صابون سحر الأوركيد 75 جم","cat":"صابون","img":"assets/lux-or.webp","note":"صورة توضيحية لنفس النوع - الحجم المعروض 165 جم بدل 75 جم"},{"n":"لوكس شاور سحر زهرة الأوركيد","cat":"غسول","img":"assets/real-lux-3.webp"},{"n":"لوكس صابون بشرة نضرة 75 جم","cat":"صابون","img":"assets/real-lux-4.webp","note":"صورة توضيحية لنفس النوع - الحجم غير مؤكد من الصورة"},{"n":"لوكس شاور الغاردينيا الحريرية أخضر 500 مل","cat":"غسول","img":"assets/real-lux-5.webp"},{"n":"لوكس شاور الورد الناعم بينك 500 مل","cat":"غسول","img":"assets/real-lux-6.webp"},{"n":"لوكس شاور رومانسية الكركديه 500 مل","cat":"غسول","img":"assets/real-lux-7.webp"},{"n":"لوكس هاندووش بسحر زهرة الأوركيد وزيت اللوز","cat":"غسول","img":"assets/real-lux-8.webp"}]},{"id":"cantu","ar":"كانتو","en":"Cantu","products":[{"n":"كانتو كيرلي اكتيفيتور للكبار","cat":"كريمات","img":"assets/real-cantu-2.webp"},{"n":"كانتو اسبراي بزبدة الشيا للحفاظ على الشعر الكيرلي","cat":"العناية بالشعر","img":"assets/real-cantu-6.webp"},{"n":"كانتو شامبو منعم سلفات فري بزبدة الشيا","cat":"شامبو","img":"assets/real-cantu-8.webp"},{"n":"كانتو بلسم كريم سلفات فري بزبدة الشيا","cat":"بلسم","img":"assets/real-cantu-11.webp"},{"n":"كانتو شيا بتر هير دريسنج بوماد","cat":"كريمات","img":"assets/real-cantu-12.webp"},{"n":"كانتو كريم بجوز الهند للشعر الكيرلي","cat":"كريمات","img":"assets/real-cantu-13.webp"},{"n":"كانتو كيرلي كريم كيدز 236 جم","cat":"كريمات","img":"assets/real-cantu-14.webp","note":"صورة توضيحية لنفس النوع - الحجم على العبوة 227 جم"},{"n":"كانتو بدي لوشن زبدة الشيا المغذي","cat":"لوشن","img":"assets/real-cantu-15.webp"},{"n":"كانتو هير موس للشعر الكيرلي","cat":"العناية بالشعر","img":"assets/real-cantu-16.webp"},{"n":"كانتو كويل كالم اسبراي لفك تشابك الشعر 236 مل","cat":"العناية بالشعر","img":"assets/real-cantu-17.webp","note":"صورة توضيحية لنفس النوع - الحجم على العبوة 237 مل"}]},{"id":"rexona","ar":"ريكسونا","en":"Rexona","products":[{"n":"ريكسونا اسبراي حريمي انفيزيبل 150 مل","cat":"مزيل عرق","img":"assets/real-rexona-1.webp"},{"n":"ريكسونا اسبراي رجالي انفيزيبل 150 مل","cat":"مزيل عرق","img":"assets/real-rexona-2.webp"},{"n":"ريكسونا اسبراي رجالي اكسترا كول 150 مل","cat":"مزيل عرق","img":"assets/real-rexona-3.webp"},{"n":"ريكسونا اسبراي حريمي شاور فريش","cat":"مزيل عرق","img":"assets/real-rexona-4.webp"},{"n":"ريكسونا اسبراي حريمي بامبو 150 مل","cat":"مزيل عرق","img":"assets/real-rexona-5.webp"},{"n":"ريكسونا رول أون حريمي انفيزيبل","cat":"مزيل عرق","img":"assets/real-rexona-6.webp"},{"n":"ريكسونا رول أون رجالي اكسترا كول","cat":"مزيل عرق","img":"assets/real-rexona-7.webp"},{"n":"ريكسونا استيك رجالي اكسترا كول","cat":"مزيل عرق","img":"assets/real-rexona-8.webp"}]},{"id":"sunsilk","ar":"صانسيلك","en":"Sunsilk","products":[{"n":"صانسيلك بلسم ناعم وحريري 350 مل","cat":"بلسم","pending":true},{"n":"صانسيلك شامبو إصلاح فوري للشعر التالف","cat":"شامبو","pending":true},{"n":"صانسيلك بلسم إصلاح فوري للشعر التالف 350 مل","cat":"بلسم","pending":true},{"n":"صانسيلك بلسم طبيعي بزيت اللوز والعسل 350 مل","cat":"بلسم","pending":true},{"n":"صانسيلك شامبو ناعم وحريري","cat":"شامبو","img":"assets/real-sunsilk-1.webp"},{"n":"صانسيلك شامبو لمعان ساحر للشعر الأسود","cat":"شامبو","img":"assets/real-sunsilk-2.webp"},{"n":"صانسيلك بلسم قوة ولمعان 350 مل","cat":"بلسم","img":"assets/real-sunsilk-3.webp"},{"n":"صانسيلك زيت 250 مل جوز هند المونوي","cat":"العناية بالشعر","img":"assets/real-sunsilk-4.webp"}]},{"id":"sensodyne","ar":"سنسوداين","en":"Sensodyne","products":[{"n":"سنسوداين معجون اسنان حماية من التسوس 100 مل","cat":"معجون أسنان","img":"assets/real-sensodyne-1.webp"},{"n":"سنسوداين معجون اسنان رابيد اكشن","cat":"معجون أسنان","img":"assets/real-sensodyne-2.webp"},{"n":"سنسوداين معجون اسنان تنظيف عميق","cat":"معجون أسنان","img":"assets/real-sensodyne-3.webp"},{"n":"سنسوداين فرشاة اسنان رابيد ريليف سوفت","cat":"فرش أسنان","img":"assets/real-sensodyne-4.webp"},{"n":"سنسوداين فرشاة اسنان ريبير آند بروتكت","cat":"فرش أسنان","img":"assets/real-sensodyne-5.webp"},{"n":"سنسوداين فرشاة اسنان ترميم وحماية فائقة النعومة","cat":"فرش أسنان","img":"assets/real-sensodyne-6.webp"}]},{"id":"gillette","ar":"جيليت","en":"Gillette","products":[{"n":"جيليت ماك 3 بلس شفرات","cat":"حلاقة","img":"assets/gil-1.webp"},{"n":"جيليت بروجلايد شفرات","cat":"حلاقة","img":"assets/gil-2.webp"},{"n":"جيليت برو جل حلاقة ايسي كول","cat":"حلاقة","img":"assets/gil-3.webp"},{"n":"جيليت بلو 3 ماكينة","cat":"حلاقة","img":"assets/gil-4.webp"},{"n":"جيليت بلو 2 بلس اكياس","cat":"حلاقة","img":"assets/gil-5.webp"},{"n":"جيليت بلو 3 كومفورت","cat":"حلاقة","img":"assets/gil-6.webp"}]},{"id":"pantene","ar":"بانتين","en":"Pantene","products":[{"n":"بانتين بلسم ضد تساقط الشعر","cat":"بلسم","pending":true},{"n":"بانتين شامبو انسيابي وحريري","cat":"شامبو","img":"assets/pan-1.webp"},{"n":"بانتين بلسم انسيابي وحريري","cat":"بلسم","img":"assets/pan-2.webp"},{"n":"بانتين شامبو ضد تساقط الشعر","cat":"شامبو","img":"assets/pan-3.webp"},{"n":"بانتين شامبو عناية مرطبة","cat":"شامبو","img":"assets/pan-5.webp"},{"n":"بانتين بلسم عناية ميلكي للتلف","cat":"بلسم","img":"assets/pan-6.webp"},{"n":"بانتين بديل الزيت انسيابي وحريري","cat":"بديل زيت","img":"assets/pan-7.webp"},{"n":"بانتين بديل الزيت ضد التساقط","cat":"بديل زيت","img":"assets/pan-8.webp"}]},{"id":"neutrogena","ar":"نيتروجينا","en":"Neutrogena","products":[{"n":"نيتروجينا هيدرا بوست واتر جل 50 مل","cat":"العناية بالبشرة","img":"assets/neu-1.webp"},{"n":"نيتروجينا ديب كلين غسول عميق جل","cat":"غسول","img":"assets/neu-2.webp"},{"n":"نيتروجينا مقشر يومي منعش وردي","cat":"العناية بالبشرة","img":"assets/neu-3.webp"},{"n":"نيتروجينا كريم لليدين","cat":"كريمات","img":"assets/neu-4.webp"},{"n":"نيتروجينا ماء ميسيلار منظف ثلاثي المفعول 400 مل","cat":"ميسيلار","img":"assets/neu-5.webp"},{"n":"نيتروجينا ديب كلين مقشر يومي منشط","cat":"العناية بالبشرة","img":"assets/neu-6.webp"}]},{"id":"penduline","ar":"بندولين","en":"Penduline","products":[{"n":"بندولين بيبي باث سائل استحمام","cat":"أم وطفل","img":"assets/pdl-1.webp"},{"n":"بندولين زيت أطفال","cat":"أم وطفل","img":"assets/pdl-2.webp"},{"n":"بندولين بلسم أطفال كيرلي بالشيا","cat":"بلسم","img":"assets/pdl-3.webp"},{"n":"بندولين حمام كريم أطفال","cat":"العناية بالشعر","img":"assets/pdl-4.webp"},{"n":"بندولين برفيوم أطفال","cat":"أم وطفل","img":"assets/pdl-5.webp"},{"n":"بندولين اسبراي للشعر الكيرلي لفك التشابك","cat":"العناية بالشعر","img":"assets/pdl-6.webp"}]},{"id":"bobana","ar":"بوبانا","en":"Bobana","products":[{"n":"بوبانا بديل الزيت بالأرجان","cat":"بديل زيت","pending":true},{"n":"بوبانا بدي اسبلاش اوت اوف ذا بلو","cat":"معطرات الجسم","img":"assets/bob-1.webp"},{"n":"بوبانا بدي اسبلاش جولدن هاور","cat":"معطرات الجسم","img":"assets/bob-2.webp"},{"n":"بوبانا بلسم بزيت الأرجان","cat":"بلسم","img":"assets/bob-3.webp"},{"n":"بوبانا شامبو بزيت جوز الهند","cat":"شامبو","img":"assets/bob-4.webp"},{"n":"بوبانا جل الكولاجين البحري والريتينول","cat":"العناية بالبشرة","img":"assets/bob-6.webp"}]},{"id":"sheglam","ar":"شيجلام","en":"SHEGLAM","products":[{"n":"شيجلام موس حواجب Ebony","cat":"مكياج","pending":true},{"n":"شيجلام بلاش مات High & Dry","cat":"مكياج","pending":true},{"n":"شيجلام مقشر شفاه Bubble Bath","cat":"مكياج","pending":true},{"n":"شيجلام Color Bloom بلاش سائل Love Cake","cat":"مكياج","img":"assets/shg-1.webp"},{"n":"شيجلام All in One مسكارا","cat":"مكياج","img":"assets/shg-2.webp"},{"n":"شيجلام بلسم شفاه بينك","cat":"مكياج","img":"assets/shg-3.webp"},{"n":"شيجلام Glowchi هايلايتر Red Bean","cat":"مكياج","img":"assets/shg-4.webp"},{"n":"شيجلام اي لاينر سائل Marilyn","cat":"مكياج","img":"assets/shg-5.webp"}]},{"id":"beesline","ar":"بيزلين","en":"Beesline","products":[{"n":"بيزلين رول أون إنارة فورية فيتامين سي","cat":"مزيل عرق","img":"assets/bee-1.webp"},{"n":"بيزلين رول أون العود العربي","cat":"مزيل عرق","img":"assets/bee-2.webp"},{"n":"بيزلين الإنارة الفورية تونر للوجه","cat":"العناية بالبشرة","img":"assets/bee-3.webp"},{"n":"بيزلين الإنارة الفورية سيرم فيتامين سي واي","cat":"العناية بالبشرة","img":"assets/bee-4.webp"},{"n":"بيزلين الترا صن سكرين كريم","cat":"صن سكرين","img":"assets/bee-5.webp"},{"n":"بيزلين الإنارة الفورية ماء ميسيلار 400 مل","cat":"ميسيلار","img":"assets/bee-6.webp"},{"n":"بيزلين الإنارة الفورية غسول 150 مل","cat":"غسول","img":"assets/bee-7.webp","note":"صورة توضيحية لنفس النوع - العبوة المعروضة 250 مل باسم Whitening (الاسم السابق لخط الإنارة الفورية)"}]}];
 var CTL_BATCH=6;
-var ctlState={co:'all',cat:'الكل',shown:CTL_BATCH,q:''};
+var ctlState={co:'all',cat:'الكل',shown:CTL_BATCH,q:'',sort:'default'};
 function arDig(n){return String(n).replace(/\d/g,function(d){return '٠١٢٣٤٥٦٧٨٩'[d];});}
 var ctlGrid=document.getElementById('ctlGrid'),ctlCompanies=document.getElementById('ctlCompanies'),
     ctlCats=document.getElementById('ctlCats'),ctlShown=document.getElementById('ctlShown'),
@@ -437,7 +475,8 @@ function ctlCard(co,p){
   var vars=document.createElement('div');vars.className='ctl-vars';
   p.v.forEach(function(v,idx){
    var b=document.createElement('button');b.className='ctl-vchip'+(idx===0?' on':'');b.textContent=v.n;
-   b.addEventListener('click',function(){
+   b.addEventListener('click',function(e){
+    e.stopPropagation();
     vars.querySelectorAll('.ctl-vchip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
     im.src=v.img;im.alt=p.n+' - '+v.n;
     fam.hidden=!!v.solo;
@@ -454,6 +493,8 @@ function ctlCard(co,p){
  row.innerHTML='<span class="ctl-price">السعر: <b>غير محدد بعد</b></span><span class="ctl-order">زر طلب تجريبي - غير مفعّل</span>';
  body.appendChild(row);
  card.appendChild(thumb);card.appendChild(body);
+ card.style.cursor='pointer';
+ card.addEventListener('click',function(){pdmOpen(co,p);});
  return card;
 }
 function ctlScope(){
@@ -468,6 +509,7 @@ function ctlScope(){
   var q=ctlState.q.toLowerCase();
   list=list.filter(function(x){return x.p.n.toLowerCase().indexOf(q)>-1||x.co.ar.indexOf(ctlState.q)>-1||(x.co.en&&x.co.en.toLowerCase().indexOf(q)>-1);});
  }
+ if(ctlState.sort==='alpha'){list=list.slice().sort(function(a,b){return a.p.n.localeCompare(b.p.n,'ar');});}
  return list;
 }
 function ctlRenderChips(){
@@ -507,6 +549,45 @@ ctlQ.addEventListener('input',function(){
  clearTimeout(ctlDeb);
  ctlDeb=setTimeout(function(){ctlState.q=ctlQ.value.trim();ctlState.shown=CTL_BATCH;ctlRender();},250);
 });
+var pdm=document.getElementById('pdm'),pdmThumb=document.getElementById('pdmThumb'),pdmBody=document.getElementById('pdmBody');
+function pdmOpen(co,p){
+ pdmThumb.innerHTML='';pdmBody.innerHTML='';
+ var v0=p.v?p.v[0]:null;
+ var im=null;
+ if(p.pending){var ph=document.createElement('div');ph.className='ctl-pending';ph.style.minHeight='240px';ph.textContent='صورة المنتج غير متاحة حاليًا';pdmThumb.appendChild(ph);}
+ else{im=document.createElement('img');im.src=v0?v0.img:p.img;im.alt=p.n;pdmThumb.appendChild(im);}
+ if(p.note){var nt=document.createElement('div');nt.className='pdm-note';nt.textContent=p.note;pdmThumb.appendChild(nt);}
+ var brand=document.createElement('span');brand.className='ctl-brand';brand.textContent=co.ar+(co.en?' · '+co.en:'');
+ var h=document.createElement('h3');h.textContent=p.n;
+ var cat=document.createElement('span');cat.className='ctl-cat';cat.textContent=p.cat;
+ pdmBody.appendChild(brand);pdmBody.appendChild(h);pdmBody.appendChild(cat);
+ if(p.v){
+  var vars=document.createElement('div');vars.className='ctl-vars';
+  var vol=document.createElement('span');vol.className='ctl-vnote';
+  p.v.forEach(function(v,idx){
+   var b=document.createElement('button');b.className='ctl-vchip'+(idx===0?' on':'');b.textContent=v.n;
+   b.addEventListener('click',function(){
+    vars.querySelectorAll('.ctl-vchip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+    if(im){im.src=v.img;im.alt=p.n+' - '+v.n;}
+    vol.style.display=v.vol?'':'none';vol.textContent=v.vol||'';
+   });
+   vars.appendChild(b);
+  });
+  vol.textContent=v0.vol||'';vol.style.display=v0.vol?'':'none';
+  pdmBody.appendChild(vars);pdmBody.appendChild(vol);
+ }
+ var row=document.createElement('div');row.className='ctl-pricerow';
+ row.innerHTML='<span class="ctl-price">السعر: <b>غير محدد بعد</b></span><span class="ctl-order">زر طلب تجريبي - غير مفعّل</span>';
+ pdmBody.appendChild(row);
+ pdm.classList.add('open');
+ document.body.style.overflow='hidden';
+}
+function pdmClose(){pdm.classList.remove('open');document.body.style.overflow='';}
+document.getElementById('pdmX').addEventListener('click',pdmClose);
+pdm.addEventListener('click',function(e){if(e.target===pdm)pdmClose();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')pdmClose();});
+var ctlSort=document.getElementById('ctlSort');
+ctlSort.addEventListener('change',function(){ctlState.sort=ctlSort.value;ctlState.shown=CTL_BATCH;ctlRender();});
 ctlRender();
 document.getElementById('burger').addEventListener('click',function(){
   document.getElementById('navLinks').classList.toggle('open');
