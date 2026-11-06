@@ -2,54 +2,16 @@
  "batch_1a": {
   "date": "2026-11-06",
   "status": "published",
-  "products": 112,
-  "companies": 13,
-  "note": "last: +gillette 6 exact (batch1b)",
+  "products": 120,
+  "companies": 14,
+  "note": "last: +pantene 7 exact 1 pending (batch1b); pending=9",
   "match_breakdown": {
-   "exact": 100,
+   "exact": 107,
    "size_note": 4,
-   "pending": 8
+   "pending": 9
   },
   "reconciliation": "2026-11-06: removed 3 mismatched photo bindings (dove Advanced Care roll-on, dove spray misbound as roll-on, dove caring bath vs shower gel) - items kept with photo pending; 12 same-line photos labeled illustrative (size/form unconfirmed); garnier micellar verified classic (clear liquid, red cap). | 2026-11-06 upgrades: replaced 9 size-note photos with exact Jumia Egypt packshots (nivea soft 200ml, pearl&beauty 150ml, black&white 150ml, sun protect&moisture 200ml, dove beauty cream 150g, vaseline cocoa radiant 400ml, vaseline essential-healing/nourishing-moisture EG pack 400ml, johnsons bedtime bath 300ml, johnsons oil-balancing gel wash 150ml); lux 75g soap keeps size-note (no 75g packshot found on Jumia). | batch1b progress: +8 nivea exact packshots (sticks, roll-ons, energy shower, micellar rose, shave gel, sun spray). | Note: garlux verification montage showed 12 images but 11 were bound - the 12th (garnier Ultra Doux HAIRFOOD pineapple 3-in-1) was downloaded and verified but NOT bound because his item says الترا ديتوكس (Ultra Detox); variant line unconfirmed, kept photo-pending.",
   "remaining_queue": [
-   {
-    "id": "pantene",
-    "ar": "بانتين",
-    "products": [
-     {
-      "n": "بانتين شامبو انسيابي وحريري",
-      "q": "Pantene smooth silky shampoo"
-     },
-     {
-      "n": "بانتين بلسم انسيابي وحريري",
-      "q": "Pantene smooth silky conditioner"
-     },
-     {
-      "n": "بانتين شامبو ضد تساقط الشعر",
-      "q": "Pantene anti hair fall shampoo"
-     },
-     {
-      "n": "بانتين بلسم ضد تساقط الشعر",
-      "q": "Pantene anti hair fall conditioner"
-     },
-     {
-      "n": "بانتين شامبو عناية مرطبة",
-      "q": "Pantene moisture renewal shampoo"
-     },
-     {
-      "n": "بانتين بلسم عناية ميلكي للتلف",
-      "q": "Pantene milky damage repair conditioner"
-     },
-     {
-      "n": "بانتين بديل الزيت انسيابي وحريري",
-      "q": "Pantene oil replacement smooth silky"
-     },
-     {
-      "n": "بانتين بديل الزيت ضد التساقط",
-      "q": "Pantene oil replacement anti hair fall"
-     }
-    ]
-   },
    {
     "id": "neutrogena",
     "ar": "نيتروجينا",
@@ -213,7 +175,7 @@
     ]
    }
   ],
-  "queue_count": 6
+  "queue_count": 5
  },
  "batch_1b_pending": {
   "target": "~150 products",
