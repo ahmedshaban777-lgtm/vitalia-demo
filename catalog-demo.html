@@ -69,7 +69,7 @@ header.top p{color:var(--muted);max-width:640px;margin:10px auto 0;font-size:.98
 <header class="top">
   <div class="wrap">
     <span class="pill">✦ نموذج تنظيم الكتالوج - معاينة توضيحية بصور عينات فعلية</span>
-    <h1>إزاي هننظّم <span class="grad-text">منتجات كتير</span> من غير ما الموقع يتقل</h1>
+    <h1>إزاي ممكن ننظّم <span class="grad-text">منتجات كتير</span> - نموذج توضيحي للفكرة</h1>
     <p>كل شركة ليها أنواع منتجات، وكل نوع ليه اختيارات (روائح/مكونات/أحجام). الصفحة بتحمّل صورًا مضغوطة خفيفة، والصور البعيدة عن الشاشة مش بتنزل غير لما توصلها بالسكرول.</p>
   </div>
 </header>
@@ -140,7 +140,7 @@ header.top p{color:var(--muted);max-width:640px;margin:10px auto 0;font-size:.98
   <div class="wrap">
     <div class="company-head">
       <h2>إيفا <span style="font-family:'Cairo';font-weight:700">Eva</span></h2>
-      <span class="cat-tag">القسم: عنايه بالبشرة</span>
+      <span class="cat-tag">القسم: العطور ومعطرات الجسم</span>
       <span class="note">نوع واحد بروائح كتيرة - مثال الشركة صاحبة الاختيارات الكتير</span>
     </div>
     <div class="types">
@@ -151,9 +151,9 @@ header.top p{color:var(--muted);max-width:640px;margin:10px auto 0;font-size:.98
           <span class="fam" data-fam hidden>من صورة المجموعة - صورة العبوة المنفردة تُضاف لاحقًا</span>
         </div>
         <div class="body">
-          <div class="tname">إيفا سينسز - معطر جسم ٢٤٠ مل <small>Senses Fine Fragrance Mist - الروائح كلها اختيارات لنفس المنتج، مش منتجات منفصلة</small></div>
+          <div class="tname">إيفا سينسز - معطر جسم <small>Senses Fine Fragrance Mist - الروائح كلها اختيارات لنفس المنتج، مش منتجات منفصلة</small></div>
           <div class="vars" data-vars>
-            <button class="vchip on" data-img="assets/eva-redglamour.webp" data-solo>Red Glamour</button>
+            <button class="vchip on" data-img="assets/eva-redglamour.webp" data-solo data-vol="الحجم المكتوب على عبوة Red Glamour: ٢٤٠ مل">Red Glamour</button>
             <button class="vchip" data-img="assets/eva-senses-studio.webp">Love Tale</button>
             <button class="vchip" data-img="assets/eva-senses-studio.webp">In the Clouds</button>
             <button class="vchip" data-img="assets/eva-senses-studio.webp">Mystic Orchid</button>
@@ -163,6 +163,7 @@ header.top p{color:var(--muted);max-width:640px;margin:10px auto 0;font-size:.98
             <button class="vchip" data-img="assets/eva-senses-live.webp">Gold Spell</button>
           </div>
           <span class="vcount">٨ روائح ظاهرة في العينات - تنضاف روائح جديدة كسطر واحد في الكتالوج</span>
+          <span class="vcount" data-voll>الحجم المكتوب على عبوة Red Glamour: ٢٤٠ مل</span>
           <div class="price-row">
             <span class="price">السعر: <b>غير محدد بعد</b></span>
             <span class="order-demo">زر طلب تجريبي - غير مفعّل</span>
@@ -181,7 +182,7 @@ header.top p{color:var(--muted);max-width:640px;margin:10px auto 0;font-size:.98
       <li>الصور دي عينات فعلية أرسلها صاحب الشغل - صور المجموعة بتوضّح عائلة المنتج ومش بتحتسب منتجًا لوحدها، وصورة العبوة المنفردة لكل رائحة تنضاف لما تتوفّر.</li>
       <li>الأسعار لسه «غير محددة» عمدًا - تتكتب من قائمة أسعار المورّد، وممكن كل اختيار يبقى له سعره الخاص.</li>
       <li>المنتج الجديد = سطر واحد في ملف الكتالوج (شركة ← نوع ← اختيار + صورة + سعر)، من غير أي تعديل في التصميم.</li>
-      <li>كل الصور مضغوطة (النموذج كله حوالي ١٤٠ كيلوبايت) وبتنزل كسولًا مع السكرول - عشان كده آلاف المنتجات مش بتقلّل سرعة الفتح.</li>
+      <li>كل الصور مضغوطة (النموذج كله حوالي ١٤٠ كيلوبايت) وبتنزل كسولًا مع السكرول - ده بيقلّل حجم الصور اللي بتنزل في أول فتحة، وسرعة كتالوج كبير فعلي محتاجة قياس حقيقي، وممكن تحميل المنتجات على دفعات لو لزم.</li>
       <li>محتوى توضيحي للمعاينة فقط - أزرار الطلب غير مفعّلة.</li>
     </ul>
   </div>
@@ -209,6 +210,8 @@ document.querySelectorAll('[data-type]').forEach(function(card){
       img.src=v.dataset.img;
       img.alt=v.textContent;
       fam.hidden = v.hasAttribute('data-solo') || fam.textContent.trim()==='';
+      var vol=card.querySelector('[data-voll]');
+      if(vol){ vol.textContent = v.dataset.vol || ''; vol.style.display = v.dataset.vol ? '' : 'none'; }
     });
   });
 });
