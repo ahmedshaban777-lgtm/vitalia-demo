@@ -35,6 +35,8 @@ header.top p{color:var(--muted);max-width:640px;margin:10px auto 0;font-size:.98
 .company-head .cat-tag{background:var(--rosebg);border:1px solid rgba(224,69,123,.2);color:var(--rose2);font-weight:800;font-size:.78rem;padding:5px 14px;border-radius:999px}
 .company-head span.note{color:var(--muted);font-size:.85rem}
 .types{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.types > .tcard:only-child{grid-column:1/-1}
+.types > .tcard:only-child .photo img{max-height:340px}
 .tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
 .tcard .photo{position:relative;background:#fff;display:grid;place-items:center;padding:18px;min-height:300px}
 .tcard .photo img{max-height:290px;max-width:100%;object-fit:contain;border-radius:12px}
