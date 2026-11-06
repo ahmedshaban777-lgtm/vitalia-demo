@@ -117,7 +117,7 @@ header.top p{color:var(--muted);max-width:660px;margin:10px auto 0;font-size:.96
     <b>إزاي بنتعامل مع الحجم الكبير في النموذج ده</b>
     <ul>
       <li>الواجهة مدخل للكتالوج مش عرض كامل: شركات ← أقسام ← منتجات على دفعات، ومعاهم بحث باسم المنتج يوصّل مباشرة.</li>
-      <li>فاتيكا وإيفا بعيناتك الفعلية. الشركات من ٣ لـ ١٢ والمنتجات المرقّمة «منتج توضيحي» بيانات مولّدة لتوضيح الفكرة بس - مش منتجات أو شركات حقيقية.</li>
+      <li>فاتيكا وإيفا بعيناتك الفعلية. باقي الشركات والمنتجات بأسماء وصور تخيلية (رسم توضيحي) علشان تشوف شكل الكتالوج الكبير عمليًا - كلها تتشال وتتبدل ببياناتك وصورك الفعلية لما تجهز، ولا تمثل بضاعة أو مخزون حقيقي.</li>
       <li>المنتج الجديد = سطر واحد في ملف الكتالوج (شركة ← قسم ← منتج + اختيارات + صورة + سعر)، من غير تعديل تصميم.</li>
       <li>الصور مضغوطة وبتنزل كسولًا مع السكرول وعلى دفعات - ده بيقلّل اللي بينزل في أول فتحة، وسرعة كتالوج بأعداد حقيقية محتاجة اختبار فعلي، مش ضمان من النموذج.</li>
       <li>الأسعار «غير محدد بعد» عمدًا، وأزرار الطلب غير مفعّلة - محتوى توضيحي للمعاينة فقط.</li>
@@ -154,16 +154,21 @@ var companies=[
   ]}
 ];
 
-// Generated placeholder scale data - clearly demo-only
+// Generated placeholder scale data - imaginary names + illustrative images, clearly demo-only, replaceable
+var demoNames=['لومينا','فيردي','سيلكا','أورا','هيربال','نورا','كوين','لارا','جلو','فيفا'];
 var demoCats=[['كريمات','زيوت'],['زيوت','كريمات']];
+var namePool={
+ 'كريمات':['كريم مرطب بالشيا','كريم ليلي مغذي','كريم نهاري','كريم بالكولاجين','كريم فيتامين E','كريم بالعسل','كريم ترطيب عميق','كريم ملطف','كريم غني بالصبار','كريم مجدد'],
+ 'زيوت':['زيت أرغان','زيت جوز الهند','زيت اللوز الحلو','زيت الجوجوبا','زيت الخروع','زيت الزيتون','زيت السمسم','زيت بذور العنب','زيت الورد','زيت اللافندر']
+};
 var pnum=0;
 for(var i=3;i<=12;i++){
  var cats=demoCats[i%2];
- var co={id:'demo'+i,name:'شركة توضيحية '+ar(i),latin:'',cat:i%2?'عنايه بالبشرة':'عنايه بالشعر',real:false,thumb:null,cats:cats.slice(),products:[]};
+ var co={id:'demo'+i,name:demoNames[i-3],latin:'(اسم توضيحي)',cat:i%2?'عنايه بالبشرة':'عنايه بالشعر',real:false,thumb:'assets/gen-'+(((i-3)%16)+1)+'.webp',cats:cats.slice(),products:[]};
  for(var c=0;c<cats.length;c++){
   for(var k=0;k<10;k++){
    pnum++;
-   co.products.push({name:'منتج توضيحي '+ar(pnum),cat:cats[c],variants:null});
+   co.products.push({name:namePool[cats[c]][k],cat:cats[c],variants:null,img:'assets/gen-'+((pnum%16)+1)+'.webp'});
   }
  }
  companies.push(co);
@@ -185,12 +190,13 @@ function productCard(co,p){
  var card=document.createElement('div');card.className='pcard';
  var thumb=document.createElement('div');thumb.className='pthumb';
  var v0=p.variants?p.variants[0]:null;
- if(v0){var im=document.createElement('img');im.loading='lazy';im.src=v0.img;im.alt=p.name;thumb.appendChild(im);}
+ var pimg=v0?v0.img:p.img;
+ if(pimg){var im=document.createElement('img');im.loading='lazy';im.src=pimg;im.alt=p.name;thumb.appendChild(im);}
  else{var m=document.createElement('div');m.className='mono';m.textContent='✦';thumb.appendChild(m);}
  var fam=document.createElement('span');fam.className='fam';fam.hidden=true;fam.textContent='من صورة المجموعة - صورة العبوة المنفردة تُضاف لاحقًا';
  thumb.appendChild(fam);
  var body=document.createElement('div');body.className='pbody';
- body.innerHTML='<div class="pname">'+p.name+'</div><div class="pmeta">'+co.name+' · '+p.cat+(p.variants?'':' · بيانات توضيحية')+'</div>';
+ body.innerHTML='<div class="pname">'+p.name+'</div><div class="pmeta">'+co.name+' · '+p.cat+(p.variants?'':' · اسم وصورة توضيحيان')+'</div>';
  if(p.variants){
   var vars=document.createElement('div');vars.className='vars';
   p.variants.forEach(function(v,idx){
@@ -256,7 +262,7 @@ function render(){
   crumbs.appendChild(back);
   crumbs.appendChild(el('<span class="sep">‹</span>'));
   crumbs.appendChild(el('<span>'+co.name+'</span>'));
-  var head=el('<section class="sec wrap" style="padding-bottom:0"><h2>'+co.name+(co.latin?' <span style="color:var(--muted);font-weight:700;font-size:1rem">'+co.latin+'</span>':'')+' <span class="ctag">'+co.cat+'</span></h2><div class="sub">'+ar(co.products.length)+' منتج في '+ar(co.cats.length)+' قسم'+(co.real?' - بعينات فعلية':' - شركة توضيحية ببيانات مولّدة')+'</div></section>');
+  var head=el('<section class="sec wrap" style="padding-bottom:0"><h2>'+co.name+(co.latin?' <span style="color:var(--muted);font-weight:700;font-size:1rem">'+co.latin+'</span>':'')+' <span class="ctag">'+co.cat+'</span></h2><div class="sub">'+ar(co.products.length)+' منتج في '+ar(co.cats.length)+' قسم'+(co.real?' - بعينات فعلية':' - اسم وصور توضيحية')+'</div></section>');
   app.appendChild(head);
   var sec=document.createElement('section');sec.className='sec wrap';
   var chips=document.createElement('div');chips.className='chips';
