@@ -238,7 +238,7 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
 .mnav{display:none}
 @media(max-width:760px){
   body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
-  .mnav{display:flex;position:fixed;bottom:0;inset-inline:0;z-index:60;background:rgba(253,249,245,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(122,46,84,.08);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .mnav{display:flex;position:fixed;top:auto;bottom:0;border-bottom:0;inset-inline:0;z-index:60;background:rgba(253,249,245,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(122,46,84,.08);padding-bottom:env(safe-area-inset-bottom,0px)}
   .mnav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 4px 8px;font-family:'Cairo';font-weight:800;font-size:.72rem;color:var(--muted);transition:.2s}
   .mnav a .ic{font-size:1.15rem;line-height:1}
   .mnav a:active{color:var(--rose2)}
@@ -430,12 +430,12 @@ footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
     <div class="pdm-body" id="pdmBody"></div>
   </div>
 </div>
-<nav class="mnav" aria-label="تنقل سريع">
+<div class="mnav" role="navigation" aria-label="تنقل سريع">
   <a href="#topnav"><span class="ic">🏠</span>الرئيسية</a>
   <a href="#products"><span class="ic">🛍️</span>المنتجات</a>
   <a href="#branches"><span class="ic">📍</span>الفروع</a>
   <a href="#contact"><span class="ic">📞</span>تواصل</a>
-</nav>
+</div>
 
 <footer>
   <div class="wrap">
