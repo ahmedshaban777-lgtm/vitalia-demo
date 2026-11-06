@@ -14,12 +14,11 @@
    "lux",
    "cantu"
   ],
-  "note": "His actual item names matched item-level to verified OBF photos already in assets/. Bing-scrape attempt for 116 more photos returned poisoned results (rate-limited) - all discarded. OBF search API was 503 at 05:56 EET; retry to top up toward ~150."
+  "note": "His actual item names matched item-level to verified photos already in assets. Web-scrape attempt for 116 more photos returned poisoned results and was discarded; OBF search API was down (503); retry to top up toward ~150."
  },
  "batch_1b_pending": {
   "target": "~150 products",
   "needs": "OBF retry (rexona, sunsilk, sensodyne, gillette, pantene, neutrogena, penduline, bobana, beesline, sheglam + more per existing brands)",
   "selection": "/tmp/selection.json (this agent), queries EN per item"
- },
- "his_list": "PDF /downloads/file-b56e5559.pdf (8790 SKUs, ~230 suppliers, no prices)"
+ }
 }
