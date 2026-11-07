@@ -3,7 +3,7 @@
 'use strict';
 var all=[], products=new Map(), base=new Map(), samples=['vatika','eva'];
 function itemId(co,p,pi,vi){return p.source==='excel'?p.code:co.id+'-'+pi+'-'+vi;}
-var previousIndex=0,oldVisualIndex=0;CTL_COMPANIES.forEach(function(co){co.products.forEach(function(p){if(p.source==='excel')return;p.oldVisualIndex=oldVisualIndex;oldVisualIndex+=(p.v||[null]).length;if(!samples.includes(co.id)){p.oldNumber=++previousIndex;p.code='VTL-P'+String(previousIndex).padStart(5,'0');}});});
+var previousIndex=0,oldVisualIndex=0;CTL_COMPANIES.forEach(function(co){co.products.forEach(function(p){if(p.source==='excel')return;p.oldVisualIndex=oldVisualIndex;oldVisualIndex+=(p.v||[null]).length;if(!samples.includes(co.id)){p.oldNumber=++previousIndex;p.code=p.code||'VTL-P'+String(previousIndex).padStart(5,'0');}});});
 CTL_COMPANIES.forEach(function(co){co.products.forEach(function(p,pi){
  (p.v||[null]).forEach(function(v,vi){var sample=samples.includes(co.id), id=itemId(co,p,pi,vi);
  var x={id:id,name:p.n+(v?' - '+v.n:''),brand:co.ar,code:p.code||'',source:p.source==='excel'?'من الإكسل - Table 1':'كتالوج سابق',img:p.pending?'':(v?v.img:p.img),sample:sample,note:p.note||'',price:50+((p.source==='excel'?Number(p.code.slice(5)):p.oldVisualIndex)%9)*15};
