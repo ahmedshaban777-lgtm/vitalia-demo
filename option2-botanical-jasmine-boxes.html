@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitalia | فيتاليا - معاينة اللوجو رقم ٢</title>
+<meta name="description" content="Vitalia - فيتاليا: معاينة تصميم لموقع كوزمتكس ومستلزمات طبية. كل المحتوى توضيحي.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e0457b'/%3E%3Cstop offset='1' stop-color='%23d99a3a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='44' height='44' rx='13' fill='url(%23g)'/%3E%3Ctext x='23' y='34' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='27' fill='%23fff'%3EV%3C/text%3E%3Cpath d='M33 16.5 C35.5 15.6 37.2 13.7 37.6 10.4 C35 11 33.5 13.2 33 16.5 Z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@1,700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#fdf9f5; --rosebg:#fdf0f4; --goldbg:#fbf3e6;
+  --rose:#ff7ea8; --rose2:#e0457b; --gold:#f0b95c; --gold2:#d99a3a;
+  --grad:linear-gradient(120deg,var(--rose2),var(--gold2));
+  --card:#ffffff; --ink:#2a1830; --muted:#7d7286;
+  --line:#f0e4e2; --radius:20px; --shadow:0 18px 44px rgba(122,46,84,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal',sans-serif;color:var(--ink);background:var(--ivory);line-height:1.75;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cairo',sans-serif;line-height:1.35}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1160px,92%);margin-inline:auto}
+.section{padding:88px 0}
+.section-head{text-align:center;max-width:640px;margin:0 auto 52px}
+.section-head .kicker{display:inline-block;background:#fff;color:var(--rose2);font-weight:800;font-size:.85rem;padding:7px 18px;border-radius:999px;margin-bottom:14px;border:1px solid rgba(224,69,123,.22);box-shadow:0 6px 16px rgba(122,46,84,.06)}
+.section-head h2{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:900;color:var(--ink)}
+.section-head p{color:var(--muted);margin-top:10px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.brand .wmark{height:34px;width:auto}
+.hero-id2{margin-top:8px;text-align:center}
+.hero-id2 .wordmark{display:block;width:min(400px,88%);height:auto;margin-inline:auto;filter:drop-shadow(0 12px 24px rgba(224,69,123,.22))}
+.hero-id2 .fields{display:flex;flex-direction:column;gap:3px;margin-top:2px}
+.hero-id2 .fields .ar{font-family:'Cairo';font-weight:800;font-size:clamp(1.05rem,2.2vw,1.4rem);color:var(--ink)}
+.hero-id2 .fields .en{font-family:'Cairo';font-weight:700;font-size:clamp(1.05rem,2.2vw,1.4rem);letter-spacing:0;color:var(--muted);text-align:center}
+@media(max-width:640px){.hero-id2 .wordmark{width:min(300px,84%)}}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ NAV ============ */
+nav{position:fixed;inset-inline:0;top:0;z-index:60;background:rgba(253,249,245,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .bt{display:flex;flex-direction:column;line-height:1.2}
+.brand .bt b{font-family:'Cairo';font-weight:900;font-size:1.15rem;letter-spacing:.4px;color:var(--ink)}
+.brand .bt span{font-size:.68rem;color:var(--muted);font-weight:500}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);font-weight:600;font-size:.95rem;transition:color .2s}
+.nav-links a:hover{color:var(--rose2)}
+.burger{display:none;background:none;border:none;color:var(--ink);font-size:1.5rem;cursor:pointer}
+.demo-pill{background:#fff;border:1px solid rgba(224,69,123,.25);color:var(--rose2);font-weight:800;font-size:.78rem;padding:8px 16px;border-radius:999px}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:150px 0 90px;background:radial-gradient(900px 520px at 88% -5%,rgba(224,69,123,.14),transparent 60%),radial-gradient(720px 500px at 5% 100%,rgba(240,185,92,.18),transparent 55%),linear-gradient(165deg,#fff 0%,var(--rosebg) 55%,var(--goldbg) 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(122,46,84,.08) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(700px 500px at 50% 40%,#000 0%,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;animation:drift 12s ease-in-out infinite alternate}
+.orb.o1{width:320px;height:320px;background:#f2a0bd;top:-80px;inset-inline-end:-60px}
+.orb.o2{width:260px;height:260px;background:#f5cf8e;bottom:-70px;inset-inline-start:-40px;animation-delay:-6s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,-26px) scale(1.08)}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.hero .tag{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid rgba(224,69,123,.22);box-shadow:0 8px 20px rgba(122,46,84,.08);padding:8px 18px;border-radius:999px;font-size:.85rem;color:var(--rose2);font-weight:800}
+.hero-id{display:flex;align-items:center;gap:18px;margin-top:22px}
+.hero-id .mark{width:84px;height:84px;flex:none;filter:drop-shadow(0 14px 26px rgba(224,69,123,.3))}
+.hero-id h1{font-size:clamp(2.6rem,5.6vw,4rem);font-weight:900;line-height:1.1}
+.hero-id .fields{display:flex;flex-direction:column;gap:3px;margin-top:8px}
+.hero-id .fields .ar{font-family:'Cairo';font-weight:800;font-size:clamp(1.05rem,2.2vw,1.4rem);color:var(--ink)}
+.hero-id .fields .en{font-family:'Cairo';font-weight:700;font-size:clamp(1.05rem,2.2vw,1.4rem);letter-spacing:0;color:var(--muted);text-align:right}
+.hero p.lead{color:var(--muted);font-size:1.08rem;max-width:520px;margin-top:20px}
+.hero-btns{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;padding:15px 30px;border-radius:15px;font-size:1rem;transition:transform .15s,box-shadow .15s;border:none;cursor:pointer;font-family:'Cairo'}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 12px 28px rgba(224,69,123,.32)}
+.btn-grad:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(224,69,123,.45)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--rose2)}
+
+/* Hero visual */
+.hero-visual{position:relative}
+.hero-visual .board{background:rgba(255,255,255,.75);border:1px solid #fff;backdrop-filter:blur(10px);border-radius:26px;box-shadow:var(--shadow);padding:26px}
+.mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.mini{background:var(--ivory);border:1px solid var(--line);border-radius:18px;padding:20px 16px;text-align:center;transition:transform .25s,border-color .25s}
+.mini:hover{transform:translateY(-4px);border-color:rgba(224,69,123,.35)}
+.mini .pic{font-size:2.5rem;margin-bottom:8px}
+.mini b{display:block;font-size:.92rem;color:var(--ink)}
+.hero-visual .float{position:absolute;background:#fff;border-radius:14px;padding:10px 17px;font-size:.82rem;font-weight:800;color:var(--ink);box-shadow:0 16px 34px rgba(122,46,84,.16);display:flex;align-items:center;gap:8px;animation:floaty 5s ease-in-out infinite;border:1px solid var(--line)}
+.float.f1{top:-20px;inset-inline-start:-16px}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ============ TICKER ============ */
+.ticker{background:#fff;border-block:1px solid var(--line);overflow:hidden;padding:15px 0}
+.ticker-track{display:flex;gap:52px;width:max-content;animation:tick 26s linear infinite}
+.ticker span{color:#b9a8b4;font-family:'Cairo';font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:52px;white-space:nowrap}
+.ticker i{color:var(--gold2);font-style:normal}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* ============ CATEGORIES ============ */
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.cat{position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);padding:36px 22px;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;overflow:hidden}
+.cat::after{content:'';position:absolute;inset-inline:0;bottom:0;height:4px;background:var(--grad);transform:scaleX(0);transition:transform .3s;transform-origin:center}
+.cat:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.cat:hover::after{transform:scaleX(1)}
+.cat .icon{width:72px;height:72px;margin:0 auto 16px;border-radius:22px;display:grid;place-items:center;font-size:2.1rem;background:linear-gradient(135deg,var(--rosebg),var(--goldbg));box-shadow:inset 0 0 0 1px rgba(224,69,123,.12)}
+.cat h3{font-size:1.06rem;font-weight:800;color:var(--ink)}
+/* Per-category accents (user-approved color coding) */
+.cat:nth-child(1) .icon{background:linear-gradient(135deg,#fdf0f4,#fce0ea);box-shadow:inset 0 0 0 1px rgba(224,69,123,.18)}
+.cat:nth-child(2) .icon{background:linear-gradient(135deg,#fbf3e6,#f7e7c8);box-shadow:inset 0 0 0 1px rgba(217,154,58,.2)}
+.cat:nth-child(3) .icon{background:linear-gradient(135deg,#fdeee7,#fbdfd3);box-shadow:inset 0 0 0 1px rgba(233,138,112,.2)}
+.cat:nth-child(4) .icon{background:linear-gradient(135deg,#f6edf5,#eedeee);box-shadow:inset 0 0 0 1px rgba(155,92,148,.18)}
+.cat:nth-child(5) .icon{background:linear-gradient(135deg,#ecf6f4,#dcefea);box-shadow:inset 0 0 0 1px rgba(79,158,149,.18)}
+.cat:nth-child(1)::after{background:linear-gradient(90deg,#e0457b,#f07ba4)}
+.cat:nth-child(2)::after{background:linear-gradient(90deg,#d99a3a,#f0c05c)}
+.cat:nth-child(3)::after{background:linear-gradient(90deg,#e98a70,#f4b49a)}
+.cat:nth-child(4)::after{background:linear-gradient(90deg,#9b5c94,#c48cbd)}
+.cat:nth-child(5)::after{background:linear-gradient(90deg,#4f9e95,#7fc4bb)}
+.mini:nth-child(1){background:#fdf0f4}
+.mini:nth-child(2){background:#fbf3e6}
+.mini:nth-child(3){background:#fdeee7}
+.mini:nth-child(4){background:#f6edf5}
+.mini:nth-child(5){background:#ecf6f4}
+.cat p{color:var(--muted);font-size:.87rem;margin-top:7px}
+
+/* ============ PRODUCTS ============ */
+.products{background:linear-gradient(180deg,var(--rosebg) 0%,var(--ivory) 100%)}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.prod{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.prod:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.prod .thumb{aspect-ratio:1/.8;display:grid;place-items:center;font-size:3.6rem;position:relative}
+.prod .body{padding:17px 17px 19px;display:flex;flex-direction:column;flex:1}
+.prod .catname{font-size:.75rem;color:var(--rose2);font-weight:800}
+.prod h3{font-size:.99rem;font-weight:800;color:var(--ink);margin:5px 0 9px}
+.prod .price-row{margin-top:auto;display:flex;align-items:baseline;gap:8px}
+.prod .price{font-family:'Cairo';font-weight:900;font-size:1.28rem;color:var(--ink)}
+.prod .demo-note{margin-top:13px;display:flex;align-items:center;justify-content:center;gap:8px;background:#faf4f6;color:#a4959e;font-weight:700;font-size:.82rem;padding:10px;border-radius:12px;border:1px dashed #e6d5dc}
+.sample-flag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(224,69,123,.25);color:var(--rose2);font-weight:800;font-size:.82rem;padding:7px 18px;border-radius:999px;margin:0 auto}
+
+/* ============ BRANCHES ============ */
+.branches-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.branch{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:transform .25s,box-shadow .25s}
+.branch:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.branch h3{display:flex;align-items:center;gap:10px;font-size:1.1rem;font-weight:800;margin-bottom:14px}
+.branch h3 .ic{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--rosebg),var(--goldbg));display:grid;place-items:center;font-size:1.15rem}
+.branch ul{list-style:none}
+.branch li{color:var(--muted);font-size:.94rem;padding:7px 0;border-bottom:1px dashed var(--line)}
+.branch li:last-child{border:none}
+.map-ph{margin-top:24px;background:linear-gradient(135deg,var(--rosebg),var(--goldbg));border:1.5px dashed rgba(224,69,123,.3);border-radius:var(--radius);padding:44px 20px;text-align:center}
+.map-ph .pin{font-size:2.6rem;margin-bottom:8px}
+.map-ph b{display:block;font-family:'Cairo';font-weight:800;color:var(--ink)}
+.map-ph span{color:var(--muted);font-size:.87rem}
+
+/* ============ CONTACT PLACEHOLDER ============ */
+.contact{background:linear-gradient(160deg,var(--goldbg),var(--rosebg));text-align:center}
+.contact h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:900;margin-bottom:14px}
+.contact p{color:var(--muted);max-width:560px;margin:0 auto 26px}
+.contact .ph-box{display:inline-block;background:#fff;border:1.5px dashed rgba(217,154,58,.55);border-radius:18px;padding:26px 40px;box-shadow:var(--shadow)}
+.contact .ph-box b{display:block;font-family:'Cairo';font-weight:800;font-size:1.05rem;color:var(--gold2)}
+.contact .ph-box span{color:var(--muted);font-size:.9rem}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ivory);color:#a4959e;padding:36px 0;text-align:center;font-size:.9rem;border-top:1px solid var(--line)}
+footer b{color:var(--ink)}
+footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .branches-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav-links{position:fixed;top:74px;inset-inline:0;background:rgba(253,249,245,.98);backdrop-filter:blur(14px);flex-direction:column;gap:0;padding:8px 0;display:none;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:13px 6%;font-size:1rem}
+  .burger{display:block}
+  .demo-pill{display:none}
+  .hero{padding:120px 0 70px}
+  .hero-id{gap:13px}
+  .hero-id .mark{width:62px;height:62px}
+  .cats{grid-template-columns:repeat(2,1fr);gap:14px}
+  .prod-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .prod .thumb{font-size:2.7rem}
+  .prod .price{font-size:1.1rem}
+  .section{padding:64px 0}
+  .float.f1{inset-inline-start:2px}
+}
+@media(max-width:380px){
+  .prod-grid{grid-template-columns:1fr}
+  .cats{grid-template-columns:1fr 1fr;gap:12px}
+}
+
+/* ============ CATALOG ============ */
+.ctl{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 24px}
+.ctl-pending{display:grid;place-items:center;min-height:140px;width:100%;color:var(--muted);font-family:'Cairo';font-weight:800;font-size:.85rem;border:1.5px dashed var(--line);border-radius:12px;background:var(--ivory)}
+.ctl-substats{font-size:.72rem;font-weight:700;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+.ctl-toolbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.ctl-search{position:relative;flex:1;min-width:240px}
+.ctl-search input{width:100%;border:1.5px solid var(--line);border-radius:999px;padding:11px 44px 11px 18px;font-family:'Tajawal';font-size:.95rem;background:var(--ivory);color:var(--ink)}
+.ctl-search input:focus{outline:none;border-color:var(--rose2)}
+.ctl-search .sic{position:absolute;top:50%;inset-inline-start:16px;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none}
+.ctl-stats{font-family:'Cairo';font-weight:800;font-size:.86rem;color:var(--muted)}
+.ctl-stats b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.05rem}
+.ctl-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.ctl-sub{margin-bottom:20px}
+.ctl-chip{border:1.5px solid var(--line);background:var(--ivory);border-radius:999px;padding:7px 18px;font-family:'Cairo';font-weight:800;font-size:.88rem;color:var(--ink);cursor:pointer;transition:.2s}
+.ctl-chip.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(224,69,123,.3)}
+.ctl-sub .ctl-chip{font-size:.8rem;padding:5px 14px}
+.ctl-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+@media(hover:hover) and (pointer:fine){.ctl-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}}
+.ctl-thumb{position:relative;background:#fff;display:grid;place-items:center;padding:14px;min-height:190px;border-bottom:1px solid var(--line)}
+.ctl-thumb img{max-height:170px;max-width:100%;object-fit:contain}
+.ctl-thumb .fam{position:absolute;bottom:8px;inset-inline:8px;background:rgba(42,24,48,.78);color:#fff;font-size:.68rem;font-weight:700;padding:4px 8px;border-radius:8px;text-align:center}
+.ctl-body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ctl-brand{font-size:.72rem;color:var(--gold2);font-weight:800}
+.ctl-body h3{font-size:.98rem;font-weight:800;line-height:1.5}
+.ctl-cat{display:inline-block;background:var(--rosebg);border:1px solid rgba(224,69,123,.18);color:var(--rose2);font-weight:800;font-size:.7rem;padding:3px 10px;border-radius:999px;width:fit-content}
+.ctl-vars{display:flex;gap:6px;flex-wrap:wrap}
+.ctl-vchip{border:1.5px solid var(--line);background:var(--ivory);border-radius:10px;padding:5px 11px;font-family:'Cairo';font-weight:700;font-size:.76rem;cursor:pointer;transition:.15s;color:var(--ink)}
+.ctl-vchip.on{background:var(--rosebg);border-color:var(--rose2);color:var(--rose2)}
+.ctl-vnote{font-size:.72rem;color:var(--muted)}
+.ctl-pricerow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 10px;border-top:1px dashed var(--line);padding-top:10px;margin-top:auto}
+.ctl-price{font-family:'Cairo';font-weight:800;font-size:.84rem;color:var(--muted)}
+.ctl-price b{color:var(--ink)}
+.ctl-order{background:#faf4f6;color:#a4959e;font-weight:700;font-size:.72rem;padding:6px 12px;border-radius:9px;border:1px dashed #e6d5dc}
+.ctl-shown{text-align:center;font-size:.8rem;color:var(--muted);margin-top:18px}
+.ctl-morewrap{text-align:center;margin-top:10px}
+.ctl-more{background:#fff;border:1.5px solid rgba(224,69,123,.35);color:var(--rose2);font-family:'Cairo';font-weight:800;font-size:.95rem;padding:11px 34px;border-radius:999px;cursor:pointer;transition:.2s}
+.ctl-more:hover{background:var(--rosebg)}
+.ctl-morewrap.hidden{display:none}
+@media(max-width:760px){.ctl{padding:18px 14px}.ctl-thumb{min-height:160px}.ctl-thumb img{max-height:140px}}
+/* ============ BROWSING IMPROVEMENTS 2026-11-06 ============ */
+.ctl-sort{display:flex;align-items:center}
+.ctl-sort select{border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;font-family:'Tajawal';font-weight:700;font-size:.9rem;background:var(--ivory);color:var(--ink);cursor:pointer}
+.ctl-sort select:focus{outline:none;border-color:var(--rose2)}
+.mnav{display:none}
+@media(max-width:760px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  .mnav{display:flex;position:fixed;top:auto;bottom:0;border-bottom:0;inset-inline:0;z-index:60;background:rgba(253,249,245,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(122,46,84,.08);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .mnav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 4px 8px;font-family:'Cairo';font-weight:800;font-size:.72rem;color:var(--muted);transition:.2s}
+  .mnav a .ic{font-size:1.15rem;line-height:1}
+  .mnav a:active{color:var(--rose2)}
+  #ctlCompanies{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+  #ctlCompanies .ctl-chip{flex:0 0 auto;white-space:nowrap}
+}
+.pdm{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(42,24,48,.5);backdrop-filter:blur(4px)}
+.pdm.open{display:flex}
+.pdm-card{background:var(--ivory);border-radius:var(--radius);box-shadow:var(--shadow);max-width:460px;width:100%;max-height:88vh;overflow:auto;position:relative;border:1px solid var(--line)}
+.pdm-x{position:absolute;top:10px;inset-inline-end:10px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:.95rem;cursor:pointer;z-index:2}
+.pdm-thumb{background:#fff;display:grid;place-items:center;padding:26px 18px;border-bottom:1px solid var(--line);min-height:280px}
+.pdm-thumb img{max-height:260px;max-width:100%;object-fit:contain}
+.pdm-note{padding:8px 14px;font-size:.72rem;color:var(--muted);background:#fff;border-bottom:1px solid var(--line)}
+.pdm-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:9px}
+.pdm-body h3{font-size:1.12rem;font-weight:800;line-height:1.5}
+
+.vc-icon{width:21px;height:21px;display:inline-block;vertical-align:middle;margin-inline-end:4px}
+/* Preview-only cart and fictional stock reference */
+.demo-tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.demo-tools button,.vc-btn{font:700 .94rem 'Tajawal',sans-serif;min-height:44px;border:1px solid var(--line);border-radius:12px;padding:10px 16px;background:#fff;color:var(--ink);cursor:pointer}.vc-btn.primary{background:var(--grad);color:white;border:0}.demo-tools .primary{color:var(--rose2);border-color:var(--rose2)}
+.vc-note{font-size:.87rem;line-height:1.8;color:#745524;background:var(--goldbg);border:1px solid #eed9b7;padding:12px 14px;border-radius:12px}.vc-overlay{position:fixed;inset:0;z-index:100;background:rgba(42,24,48,.5);backdrop-filter:blur(4px);display:none;padding:18px;align-items:center;justify-content:center}.vc-overlay.open{display:flex}.vc-panel{width:min(900px,100%);max-height:90dvh;background:var(--ivory);border-radius:22px;overflow:auto;box-shadow:var(--shadow)}.vc-head{position:sticky;top:0;z-index:2;background:var(--ivory);display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);gap:10px}.vc-head h2{font-size:1.25rem}.vc-content{padding:20px}.vc-tabs{display:flex;gap:8px;margin:0 0 16px}.vc-tabs .active{background:var(--rosebg);color:var(--rose2);border-color:var(--rose2)}.vc-row{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}.vc-item{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center}.vc-item img{width:64px;height:76px;object-fit:contain}.vc-item h3{font-size:1rem;line-height:1.7}.vc-muted{color:var(--muted);font-size:.86rem}.vc-qty{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}.vc-qty input{width:66px;text-align:center;min-height:44px;border:1px solid var(--line);border-radius:10px;background:#fff;font:700 1rem 'Tajawal'}.vc-qty button{width:44px;padding:8px}.vc-line{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px}.vc-total{font:800 1.3rem 'Cairo';color:var(--rose2);padding:14px 0}.vc-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.vc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.vc-stat{background:#fff;border:1px solid var(--line);padding:12px;border-radius:14px;text-align:center}.vc-stat strong{display:block;font:800 1.45rem 'Cairo';color:var(--rose2)}.vc-search{font:1rem 'Tajawal';width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;margin:10px 0}.vc-stockline{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.vc-stockline div{font-size:.85rem;color:var(--muted);background:var(--ivory);padding:8px;border-radius:8px}.vc-stockline b{display:block;color:var(--ink);font-size:1.1rem}.vc-empty{text-align:center;padding:28px 10px;color:var(--muted)}.vc-float{position:fixed;bottom:22px;inset-inline-end:20px;z-index:65;background:var(--grad);color:white;border:0;border-radius:999px;box-shadow:var(--shadow);font:800 .95rem 'Tajawal';padding:13px 20px;min-height:48px;cursor:pointer}.vc-status{color:var(--rose2);min-height:24px;font-weight:700}.vc-panel textarea{font:1rem 'Tajawal';padding:12px;width:100%;border:1px solid var(--line);border-radius:12px;resize:vertical}.vc-ledger{margin-top:22px}.vc-ledger p{padding:10px 0;border-bottom:1px solid var(--line);font-size:.88rem}.vc-code{direction:ltr;unicode-bidi:isolate;font-size:.75rem;color:var(--muted)}
+@media(max-width:640px){.vc-overlay{padding:8px}.vc-panel{max-height:94dvh;border-radius:18px}.vc-content{padding:14px}.vc-head{padding:12px 14px}.vc-float{bottom:82px;inset-inline-end:12px}.pdm-thumb{min-height:150px;padding:15px}.pdm-thumb img{max-height:160px}.pdm-x{width:44px;height:44px}.vc-stats{gap:6px}.vc-stat{padding:10px 4px;font-size:.83rem}.vc-stat strong{font-size:1.2rem}}
+
+.vc-direct{display:flex!important;flex-direction:column;align-items:stretch!important;gap:8px;width:100%}.vc-card-label{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:.87rem}.vc-card-qty{width:58px;min-height:44px;border:1px solid var(--line);border-radius:10px;text-align:center;font:700 1rem 'Tajawal';background:#fff}.vc-card-add{width:100%;padding:10px 6px;font-size:.92rem!important}.vc-in-cart{font-size:.8rem;color:var(--rose2);font-weight:700}.vc-card-details{background:none;border:0;text-decoration:underline;color:var(--muted);font: .85rem 'Tajawal';min-height:36px;cursor:pointer}.mnav button{display:none}@media(max-width:760px){.vc-float{display:none}.mnav button{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:none;border:0;color:var(--rose2);font:700 .7rem 'Tajawal';min-height:64px;cursor:pointer}.mnav button svg{width:21px;height:21px;margin:0}.mnav a{min-width:0;font-size:.7rem}.vc-direct .ctl-price{font-size:.85rem}.vc-direct{gap:7px}.ctl-card{min-width:0}.vc-qty~button[data-remove]{color:var(--rose2)}}
+.vc-step{display:flex;gap:10px;margin:18px 0 12px;font-size:.88rem}.vc-step span,.vc-step b{padding:6px 12px;border-radius:99px;background:#fff;border:1px solid var(--line)}.vc-step b{color:var(--rose2);background:var(--rosebg)}.vc-form-title{font:800 1.3rem 'Cairo';margin-bottom:5px}.vc-summary{margin-top:18px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:16px}.vc-summary h4{align-self:center}.vc-summary-item{display:flex;justify-content:space-between;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding:14px 0}.vc-summary-item b{font-size:.96rem}.vc-summary-item small{display:block;color:var(--muted);font-size:.86rem;line-height:1.8}.vc-summary-item strong{white-space:nowrap;font-size:.95rem}.vc-summary .vc-total{font-size:1.03rem}.vc-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}.vc-wide{grid-column:1/-1}.vc-field{display:flex;flex-direction:column;gap:7px;font-weight:700;font-size:.95rem}.vc-field small{font-weight:400;color:var(--muted);line-height:1.8}.vc-field input,.vc-field select{width:100%;min-height:48px;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;color:var(--ink);font:1rem 'Tajawal'}.vc-field input:focus,.vc-field select:focus,.vc-field textarea:focus{outline:2px solid var(--rose2);outline-offset:2px}.vc-form-grid [hidden],[hidden].vc-field{display:none!important}#vcF_phone{direction:ltr;text-align:right}#vcFormResult{margin-top:14px;line-height:1.9}@media(max-width:540px){.vc-form-grid{grid-template-columns:1fr}.vc-summary{padding:12px}.vc-summary-item{gap:8px}.vc-summary-item strong{font-size:.85rem}.vc-step{font-size:.8rem}}
+.ctl-card{-webkit-tap-highlight-color:transparent}.vc-card-add{-webkit-tap-highlight-color:transparent;touch-action:manipulation}.vc-card-add:active{filter:brightness(.88);box-shadow:inset 0 0 0 2px rgba(255,255,255,.4)}.vc-tabs{flex-wrap:wrap}.vc-tabs button{padding:9px 12px}.vc-panel.vc-checkout-mode .vc-content>.vc-note{display:none}.vc-checkout-mode .vc-step{display:none}.vc-checkout-mode .vc-form-title{margin-top:6px}.vc-checkout-mode .vc-form-grid{margin-top:12px}.vc-checkout-mode .vc-summary{margin-top:22px}.vc-form-entry{background:var(--rosebg);border:1px solid var(--line);border-radius:12px;margin:12px 0;padding:12px}.vc-form-entry button{width:100%}.vc-form-entry p{margin-top:6px}.vc-inline-cart{font-weight:700;color:var(--rose2);line-height:1.8;margin-top:10px}.vc-inline-cart button{margin-inline-start:8px}@media(max-width:760px){.ctl-card:hover{transform:none;box-shadow:none}.vc-tabs{gap:6px}.vc-tabs button{font-size:.84rem}.vc-checkout-mode .vc-head h2{font-size:1.1rem}.vc-checkout-mode .vc-form-title{font-size:1.15rem}}
+.vc-item-code{direction:ltr;unicode-bidi:isolate;font:700 .83rem monospace;color:var(--rose2);overflow-wrap:anywhere}.vc-source-label{font-size:.75rem;color:var(--muted)}
+
+/* Review-only botanical direction: jasmine. Decorative, no interaction changes. */
+.botanical-sprig{position:absolute;width:170px;height:285px;object-fit:contain;pointer-events:none;user-select:none;opacity:.64;z-index:0}
+.botanical-sprig.a{top:90px;left:-42px;transform:rotate(15deg)}
+.botanical-sprig.b{bottom:-55px;right:-25px;transform:rotate(195deg);opacity:.34}
+.hero-grid{z-index:1}
+.cat .icon,.mini .pic{position:relative}
+.cat .icon::before,.mini .pic::before{content:'';position:absolute;width:34px;height:34px;right:-14px;top:-11px;background:url('assets/botanical/jasmine-icon.svg') center/contain no-repeat;opacity:.8;pointer-events:none}
+.mini .pic::before{right:calc(50% - 42px);width:29px;height:29px;top:2px;opacity:.7}
+@media(max-width:640px){.botanical-sprig.a{top:72px;left:-76px;width:155px;height:245px;opacity:.36}.botanical-sprig.b{right:-85px;bottom:16px;width:160px;height:260px;opacity:.25}.cat .icon::before{width:29px;height:29px;right:-10px}}
+
+/* Box-interior revision for review: preserve the colored cards and readable content. */
+.hero .mini,.section .cat,.branch,.contact .ph-box{background-image:url('assets/botanical/jasmine-box.svg');background-repeat:no-repeat;background-position:left -12px bottom -32px;background-size:115px 190px}
+.hero .mini:nth-child(even),.section .cat:nth-child(even){background-position:right -14px bottom -35px}
+.ctl-body{background-image:url('assets/botanical/jasmine-box.svg');background-repeat:no-repeat;background-position:left -15px bottom 8px;background-size:95px 160px}
+.ctl-pending{background-image:url('assets/botanical/jasmine-box.svg');background-repeat:no-repeat;background-position:left -28px bottom -35px;background-size:110px 180px}
+@media(max-width:640px){.hero .mini,.section .cat{background-size:95px 160px;background-position:left -17px bottom -32px}.hero .mini:nth-child(even),.section .cat:nth-child(even){background-position:right -20px bottom -35px}.ctl-body{background-size:78px 130px;background-position:left -20px bottom 20px}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="vgrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e0457b"/><stop offset="1" stop-color="#f0b95c"/>
+    </linearGradient>
+  </defs>
+  <linearGradient id="vwgrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#e0457b"/><stop offset="1" stop-color="#d99a3a"/>
+  </linearGradient>
+  <symbol id="vword" viewBox="0 6 320 92">
+    <text x="160" y="86" text-anchor="middle" font-family="Playfair Display" font-style="italic" font-weight="700" font-size="66" fill="url(#vwgrad)">Vitalia</text>
+    <path d="M254 30 C261 28 265 21 266 12 C259 14 254 20 254 30 Z" fill="url(#vwgrad)"/>
+  </symbol>
+  <symbol id="vlogo" viewBox="0 0 48 48">
+    <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#vgrad)"/>
+    <path d="M14 15 L24 35 L33 16" stroke="#fff" stroke-width="4.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M33.5 14.5 C36.5 13.5 38.5 10.8 39 7 C35.8 7.6 33.8 10 33.5 14.5 Z" fill="#fff"/>
+  </symbol>
+</svg>
+
+<nav id="topnav">
+  <div class="wrap nav-inner">
+    <a href="#" class="brand">
+      <svg class="wmark" viewBox="0 6 320 92" role="img" aria-label="Vitalia"><use href="#vword"/></svg>
+      <span class="bt"><span>كوزمتكس ومستلزمات طبية</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#cats">الأقسام</a></li>
+      <li><a href="#products">المنتجات</a></li>
+      <li><a href="#branches">الفروع</a></li>
+      <li><a href="#contact">تواصل</a></li>
+    </ul>
+    <span class="demo-pill">معاينة تصميم - محتوى توضيحي</span>
+    <button class="burger" id="burger" aria-label="القائمة">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <img class="botanical-sprig a" src="assets/botanical/jasmine-sprig.svg" alt="" aria-hidden="true">
+  <img class="botanical-sprig b" src="assets/botanical/jasmine-sprig.svg" alt="" aria-hidden="true">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-id2">
+        <svg class="wordmark" viewBox="0 6 320 92" role="img" aria-label="Vitalia"><use href="#vword"/></svg>
+        <div class="fields">
+          <span class="ar">كوزمتكس ومستلزمات طبية</span>
+          <span class="en" dir="ltr">Cosmetics, Medical Supplies</span>
+        </div>
+      </div>
+      <p class="lead">معاينة تصميم لموقع متجر كوزمتكس ومستلزمات طبية. الأقسام والمنتجات والأسعار المعروضة عينة توضيحية فقط.</p>
+      <div class="hero-btns">
+        <a href="#cats" class="btn btn-grad">شوف الأقسام</a>
+        <a href="#products" class="btn btn-ghost">شوف المنتجات</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="float f1">✦ معاينة تصميم</div>
+      <div class="board">
+        <div class="mini-grid">
+          <div class="mini"><div class="pic">💇‍♀️</div><b>عنايه بالشعر</b></div>
+          <div class="mini"><div class="pic">🧴</div><b>عنايه بالبشرة</b></div>
+          <div class="mini"><div class="pic">🤱</div><b>الأم والطفل</b></div>
+          <div class="mini"><div class="pic">🏥</div><b>المستلزمات الطبية للصيدليات</b></div>
+          <div class="mini" style="grid-column:1/-1"><div class="pic">🩺</div><b>المستلزمات الطبية للعيادات</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>VITALIA <i>✦</i> عنايه بالشعر <i>✦</i> عنايه بالبشرة <i>✦</i> الأم والطفل <i>✦</i> المستلزمات الطبية للصيدليات <i>✦</i> المستلزمات الطبية للعيادات <i>✦</i></span>
+    <span>VITALIA <i>✦</i> عنايه بالشعر <i>✦</i> عنايه بالبشرة <i>✦</i> الأم والطفل <i>✦</i> المستلزمات الطبية للصيدليات <i>✦</i> المستلزمات الطبية للعيادات <i>✦</i></span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" id="cats">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">الأقسام</span>
+      <h2>٥ أقسام رئيسية</h2>
+      <p>اختار أي قسم لاستعراض شكل التصفح في المعاينة</p>
+    </div>
+    <div class="cats">
+      <a href="#products" class="cat reveal"><div class="icon">💇‍♀️</div><h3>عنايه بالشعر</h3></a>
+      <a href="#products" class="cat reveal"><div class="icon">🧴</div><h3>عنايه بالبشرة</h3></a>
+      <a href="#products" class="cat reveal"><div class="icon">🤱</div><h3>الأم والطفل</h3></a>
+      <a href="#products" class="cat reveal"><div class="icon">🏥</div><h3>المستلزمات الطبية للصيدليات</h3></a>
+      <a href="#products" class="cat reveal"><div class="icon">🩺</div><h3>المستلزمات الطبية للعيادات</h3></a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products" id="products">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">الكتالوج</span>
+      <h2>تصفّح الكتالوج الكامل</h2>
+      <p>أضيف ٣٣٠٢ اسم صنف من ورقة Table 1 المعتمدة بالإكسل، ولكل صنف كود فيتاليا داخلي ثابت للبحث والطلب التجريبي. ١٠ أسماء مكررة ببيانات مختلفة معلّقة للمراجعة. الكتالوج السابق ١٥٠ صنفًا و٣ مجموعات عينات محفوظ منفصلًا عن أصناف الإكسل؛ اختلاف الصياغة لا يعني تأكيد أنه منتج مختلف. الصور الجديدة غير متاحة؛ لا نعرض صورة غير مؤكدة. الأسعار والمخزون وهميان للتجربة فقط، ولا توجد طلبات حقيقية.</p>
+    </div>
+    <div class="ctl reveal" id="ctl">
+      <div class="vc-note">معاينة فقط: أسعار ومخزون وهميان وليسا للبيع أو مرجعًا لمخزن حقيقي. السلة والتجربة محفوظتان على هذا المتصفح فقط.</div><div class="demo-tools"><button class="primary" id="vcOpenCart"><svg class="vc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12h11.8l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> السلة التجريبية <span id="vcCount">٠</span></button><button id="vcOpenStock">معاينة مرجع المخزون</button></div><div class="ctl-toolbar">
+        <div class="ctl-search"><input id="ctlQ" type="search" placeholder="ابحث بالاسم أو كود فيتاليا... مثال: VTL-E00001"><span class="sic">🔍</span></div>
+        <div class="ctl-sort"><select id="ctlSort" aria-label="ترتيب المنتجات"><option value="default">الترتيب الأصلي</option><option value="alpha">أبجدي (أ - ي)</option></select></div>
+        <div class="ctl-stats" id="ctlStats"></div>
+      </div>
+      <div class="ctl-chips" id="ctlCompanies"></div>
+      <div class="ctl-chips ctl-sub" id="ctlCats"></div>
+      <div class="prod-grid" id="ctlGrid"></div>
+      <div class="ctl-shown" id="ctlShown"></div>
+      <div class="ctl-morewrap" id="ctlMoreWrap"><button class="ctl-more" id="ctlMore"></button></div>
+    </div>
+    <p style="text-align:center;margin-top:28px"><span class="sample-flag">⚠️ ٣٣٠٢ اسم من الإكسل + ١٥٠ صنفًا محفوظًا من الكتالوج السابق + ٣ مجموعات عينات. أكواد فيتاليا داخلية وليست أكواد المورد. التداخل المحتمل بين المصدرين يحتاج مطابقة قبل التشغيل. الأسعار والمخزون وهميان فقط، ولا يوجد بيع أو طلب حقيقي</span></p>
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="section" id="branches">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">الفروع</span>
+      <h2>أماكن الفروع</h2>
+      <p>البيانات المعروضة placeholders توضيحية - تتستبدل ببيانات العميل عند التسليم</p>
+    </div>
+    <div class="branches-grid">
+      <div class="branch reveal">
+        <h3><span class="ic">📍</span> الفرع الرئيسي - وسط البلد</h3>
+        <ul>
+          <li>العنوان: ١٢ شارع الجمهورية، وسط البلد (عنوان تجريبي)</li>
+          <li>التليفون: <bdi dir="ltr">0100 000 0000</bdi> (رقم تجريبي)</li>
+        </ul>
+      </div>
+      <div class="branch reveal">
+        <h3><span class="ic">📍</span> فرع التجمع</h3>
+        <ul>
+          <li>العنوان: ٤٥ شارع التسعين، التجمع الخامس (عنوان تجريبي)</li>
+          <li>التليفون: <bdi dir="ltr">0100 000 0000</bdi> (رقم تجريبي)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="map-ph reveal">
+      <div class="pin">🗺️</div>
+      <b>الخريطة التفاعلية</b>
+      <span>(مساحة مخصصة لخريطة جوجل - تتضمن عند تسليم الموقع للعميل)</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT PLACEHOLDER -->
+<section class="section contact" id="contact">
+  <div class="wrap reveal">
+    <h2>بيانات <span class="grad-text">التواصل</span></h2>
+    <p>رقم التواصل المعتمد للمكالمات وواتساب. التفعيل وربط الطلبات عند التشغيل، وليس في هذه المعاينة.</p>
+    <div class="ph-box">
+      <b style="color:var(--ink)">فيتاليا - مكالمات وواتساب</b>
+      <bdi dir="ltr" style="display:block;font:800 clamp(1.7rem,6vw,2.3rem) 'Cairo';color:var(--rose2);margin:12px 0;letter-spacing:1px">01144679878</bdi>
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap"><button class="vc-btn" type="button" disabled style="cursor:default">☎ مكالمات - عند التشغيل</button><button class="vc-btn" type="button" disabled style="cursor:default">واتساب - عند التشغيل</button></div>
+      <span style="display:block;margin-top:12px">عرض الرقم فقط؛ الأزرار غير مفعّلة ولا يتم إرسال طلبات.</span>
+    </div>
+  </div>
+</section>
+
+<div class="pdm" id="pdm" role="dialog" aria-modal="true" aria-label="تفاصيل المنتج">
+  <div class="pdm-card">
+    <button class="pdm-x" id="pdmX" aria-label="إغلاق">✕</button>
+    <div class="pdm-thumb" id="pdmThumb"></div>
+    <div class="pdm-body" id="pdmBody"></div>
+  </div>
+</div>
+<div class="mnav" role="navigation" aria-label="تنقل سريع">
+  <a href="#topnav"><span class="ic">🏠</span>الرئيسية</a>
+  <a href="#products"><span class="ic">🛍️</span>المنتجات</a>
+  <a href="#branches"><span class="ic">📍</span>الفروع</a>
+  <a href="#contact"><span class="ic">📞</span>تواصل</a>
+<button id="vcNavCart" aria-label="فتح السلة التجريبية"><svg class="vc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12h11.8l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span>السلة <span id="vcNavCount">٠</span></span></button></div>
+
+<footer>
+  <div class="wrap">
+    <b><span class="fmark"><svg style="height:24px;width:auto;vertical-align:-4px" viewBox="0 6 320 92" aria-label="Vitalia"><use href="#vword"/></svg></span> كوزمتكس ومستلزمات طبية</b><br>
+    موقع تجريبي لعرض نموذج تصميم - جميع الأسماء والمنتجات والأسعار والأرقام توضيحية (placeholders)
+  </div>
+</footer>
+
+<script>
+var CTL_COMPANIES=[{"id":"vatika","ar":"فاتيكا","products":[{"n":"حمام كريم","cat":"كريمات","v":[{"n":"حبة البركة","img":"assets/vatika-hammam-blackseed.webp","solo":true},{"n":"زيتون","img":"assets/vatika-hammam-olive.webp","solo":true}]},{"n":"كريم ستايلنج","cat":"كريمات","v":[{"n":"لوز أسباني","img":"assets/vatika-styling-almond.webp","solo":true},{"n":"حنا ولوز وألوفيرا","img":"assets/vatika-styling-henna.webp","solo":true}]}]},{"id":"eva","ar":"إيفا","products":[{"n":"سينسز - معطر جسم","cat":"معطرات الجسم","v":[{"n":"Red Glamour","img":"assets/eva-redglamour.webp","solo":true,"vol":"الحجم المكتوب على عبوة Red Glamour: ٢٤٠ مل"},{"n":"Love Tale","img":"assets/eva-senses-studio.webp"},{"n":"In the Clouds","img":"assets/eva-senses-studio.webp"},{"n":"Mystic Orchid","img":"assets/eva-senses-studio.webp"},{"n":"Night Out","img":"assets/eva-senses-studio.webp"},{"n":"Summer Twist","img":"assets/eva-senses-studio.webp"},{"n":"Cozy Dream","img":"assets/eva-senses-live.webp"},{"n":"Gold Spell","img":"assets/eva-senses-live.webp"}]}]},{"id":"nivea","ar":"نيفيا","en":"Nivea","products":[{"n":"نيفيا كريم أزرق","cat":"كريمات","img":"assets/real-nivea-8.webp","code":"VTL-P00001"},{"n":"نيفيا سوفت كريم أبيض 200 مل","cat":"كريمات","img":"assets/real-nivea-20.webp","code":"VTL-P00002"},{"n":"نيفيا كريم زبدة كاكاو","cat":"كريمات","img":"assets/real-nivea-19.webp","code":"VTL-P00003"},{"n":"نيفيا اسبراي حريمي بيرل آند بيوتي 150 مل","cat":"مزيل عرق","img":"assets/real-nivea-21.webp","code":"VTL-P00004"},{"n":"نيفيا اسبراي رجالي بلاك آند وايت 150 مل","cat":"مزيل عرق","img":"assets/real-nivea-22.webp","code":"VTL-P00005"},{"n":"نيفيا صن لوشن بروتكت آند مويستشر","cat":"صن سكرين","img":"assets/real-nivea-23.webp","code":"VTL-P00006"},{"n":"نيفيا استيك حريمي بيرل آند بيوتي 50 مل","cat":"مزيل عرق","img":"assets/real-nivea-24.webp","code":"VTL-P00007"},{"n":"نيفيا استيك رجالي بلاك آند وايت انفيزيبل 50 مل","cat":"مزيل عرق","img":"assets/real-nivea-25.webp","code":"VTL-P00008"},{"n":"نيفيا رول أون حريمي بيرل آند بيوتي 50 مل","cat":"مزيل عرق","img":"assets/real-nivea-26.webp","code":"VTL-P00009"},{"n":"نيفيا رول أون رجالي ديب دارك وود 50 مل","cat":"مزيل عرق","img":"assets/real-nivea-27.webp","code":"VTL-P00010"},{"n":"نيفيا شاور جل انرجي للرجال 250 مل","cat":"غسول","img":"assets/real-nivea-28.webp","code":"VTL-P00011"},{"n":"نيفيا ماء ميسيلار بماء الورد 400 مل","cat":"ميسيلار","img":"assets/real-nivea-29.webp","code":"VTL-P00012"},{"n":"نيفيا جل حلاقة للبشرة الحساسة 200 مل","cat":"حلاقة","img":"assets/real-nivea-30.webp","code":"VTL-P00013"},{"n":"نيفيا صن اسبراي بروتكت آند مويستشر","cat":"صن سكرين","img":"assets/real-nivea-31.webp","code":"VTL-P00014"},{"n":"نيفيا غسول رغوي للوجه بماء الورد 150 مل","cat":"غسول","img":"assets/real-nivea-32.webp","code":"VTL-P00015"}]},{"id":"dove","ar":"دوف","en":"Dove","products":[{"n":"دوف استيك أوريجينال","cat":"مزيل عرق","img":"assets/real-dove-3.webp","code":"VTL-P00016"},{"n":"دوف اسبراي بالخيار والشاي الأخضر","cat":"مزيل عرق","img":"assets/real-dove-2.webp","code":"VTL-P00017"},{"n":"دوف رول أون الأصلي","cat":"مزيل عرق","img":"assets/real-dove-19.webp","code":"VTL-P00018"},{"n":"دوف رول أون بالخيار والشاي الأخضر","cat":"مزيل عرق","img":"assets/real-dove-20.webp","code":"VTL-P00019"},{"n":"دوف كريم الجمال 150 جم","cat":"كريمات","img":"assets/real-dove-22.webp","code":"VTL-P00020"},{"n":"دوف شاور مرطب التغذية بعمق 500 مل","cat":"غسول","img":"assets/real-dove-21.webp","code":"VTL-P00021"},{"n":"دوف رول أون بانتعاش الرمان","cat":"مزيل عرق","img":"assets/real-dove-23.webp","code":"VTL-P00022"},{"n":"دوف اسبراي موحد لون البشرة","cat":"مزيل عرق","img":"assets/real-dove-24.webp","code":"VTL-P00023"},{"n":"دوف شامبو بالزيوت المغذية 180 مل","cat":"شامبو","img":"assets/real-dove-25.webp","note":"صورة توضيحية لنفس النوع - الحجم المعروض 400 مل بدل 180 مل","code":"VTL-P00024"},{"n":"دوف بلسم إصلاح مكثف 350 مل","cat":"بلسم","img":"assets/real-dove-26.webp","code":"VTL-P00025"},{"n":"دوف صابون","cat":"صابون","img":"assets/real-dove-27.webp","code":"VTL-P00026"},{"n":"دوف هاندووش بالأفوكادو 500 مل","cat":"غسول","img":"assets/real-dove-28.webp","code":"VTL-P00027"},{"n":"دوف بديل الزيت بالزيوت المغذية للشعر","cat":"بديل زيت","img":"assets/real-dove-29.webp","code":"VTL-P00028"},{"n":"دوف استيك بالخيار والشاي الأخضر","cat":"مزيل عرق","img":"assets/real-dove-30.webp","code":"VTL-P00029"}]},{"id":"vaseline","ar":"فازلين","en":"Vaseline","products":[{"n":"فازلين ليب ثيرابي روزي ليب","cat":"كريمات","img":"assets/real-vaseline-3.webp","code":"VTL-P00030"},{"n":"فازلين ليب ثيرابي أوريجينال 20 جم","cat":"كريمات","img":"assets/real-vaseline-9.webp","code":"VTL-P00031"},{"n":"فازلين ليب ثيرابي كاكاو بتر 20 جم","cat":"كريمات","img":"assets/real-vaseline-10.webp","code":"VTL-P00032"},{"n":"فازلين لوشن إشراقة الكاكاو 400 مل","cat":"لوشن","img":"assets/real-vaseline-19.webp","code":"VTL-P00033"},{"n":"فازلين لوشن العناية الأساسية 400 مل","cat":"لوشن","img":"assets/real-vaseline-20.webp","code":"VTL-P00034"},{"n":"فازلين لوشن العناية المركزة بالأيدي والأظافر","cat":"كريمات","img":"assets/real-vaseline-18.webp","code":"VTL-P00035"},{"n":"فازلين لوشن اللون الموحد إشراقة مثالية 200 مل","cat":"لوشن","img":"assets/real-vaseline-21.webp","code":"VTL-P00036"},{"n":"فازلين لوشن ترطيب برودة الثلج 400 مل","cat":"لوشن","img":"assets/real-vaseline-22.webp","code":"VTL-P00037"},{"n":"فازلين زيت تونك للشعر","cat":"زيوت","img":"assets/real-vaseline-23.webp","code":"VTL-P00038"},{"n":"ليفر فازلين جلي الأصلي 100 مل","cat":"كريمات","img":"assets/real-vaseline-24.webp","code":"VTL-P00039"}]},{"id":"johnsons","ar":"جونسون","en":"Johnson's","products":[{"n":"جونسون سوفت كريم","cat":"كريمات","img":"assets/real-johnsons-1.webp","code":"VTL-P00040"},{"n":"جونسون رغوة حمام ما قبل النوم 300 مل","cat":"أم وطفل","img":"assets/real-johnsons-20.webp","code":"VTL-P00041"},{"n":"جونسون زيت أطفال عادي","cat":"أم وطفل","img":"assets/real-johnsons-3.webp","code":"VTL-P00042"},{"n":"جونسون شامبو جولد","cat":"أم وطفل","img":"assets/real-johnsons-5.webp","code":"VTL-P00043"},{"n":"جونسون زيت أطفال بالصبار","cat":"أم وطفل","img":"assets/real-johnsons-7.webp","code":"VTL-P00044"},{"n":"جونسون غسول جل موازن للبشرة الدهنية والمختلطة 150 مل","cat":"غسول","img":"assets/real-johnsons-21.webp","code":"VTL-P00045"},{"n":"جونسون سائل استحمام رغوة لافندر","cat":"أم وطفل","img":"assets/real-johnsons-19.webp","code":"VTL-P00046"},{"n":"جونسون كولونيا أطفال دريم 100 مل","cat":"أم وطفل","img":"assets/real-johnsons-22.webp","code":"VTL-P00047"},{"n":"جونسون بلسم أطفال","cat":"أم وطفل","img":"assets/real-johnsons-23.webp","code":"VTL-P00048"},{"n":"جونسون غسول جل منعش بشرة عادية","cat":"غسول","img":"assets/real-johnsons-24.webp","code":"VTL-P00049"},{"n":"جونسون شامبو لا تشابك","cat":"أم وطفل","img":"assets/real-johnsons-25.webp","code":"VTL-P00050"},{"n":"جونسون مناديل تنظيف لطيف 72 منديل","cat":"أم وطفل","img":"assets/real-johnsons-26.webp","code":"VTL-P00051"},{"n":"جونسون كولونيا أطفال ندى الصباح 100 مل","cat":"أم وطفل","img":"assets/real-johnsons-27.webp","code":"VTL-P00052"},{"n":"جونسون لوشن أطفال سوفت","cat":"أم وطفل","img":"assets/real-johnsons-28.webp","code":"VTL-P00053"}]},{"id":"garnier","ar":"غارنييه","en":"Garnier","products":[{"n":"غارنييه بلسم فروكتيس هير فود 350 مل","cat":"بلسم","pending":true,"code":"VTL-P00054"},{"n":"غارنييه الترا ديتوكس حمام زيت وليف إن وماسك للشعر","cat":"العناية بالشعر","pending":true,"code":"VTL-P00055"},{"n":"غارنييه مياه ميسيلار كلاسيك","cat":"ميسيلار","img":"assets/real-garnier-9.webp","code":"VTL-P00056"},{"n":"غارنييه شامبو فروكتيس هير فود 350 مل","cat":"شامبو","img":"assets/real-garnier-10.webp","code":"VTL-P00057"},{"n":"غارنييه فاست برايت سيرم فيتامين سي","cat":"العناية بالبشرة","img":"assets/real-garnier-11.webp","code":"VTL-P00058"},{"n":"غارنييه فاست برايت غسول جل منقي للوجه","cat":"غسول","img":"assets/real-garnier-12.webp","code":"VTL-P00059"},{"n":"غارنييه كريم فاست فيرنس","cat":"كريمات","img":"assets/real-garnier-13.webp","code":"VTL-P00060"},{"n":"غارنييه مياه ميسيلار بحمض الساليسيليك 400 مل","cat":"ميسيلار","img":"assets/real-garnier-14.webp","code":"VTL-P00061"},{"n":"غارنييه مياه ميسيلار بفيتامين سي","cat":"ميسيلار","img":"assets/real-garnier-15.webp","code":"VTL-P00062"},{"n":"غارنييه فاست برايت مقشر للوجه","cat":"العناية بالبشرة","img":"assets/real-garnier-16.webp","code":"VTL-P00063"}]},{"id":"lux","ar":"لوكس","en":"Lux","products":[{"n":"لوكس شاور بالجريب فروت المنعش 500 مل","cat":"غسول","img":"assets/lux-gf.webp","code":"VTL-P00064"},{"n":"لوكس صابون سحر الأوركيد 75 جم","cat":"صابون","img":"assets/lux-or.webp","note":"صورة توضيحية لنفس النوع - الحجم المعروض 165 جم بدل 75 جم","code":"VTL-P00065"},{"n":"لوكس شاور سحر زهرة الأوركيد","cat":"غسول","img":"assets/real-lux-3.webp","code":"VTL-P00066"},{"n":"لوكس صابون بشرة نضرة 75 جم","cat":"صابون","img":"assets/real-lux-4.webp","note":"صورة توضيحية لنفس النوع - الحجم غير مؤكد من الصورة","code":"VTL-P00067"},{"n":"لوكس شاور الغاردينيا الحريرية أخضر 500 مل","cat":"غسول","img":"assets/real-lux-5.webp","code":"VTL-P00068"},{"n":"لوكس شاور الورد الناعم بينك 500 مل","cat":"غسول","img":"assets/real-lux-6.webp","code":"VTL-P00069"},{"n":"لوكس شاور رومانسية الكركديه 500 مل","cat":"غسول","img":"assets/real-lux-7.webp","code":"VTL-P00070"},{"n":"لوكس هاندووش بسحر زهرة الأوركيد وزيت اللوز","cat":"غسول","img":"assets/real-lux-8.webp","code":"VTL-P00071"}]},{"id":"cantu","ar":"كانتو","en":"Cantu","products":[{"n":"كانتو كيرلي اكتيفيتور للكبار","cat":"كريمات","img":"assets/real-cantu-2.webp","code":"VTL-P00072"},{"n":"كانتو اسبراي بزبدة الشيا للحفاظ على الشعر الكيرلي","cat":"العناية بالشعر","img":"assets/real-cantu-6.webp","code":"VTL-P00073"},{"n":"كانتو شامبو منعم سلفات فري بزبدة الشيا","cat":"شامبو","img":"assets/real-cantu-8.webp","code":"VTL-P00074"},{"n":"كانتو بلسم كريم سلفات فري بزبدة الشيا","cat":"بلسم","img":"assets/real-cantu-11.webp","code":"VTL-P00075"},{"n":"كانتو شيا بتر هير دريسنج بوماد","cat":"كريمات","img":"assets/real-cantu-12.webp","code":"VTL-P00076"},{"n":"كانتو كريم بجوز الهند للشعر الكيرلي","cat":"كريمات","img":"assets/real-cantu-13.webp","code":"VTL-P00077"},{"n":"كانتو كيرلي كريم كيدز 236 جم","cat":"كريمات","img":"assets/real-cantu-14.webp","note":"صورة توضيحية لنفس النوع - الحجم على العبوة 227 جم","code":"VTL-P00078"},{"n":"كانتو بدي لوشن زبدة الشيا المغذي","cat":"لوشن","img":"assets/real-cantu-15.webp","code":"VTL-P00079"},{"n":"كانتو هير موس للشعر الكيرلي","cat":"العناية بالشعر","img":"assets/real-cantu-16.webp","code":"VTL-P00080"},{"n":"كانتو كويل كالم اسبراي لفك تشابك الشعر 236 مل","cat":"العناية بالشعر","img":"assets/real-cantu-17.webp","note":"صورة توضيحية لنفس النوع - الحجم على العبوة 237 مل","code":"VTL-P00081"}]},{"id":"rexona","ar":"ريكسونا","en":"Rexona","products":[{"n":"ريكسونا اسبراي حريمي انفيزيبل 150 مل","cat":"مزيل عرق","img":"assets/real-rexona-1.webp","code":"VTL-P00082"},{"n":"ريكسونا اسبراي رجالي انفيزيبل 150 مل","cat":"مزيل عرق","img":"assets/real-rexona-2.webp","code":"VTL-P00083"},{"n":"ريكسونا اسبراي رجالي اكسترا كول 150 مل","cat":"مزيل عرق","img":"assets/real-rexona-3.webp","code":"VTL-P00084"},{"n":"ريكسونا اسبراي حريمي شاور فريش","cat":"مزيل عرق","img":"assets/real-rexona-4.webp","code":"VTL-P00085"},{"n":"ريكسونا اسبراي حريمي بامبو 150 مل","cat":"مزيل عرق","img":"assets/real-rexona-5.webp","code":"VTL-P00086"},{"n":"ريكسونا رول أون حريمي انفيزيبل","cat":"مزيل عرق","img":"assets/real-rexona-6.webp","code":"VTL-P00087"},{"n":"ريكسونا رول أون رجالي اكسترا كول","cat":"مزيل عرق","img":"assets/real-rexona-7.webp","code":"VTL-P00088"},{"n":"ريكسونا استيك رجالي اكسترا كول","cat":"مزيل عرق","img":"assets/real-rexona-8.webp","code":"VTL-P00089"}]},{"id":"sunsilk","ar":"صانسيلك","en":"Sunsilk","products":[{"n":"صانسيلك بلسم ناعم وحريري 350 مل","cat":"بلسم","pending":true,"code":"VTL-P00090"},{"n":"صانسيلك شامبو إصلاح فوري للشعر التالف","cat":"شامبو","pending":true,"code":"VTL-P00091"},{"n":"صانسيلك بلسم إصلاح فوري للشعر التالف 350 مل","cat":"بلسم","pending":true,"code":"VTL-P00092"},{"n":"صانسيلك بلسم طبيعي بزيت اللوز والعسل 350 مل","cat":"بلسم","pending":true,"code":"VTL-P00093"},{"n":"صانسيلك شامبو ناعم وحريري","cat":"شامبو","img":"assets/real-sunsilk-1.webp","code":"VTL-P00094"},{"n":"صانسيلك شامبو لمعان ساحر للشعر الأسود","cat":"شامبو","img":"assets/real-sunsilk-2.webp","code":"VTL-P00095"},{"n":"صانسيلك بلسم قوة ولمعان 350 مل","cat":"بلسم","img":"assets/real-sunsilk-3.webp","code":"VTL-P00096"},{"n":"صانسيلك زيت 250 مل جوز هند المونوي","cat":"العناية بالشعر","img":"assets/real-sunsilk-4.webp","code":"VTL-P00097"}]},{"id":"sensodyne","ar":"سنسوداين","en":"Sensodyne","products":[{"n":"سنسوداين معجون اسنان حماية من التسوس 100 مل","cat":"معجون أسنان","img":"assets/real-sensodyne-1.webp","code":"VTL-P00098"},{"n":"سنسوداين معجون اسنان رابيد اكشن","cat":"معجون أسنان","img":"assets/real-sensodyne-2.webp","code":"VTL-P00099"},{"n":"سنسوداين معجون اسنان تنظيف عميق","cat":"معجون أسنان","img":"assets/real-sensodyne-3.webp","code":"VTL-P00100"},{"n":"سنسوداين فرشاة اسنان رابيد ريليف سوفت","cat":"فرش أسنان","img":"assets/real-sensodyne-4.webp","code":"VTL-P00101"},{"n":"سنسوداين فرشاة اسنان ريبير آند بروتكت","cat":"فرش أسنان","img":"assets/real-sensodyne-5.webp","code":"VTL-P00102"},{"n":"سنسوداين فرشاة اسنان ترميم وحماية فائقة النعومة","cat":"فرش أسنان","img":"assets/real-sensodyne-6.webp","code":"VTL-P00103"}]},{"id":"gillette","ar":"جيليت","en":"Gillette","products":[{"n":"جيليت ماك 3 بلس شفرات","cat":"حلاقة","img":"assets/gil-1.webp","code":"VTL-P00104"},{"n":"جيليت بروجلايد شفرات","cat":"حلاقة","img":"assets/gil-2.webp","code":"VTL-P00105"},{"n":"جيليت برو جل حلاقة ايسي كول","cat":"حلاقة","img":"assets/gil-3.webp","code":"VTL-P00106"},{"n":"جيليت بلو 3 ماكينة","cat":"حلاقة","img":"assets/gil-4.webp","code":"VTL-P00107"},{"n":"جيليت بلو 2 بلس اكياس","cat":"حلاقة","img":"assets/gil-5.webp","code":"VTL-P00108"},{"n":"جيليت بلو 3 كومفورت","cat":"حلاقة","img":"assets/gil-6.webp","code":"VTL-P00109"}]},{"id":"pantene","ar":"بانتين","en":"Pantene","products":[{"n":"بانتين بلسم ضد تساقط الشعر","cat":"بلسم","pending":true,"code":"VTL-P00110"},{"n":"بانتين شامبو انسيابي وحريري","cat":"شامبو","img":"assets/pan-1.webp","code":"VTL-P00111"},{"n":"بانتين بلسم انسيابي وحريري","cat":"بلسم","img":"assets/pan-2.webp","code":"VTL-P00112"},{"n":"بانتين شامبو ضد تساقط الشعر","cat":"شامبو","img":"assets/pan-3.webp","code":"VTL-P00113"},{"n":"بانتين شامبو عناية مرطبة","cat":"شامبو","img":"assets/pan-5.webp","code":"VTL-P00114"},{"n":"بانتين بلسم عناية ميلكي للتلف","cat":"بلسم","img":"assets/pan-6.webp","code":"VTL-P00115"},{"n":"بانتين بديل الزيت انسيابي وحريري","cat":"بديل زيت","img":"assets/pan-7.webp","code":"VTL-P00116"},{"n":"بانتين بديل الزيت ضد التساقط","cat":"بديل زيت","img":"assets/pan-8.webp","code":"VTL-P00117"}]},{"id":"neutrogena","ar":"نيتروجينا","en":"Neutrogena","products":[{"n":"نيتروجينا هيدرا بوست واتر جل 50 مل","cat":"العناية بالبشرة","img":"assets/neu-1.webp","code":"VTL-P00118"},{"n":"نيتروجينا ديب كلين غسول عميق جل","cat":"غسول","img":"assets/neu-2.webp","code":"VTL-P00119"},{"n":"نيتروجينا مقشر يومي منعش وردي","cat":"العناية بالبشرة","img":"assets/neu-3.webp","code":"VTL-P00120"},{"n":"نيتروجينا كريم لليدين","cat":"كريمات","img":"assets/neu-4.webp","code":"VTL-P00121"},{"n":"نيتروجينا ماء ميسيلار منظف ثلاثي المفعول 400 مل","cat":"ميسيلار","img":"assets/neu-5.webp","code":"VTL-P00122"},{"n":"نيتروجينا ديب كلين مقشر يومي منشط","cat":"العناية بالبشرة","img":"assets/neu-6.webp","code":"VTL-P00123"}]},{"id":"penduline","ar":"بندولين","en":"Penduline","products":[{"n":"بندولين بيبي باث سائل استحمام","cat":"أم وطفل","img":"assets/pdl-1.webp","code":"VTL-P00124"},{"n":"بندولين زيت أطفال","cat":"أم وطفل","img":"assets/pdl-2.webp","code":"VTL-P00125"},{"n":"بندولين بلسم أطفال كيرلي بالشيا","cat":"بلسم","img":"assets/pdl-3.webp","code":"VTL-P00126"},{"n":"بندولين حمام كريم أطفال","cat":"العناية بالشعر","img":"assets/pdl-4.webp","code":"VTL-P00127"},{"n":"بندولين برفيوم أطفال","cat":"أم وطفل","img":"assets/pdl-5.webp","code":"VTL-P00128"},{"n":"بندولين اسبراي للشعر الكيرلي لفك التشابك","cat":"العناية بالشعر","img":"assets/pdl-6.webp","code":"VTL-P00129"}]},{"id":"bobana","ar":"بوبانا","en":"Bobana","products":[{"n":"بوبانا بديل الزيت بالأرجان","cat":"بديل زيت","pending":true,"code":"VTL-P00130"},{"n":"بوبانا بدي اسبلاش اوت اوف ذا بلو","cat":"معطرات الجسم","img":"assets/bob-1.webp","code":"VTL-P00131"},{"n":"بوبانا بدي اسبلاش جولدن هاور","cat":"معطرات الجسم","img":"assets/bob-2.webp","code":"VTL-P00132"},{"n":"بوبانا بلسم بزيت الأرجان","cat":"بلسم","img":"assets/bob-3.webp","code":"VTL-P00133"},{"n":"بوبانا شامبو بزيت جوز الهند","cat":"شامبو","img":"assets/bob-4.webp","code":"VTL-P00134"},{"n":"بوبانا جل الكولاجين البحري والريتينول","cat":"العناية بالبشرة","img":"assets/bob-6.webp","code":"VTL-P00135"}]},{"id":"sheglam","ar":"شيجلام","en":"SHEGLAM","products":[{"n":"شيجلام موس حواجب Ebony","cat":"مكياج","pending":true,"code":"VTL-P00136"},{"n":"شيجلام بلاش مات High & Dry","cat":"مكياج","pending":true,"code":"VTL-P00137"},{"n":"شيجلام مقشر شفاه Bubble Bath","cat":"مكياج","pending":true,"code":"VTL-P00138"},{"n":"شيجلام Color Bloom بلاش سائل Love Cake","cat":"مكياج","img":"assets/shg-1.webp","code":"VTL-P00139"},{"n":"شيجلام All in One مسكارا","cat":"مكياج","img":"assets/shg-2.webp","code":"VTL-P00140"},{"n":"شيجلام بلسم شفاه بينك","cat":"مكياج","img":"assets/shg-3.webp","code":"VTL-P00141"},{"n":"شيجلام Glowchi هايلايتر Red Bean","cat":"مكياج","img":"assets/shg-4.webp","code":"VTL-P00142"},{"n":"شيجلام اي لاينر سائل Marilyn","cat":"مكياج","img":"assets/shg-5.webp","code":"VTL-P00143"}]},{"id":"beesline","ar":"بيزلين","en":"Beesline","products":[{"n":"بيزلين رول أون إنارة فورية فيتامين سي","cat":"مزيل عرق","img":"assets/bee-1.webp","code":"VTL-P00144"},{"n":"بيزلين رول أون العود العربي","cat":"مزيل عرق","img":"assets/bee-2.webp","code":"VTL-P00145"},{"n":"بيزلين الإنارة الفورية تونر للوجه","cat":"العناية بالبشرة","img":"assets/bee-3.webp","code":"VTL-P00146"},{"n":"بيزلين الإنارة الفورية سيرم فيتامين سي واي","cat":"العناية بالبشرة","img":"assets/bee-4.webp","code":"VTL-P00147"},{"n":"بيزلين الترا صن سكرين كريم","cat":"صن سكرين","img":"assets/bee-5.webp","code":"VTL-P00148"},{"n":"بيزلين الإنارة الفورية ماء ميسيلار 400 مل","cat":"ميسيلار","img":"assets/bee-6.webp","code":"VTL-P00149"},{"n":"بيزلين الإنارة الفورية غسول 150 مل","cat":"غسول","img":"assets/bee-7.webp","note":"صورة توضيحية لنفس النوع - العبوة المعروضة 250 مل باسم Whitening (الاسم السابق لخط الإنارة الفورية)","code":"VTL-P00150"}]}];
+var CTL_BATCH=6;
+var ctlState={co:'all',cat:'الكل',shown:CTL_BATCH,q:'',sort:'default'};
+function arDig(n){return String(n).replace(/\d/g,function(d){return '٠١٢٣٤٥٦٧٨٩'[d];});}
+var ctlGrid=document.getElementById('ctlGrid'),ctlCompanies=document.getElementById('ctlCompanies'),
+    ctlCats=document.getElementById('ctlCats'),ctlShown=document.getElementById('ctlShown'),
+    ctlMoreWrap=document.getElementById('ctlMoreWrap'),ctlMore=document.getElementById('ctlMore'),
+    ctlStats=document.getElementById('ctlStats');
+var ctlTotal=CTL_COMPANIES.reduce(function(s,c){return s+c.products.length;},0);
+var ctlPend=0,ctlNote=0,ctlGroups=0,ctlSkus=0;
+CTL_COMPANIES.forEach(function(c){c.products.forEach(function(p){if(p.v){ctlGroups++;return;}ctlSkus++;if(p.pending)ctlPend++;else if(p.note)ctlNote++;});});
+var ctlExact=ctlSkus-ctlPend-ctlNote;
+ctlStats.innerHTML='<b>'+arDig(CTL_COMPANIES.length)+'</b> شركة · <b>'+arDig(ctlSkus)+'</b> منتج من القائمة + <b>'+arDig(ctlGroups)+'</b> مجموعات عينات'+
+ '<br><span class="ctl-substats">من منتجات القائمة: '+arDig(ctlExact)+' صورة مطابقة · '+arDig(ctlNote)+' صورة توضيحية · '+arDig(ctlPend)+' بدون صورة بعد</span>';
+function ctlCard(co,p){
+ var card=document.createElement('div');card.className='ctl-card';
+ var thumb=document.createElement('div');thumb.className='ctl-thumb';
+ var v0=p.v?p.v[0]:null;
+ var im=document.createElement('img');im.loading='lazy';
+ if(p.pending){im.hidden=true;var ph=document.createElement('div');ph.className='ctl-pending';ph.textContent='صورة المنتج غير متاحة حاليًا';thumb.appendChild(ph);}
+ else{im.src=v0?v0.img:p.img;im.alt=p.n;thumb.appendChild(im);}
+ var fam=document.createElement('span');fam.className='fam';fam.hidden=true;fam.textContent='من صورة المجموعة - صورة العبوة المنفردة تُضاف لاحقًا';
+ if(p.note){fam.hidden=false;fam.textContent=p.note;}
+ thumb.appendChild(fam);
+ var body=document.createElement('div');body.className='ctl-body';
+ body.innerHTML='<span class="ctl-brand">'+co.ar+(co.en?' · '+co.en:'')+'</span><h3>'+p.n+'</h3><span class="ctl-cat">'+p.cat+'</span>';
+ if(p.v){
+  var vars=document.createElement('div');vars.className='ctl-vars';
+  p.v.forEach(function(v,idx){
+   var b=document.createElement('button');b.className='ctl-vchip'+(idx===0?' on':'');b.textContent=v.n;
+   b.addEventListener('click',function(e){
+    e.stopPropagation();
+    vars.querySelectorAll('.ctl-vchip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+    im.src=v.img;im.alt=p.n+' - '+v.n;
+    fam.hidden=!!v.solo;
+    vol.style.display=v.vol?'':'none';vol.textContent=v.vol||'';
+   });
+   vars.appendChild(b);
+  });
+  body.appendChild(vars);
+  var vol=document.createElement('span');vol.className='ctl-vnote';
+  vol.textContent=v0.vol||'';vol.style.display=v0.vol?'':'none';
+  body.appendChild(vol);
+ }
+ var row=document.createElement('div');row.className='ctl-pricerow';
+ row.innerHTML='<span class="ctl-price">السعر: <b>غير محدد بعد</b></span><span class="ctl-order">زر طلب تجريبي - غير مفعّل</span>';
+ body.appendChild(row);
+ card.appendChild(thumb);card.appendChild(body);
+ card.style.cursor='default';
+ card.addEventListener('click',function(e){if(e.target.closest('button,input,label,.ctl-pricerow'))return;if(e.target.closest('.ctl-thumb,h3'))pdmOpen(co,p);});
+ return card;
+}
+function ctlScope(){
+ var list=[];
+ var searching=ctlState.q!=='';
+ CTL_COMPANIES.forEach(function(co){
+  if(!searching&&ctlState.co!=='all'&&co.id!==ctlState.co)return;
+  co.products.forEach(function(p){list.push({co:co,p:p});});
+ });
+ if(!searching&&ctlState.cat!=='الكل')list=list.filter(function(x){return x.p.cat===ctlState.cat;});
+ if(ctlState.q){
+  var q=ctlState.q.toLowerCase();
+  list=list.filter(function(x){return x.p.n.toLowerCase().indexOf(q)>-1||(x.p.code&&x.p.code.toLowerCase().indexOf(q)>-1)||x.co.ar.indexOf(ctlState.q)>-1||(x.co.en&&x.co.en.toLowerCase().indexOf(q)>-1);});
+ }
+ if(ctlState.sort==='alpha'){list=list.slice().sort(function(a,b){return a.p.n.localeCompare(b.p.n,'ar');});}
+ return list;
+}
+function ctlRenderChips(){
+ ctlCompanies.innerHTML='';
+ [['all','كل الشركات']].concat(CTL_COMPANIES.map(function(c){return [c.id,c.ar];})).forEach(function(pair){
+  var b=document.createElement('button');b.className='ctl-chip'+(ctlState.co===pair[0]?' on':'');b.textContent=pair[1];
+  b.addEventListener('click',function(){ctlState.co=pair[0];ctlState.cat='الكل';ctlState.shown=CTL_BATCH;ctlRender();});
+  ctlCompanies.appendChild(b);
+ });
+ var cats=['الكل'];
+ CTL_COMPANIES.forEach(function(co){
+  if(ctlState.co!=='all'&&co.id!==ctlState.co)return;
+  co.products.forEach(function(p){if(cats.indexOf(p.cat)<0)cats.push(p.cat);});
+ });
+ ctlCats.innerHTML='';
+ cats.forEach(function(cn){
+  var b=document.createElement('button');b.className='ctl-chip'+(ctlState.cat===cn?' on':'');b.textContent=cn;
+  b.addEventListener('click',function(){ctlState.cat=cn;ctlState.shown=CTL_BATCH;ctlRender();});
+  ctlCats.appendChild(b);
+ });
+}
+function ctlRender(){
+ ctlRenderChips();
+ var list=ctlScope();
+ ctlGrid.innerHTML='';
+ list.slice(0,ctlState.shown).forEach(function(x){ctlGrid.appendChild(ctlCard(x.co,x.p));});
+ ctlShown.textContent=list.length?('معروض '+arDig(Math.min(ctlState.shown,list.length))+' من '+arDig(list.length)+' منتج'):'مفيش نتائج مطابقة';
+ if(list.length>ctlState.shown){
+  ctlMoreWrap.classList.remove('hidden');
+  ctlMore.textContent='عرض المزيد ('+arDig(Math.min(CTL_BATCH,list.length-ctlState.shown))+' من '+arDig(list.length-ctlState.shown)+' متبقي)';
+ }else{ctlMoreWrap.classList.add('hidden');}
+ if(typeof revealVisible==='function')revealVisible();
+}
+ctlMore.addEventListener('click',function(){ctlState.shown+=CTL_BATCH;ctlRender();});
+var ctlQ=document.getElementById('ctlQ'),ctlDeb=null;
+ctlQ.addEventListener('input',function(){
+ clearTimeout(ctlDeb);
+ ctlDeb=setTimeout(function(){ctlState.q=ctlQ.value.trim();ctlState.shown=CTL_BATCH;ctlRender();},250);
+});
+var pdm=document.getElementById('pdm'),pdmThumb=document.getElementById('pdmThumb'),pdmBody=document.getElementById('pdmBody');
+function pdmOpen(co,p){
+ pdmThumb.innerHTML='';pdmBody.innerHTML='';
+ var v0=p.v?p.v[0]:null;
+ var im=null;
+ if(p.pending){var ph=document.createElement('div');ph.className='ctl-pending';ph.style.minHeight='240px';ph.textContent='صورة المنتج غير متاحة حاليًا';pdmThumb.appendChild(ph);}
+ else{im=document.createElement('img');im.src=v0?v0.img:p.img;im.alt=p.n;pdmThumb.appendChild(im);}
+ if(p.note){var nt=document.createElement('div');nt.className='pdm-note';nt.textContent=p.note;pdmThumb.appendChild(nt);}
+ var brand=document.createElement('span');brand.className='ctl-brand';brand.textContent=co.ar+(co.en?' · '+co.en:'');
+ var h=document.createElement('h3');h.textContent=p.n;
+ var cat=document.createElement('span');cat.className='ctl-cat';cat.textContent=p.cat;
+ pdmBody.appendChild(brand);pdmBody.appendChild(h);pdmBody.appendChild(cat);
+ if(p.v){
+  var vars=document.createElement('div');vars.className='ctl-vars';
+  var vol=document.createElement('span');vol.className='ctl-vnote';
+  p.v.forEach(function(v,idx){
+   var b=document.createElement('button');b.className='ctl-vchip'+(idx===0?' on':'');b.textContent=v.n;
+   b.addEventListener('click',function(){
+    vars.querySelectorAll('.ctl-vchip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+    if(im){im.src=v.img;im.alt=p.n+' - '+v.n;}
+    vol.style.display=v.vol?'':'none';vol.textContent=v.vol||'';
+   });
+   vars.appendChild(b);
+  });
+  vol.textContent=v0.vol||'';vol.style.display=v0.vol?'':'none';
+  pdmBody.appendChild(vars);pdmBody.appendChild(vol);
+ }
+ var row=document.createElement('div');row.className='ctl-pricerow';
+ row.innerHTML='<span class="ctl-price">السعر: <b>غير محدد بعد</b></span><span class="ctl-order">زر طلب تجريبي - غير مفعّل</span>';
+ pdmBody.appendChild(row);
+ pdm.classList.add('open');
+ document.body.style.overflow='hidden';
+}
+function pdmClose(){pdm.classList.remove('open');document.body.style.overflow='';}
+document.getElementById('pdmX').addEventListener('click',pdmClose);
+pdm.addEventListener('click',function(e){if(e.target===pdm)pdmClose();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')pdmClose();});
+var ctlSort=document.getElementById('ctlSort');
+ctlSort.addEventListener('change',function(){ctlState.sort=ctlSort.value;ctlState.shown=CTL_BATCH;ctlRender();});
+ctlRender();
+document.getElementById('burger').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open');});
+});
+function revealVisible(){
+  var vh=window.innerHeight||document.documentElement.clientHeight;
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){
+    if(el.getBoundingClientRect().top < vh*0.92){el.classList.add('in');}
+  });
+}
+window.addEventListener('scroll',revealVisible,{passive:true});
+window.addEventListener('resize',revealVisible,{passive:true});
+window.addEventListener('load',revealVisible);
+revealVisible();
+</script>
+<button class="vc-float" id="vcFloat" aria-label="فتح السلة التجريبية"><svg class="vc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12h11.8l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> السلة <span id="vcFloatCount">٠</span></button>
+<div class="vc-overlay" id="vcOverlay" role="dialog" aria-modal="true" aria-labelledby="vcTitle"><div class="vc-panel"><div class="vc-head"><h2 id="vcTitle">تجربة السلة والمخزون</h2><button class="vc-btn" id="vcClose" aria-label="إغلاق السلة والمخزون">✕</button></div><div class="vc-content"><div class="vc-tabs"><button class="vc-btn" id="vcTabCart"><svg class="vc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12h11.8l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> السلة</button><button class="vc-btn" id="vcTabCheckout">فورم الطلب</button><button class="vc-btn" id="vcTabStock">مرجع المخزون</button></div><div class="vc-note">بيانات وهمية للتجربة فقط، وليست للبيع. لا إرسال طلبات أو دفع، ولا اتصال بمخزن حقيقي. ليست لوحة إدارة محمية.</div><div id="vcView"></div></div></div></div><div id="vcLive" role="status" aria-live="polite" style="position:fixed;top:80px;inset-inline:10%;z-index:120;pointer-events:none;text-align:center"></div>
+<script src="catalog-excel.js?v=excel-1"></script>
+<script src="preview-cart.js?v=excel-1"></script>
+</body>
+</html>
