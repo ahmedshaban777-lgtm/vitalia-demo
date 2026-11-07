@@ -356,6 +356,11 @@ html[data-theme="dark"] .vc-panel textarea,
 html[data-theme="dark"] .vc-search{background:#2b1f19;color:var(--ink)}
 /* Product and department photos keep their light backgrounds in dark mode too. */
 html[data-theme="dark"] .ctl-thumb,html[data-theme="dark"] .pdm-thumb,html[data-theme="dark"] .pdm-note{background:#fff}
+/* Desktop hero wordmark: larger and higher; slogan higher, mobile untouched. */
+@media(min-width:981px){
+ .hero-id2 .wordmark{width:min(460px,96%);margin-bottom:-17.25px;transform:translateY(-45.25px)}
+ .hero-id2 .vitalia-slogan{transform:translateY(-28px)}
+}
 /* Whitespace trim (owner-approved 2026-11-07): tighter contact + branches sections, smaller empty map placeholder. Both themes. */
 #branches,.contact{padding:56px 0}
 .map-ph{padding:24px 20px}
