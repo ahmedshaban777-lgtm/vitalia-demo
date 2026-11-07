@@ -1,36 +1,50 @@
 {
- "batch_1a": {
-  "date": "2026-11-06",
-  "status": "published",
-  "products": 153,
-  "companies": 19,
-  "note": "final retry pass done: lux grapefruit resolved exact, lux orchid soap resolved as size-note (165g shown vs 75g). 11 pendings genuinely absent from Jumia EG after bounded retries.",
-  "match_breakdown": {
-   "sku_exact": 133,
-   "size_note": 6,
-   "pending": 11,
-   "variant_groups": 3
+  "batch_1a": {
+    "date": "2026-11-06",
+    "status": "published",
+    "products": 153,
+    "companies": 19,
+    "note": "final retry pass done: lux grapefruit resolved exact, lux orchid soap resolved as size-note (165g shown vs 75g). 11 pendings genuinely absent from Jumia EG after bounded retries.",
+    "match_breakdown": {
+      "sku_exact": 133,
+      "size_note": 6,
+      "pending": 11,
+      "variant_groups": 3
+    },
+    "reconciliation": "2026-11-06: removed 3 mismatched photo bindings (dove Advanced Care roll-on, dove spray misbound as roll-on, dove caring bath vs shower gel) - items kept with photo pending; 12 same-line photos labeled illustrative (size/form unconfirmed); garnier micellar verified classic (clear liquid, red cap). | 2026-11-06 upgrades: replaced 9 size-note photos with exact Jumia Egypt packshots (nivea soft 200ml, pearl&beauty 150ml, black&white 150ml, sun protect&moisture 200ml, dove beauty cream 150g, vaseline cocoa radiant 400ml, vaseline essential-healing/nourishing-moisture EG pack 400ml, johnsons bedtime bath 300ml, johnsons oil-balancing gel wash 150ml); lux 75g soap keeps size-note (no 75g packshot found on Jumia). | batch1b progress: +8 nivea exact packshots (sticks, roll-ons, energy shower, micellar rose, shave gel, sun spray). | Note: garlux verification montage showed 12 images but 11 were bound - the 12th (garnier Ultra Doux HAIRFOOD pineapple 3-in-1) was downloaded and verified but NOT bound because his item says الترا ديتوكس (Ultra Detox); variant line unconfirmed, kept photo-pending.",
+    "remaining_queue": [],
+    "queue_count": 0,
+    "pending_final": [
+      "غارنييه بلسم فروكتيس هير فود 350 مل",
+      "غارنييه الترا ديتوكس حمام زيت وليف إن وماسك للشعر",
+      "صانسيلك بلسم ناعم وحريري 350 مل",
+      "صانسيلك شامبو إصلاح فوري للشعر التالف",
+      "صانسيلك بلسم إصلاح فوري للشعر التالف 350 مل",
+      "صانسيلك بلسم طبيعي بزيت اللوز والعسل 350 مل",
+      "بانتين بلسم ضد تساقط الشعر",
+      "بوبانا بديل الزيت بالأرجان",
+      "شيجلام موس حواجب Ebony",
+      "شيجلام بلاش مات High & Dry",
+      "شيجلام مقشر شفاه Bubble Bath"
+    ]
   },
-  "reconciliation": "2026-11-06: removed 3 mismatched photo bindings (dove Advanced Care roll-on, dove spray misbound as roll-on, dove caring bath vs shower gel) - items kept with photo pending; 12 same-line photos labeled illustrative (size/form unconfirmed); garnier micellar verified classic (clear liquid, red cap). | 2026-11-06 upgrades: replaced 9 size-note photos with exact Jumia Egypt packshots (nivea soft 200ml, pearl&beauty 150ml, black&white 150ml, sun protect&moisture 200ml, dove beauty cream 150g, vaseline cocoa radiant 400ml, vaseline essential-healing/nourishing-moisture EG pack 400ml, johnsons bedtime bath 300ml, johnsons oil-balancing gel wash 150ml); lux 75g soap keeps size-note (no 75g packshot found on Jumia). | batch1b progress: +8 nivea exact packshots (sticks, roll-ons, energy shower, micellar rose, shave gel, sun spray). | Note: garlux verification montage showed 12 images but 11 were bound - the 12th (garnier Ultra Doux HAIRFOOD pineapple 3-in-1) was downloaded and verified but NOT bound because his item says الترا ديتوكس (Ultra Detox); variant line unconfirmed, kept photo-pending.",
-  "remaining_queue": [],
-  "queue_count": 0,
-  "pending_final": [
-   "غارنييه بلسم فروكتيس هير فود 350 مل",
-   "غارنييه الترا ديتوكس حمام زيت وليف إن وماسك للشعر",
-   "صانسيلك بلسم ناعم وحريري 350 مل",
-   "صانسيلك شامبو إصلاح فوري للشعر التالف",
-   "صانسيلك بلسم إصلاح فوري للشعر التالف 350 مل",
-   "صانسيلك بلسم طبيعي بزيت اللوز والعسل 350 مل",
-   "بانتين بلسم ضد تساقط الشعر",
-   "بوبانا بديل الزيت بالأرجان",
-   "شيجلام موس حواجب Ebony",
-   "شيجلام بلاش مات High & Dry",
-   "شيجلام مقشر شفاه Bubble Bath"
-  ]
- },
- "batch_1b_pending": {
-  "target": "~150 products",
-  "needs": "OBF retry (rexona, sunsilk, sensodyne, gillette, pantene, neutrogena, penduline, bobana, beesline, sheglam + more per existing brands)",
-  "selection": "~/vitalia-batch1/selection.json (private, this agent), queries EN per item"
- }
+  "batch_1b_pending": {
+    "target": "~150 products",
+    "needs": "OBF retry (rexona, sunsilk, sensodyne, gillette, pantene, neutrogena, penduline, bobana, beesline, sheglam + more per existing brands)",
+    "selection": "~/vitalia-batch1/selection.json (private, this agent), queries EN per item"
+  },
+  "excel_2026_11_07": {
+    "source_sheet": "Table 1",
+    "source_rows": 3325,
+    "included_unique_names": 3302,
+    "held_ambiguous_names": 10,
+    "held_rows": 20,
+    "identical_duplicate_rows_collapsed": 3,
+    "retained_previous_items": 150,
+    "retained_sample_groups": 3,
+    "codes": "Stable internal Vitalia identifiers, not supplier item codes. VTL-E for Excel, VTL-P for previous catalog. Code registry preserved privately.",
+    "source_terms": "Original numeric price/discount columns private and NOT applied. Preview retains fictional prices and stock only.",
+    "photos": "New Excel items have no verified photos. Existing photos retained only on previous catalog.",
+    "overlap": "Previous and Excel names differ; no fuzzy merging, no deletion. Potential duplicate identities need confirmation before launch."
+  }
 }
