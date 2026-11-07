@@ -354,6 +354,16 @@ html[data-theme="dark"] .vc-panel textarea,
 html[data-theme="dark"] .vc-search{background:#2b1f19;color:var(--ink)}
 /* Product and department photos keep their light backgrounds in dark mode too. */
 html[data-theme="dark"] .ctl-thumb,html[data-theme="dark"] .pdm-thumb,html[data-theme="dark"] .pdm-note{background:#fff}
+/* Visitor guidance steps before the catalog (owner-approved 2026-11-07). */
+.how-order{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 24px;margin-bottom:22px}
+.how-order h3{display:flex;align-items:center;gap:10px;font-size:1.08rem;font-weight:800;color:var(--ink);margin-bottom:15px}
+.how-order .ho-ic{width:37px;height:37px;border-radius:13px;background:linear-gradient(135deg,var(--rosebg),var(--goldbg));display:grid;place-items:center;font-size:1.1rem;flex:none}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.how-step{display:flex;gap:10px;align-items:flex-start}
+.how-step .num{width:30px;height:30px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:'Cairo';font-weight:800;font-size:.95rem;flex:none}
+.how-step p{color:var(--muted);font-size:.89rem;line-height:1.7}
+@media(max-width:960px){.how-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.how-steps{grid-template-columns:1fr;gap:12px}.how-order{padding:16px 18px}}
 .img-credit{text-align:center;font-size:12px;color:#7d7286;padding:12px 20px;background:#fff8f4;margin:0}
 html[data-theme="dark"] .img-credit{background:#2b1f19;color:#a08b7d}
 /* Theme toggle button */
@@ -458,6 +468,15 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:none}
       <span class="kicker">الكتالوج</span>
       <h2>تصفّح الكتالوج الكامل</h2>
       
+    </div>
+    <div class="how-order">
+      <h3><span class="ho-ic">🧭</span> إزاي تطلب؟</h3>
+      <div class="how-steps">
+        <div class="how-step"><span class="num">١</span><p>اختار منتجك من الكتالوج، بالبحث أو حسب الشركة</p></div>
+        <div class="how-step"><span class="num">٢</span><p>حدّد الكمية واضغط «إضافة للسلة»</p></div>
+        <div class="how-step"><span class="num">٣</span><p>افتح «السلة» وراجع طلبك</p></div>
+        <div class="how-step"><span class="num">٤</span><p>إرسال الطلب هيتحدد بعد اعتماد طريقة الطلب، والمعاينة حاليًا بدون إرسال أو دفع</p></div>
+      </div>
     </div>
     <div class="ctl reveal" id="ctl">
       <div class="vc-note">أسعار وأرصدة غير فعلية · لا إرسال أو دفع</div><div class="demo-tools"><button class="primary" id="vcOpenCart"><svg class="vc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12h11.8l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> السلة <span id="vcCount">٠</span></button><button id="vcOpenStock">مرجع المخزون</button></div><div class="ctl-toolbar">
