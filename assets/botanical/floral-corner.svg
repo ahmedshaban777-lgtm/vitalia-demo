@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><defs>
+<radialGradient id="rose"><stop stop-color="#f8c6ce"/><stop offset=".68" stop-color="#eaa1b4"/><stop offset="1" stop-color="#dc859f"/></radialGradient>
+<radialGradient id="peach"><stop stop-color="#ffebda"/><stop offset=".7" stop-color="#f5c4ae"/><stop offset="1" stop-color="#eab196"/></radialGradient>
+<radialGradient id="cream"><stop stop-color="#fffefa"/><stop offset=".8" stop-color="#fff8ed"/><stop offset="1" stop-color="#e9d9c2"/></radialGradient>
+<g id="petals"><path d="M0 1C-27-9-30-41-11-47C7-55 17-30 0 1Z"/><path d="M0 1C-27-9-30-41-11-47C7-55 17-30 0 1Z" transform="rotate(60)"/><path d="M0 1C-27-9-30-41-11-47C7-55 17-30 0 1Z" transform="rotate(120)"/><path d="M0 1C-27-9-30-41-11-47C7-55 17-30 0 1Z" transform="rotate(180)"/><path d="M0 1C-27-9-30-41-11-47C7-55 17-30 0 1Z" transform="rotate(240)"/><path d="M0 1C-27-9-30-41-11-47C7-55 17-30 0 1Z" transform="rotate(300)"/></g>
+<g id="heart"><circle r="9" fill="#c8a06b"/><circle r="6" fill="#e1ba7f"/><g fill="#9c784f"><circle cx="-3" cy="-3" r="1"/><circle cx="3" cy="-2" r="1"/><circle cx="0" cy="3" r="1"/><circle cx="5" cy="3" r=".8"/></g></g>
+</defs><g transform="translate(0 240) scale(1 -1)">
+<g fill="none" stroke="#8ca085" stroke-width="1.8"><path d="M9 240Q30 164 96 118M12 238Q62 211 133 179M13 240Q26 200 32 145"/></g>
+<g fill="#b3bda2"><path d="M24 218C-8 206-8 186 2 174C21 182 32 196 24 218Z"/><path d="M46 184C40 154 54 137 77 133C79 157 67 177 46 184Z"/><path d="M67 215C59 192 70 176 94 172C96 194 84 210 67 215Z"/><path d="M19 163C0 153-4 133 6 120C24 129 29 143 19 163Z"/><path d="M103 206C107 185 126 180 145 187C135 205 119 212 103 206Z"/></g>
+<g transform="translate(59 176) rotate(-20)"><use href="#petals" fill="url(#rose)"/><use href="#petals" fill="url(#rose)" transform="rotate(30) scale(.72)"/><use href="#heart"/></g>
+<g transform="translate(123 206) rotate(20) scale(.68)"><use href="#petals" fill="url(#peach)"/><use href="#petals" fill="url(#peach)" transform="rotate(30) scale(.75)"/><use href="#heart"/></g>
+<g transform="translate(26 111) rotate(10) scale(.57)"><use href="#petals" fill="url(#cream)" stroke="#e7d8c2" stroke-width=".5"/><use href="#heart"/></g>
+<g transform="translate(98 125) scale(.25)"><use href="#petals" fill="url(#cream)" stroke="#e7d8c2"/><use href="#heart"/></g>
+</g></svg>
