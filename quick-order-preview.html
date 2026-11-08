@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>معاينة: طلب سريع بالقائمة | Vitalia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#e0457b;--gold:#d99a3a;--ink:#2b1f19;--muted:#7a6a63;--ivory:#fdf8f4;--card:#fff;--line:#f0ddd8;--ok:#1e7d4f;--warn:#b0700a;--bad:#b3382e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;color:var(--ink);background:var(--ivory);line-height:1.75}
+h1,h2{font-family:'Cairo',sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+.badge{display:inline-block;background:#fdf0f4;color:var(--rose);border:1px solid var(--line);border-radius:999px;padding:2px 14px;font-size:.85rem;font-weight:700;margin-bottom:10px}
+h1{font-size:1.5rem;margin-bottom:6px}
+.sub{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:16px}
+textarea#qoInput{width:100%;min-height:170px;border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;font-size:1rem;background:#fffdfa;resize:vertical}
+.hint{color:var(--muted);font-size:.85rem;margin:6px 0 12px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+button.btn,a.btn{border:0;border-radius:999px;padding:10px 22px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:linear-gradient(135deg,var(--rose),var(--gold));color:#fff}
+.ghost{background:#fdf0f4;color:var(--rose);border:1px solid var(--line)}
+#qoRows .qo-empty{color:var(--muted);text-align:center;padding:14px}
+.qo-row{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px;background:#fffdfa}
+.qo-row.st-unknown{border-color:#eec9c4;background:#fff7f5}
+.qo-row.st-ambiguous{border-color:#f0dcae;background:#fffcf3}
+.qo-orig{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.qo-raw{font-weight:700}
+.qo-tag{font-size:.78rem;border-radius:999px;padding:2px 12px;font-weight:700;white-space:nowrap}
+.qo-tag.ok{background:#e6f4ec;color:var(--ok)}
+.qo-tag.warn{background:#fdf2d8;color:var(--warn)}
+.qo-tag.bad{background:#fbe7e4;color:var(--bad)}
+.qo-match{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.qo-code{color:var(--muted);font-size:.82rem;direction:ltr}
+.qo-select{width:100%;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:inherit;background:#fff}
+.qo-unknown{color:var(--bad);font-size:.9rem}
+.qo-sug{font-size:.85rem;color:var(--muted);margin-top:6px}
+.qo-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 12px;margin:3px 2px;font:inherit;font-size:.82rem;cursor:pointer;color:var(--ink)}
+.qo-chip:hover{border-color:var(--rose);color:var(--rose)}
+.qo-qty{margin-top:8px;font-size:.9rem;color:var(--muted)}
+.qo-qty input{width:70px;border:1px solid var(--line);border-radius:8px;padding:4px 8px;font:inherit;text-align:center}
+#qoStat{font-weight:700;margin-bottom:10px}
+textarea#qoMsg{width:100%;min-height:190px;border:1px dashed var(--line);border-radius:12px;padding:12px;font:inherit;font-size:.92rem;background:#fffdfa;white-space:pre-wrap}
+.wa-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+a.btn.off{opacity:.45;pointer-events:none}
+.note{color:var(--muted);font-size:.85rem;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge">معاينة منفصلة - غير منشورة على الموقع</span>
+  <h1>طلب سريع بالقائمة</h1>
+  <p class="sub">الصق قائمة الأصناف (صنف في كل سطر)، اضغط «طابق الأصناف»، راجع المطابقات واختر النوع أو الحجم عند اللبس، ثم كمّل على واتساب من غير سلة. الأصناف غير المعروفة تُعلَّم ولا تُستبدل تلقائيًا.</p>
+
+  <div class="panel">
+    <textarea id="qoInput" aria-label="قائمة الأصناف">كريم فاتيكا بالحنه
+كريم دوف
+صابونه دوف
+بلوب واكس
+ريكسونا اسبراي
+زيت دابر املا
+يباركلك شامبو
+هيركود چيل</textarea>
+    <p class="hint">لتحديد كمية اكتب «2 ×» قبل الصنف أو «× 2» بعده أو «عدد 2». الأرقام التي داخل اسم الصنف (مثل الحجم) لا تُعتبر كمية.</p>
+    <div class="btns">
+      <button class="btn primary" id="qoRun">طابق الأصناف</button>
+      <button class="btn ghost" id="qoClear">مسح القائمة</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div id="qoRows"></div>
+  </div>
+
+  <div class="panel">
+    <div id="qoStat"></div>
+    <textarea id="qoMsg" readonly aria-label="نص رسالة واتساب"></textarea>
+    <div class="wa-row">
+      <a class="btn primary" id="qoWa" href="#" target="_blank" rel="noopener">كمّل على واتساب (العميل يضغط إرسال بنفسه)</a>
+      <button class="btn ghost" id="qoCopy">نسخ نص الرسالة</button>
+    </div>
+    <p class="note">معاينة فقط: لا يُرسل أي شيء تلقائيًا، ولا يمر الطلب بالسلة. الأسعار والمخزون توضيحية وتُؤكد عند تجهيز الطلب.</p>
+  </div>
+</div>
+<script src="vitalia-qo-data.js"></script>
+<script src="quick-order.js"></script>
+</body>
+</html>
