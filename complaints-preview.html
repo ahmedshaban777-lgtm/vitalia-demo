@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitalia | فيتاليا - معاينة الشكاوى والاقتراحات</title>
+<meta name="description" content="Vitalia - فيتاليا: معاينة تصميم لصفحة الشكاوى والاقتراحات. معاينة فقط، لا يتم إرسال أي رسائل.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e0457b'/%3E%3Cstop offset='1' stop-color='%23d99a3a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='44' height='44' rx='13' fill='url(%23g)'/%3E%3Ctext x='23' y='34' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='27' fill='%23fff'%3EV%3C/text%3E%3Cpath d='M33 16.5 C35.5 15.6 37.2 13.7 37.6 10.4 C35 11 33.5 13.2 33 16.5 Z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@1,700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#fdf9f5; --rosebg:#fdf0f4; --goldbg:#fbf3e6;
+  --rose:#ff7ea8; --rose2:#e0457b; --gold:#f0b95c; --gold2:#d99a3a;
+  --grad:linear-gradient(120deg,var(--rose2),var(--gold2));
+  --card:#ffffff; --ink:#2a1830; --muted:#7d7286;
+  --line:#f0e4e2; --radius:20px; --shadow:0 18px 44px rgba(122,46,84,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal',sans-serif;color:var(--ink);background:var(--ivory);line-height:1.75;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cairo',sans-serif;line-height:1.35}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1160px,92%);margin-inline:auto}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ============ NAV ============ */
+nav{position:fixed;inset-inline:0;top:0;z-index:60;background:rgba(253,249,245,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .wmark{height:34px;width:auto}
+.brand .bt{display:flex;flex-direction:column;line-height:1.2}
+.brand .bt span{font-size:.68rem;color:var(--muted);font-weight:500}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);font-weight:600;font-size:.95rem;transition:color .2s}
+.nav-links a:hover{color:var(--rose2)}
+.nav-links a.here{color:var(--rose2);font-weight:800}
+.demo-pill{background:#fff;border:1px solid rgba(224,69,123,.25);color:var(--rose2);font-weight:800;font-size:.78rem;padding:8px 16px;border-radius:999px}
+@media(max-width:760px){.nav-links{display:none}.demo-pill{font-size:.7rem;padding:7px 12px}}
+
+/* ============ TICKER ============ */
+.ticker{background:#fff;border-block:1px solid var(--line);overflow:hidden;padding:15px 0}
+.ticker-track{display:flex;gap:52px;width:max-content;animation:tick 26s linear infinite}
+.ticker span{color:#b9a8b4;font-family:'Cairo';font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:52px;white-space:nowrap}
+.ticker i{color:var(--gold2);font-style:normal}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* ============ PAGE HEAD ============ */
+.page-head{position:relative;padding:150px 0 64px;text-align:center;background:radial-gradient(900px 520px at 88% -5%,rgba(224,69,123,.14),transparent 60%),radial-gradient(720px 500px at 5% 100%,rgba(240,185,92,.18),transparent 55%),linear-gradient(165deg,#fff 0%,var(--rosebg) 55%,var(--goldbg) 100%);overflow:hidden}
+.page-head::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(122,46,84,.08) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(700px 500px at 50% 40%,#000 0%,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;animation:drift 12s ease-in-out infinite alternate}
+.orb.o1{width:320px;height:320px;background:#f2a0bd;top:-80px;inset-inline-end:-60px}
+.orb.o2{width:260px;height:260px;background:#f5cf8e;bottom:-70px;inset-inline-start:-40px;animation-delay:-6s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,-26px) scale(1.08)}}
+.page-head .wrap{position:relative}
+.page-head .wordmark{display:block;width:min(240px,64%);height:auto;margin:0 auto 6px;filter:drop-shadow(0 10px 20px rgba(224,69,123,.2))}
+.vitalia-slogan{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 26px;color:#94734f;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:700;font-size:clamp(14px,1.7vw,18px);line-height:1.5;letter-spacing:.2px}
+.vitalia-slogan span{width:26px;height:1px;background:linear-gradient(90deg,transparent,#c8a274)}
+.vitalia-slogan span:last-child{transform:rotate(180deg)}
+.page-head .kicker{display:inline-block;background:#fff;color:var(--rose2);font-weight:800;font-size:.85rem;padding:7px 18px;border-radius:999px;margin-bottom:14px;border:1px solid rgba(224,69,123,.22);box-shadow:0 6px 16px rgba(122,46,84,.06)}
+.page-head h1{font-size:clamp(1.9rem,4.4vw,2.7rem);font-weight:900;color:var(--ink)}
+.page-head .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;font-weight:500}
+
+/* ============ ENTRY MOCK ============ */
+.entry-mock{padding:56px 0 0}
+.mock-note{text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:18px}
+.mock-bar{max-width:640px;margin:0 auto;background:#fff;border:1.5px dashed rgba(224,69,123,.35);border-radius:18px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.mock-bar .mb-text b{display:block;font-family:'Cairo';font-weight:800;font-size:.98rem}
+.mock-bar .mb-text span{font-size:.82rem;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;padding:13px 26px;border-radius:15px;font-size:.98rem;transition:transform .15s,box-shadow .15s;border:none;cursor:pointer;font-family:'Cairo'}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 12px 28px rgba(224,69,123,.32)}
+.btn-grad:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(224,69,123,.45)}
+
+/* ============ FORM ============ */
+.section{padding:56px 0 88px}
+.fcard{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:34px 30px}
+@media(max-width:640px){.fcard{padding:26px 20px}}
+.type-toggle{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.type-btn{background:var(--ivory);border:1.5px solid var(--line);border-radius:16px;padding:16px 12px;text-align:center;cursor:pointer;font-family:'Cairo';font-weight:800;font-size:1rem;color:var(--muted);transition:all .2s}
+.type-btn .ti{display:block;font-size:1.5rem;margin-bottom:4px}
+.type-btn.active{background:linear-gradient(135deg,var(--rosebg),var(--goldbg));border-color:var(--rose2);color:var(--rose2);box-shadow:0 8px 20px rgba(224,69,123,.14)}
+.field{margin-bottom:20px}
+.field label{display:block;font-family:'Cairo';font-weight:800;font-size:.95rem;margin-bottom:8px}
+.field label .opt{color:var(--muted);font-weight:500;font-size:.82rem}
+.field textarea,.field input{width:100%;background:var(--ivory);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;font-family:'Tajawal';font-size:1rem;color:var(--ink);resize:vertical;transition:border-color .2s,box-shadow .2s}
+.field textarea:focus,.field input:focus{outline:none;border-color:var(--rose2);box-shadow:0 0 0 4px rgba(224,69,123,.1)}
+.field textarea{min-height:130px}
+.privacy-note{display:flex;align-items:flex-start;gap:10px;background:var(--goldbg);border:1px solid rgba(217,154,58,.25);border-radius:14px;padding:13px 16px;font-size:.88rem;color:#8a6a33;margin-bottom:22px}
+.privacy-note .pi{flex:none;font-size:1.1rem;line-height:1.4}
+.submit-wrap{text-align:center}
+.submit-wrap .btn{width:100%;justify-content:center;font-size:1.05rem;padding:16px}
+
+/* success mock */
+.success-box{display:none;text-align:center;padding:16px 6px}
+.success-box .check{width:78px;height:78px;margin:0 auto 18px;border-radius:50%;background:linear-gradient(135deg,var(--rosebg),var(--goldbg));display:grid;place-items:center;font-size:2.2rem;box-shadow:inset 0 0 0 1.5px rgba(224,69,123,.25)}
+.success-box h3{font-size:1.3rem;font-weight:900;margin-bottom:8px}
+.success-box p{color:var(--muted);font-size:.95rem;max-width:380px;margin:0 auto 20px}
+.preview-flag{display:inline-block;background:#fff;border:1px dashed rgba(224,69,123,.4);color:var(--rose2);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.again-link{background:none;border:none;color:var(--rose2);font-family:'Cairo';font-weight:800;font-size:.92rem;cursor:pointer;text-decoration:underline}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ivory);color:#a4959e;padding:36px 0;text-align:center;font-size:.9rem;border-top:1px solid var(--line)}
+footer b{color:var(--ink)}
+footer .fmark{display:inline-block;vertical-align:-7px;margin-inline-end:8px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="vgrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e0457b"/><stop offset="1" stop-color="#f0b95c"/>
+    </linearGradient>
+  </defs>
+  <linearGradient id="vwgrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#e0457b"/><stop offset="1" stop-color="#d99a3a"/>
+  </linearGradient>
+  <symbol id="vword" viewBox="0 6 320 92">
+    <text x="160" y="86" text-anchor="middle" font-family="Playfair Display" font-style="italic" font-weight="700" font-size="66" fill="url(#vwgrad)">Vitalia</text>
+    <path d="M254 30 C261 28 265 21 266 12 C259 14 254 20 254 30 Z" fill="url(#vwgrad)"/>
+  </symbol>
+</svg>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="option2-preview.html" class="brand">
+      <svg class="wmark" viewBox="0 6 320 92" role="img" aria-label="Vitalia"><use href="#vword"/></svg>
+      <span class="bt"><span>كوزمتكس ومستلزمات طبية</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="option2-preview.html#cats">الأقسام</a></li>
+      <li><a href="option2-preview.html#products">المنتجات</a></li>
+      <li><a href="option2-preview.html#branches">الفروع</a></li>
+      <li><a href="option2-preview.html#contact">تواصل</a></li>
+      <li><a href="#" class="here">الشكاوى والاقتراحات</a></li>
+    </ul>
+    <span class="demo-pill">معاينة تصميم - لا يتم إرسال أي رسائل</span>
+  </div>
+</nav>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <div class="wrap">
+    <svg class="wordmark" viewBox="0 6 320 92" role="img" aria-label="Vitalia"><use href="#vword"/></svg>
+    <div class="vitalia-slogan" lang="en" dir="ltr"><span aria-hidden="true"></span>Where Beauty Meets Care<span aria-hidden="true"></span></div>
+    <span class="kicker">خدمة العملاء</span>
+    <h1>للشكاوى والاقتراحات</h1>
+    <p class="sub">(هدفنا تحسين الخدمة وتسهيل تجربتك معانا)</p>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>VITALIA <i>✦</i> عنايه بالشعر <i>✦</i> عنايه بالبشرة <i>✦</i> الأم والطفل <i>✦</i> المستلزمات الطبية للصيدليات <i>✦</i> المستلزمات الطبية للعيادات <i>✦</i></span>
+    <span>VITALIA <i>✦</i> عنايه بالشعر <i>✦</i> عنايه بالبشرة <i>✦</i> الأم والطفل <i>✦</i> المستلزمات الطبية للصيدليات <i>✦</i> المستلزمات الطبية للعيادات <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ENTRY MOCK: how the button would look on the homepage -->
+<div class="entry-mock">
+  <div class="wrap">
+    <p class="mock-note">كده هيبقى شكل زرار الوصول ليها على الصفحة الرئيسية:</p>
+    <div class="mock-bar">
+      <div class="mb-text">
+        <b>عندك شكوى أو اقتراح؟</b>
+        <span>كلمنا مباشرة - رأيك يهمنا</span>
+      </div>
+      <a href="#form" class="btn btn-grad">📮 للشكاوى والاقتراحات</a>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<section class="section" id="form">
+  <div class="wrap">
+    <div class="fcard">
+      <form id="cform" novalidate>
+        <div class="type-toggle" role="radiogroup" aria-label="نوع الرسالة">
+          <button type="button" class="type-btn active" id="tComplaint"><span class="ti">🗣️</span>شكوى</button>
+          <button type="button" class="type-btn" id="tSuggest"><span class="ti">💡</span>اقتراح</button>
+        </div>
+        <div class="field">
+          <label for="msg" id="msgLabel">اكتب شكواك</label>
+          <textarea id="msg" placeholder="احكيلنا إيه اللي حصل..." required></textarea>
+        </div>
+        <div class="field">
+          <label for="order">رقم الطلب <span class="opt">(اختياري - لو الرسالة عن طلب معين)</span></label>
+          <input id="order" type="text" inputmode="numeric" placeholder="مثال: 1025">
+        </div>
+        <div class="privacy-note">
+          <span class="pi">🔒</span>
+          <span>رسالتك خاصة: بتوصل لمسؤول فيتاليا بس، ومش بتتعرض على الموقع.</span>
+        </div>
+        <div class="submit-wrap">
+          <button type="submit" class="btn btn-grad" id="sendBtn">إرسال</button>
+        </div>
+      </form>
+      <div class="success-box" id="successBox">
+        <span class="preview-flag">معاينة - الشكل بعد الإرسال</span>
+        <div class="check"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#e0457b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>شكرًا! رسالتك وصلت</h3>
+        <p>هنراجعها ونرد عليك في أقرب وقت ممكن.</p>
+        <button class="again-link" id="againBtn">ارجع للفورم</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b><span class="fmark"><svg style="height:24px;width:auto;vertical-align:-4px" viewBox="0 6 320 92" aria-label="Vitalia"><use href="#vword"/></svg></span> كوزمتكس ومستلزمات طبية</b><br>
+    موقع تجريبي لعرض نموذج تصميم - جميع الأسماء والمنتجات والأسعار والأرقام توضيحية (placeholders)
+  </div>
+</footer>
+
+<script>
+const tC = document.getElementById('tComplaint');
+const tS = document.getElementById('tSuggest');
+const msgLabel = document.getElementById('msgLabel');
+const msg = document.getElementById('msg');
+const order = document.getElementById('order');
+const form = document.getElementById('cform');
+const successBox = document.getElementById('successBox');
+const againBtn = document.getElementById('againBtn');
+
+function setType(isComplaint){
+  tC.classList.toggle('active', isComplaint);
+  tS.classList.toggle('active', !isComplaint);
+  msgLabel.textContent = isComplaint ? 'اكتب شكواك' : 'اكتب اقتراحك';
+  msg.placeholder = isComplaint ? 'احكيلنا إيه اللي حصل...' : 'إيه الفكرة اللي حابب تشاركها معانا؟';
+  order.closest('.field').style.display = isComplaint ? '' : 'none';
+}
+tC.addEventListener('click', () => setType(true));
+tS.addEventListener('click', () => setType(false));
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if(!msg.value.trim()){ msg.focus(); msg.style.borderColor = 'var(--rose2)'; return; }
+  form.style.display = 'none';
+  successBox.style.display = 'block';
+});
+againBtn.addEventListener('click', () => {
+  form.style.display = '';
+  successBox.style.display = 'none';
+  msg.value = ''; order.value = '';
+});
+</script>
+</body>
+</html>
