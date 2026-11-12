@@ -5,7 +5,7 @@
 (function(){
  var TRIAL = {
   "لو صبغة برودجى بنى داكن رقم ٠٫٣": "https://vitalia-current-preview.lovable.app/assets/department-hair-concept.webp",
-  "كيارا كريم مرطب بشرة جافه ١٢٠جرام": "https://vitalia-current-preview.lovable.app/assets/department-skin-concept.webp",
+  "بيزلين كريم ادابتوجين حاجر للبشرة ٥٠مل": "https://vitalia-current-preview.lovable.app/assets/department-skin-concept.webp",
   "باشون بيبى زيت مساج للجسم ١٠٠مل": "https://vitalia-current-preview.lovable.app/assets/department-baby-concept.webp"
  };
  function apply(root){
