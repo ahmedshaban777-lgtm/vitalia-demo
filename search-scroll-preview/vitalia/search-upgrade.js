@@ -20,7 +20,11 @@
    .replace(/[٠-٩]/g,function(d){return String('٠١٢٣٤٥٦٧٨٩'.indexOf(d));})
    .replace(/[۰-۹]/g,function(d){return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d));})
    .replace(/\s+/g,' ')
-   .trim();
+   .trim()
+   /* Attached connectors (وال/فال/بال/كال/لل/ال) never decide a match:
+      «بالعسل»/«للعسل»/«العسل» match a name written «عسل». Applied to
+      query and names alike, so existing queries keep working. */
+   .split(' ').map(function(w){return w.replace(/^(وال|فال|بال|كال|لل|ال)/,'');}).filter(Boolean).join(' ');
  }
  function haystack(co,p){
   var h=p.n+' '+(p.code||'')+' '+co.ar+' '+(co.en||'');
