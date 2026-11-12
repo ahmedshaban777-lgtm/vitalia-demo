@@ -284,7 +284,7 @@
   "لو صبغة اكسنس اسود رقم ١": "L'Oréal Paris Excellence Crème 1 Black",
   "لو صبغة اكسنس اشقر رقم ٧": "L'Oréal Paris Excellence Crème 7 Blonde",
   "لو صبغة اكسنس اشقر رمادى رقم ١٧٫٧": "L'Oréal Paris Excellence Ash Suprême 7.17 Ash Blonde",
-  "لو صبغة اكسنس اشقر رمادى فاتح جدا": "L'Oréal Paris Excellence Crème 8.1 Very Light Ash Blonde",
+  "لو صبغة اكسنس اشقر رمادى فاتح جدا": "L'Oréal Paris Excellence Crème 8.1 Light Ash Blonde",
   "لو صبغة اكسنس اشقر غامق رقم ٦": "L'Oréal Paris Excellence Crème 6 Dark Blonde",
   "لو صبغة اكسنس بنى عسلى رقم ٧٫٧": "L'Oréal Paris Excellence Crème 7.7 Honey Brown",
   "لو صبغة برودجى بنى رقم ٤": "L'Oréal Paris Prodigy 4.0 Brown Permanent Oil Hair Color",
