@@ -1,9 +1,8 @@
-/* English display names - preview only. Whitelist of packaging/retailer-verified English names.
- * Coverage: 358 of 3,597 products verified against live sources after systematic cross-field validation (type, size/unit, variant, English grounded verbatim in source). Remaining products stay Arabic. */
+/* English display names - preview only. Final QA-validated allowlist (independent pixel + source QA).
+ * Coverage: 342 of 3,597 products. Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  var MAP={
   "41-42 L فرش سيليكون":"Silicone Insole L 41-42",
-  "اكس كيو سيرم فيتامين سى ٣٠مل ٩٤٠":"XQ Vitamin C Serum 30ml",
   "اكس كيو غسول للبشرة الدهنية ٢٠٠مل ٩١٩":"XQ Facial Cleanser for Oily Skin 200ml",
   "الفيف شامبو ٢٠٠ م جوجوبا":"L'Oreal Elvive Extraordinary Oil Jojoba Shampoo 200ml",
   "اليجون اى كونتور سيرم ٣٠مل١٤٦":"Alejon Eye Contour Serum 30ml",
@@ -11,8 +10,7 @@
   "اليجون سيرم فيتامين سى ٥٠مل٤٠٥":"Alejon Vitamin C Serum 10% 50ml",
   "اليجون سيرم كوجين ٥٠مل":"Alejon Collagen Serum 50ml",
   "اليجون سيرم للشعر٥٠مل٣٠٦":"Alejon Hair Serum Argan Oil Caffeine Keratin 50ml",
-  "اليجون صن سكرين +٥٠كريم٧٥مل٢٤٥":"Alejon Sunscreen Cream SPF50 75ml",
-  "اليجون صن سكرين برايم ٥٠مل ٦٣٤":"Alejon Sunscreen Primer 50ml",
+  "اليجون صن سكرين +٥٠كريم٧٥مل٢٤٥":"Alejon Sunscreen Cream SPF50+ 75ml",
   "اليجون غسول بشرة جافة دراى سكين ١٥٠مل":"Alejon Dry Skin Cleanser 150ml",
   "اليجون غسول تفتيح٢٠٠مل٣٤٤":"Alejon Whitening Cleanser 200ml",
   "اليجون غسول للبشرة الدهنية ١٥٠مل ٧١٩":"Alejon Oily Skin Gel Cleanser 150ml",
@@ -61,7 +59,6 @@
   "اورجانيك نيشن مورينجا ٦٠كبسولة":"Organic Nation Moringa Oleifera - 60 Capsules",
   "اورجانيك نيشن ميتونين ٥مجم ٦٠كبسولة":"Organic Nation Melatonin 5mg - 60 Tablets",
   "ايزيس بابونج ٢٠فلتر":"ISIS Chamomile Tea",
-  "ايزيس بابونج١٢فلتر":"ISIS Chamomile Tea",
   "ايزيس زعتر ٢٠فلتر":"ISIS Thyme Tea 20 Bags",
   "ايزيس شاى اخضر بالنعناع٢٠فلتر":"ISIS Organic Green Tea with Mint 20 Bags",
   "ايزيس شاى جينسينج ١٥فلتر":"ISIS Ginseng Tea 15 Bags",
@@ -89,7 +86,6 @@
   "ايفا ريسبى بلسم ٣٥٠مل جوز هند ٤٦٠":"Eva Recipe Conditioner Coconut Scent 350ml",
   "ايفا ريسبى بلسم ٣٥٠مل مارشيملو عرض":"Eva Recipe Conditioner Marshmallow Scent 350ml",
   "ايفا ريسبى بلسم ٣٥٠مل موكا ٣٢٣":"Eva Recipe Conditioner Mocha Scent 350ml",
-  "ايفا ريسبى شاور ٣٧٠مل خوخ":"Eva Recipe Revitalizing Blend Shower Cream For Dry Skin - Peach Scent 370ml",
   "ايفا زبدة كاكاو بالبطيخ":"Eva Senses Fresh Watermelon Lip Balm SPF15",
   "ايفا زبدة كاكاو بالكريز":"EVA SWEET CHERRY LIP BALM 4 GM",
   "ايفا سكين اشراقه بلية مزيل عرق اكتف":"Eva Natural Glow Lightening Roll-On Deodorant - Active Fresh",
@@ -151,14 +147,12 @@
   "بابلس حلمة كسيك ٦شهور":"Bubbles Classic Nipple 6 Months",
   "بابلس شفاط ثدى":"Bubbles Breast Pump",
   "بارادونتكس كبير ١٠٠م انتعاش":"Parodontax Extra Fresh Toothpaste for Bleeding Gums 100ml",
-  "بانتين بلسم ٣٦٠ مل عنايه ملكى":"Pantene Pro-V Royal Care Conditioner 360ml",
   "بانتين بلسم ٣٦٠مل عناية مرطبه":"Pantene Pro-V Moisture Renewal Conditioner 360ml",
   "بستر ٥٫٢سم /سيلك بست":"Silk Plaster 2.5cm",
   "بلانكي رول اون كيدز قطن كاندى ٤٠مل":"Blankie Kids Roll-On Cotton Candy 40ml",
   "بلانكي زيت لطفال ١٠٠ملى":"Blankie Baby Oil Body & Hair 100ml",
   "بلانكي كريم ديابير راش٧٥ مل":"Blankie Diaper Rash Cream 75ml",
   "بندولين برفان بناتى ١٠٠مل":"Penduline Perfume Girls 100ml",
-  "بندولين بلسم شيا ٣٠٠ مل":"Penduline Shea Conditioner 300ml",
   "بندولين جل كيرلى٢٥٠مل":"Penduline Curly Gel 250ml",
   "بندولين شاور جيل ٣٠٠ مل فريش":"Penduline Shower Gel Fresh 300ml",
   "بندولين شاور ٦٥مل فريش":"Penduline Kids Shower Gel Fresh 65ml",
@@ -186,8 +180,6 @@
   "بيزلين بلية تألق لؤلؤ١+١":"Beesline Natural Whitening Roll-On Deo Beauty Pearl (1+1 Offer)",
   "بيزلين سيرم توازن مقاوم لفرازات الدهنيه":"Beesline Sebum-Control Balancing Serum 2% Salicylic Acid + 2.5% Lactic Acid",
   "بيزلين سيرم للوجه اناره فورية فيتامين سى":"Beesline Instant Bright Glow Serum 30ml",
-  "بيزلين سيرم نضارة ومقاومية تجاعيد ٣٠مل":"Beesline Anti-Wrinkle & Radiance Serum 30ml",
-  "بيزلين كريم ادابتوجين حاجر للبشرة ٥٠مل":"Beesline Adaptogen Barrier Cream 50ml",
   "بيزلين كريم حاجز للبشرة لجميع انواع":"Beesline Everyone Barrier Cream 5 Essential Ceramides + 4D Hyaluronic Acid",
   "تريشوب زيت ١٠٠ م حبة سودا":"Trichup Hair Oil Black Seed 100ml",
   "تريشوب زيت ١٠٠ م صحى وقوى":"Trichup Hair Oil Healthy Long & Strong 100ml",
@@ -234,7 +226,6 @@
   "ديرما اكتيف اكتى سولير +٥٠فلويد ١+١ عرض":"Dermactive Acti-Solaire SPF50+ Ultra Fluid (1+1 Offer)",
   "ديرما اكتيف اكتى سولير اطفال اسبراى١٢٥":"Dermactive Acti-Solaire Kids Spray SPF50+ 125ml",
   "ديرما اكتيف اكتى سولير+٥٠فلويد يت":"Dermactive Acti-Solaire SPF50+ Ultra Fluid Light (Tinted) 50ml",
-  "ديرما اكتيف اكتى كلير سيرم ٣٠مل للبشرة٠٩٠":"Dermactive Acti-Clear Serum 30ml",
   "ديرما اكتيف اكتى كلير غسول جل ٢٠٠ مل٠٦٩":"Dermactive Acti-Clear Cleansing Gel 200ml",
   "ديرما اكتيف اكتى كلير غسول جل ٢٠٠مل ١+١":"Dermactive Acti-Clear Cleansing Gel 200ml (1+1 Offer)",
   "ديرما اكتيف اكتى وايت ديبيجمنتنج":"Dermactive Acti-White Depigmenting Cream",
@@ -256,21 +247,15 @@
   "فاتيكا جل انبوبة ١٨٥ م ازرق":"Vatika Menz Wet Look Styling Hair Gel 185ml (Blue Tube)",
   "فاتيكا جل برطمان ٢٥٠مل كبير اخضر":"Vatika Menz Herbal Hair Gel Strong Hold 250ml",
   "فاتيكا حمام كريم ١ كيلو ارجان":"Vatika Naturals Moisturizing Hammam Cream With Argan For Dry & Unmanageable Hair 1Kg",
-  "فاتيكا حمام كريم ٢٥٠ م ارجان":"Vatika Naturals Moisturizing Hammam Cream With Argan For Dry & Unmanageable Hair 250g",
-  "فاتيكا حمام كريم ٢٥٠ م جرجير":"Vatika Naturals Strengthening, Protecting & Shining Hammam Cream With Watercress, Marrow & Vitamin E 250g",
-  "فاتيكا حمام كريم ٢٥٠ م منك":"Vatika Mink Oil Conditioning Hammam Cream With Active Olive & Castor 250g",
   "فاتيكا حمام كريم ٥٠٠ م ثوم":"Vatika Naturals Garlic Hammam Cream 500ml",
-  "فاتيكا حمام كريم ٥٠٠ م جرجير":"Vatika Naturals Strengthening, Protecting & Shining Hammam Cream With Watercress, Marrow & Vitamin E 500g",
-  "فاتيكا حمام كريم ٥٠٠ م جنين القمح":"Dabur Vatika Wheat Germ Conditioning Hammam Cream For Weak & Damaged Hair 500g",
   "فاتيكا حنة اسود":"Vatika Henna Hair Color Black",
   "فاتيكا زيت ١٨٠م جواهر٧*١ ١٠% خ":"Vatika Jawaher Hair Oil 7 in 1 to Protect & Nourish Hair 180ml",
   "فاتيكا زيت ١٨٠م روزماري ١٠% خ":"Vatika Rosemary Enriched Hair Oil - Hair Growth",
-  "فاتيكا زيت ٤٥م جرجير ١٠%خ":"Vatika Watercress Hair Oil with Marrow & Vitamin E 45ml",
   "فاتيكا سيرم ٤٧ م اصح و ترميم":"Vatika Naturals Hair Serum - Repair & Restore (Blackseed, Castor & Garlic)",
   "فاتيكا سيرم ٤٧ م مقاومة التجاعيد":"Vatika Naturals Hair Serum - Frizz Control (Olive, Almond & Henna)",
   "فاتيكا شامبو ١٨٠م تساقط اخضر ١٥% خ":"Vatika Fall Defense Shampoo 180ml",
   "فاتيكا شامبو ٣٥٠مل ازرق مينز":"Vatika Menz Anti Dandruff Shampoo - Active Clean 350ml",
-  "فاتيكا كريم صغير بزبدة الشيا ١٥%خ":"Vatika Styling Hair Cream With Shea Butter 65ml",
+  "فاتيكا كريم صغير بزبدة الشيا ١٥%خ":"Vatika Styling Hair Cream With Shea Butter 65g",
   "فاتيكا كريم كبير جوز هند ١٠% خ":"Vatika Styling Hair Cream With Tropical Coconut For Weak & Limp Hair 140ml",
   "فاتيكا كريم كبير حبة سوداء ١٠% خ":"Vatika Black Seed Strength & Shine Hair Styling Cream For Weak & Dull Hair 140ml",
   "فاتيكا كريم كبير لوز برتقالى ١٠% خ":"Vatika Hair Styling Cream With Almond 140ml",
@@ -287,7 +272,6 @@
   "كير اند مور كريم فراولة ٢٥٠مل":"Care & More Strawberry Cream 250ml",
   "كير اند مور كريم لليدين دارك ٥٠ مللى":"Care & More Hand Cream Dark Kiss 50ml",
   "كير اند مور كريم لليدين سول بيوتى ٥٠ مللى":"Care & More Hand Cream Soul Beauty 50ml",
-  "كير اند مور كريم لليدين فيرى تال ٥٠ مللى":"Care & More Hand Cream Fairy Tale 50ml",
   "كير اند مور كريم ١٢٥ مل بجوز الهند":"Care & More Coconut Cream 125ml",
   "كير اند مور لوشن للجسم بالتوت ١٥٠مل":"Care & More Body Lotion Mixed Berries 150ml",
   "كير اند مور مرطب شفاة ٤جرام اوريجينال":"Care & More Lip Balm Original 4g",
@@ -344,7 +328,7 @@
   "ليكسورا لوشن بادى٢٠٠مل١٤٨":"Lixora SK Body Lotion 200ml",
   "ليكسورا ليب بالم ١٥مل":"Lixora SK Lip Balm Moisture Surge Hydro Plump 15ml",
   "ليكسورا ماسك وجه هيالورونيك اسيد ١٥٠مل":"Lixora SK Aromal Peel Off Mask Hyaluronic Acid Collagen & Vitamins 150ml",
-  "نونو شامبو اطفال لتر +سائل استحمام ٢٠٠مل":"Nono Shampoo 1L + Bath Liquid 200ml Gift",
+  "نونو شامبو اطفال لتر +سائل استحمام ٢٠٠مل":"Nono Kids Shampoo 1L + Bath Liquid 200ml",
   "نيفيا بليه حريمى ٥٠مل بيرل اند بيوتى بينك":"Nivea Pearl & Beauty Anti-Perspirant 72h 50ml",
   "نيفيا بليه حريمى ٥٠مل سيلك سموث":"Nivea Black & White Invisible Silky Smooth Anti-Perspirant 50ml",
   "نيفيا بليه حريمى ٥٠مل فريش ناتشورال":"Nivea Fresh Natural Anti-Perspirant 48h 50ml",
@@ -381,7 +365,7 @@
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 358 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
+  b.textContent='معاينة: 342 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
