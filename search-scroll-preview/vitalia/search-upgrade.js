@@ -38,11 +38,18 @@
   if(!q)return origScope(); /* chips and categories behave exactly as before */
   var tokens=q.split(' ').filter(Boolean);
   if(!tokens.length)return origScope();
+  /* English brand/type words map to the catalog's own Arabic terms
+     (curated aliases, not a translation of product names). */
+  var EN_MAP={eva:'ايفا',vatika:'فاتيكا',blankie:'بلانكي',blanki:'بلانكي',shampoo:'شامبو',conditioner:'بلسم',balm:'بلسم',cream:'كريم',lotion:'لوشن',soap:'صابون',deodorant:'مزيل عرق','roll-on':'رول اون',oil:'زيت',sunscreen:'صن سكرين',sunblock:'صن سكرين',toothpaste:'معجون اسنان',toothbrush:'فرشاة',micellar:'ميسيلار',makeup:'مكياج',mascara:'مسكارا',blush:'بلاش',hair:'شعر',baby:'طفال',kids:'طفال',honey:'عسل',almond:'لوز',olive:'زيتون',argan:'اركان',shea:'شيا',coconut:'جوز هند',aloe:'صبار',vera:'صبار',charcoal:'فحم',vitamin:'فيتامين',cotton:'قطن',candy:'كاندي',spray:'اسبراي',gel:'جل',wax:'واكس',serum:'سيرم',toner:'تونر',scrub:'صنفره',gold:'جولد'};
   var list=[];
   CTL_COMPANIES.forEach(function(co){
    co.products.forEach(function(p){
     var hay=haystack(co,p);
-    var ok=tokens.every(function(t){return hay.indexOf(t)>-1;});
+    var ok=tokens.every(function(t){
+     if(hay.indexOf(t)>-1)return true;
+     var m=EN_MAP[t];
+     return m&&hay.indexOf(m)>-1;
+    });
     if(ok)list.push({co:co,p:p});
    });
   });
