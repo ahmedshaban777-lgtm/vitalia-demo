@@ -1,0 +1,2 @@
+/* English display name under Arabic - smaller, quieter, LTR */
+.ctl-card .en-name{font-family:'Tajawal',sans-serif;font-size:11px;font-weight:500;color:#8a6a78;line-height:1.35;margin:2px 0 0;letter-spacing:.1px;direction:ltr;text-align:center;white-space:normal}
