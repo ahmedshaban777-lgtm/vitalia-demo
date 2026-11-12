@@ -118,6 +118,21 @@
     or the keyboard search/Enter key finishes the search and scrolls the
     page to the start of the results, or to the no-results message when
     nothing matches. Everything else stays as it was. */
+ function ctlJumpToResults(){
+  var count=ctlScope().length;
+  var target=count?document.getElementById('ctlGrid'):noRes;
+  if(!target)return;
+  function scrollOnce(){
+   var y=target.getBoundingClientRect().top+window.pageYOffset-90;
+   window.scrollTo({top:y,behavior:'smooth'});
+  }
+  scrollOnce();
+  /* Re-aim once after late image/layout shifts so the first tap on a
+     freshly loaded page does not land short of the results. */
+  setTimeout(function(){
+   if(Math.abs(target.getBoundingClientRect().top-90)>60)scrollOnce();
+  },700);
+ }
  function ctlSubmitSearch(){
   if(ctlDeb){clearTimeout(ctlDeb);ctlDeb=null;}
   ctlState.q=ctlQ.value.trim();
@@ -125,18 +140,19 @@
   ctlRender();
   if(norm(ctlState.q)==='')return;
   ctlQ.blur();
-  var count=ctlScope().length;
-  var target=count?document.getElementById('ctlGrid'):noRes;
-  if(!target)return;
-  var y=target.getBoundingClientRect().top+window.pageYOffset-90;
-  window.scrollTo({top:y,behavior:'smooth'});
+  ctlJumpToResults();
  }
  var sic=ctlQ.parentElement?ctlQ.parentElement.querySelector('.sic'):null;
  if(sic){
   sic.setAttribute('role','button');
   sic.setAttribute('tabindex','0');
   sic.setAttribute('aria-label','عرض نتائج البحث');
+  /* The stylesheet marks the icon pointer-events:none (decorative);
+     re-enable it here and widen the tap area so mobile taps reach it. */
+  sic.style.pointerEvents='auto';
   sic.style.cursor='pointer';
+  sic.style.padding='10px';
+  sic.style.margin='-10px';
   sic.addEventListener('click',function(){ctlSubmitSearch();});
   sic.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();ctlSubmitSearch();}});
  }
