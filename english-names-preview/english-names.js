@@ -811,4 +811,18 @@
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',banner);
  else banner();
+})();/* Auto-demo: ?show=<query> lands directly on the results so the sample is visible without typing */
+(function(){
+ var m=location.search.match(/[?&]show=([^&]+)/);
+ if(!m)return;
+ var q=decodeURIComponent(m[1]);
+ function go(){
+  var i=document.getElementById('ctlQ');
+  if(!i){setTimeout(go,400);return;}
+  var s=Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value').set;
+  s.call(i,q);i.dispatchEvent(new Event('input',{bubbles:true}));
+  setTimeout(function(){var c=document.getElementById('ctlGoResults');if(c)c.click();},900);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(go,600);});
+ else setTimeout(go,600);
 })();
