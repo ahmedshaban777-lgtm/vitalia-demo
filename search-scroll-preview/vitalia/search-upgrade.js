@@ -27,7 +27,7 @@
    .split(' ').map(function(w){return w.replace(/^(وال|فال|بال|كال|لل|ال)/,'');}).filter(Boolean).join(' ');
  }
  function haystack(co,p){
-  var h=p.n+' '+(p.code||'')+' '+co.ar+' '+(co.en||'');
+  var h=p.n+' '+(p.code||'')+' '+(p.alt?p.alt.join(' '):'')+' '+co.ar+' '+(co.en||''); /* alt keeps original source names searchable after a grounded correction */
   if(p.v){p.v.forEach(function(v){h+=' '+v.n;});}
   return norm(h);
  }
