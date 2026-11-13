@@ -2,7 +2,7 @@
 
 Standard: an English name stays only with item-level evidence (packaging, manufacturer, or trusted pharmacy listing for the same item and size/variant). Plausible transliteration or brand existence alone is not enough. Uncertain identities stay Arabic.
 
-Counts are reconciled against the actual catalog (vitalia/catalog-excel.js, 3,444 product codes, unchanged since first commit). Earlier banners said "of 3,597" - that figure was never grounded in the repo and was corrected in 97fad94. Baseline (ee67c83, "1,305") contained 91 dead keys matching no catalog product; true baseline coverage was 1,214.
+Counts are reconciled against what the page actually loads: vitalia/catalog-excel.js (3,444 Excel products) + vitalia/approved-inline-2.js CTL_COMPANIES (19 approved companies, 153 showcase products + 12 variant sub-names) = 3,597 page products. The original "of 3,597" banner was correct. The 97fad94 "correction" to 3,444 was wrong: it counted only Excel codes and dropped 91 live keys as "dead" - those keys are showcase product names (Pantene/Penduline/Bobana lines) and were restored in the v28 commit. True baseline coverage was 1,214 live Excel products + baseline showcase keys.
 
 ## 2026-11-14 audit pass 1 (commit pending, v27)
 - Reverted 31 entries with unverified identity or invented spelling to Arabic: Vie (3, no evidence found), Vapex (5, held cluster), Tettello (4, invented spelling), Moisty (2, actual brand appears to be "Moist"/"Moist-1"), BCI device (1), Tex gloves (11, no such brand found), Axe variants "Strong Bergamot"/"Black Vanilla"/"Cookies" (3, no such Axe variants), Omega adult diapers (1), Oralit toothbrush (1, searches return only Oral-B).
@@ -17,3 +17,7 @@ Counts are reconciled against the actual catalog (vitalia/catalog-excel.js, 3,44
 
 ## Held (stay Arabic)
 Vatika uncertain shades, L'Oreal Prodigy shades, لومى air fresheners, زو belts, Fog, Candy, Loof, Luna butter, Fish, Luscious, Malaysia, Senior, Fashkol, Disar, Ravina, ReDerma, HairCode, Elon, Africana, Glory, Vital Care, Safe Hair, Jo, Easy Sweet, Cherry, Vista, Rose, Elite, Rosalia, Casanova, Isis honey, Baby Junior, H&S variants, Vie, Vapex, Tettello, Moisty, Tex, Oralit, Omega diapers, BCI, and any item whose identity a future pass cannot confirm.
+
+## 2026-11-14 scope reconciliation (v28)
+- Page scope verified from loaded scripts in index.html: catalog-excel.js (3,444 products, only file with VTL-E codes) and approved-inline-2.js CTL_COMPANIES (153 products + 12 variant sub-names across 19 companies: Vatika, Eva, Nivea, Dove, Vaseline, Johnson's, Garnier, Lux, Cantu, Rexona, Sunsilk, Sensodyne, Gillette, Pantene, Neutrogena, Penduline, Bobana, Sheglam, Beesline). Other vitalia/*.js files are behavior/UI scripts with no product records.
+- Restored the 91 wrongly-dropped showcase keys. MAP now: 2,945 keys, zero orphans (every key is a live page product name), covering 2,945 of 3,597 page products. The 12 showcase variant sub-names are not yet mapped (they display inside product cards).
