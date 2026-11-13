@@ -3053,7 +3053,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 2,961 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
+  b.textContent='معاينة: 3,023 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
