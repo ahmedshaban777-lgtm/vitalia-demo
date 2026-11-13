@@ -1,5 +1,5 @@
 /* English display names - preview only. Final QA-validated allowlist (independent pixel + source QA).
- * Coverage: 1,596 of 3,597 products. Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 1,597 of 3,597 products. Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  var MAP={
   "41-42 L فرش سيليكون": "Silicone Insole L 41-42",
@@ -1627,7 +1627,7 @@
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 1,596 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
+  b.textContent='معاينة: 1,597 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
