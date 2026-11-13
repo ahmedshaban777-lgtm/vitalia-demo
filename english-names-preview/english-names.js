@@ -1,5 +1,5 @@
 /* English display names - preview only. Final QA-validated allowlist (independent pixel + source QA).
- * Coverage: 1,305 of 3,597 products. Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 1,356 of 3,597 products. Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  var MAP={
   "41-42 L فرش سيليكون": "Silicone Insole L 41-42",
@@ -1308,6 +1308,58 @@
   "كيس جمع بول بمحبس": "Urine Collection Bag with Valve",
   "نيوتريفيل اشوجاندا ٣٠ كبسول": "Nutriville Ashwagandha 30 Capsules",
 
+
+  "اكس اسبراى عرض ١+١ كوكيز": "Axe Cookies Spray (1+1 Offer)",
+  "الفيف شامبو ٢٠٠ م جوجوبا عرض": "L'Oreal Elvive Extraordinary Oil Jojoba Shampoo 200ml",
+  "الفيف شامبو ٤٠٠ م جوجوبا عرض": "L'Oreal Elvive Extraordinary Oil Jojoba Shampoo 400ml",
+  "ام زيت دهبى ١٨٠مل ١٠% خ": "Dabur Amla Gold Hair Oil 180ml",
+  "ام زيت دهبى ٥٠ مل ١٠% خ": "Dabur Amla Gold Hair Oil 50ml",
+  "ام زيت عادى ١٨٠ مل ١٠% خ": "Dabur Amla Hair Oil Regular 180ml",
+  "ام زيت عادى ٤٥مل ١٠% خ": "Dabur Amla Hair Oil Regular 45ml",
+  "ام زيت عادى ٩٠ مل ١٠% خ": "Dabur Amla Hair Oil Regular 90ml",
+  "ام زيت ياسمين ٢٧٠ مل ١٠% خ": "Dabur Amla Jasmine Hair Oil 270ml",
+  "ام زيت ياسمين ٥٠ مل ١٠% خ": "Dabur Amla Jasmine Hair Oil 50ml",
+  "ام زيت ياسمين ٩٠ مل ١٠% خ": "Dabur Amla Jasmine Hair Oil 90ml",
+  "انفينتى كريم موستريزنج مرطب ٥٠مل": "Infinity Moisturizing Cream 50ml",
+  "بابلس سكاته عاديه بسلسله": "Bubbles Soother with Chain 0+ months",
+  "بارادونتكس كبير ١٠٠م تبيض": "Parodontax Whitening Toothpaste 100 ml",
+  "بارادونتكس وسط ٥٠م فلورايد": "Parodontax Fluoride Toothpaste 50 ml",
+  "بستر ٢٥٫١/ سيلك بست": "Silk Plaster 1.25cm",
+  "بيبي جوي رقم ٣ عدد ٥٨ح": "Baby Joy Diapers No. 3 (58 Pieces)",
+  "بيبي جوي رقم ٤ عدد ٥٨ح": "Baby Joy Diapers No. 4 (58 Pieces)",
+  "بيور فازلين ٢٠ م": "Pure Petroleum Jelly 20ml",
+  "تيتيلو امبوت ١٢ امبول ١٠مل": "Tettello Hair Ampoules 12 Ampoules",
+  "تيتيلو شامبو ضد التساقط ٤٠٠مل": "Tettello Anti Hair Loss Shampoo 400ml",
+  "جليسوليد كريٍم سوفت ٢٠٠جم": "Glysolid Soft Cream 200 gm",
+  "جونسون شامبو اصفر ١٠٠م": "Johnson's Baby Shampoo Yellow 100ml",
+  "دريسنج صق ١٠*٢٥": "Adhesive Dressing 10x25",
+  "دريسنج صق ١٠*٣٥": "Adhesive Dressing 10x35",
+  "ديوريكس عازل ٣ق اكسترا سيف": "Durex Extra Safe Condoms 3 pieces",
+  "رباط ضاغط هاى ميديك ١٥سم": "Hi Medic Elastic Bandage 15cm",
+  "رباط ضاغط هاى ميديك ٨سم": "Hi Medic Elastic Bandage 8cm",
+  "ركبة تراست اكس رج": "Trust Knee Support (XL)",
+  "ركبة تراست ٣ اكس رج": "Trust Knee Support (XXXL)",
+  "ريكسونا بليه صغير حريمى ٢٠مل بامبو عرض": "Rexona Bamboo Roll-on Deodorant with Aloe Vera 20ml",
+  "ستارفيل وايتنج كلينسر ١٠٠ملى ابيض س ج": "StarVille Whitening Cleanser 100ml",
+  "سرنجات الدولية ٣سم ٢٥٠سرنجة": "El Dawlia Syringes 3cc (Box of 250)",
+  "سفاري ترمس ٥٠٠مل عرض": "Baby Safari Vacuum Flask Thermos 500 ml",
+  "سنسوداين ٢٠مل صغير فلورايد": "Sensodyne Toothpaste - Fluoride - 20ml",
+  "سويتال ٥٠كيس العادى": "Sweetal Diet Sugar 50 Sachets",
+  "سيكم اعشاب رجيم ٢٥ فتله": "Sekem Diet Herbal Tea 25 Filter Bags",
+  "شاش فازلين ١٠*٢٠ توب تول": "Top Tul Vaseline Gauze 10x20",
+  "شاش فازلين ١٠*٣٠ توب تول": "Top Tul Vaseline Gauze 10x30",
+  "صن سيلك شامبو ١٨٠م برتقالى تالف عرض": "Sunsilk Shampoo 180ml Out With Damage",
+  "فاتيكا حمام كريم ٢٥٠ م تساقط": "Vatika Conditioner Cream Hair Fall Control 250ml",
+  "فاتيكا حمام كريم ٢٥٠ م ثوم": "Vatika Naturals Garlic Hammam Cream 250ml",
+  "فاتيكا شامبو ٤٢٥م جرجير ١٥ % خ": "Vatika Shampoo Watercress 425ml",
+  "فاشكول حمام كريم فاكهه ٥٠٠جرام١٢٧٦": "Fashkool Hair Mask with Fruits 500g",
+  "فيانسيه كريم صغير ١٢٥مل موف": "Fiancee Hair Cream Purple 125ml",
+  "فيبكس ١٠مل اخضر": "Vapex Green Deodorant 10ml",
+  "فيبكس ١٥ مل ازرق": "Vapex Blue Deodorant 15ml",
+  "فيبكس ١٥مل اخضر": "Vapex Green Deodorant 15ml",
+  "منك بلسم ٧٠٠مل افوكادو": "Mink Hair Conditioner Avocado and Jojoba Oil Extract 700ml",
+  "منك بلسم ٧٠٠مل جوزهند": "Mink Conditioner with Coconut Macadamia Oil and Cocoa Butter 700ml",
+  "نونو زيت اطفال ٢٠٠مل فندر": "Nunu Baby Oil with Lavender 200 ml",
  };
 
  function inject(root){
@@ -1331,7 +1383,7 @@
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 1,305 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
+  b.textContent='معاينة: 1,356 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
