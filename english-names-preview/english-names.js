@@ -1,4 +1,4 @@
-/* English display names - preview only. Final QA-validated allowlist (independent pixel + source QA).
+/* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
  * Coverage: 3,027 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
@@ -1413,7 +1413,7 @@ var MAP={
   "دوركو ماكينه حصاير٢موس اصفر": "Dorco Disposable Razors Yellow 2-Blade (Display Mat)",
   "دوش مهبلى روفى": "Rofy Vaginal Douche",
   "دوف اسبراى ١٥٠مل بالخيار عرض": "Dove Fresh Cucumber Anti-Perspirant Deodorant 150ml",
-  "دوف اسبراي بالخيار والشاي الأخضر": "Dove Fresh Cucumber Anti-Perspirant Deodorant",
+  "دوف اسبراي بالخيار والشاي الأخضر": "Dove Cucumber & Green Tea Antiperspirant Spray",
   "دوف اسبراى حريمى ٢٥٠مل كمثرى": "Dove Go Fresh Pear Deodorant Spray 250 ml",
   "دوف اسبراى رجالى ٢٥٠مل": "Dove Men Spray 250ml",
   "دوف اسبراى رجالى ٢٥٠مل اكسترا فريش": "Dove Men+Care Extra Fresh Antiperspirant Spray 250ml",
@@ -1600,7 +1600,7 @@ var MAP={
   "ريد جهاز اقراص+٣قرص مجانا": "Raid Tablet Device + 3 Tablets Free",
   "ريد غيار سائل": "Raid Liquid Refill",
   "ريد غيار سائل فندر": "Raid Liquid Refill",
-  "ريكسونا اسبراي حريمي انفيزيبل 150 مل": "Rexona Antibacterial Invisible Antiperspirant Deodorant for Women 150ml",
+  "ريكسونا اسبراي حريمي انفيزيبل 150 مل": "Rexona Invisible Antiperspirant Spray for Women 150ml",
   "ريكسونا اسبراي حريمي بامبو 150 مل": "Rexona Bamboo Motion Sense Deodorant Spray 150ml",
   "ريكسونا اسبراي حريمي شاور فريش": "Rexona Women Antiperspirant Deodorant Spray Shower Fresh",
   "ريكسونا اسبراي رجالي اكسترا كول 150 مل": "Rexona Men Motionsense Xtra Cool Antiperspirant Spray 150ml",
@@ -2927,7 +2927,7 @@ var MAP={
   "نيتروجينا هيدرا بوست ماء ميسر ٤٠٠مل": "Neutrogena Hydro Boost Micellar Water 400 ml",
   "نيتروجينا هيدرا بوست واتر جل 50 مل": "Neutrogena Hydro Boost Water Gel - 50ml",
   "نيزابكس شامبو س ج": "Nizapex Shampoo",
-  "نيفيا اسبراي حريمي بيرل آند بيوتي 150 مل": "NIVEA Pearl & Beauty Antiperspirant Pearl Extract 150ml",
+  "نيفيا اسبراي حريمي بيرل آند بيوتي 150 مل": "Nivea Pearl & Beauty Antiperspirant Spray 150ml",
   "نيفيا اسبراي رجالي بلاك آند وايت 150 مل": "Nivea Antiperspirant Spray Black and White Invisible Original for Men 150ml",
   "نيفيا استيك حريمي بيرل آند بيوتي 50 مل": "Nivea Pearl And Beauty Antiperspirant Stick For Women 50ml",
   "نيفيا استيك رجالي بلاك آند وايت انفيزيبل 50 مل": "Nivea Men Invisible for Black & White Stick 50ml",
@@ -2953,7 +2953,7 @@ var MAP={
   "نيفيا سبراى رجالى ١٥٠مل ديب وود": "Nivea Men Deep Darkwood Maxx Tech Anti-Perspirant 72h 150ml",
   "نيفيا سبراى رجالى ١٥٠مل فريش اكتيف": "Nivea Men Fresh Active Deodorant 48h 150ml",
   "نيفيا سبراى رجالى١٥٠مل سبريسو": "NIVEA MEN Deep Black Carbon Espresso Antiperspirant Spray for Men 150ml",
-  "نيفيا ستيك رجالى بك اند وايت": "Nivea Men Black & White Invisible Original Anti-Perspirant 72h 50ml",
+  "نيفيا ستيك رجالى بك اند وايت": "Nivea Men Black & White Invisible Stick 50ml",
   "نيفيا سوفت كريم أبيض 200 مل": "Nivea Soft Cream White 200ml",
   "نيفيا شاور جل ٢٥٠ مل": "Nivea Shower Gel 250ml",
   "نيفيا شاور جل ٢٥٠ مل انرجى": "Nivea Men Energy 24H Fresh Effect Shower Gel 3in1 250ml",
@@ -3053,7 +3053,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,023 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
+  b.textContent='معاينة: 3,023 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
