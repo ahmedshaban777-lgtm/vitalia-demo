@@ -1,5 +1,5 @@
 /* English display names - preview only. Final QA-validated allowlist (independent pixel + source QA).
- * Coverage: 1,450 of 3,597 products. Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 1,453 of 3,597 products. Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  var MAP={
   "41-42 L فرش سيليكون": "Silicone Insole L 41-42",
@@ -1455,6 +1455,10 @@
   "فاتيكا كريم وسط جوز هند لبنى ١٠% خ": "Vatika Styling Hair Cream (Coconut)",
   "فاتيكا كريم وسط حنه ولوز اخضر١٠%خ": "Vatika Styling Hair Cream (Henna & Almond)",
   "فاتيكا كريم وسط قشرة اصفر ١٠% خ": "Vatika Naturals Dandruff Guard Styling Hair Cream",
+
+  "ايفا بادى سبش صغير ٨٥مل كود": "Eva Senses Body Splash 85ml",
+  "ايفا رول اون كود ٥٠مل": "Eva Skin Care Senses Antiperspirant Roll-on 50gm",
+  "ايفا سيرم للجسم كود ١٥٠مل": "Eva Senses Body Serum 150ml",
  };
 
  function inject(root){
@@ -1478,7 +1482,7 @@
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 1,450 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
+  b.textContent='معاينة: 1,453 اسم إنجليزي موثّق من 3,597 منتجاً — باقي المنتجات تظهر بالعربية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
