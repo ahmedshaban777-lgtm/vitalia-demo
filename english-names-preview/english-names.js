@@ -1,8 +1,15 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,523 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,530 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "لوف استحمام بالقطعة طويل كو": "Long Bath Loofah (per piece)",
+  "لوف استحمام بالقطعة كف كو": "Bath Loofah Glove (per piece)",
+  "لوف شاور شبك": "Mesh Shower Loofah",
+  "لوف كف كو جامبو بالقطعه": "Jumbo Loofah Glove (per piece)",
+  "جوكى كريم شعر هيرفود ١٥٠جم بزيت الزيتون": "Jokey Hair Food Cream with Olive Oil 150g",
+  "موركان صابون مغربى ياسمين ٢٥٠جرام+ لوفه": "Morcan Moroccan Black Soap with Jasmine 250g + Loofah",
+  "سنون قلم انسولين ٦مم بيك": "Insulin Pen Needles 6mm",
   "صابون فينيك لونا": "Luna Fenix Soap",
   "صابون بوريك لونا": "Luna Boric Soap",
   "صابون لورد فنيك": "Lord Fenix Soap",
@@ -3549,7 +3556,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,519 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,526 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }

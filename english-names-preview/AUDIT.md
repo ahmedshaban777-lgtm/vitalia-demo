@@ -126,3 +126,7 @@ Vatika uncertain shades, L'Oreal Prodigy shades, لومى air fresheners, زو b
 ## 2026-11-14 pass 4x: +4 - Fenix/Luna soap cluster
 - صابون فينيك لونا = Luna Fenix Soap (beautybelleeg.com exact); + Luna Boric, Lord Fenix, Keto Fenix as literal variants.
 - Coverage: 3,523 keys = 3,519 of 3,597 cards. Remaining 86 strings = 78 cards + 8 already-English sub-names.
+
+## 2026-11-15 pass 4y: +7 - final retry round
+- Jokey Hair Food (glowroom-eg.com exact 150g olive oil), Morcan Moroccan black soap with jasmine (elghazawy.com exact), سنون قلم انسولين = insulin pen needles literal (amsmedicals.com confirms usage for 6mm pen needles), loofah items x4 as literal descriptors.
+- Coverage: 3,530 keys = 3,526 of 3,597 cards (98.0%). Remaining 79 strings = 71 cards + 8 already-English sub-names.
