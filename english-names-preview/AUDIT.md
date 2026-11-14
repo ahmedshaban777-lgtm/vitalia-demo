@@ -118,3 +118,7 @@ Vatika uncertain shades, L'Oreal Prodigy shades, لومى air fresheners, زو b
 - More لا-truncation cracks: يف بوى = Lifebuoy, كتويل = Lactuel, فند ازرق = lavender blue (X sprays, nourpharmacies.com اكس بلو لافندر).
 - Still held (no source found or ambiguous): ام x9, برفان house brands x6, شيرى x2, ايليت x2, بروفين x1, جمى ب x2 (By Jimmy too weak), جريت ذا variant x1, ميموغى, رافينا كوجين, بايوبس سيرم ايش, كيروكس, كانيو x7, كزوريكس x3, كيبودينت, اورال يت, خت رصاص x2, حجر جهاز سكر, بى سى اى, سنون, ريبو تيست, نوايا, شيلز, تروسلى, نورميلان variant, كيتو فنيك, فينيك soaps x3, لو/لو برو x2, لولب, زيت اللوز افاق, ميكروكروم, كلبس انترا, اورينتك, بى بم, ريكس حفاضات, حفاضات? tail singles.
 - Coverage: 3,518 keys = 3,514 of 3,597 cards (97.7%). Remaining 91 strings = 83 cards + 8 already-English showcase sub-names (Red Glamour, Love Tale, In the Clouds, Mystic Orchid, Night Out, Summer Twist, Cozy Dream, Gold Spell - display fine as-is).
+
+## 2026-11-14 pass 4w: +1
+- كيروكس = Kirox crawling insect powder (azzampharmacy.com exact listing).
+- Coverage: 3,519 keys = 3,515 of 3,597 cards. Remaining 90 strings = 82 cards + 8 already-English sub-names.
