@@ -122,3 +122,7 @@ Vatika uncertain shades, L'Oreal Prodigy shades, لومى air fresheners, زو b
 ## 2026-11-14 pass 4w: +1
 - كيروكس = Kirox crawling insect powder (azzampharmacy.com exact listing).
 - Coverage: 3,519 keys = 3,515 of 3,597 cards. Remaining 90 strings = 82 cards + 8 already-English sub-names.
+
+## 2026-11-14 pass 4x: +4 - Fenix/Luna soap cluster
+- صابون فينيك لونا = Luna Fenix Soap (beautybelleeg.com exact); + Luna Boric, Lord Fenix, Keto Fenix as literal variants.
+- Coverage: 3,523 keys = 3,519 of 3,597 cards. Remaining 86 strings = 78 cards + 8 already-English sub-names.
