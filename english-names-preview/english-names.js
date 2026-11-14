@@ -1,8 +1,27 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,173 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,192 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "جاست ريج لبوس": "Gast-Reg Suppositories",
+  "فيتونكس اقراص س ج": "Vitonex Tablets",
+  "فوناسبير ٢٠مجم ١٤قرص": "Vonaspire 20mg 14 Tablets",
+  "كولونا اقراص س ج": "Colona Tablets",
+  "ليناجليفلوزين٥/١٠مجم اقراص": "Linagliflozin 5/10mg Tablets",
+  "ميمكسا١٠قرص س ق": "Memexa Tablets (10 pcs)",
+  "هيباماكس بلس كبسول": "Hipamax Plus Capsules",
+  "افريكانا شامبو ٢٢٥مل ٠١١": "Africana Shampoo 225ml",
+  "افريكانا هير واكس ستيك +فرشه": "Africana Hair Wax Stick + Brush",
+  "اكس اسبراى بك فانيليا ١+١": "Axe Black Vanilla Body Spray 1+1",
+  "ناتريفام امبول لعج تساقط الشعر ٥امبول ٤٩٤": "Nutrivam Hair-Fall Treatment 5 Ampoules",
+  "ناتريفام سيكافام كريم بى ٥ ٤٠مل ٤٣٧": "Nutrivam Cicafam B5 Cream 40ml",
+  "ناتريفام كبسوت لتساقط الشعر والصلع": "Nutrivam Capsules for Hair Fall & Baldness",
+  "ناتريفام يوريا ١٠% لوشن ١٠٠مل ٦٠٢٤": "Nutrivam Urea 10% Lotion 100ml",
+  "ليكسورا امبوت لتجاعيد البشرة ٢١٦": "Lixora Anti-Wrinkle Ampoules",
+  "ليكسورا زيت لليد ٣٩١": "Lixora Hand Oil",
+  "ليكسورا شامبو مغذى ٢٥٠مل ٦٠٧٠": "Lixora Nourishing Shampoo 250ml",
+  "ليكسورا لوسيون تساقط وقشرة١٥٠مل٢٥": "Lixora Lotion for Hair Fall & Dandruff 150ml",
+  "صابون بيرى ٩٠جرام لبان دكر": "Berry Frankincense Soap 90g",
   "اليجون كوريكتيف فونديشن ١فاير٥٢٨": "Elegon Corrective Foundation 1 Fair",
   "اليجون كوريكتيف فونديشن ٢ساند ٥١١": "Elegon Corrective Foundation 2 Sand",
   "اليس ماكينه سييلكى سموث موف ٣ موس": "Alice Razor Silky Smooth Purple 3 Blade",
@@ -3199,7 +3218,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,169 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,188 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
