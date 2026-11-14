@@ -1,8 +1,45 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,265 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,302 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "بايوبس شامبو ارجان ٢٥٠مل ٠٣٢": "Bioblas Argan Shampoo 250ml",
+  "بايوبس شامبو كرياتين خالي من السلفات": "Bioblas Keratin Shampoo (Sulfate-Free)",
+  "بروفين شامبو ضد التساقط ٢٠٠ مل": "Provine Anti-Hair-Fall Shampoo 200ml",
+  "بروفين شامبو ضد القشره ١٢٠ مل": "Provine Anti-Dandruff Shampoo 120ml",
+  "تيتيلو بلسم ضد التساقط ٢٠٠ مل١٦٧": "Tettello Anti-Hair-Fall Conditioner 200ml",
+  "تيتيلو بلسم ليف ان ضد التساقط ١٥٠ مل١٥٠": "Tettello Leave-In Anti-Hair-Fall Conditioner 150ml",
+  "سنيور كريم التصفيف ارجان ابيض٢٥٠ مل": "Senor Styling Cream Argan (White) 250ml",
+  "سنيور كريم التصفيف مانجو اسود٢٥٠مل بامب": "Senor Styling Cream Mango (Black) 250ml with Pump",
+  "جلورى حنة برغندى": "Glory Henna (Burgundy)",
+  "جلورى حنة سوداء": "Glory Henna (Black)",
+  "جلورى حنه ماهوجنى": "Glory Henna (Mahogany)",
+  "فاشكول حمام كريم ١٥٠٠مل فاكهه١١٣٩": "Fashkool Hammam Cream Fruits 1500ml",
+  "فاشكول حمام كريم فاكهه ٥٠٠جرام١٢٧٦": "Fashkool Hammam Cream Fruits 500g",
+  "فوج برفان بوكيت ١٧ملى ايسانس": "Fogg Pocket Perfume 17ml (Essence)",
+  "فوج برفان بوكيت ١٧ملى ماركو": "Fogg Pocket Perfume 17ml (Marco)",
+  "فيش كوب اطفال شفاط سيليكون": "Fish Kids Cup (Silicone Straw)",
+  "زبدة بيلو بك بيرى": "Labello Lip Butter (Blackberry)",
+  "زبدة بيلو شيرى": "Labello Lip Butter (Cherry)",
+  "زبدة بيلو فراولة": "Labello Lip Butter (Strawberry)",
+  "مناديل مبللة را اطفال ٧٢م حساس": "Lara Baby Wet Wipes 72pcs (Sensitive)",
+  "مناديل مبللة را ١٢٠م اطفال": "Lara Baby Wet Wipes 120pcs",
+  "مناديل مبللة را ٧٢ منديل اطفال": "Lara Baby Wet Wipes 72pcs",
+  "جهاز قياس اكسجين جرانزيا": "Granzia Pulse Oximeter",
+  "جهاز قياس اوكسجين ميدزانا": "Medizana Pulse Oximeter",
+  "انرجى سيرم كيراتين ١٠٠ مل": "Energy Keratin Serum 100ml",
+  "فيى اليور وايتنج كريم مناطق حساسة ٥٠مل": "Vee Allure Whitening Cream for Intimate Areas 50ml",
+  "فيى اورثو ٣٠ كبسولة كود ٥٠٠": "Vee Ortho 30 Capsules",
+  "فيى بيوتين ٣٠ كبسولة كود ٠٤٣": "Vee Biotin 30 Capsules",
+  "فيى بيوتين ٦٠ كبسولة كود ٠٥٠": "Vee Biotin 60 Capsules",
+  "فيى تريكو انتنس سوليوشن لنمو الشعر": "Vee Tricho Intensive Solution for Hair Growth",
+  "فيى تريكو جرو سبراى لتساقط الشعر ١٥٠ملى": "Vee Tricho Grow Anti-Hair-Fall Spray 150ml",
+  "فيى فيتامين دى ثرى ٣٠كبسولة كود ٤٨٧": "Vee Vitamin D3 30 Capsules",
+  "فيى فيرو ٣٠ كبسولة كود ٤٩٤": "Vee Ferro 30 Capsules",
+  "فيى كير ٣٠ كبسولة كود ٢٣٤": "Vee Care 30 Capsules",
+  "فيى كير ٦٠ كبسولة كود ١٩٧": "Vee Care 60 Capsules",
+  "فيى ميتونين ٢مجم ١٢٠كبسول": "Vee Melatonin 2mg 120 Capsules",
+  "فيى ميتونين ٢مجم اس ار ١٢٠كبسول": "Vee Melatonin 2mg SR 120 Capsules",
   "رافينا حمام كريم البانثينول وارجان ٥٠٠جرام": "RV Hammam Cream Panthenol & Argan 500g",
   "رافينا حمام كريم بالكرياتين والبروتين ٥٠٠جرام": "RV Hammam Cream Keratin & Protein 500g",
   "رافينا سيرم الشعر (نو فريز) 125مل": "RV No-Frizz Hair Serum 125ml",
@@ -3291,7 +3328,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,261 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,298 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
