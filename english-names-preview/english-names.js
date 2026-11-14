@@ -1,8 +1,24 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,302 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,318 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "فاستر سبراى للتساقط الشعر بالبيوتين ١٠٠مل": "Faster Anti-Hair-Fall Spray with Biotin 100ml",
+  "فاستر شامبو ٢*١ بالبيوتين والفيتامين ٢٠٠مل": "Faster 2-in-1 Shampoo with Biotin & Vitamins 200ml",
+  "فاستر شامبو ٢*١ بالكافين ٢٠٠مل": "Faster 2-in-1 Shampoo with Caffeine 200ml",
+  "فاكيشن رول اون عرض ١+١ احمر": "Vacation Roll-On Red 1+1 (Offer)",
+  "فاكيشن سيرم ارجيرالين ٣٠مل": "Vacation Argireline Serum 30ml",
+  "فاكيشن غسول فوم تفتيح ٢٠٠مل كود ١٧٩": "Vacation Brightening Foam Wash 200ml",
+  "فاكيشن غسول كريمى للبشرة الجافة والعادية": "Vacation Creamy Wash for Dry & Normal Skin",
+  "ايزى سويت ٣قطع عرض": "Easy Sweet 3pcs (Offer)",
+  "ايزى سويت بالقطعة": "Easy Sweet (per piece)",
+  "فاكسيل جتاشاين بيجمنت٥٠ مل كريم": "Vaxil Jetashine Pigment Cream 50ml",
+  "فاكسيل سيبوفكس جيل ٥٠ مل": "Vaxil Sebofix Gel 50ml",
+  "فاكسيل سيلينوفيت ٣٠كبسول": "Vaxil Selenovit 30 Capsules",
+  "فاكسيل فيتا بالم كى بي كريم١٠٠ مل ٢٤٧": "Vaxil Vita Palm KB Cream 100ml",
+  "فاكسيل ماكسناجين شامبو ضد التساقط ٢٠٠ مل": "Vaxil Maxnagin Anti-Hair-Fall Shampoo 200ml",
+  "فاكسيل ماكسناجين هير ماسك ارجان ٢٠٠مل": "Vaxil Maxnagin Argan Hair Mask 200ml",
+  "فاكسيل مانزافيدا ٣٠ كبسول": "Vaxil Manzafida 30 Capsules",
   "بايوبس شامبو ارجان ٢٥٠مل ٠٣٢": "Bioblas Argan Shampoo 250ml",
   "بايوبس شامبو كرياتين خالي من السلفات": "Bioblas Keratin Shampoo (Sulfate-Free)",
   "بروفين شامبو ضد التساقط ٢٠٠ مل": "Provine Anti-Hair-Fall Shampoo 200ml",
@@ -3328,7 +3344,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,298 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,314 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }

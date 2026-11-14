@@ -87,3 +87,8 @@ Vatika uncertain shades, L'Oreal Prodigy shades, لومى air fresheners, زو b
 - Verified-brand descriptor tails: Bioblas shampoos x2, Provine x2, Tettello conditioners x2, Senor styling creams x2, Glory henna x3 (elsaeedpharmacy Glory henna), Fashkool fruits x2, Fogg pocket x2, Fish kids cup x1 (ينقلب variant held - wording ambiguous), Energy keratin serum x1 (كوجين serum still held), Granzia/Medizana pulse oximeters x2.
 - Still held: ام M-brand x30 (truncation suspected but candidate unresolved - املا/Dabur Amla does not match the baby line), جوانتى تكس x11, ايليت x2, برفان house brands x9, سكر ستيفيا مزن (مزن unverified), شرايط سكر brands (برس تشك/ريبو تيست transliteration unverified), شيرى/ايزى سويت/فاستر/فاكيشن/فاكسيل/روت تو/جمى ب/بلو ين/جريت بادى (unverified), tail.
 - Coverage: 3,302 keys = 3,298 of 3,597 cards. Remaining 307 strings = 299 cards + 8 sub-names.
+
+## 2026-11-14 pass 4g (v33): +16 - Faster/Vacation/Easy Sweet/Vaxil verified
+- Faster x3 (anwar.store Faster shampoo listings), Vacation x4 (nefroglow.com فاكيشن...Vacation exact wash listing; Argireline serum literal), Easy Sweet x2 (easy-hbc.com official إيزي اسويت), Vaxil x7 (vaxilpharma.com official - skin products + supplements; line names printed transliterations: Maxnagin, Jetashine, Sebofix, Selenovit, Vita Palm KB, Manzafida).
+- Still held: ام x30, جوانتى تكس x11, برفان house brands x6, شيرى x2, جمى ب/بلو ين/جريت/روت تو (unverified transliterations), tail.
+- Coverage: 3,318 keys = 3,314 of 3,597 cards. Remaining 291 strings = 283 cards + 8 sub-names.
