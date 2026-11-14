@@ -1,5 +1,5 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,136 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,135 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
@@ -3161,7 +3161,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,132 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,131 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
