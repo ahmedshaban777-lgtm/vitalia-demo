@@ -1,8 +1,36 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,490 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,518 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "ريديرما سيرم كوجين ٣٠مل": "Rederma Collagen Serum 30ml",
+  "صابون يف بوى ٧٥جم": "Lifebuoy Soap 75g",
+  "يف بوى هاند ووش ٥٠٠مل عناية ناعمة": "Lifebuoy Soft Care Hand Wash 500ml",
+  "زاك برفان ١٥٠مل بك جولد": "Zak Perfume Black Gold 150ml",
+  "انرجى سيرم كوجين ٦٠ملى": "Energy Collagen Serum 60ml",
+  "حفاضات كبار سن اوميجا رج ٣٦ق": "Omega Adult Diapers Large 36pcs",
+  "شرايط سكر برس تشك": "Press Check Glucose Test Strips",
+  "فرش فت فوت اكس رج": "Flat Foot Insole XL",
+  "فرش فت فوت سمول": "Flat Foot Insole S",
+  "فرش فت فوت رج": "Flat Foot Insole L",
+  "فرش فت فوت ميديم": "Flat Foot Insole M",
+  "بلو ين شاور جل عطر كسيكي ١٠٠٠مل": "Blue Line Shower Gel Ksiki Scent 1000ml",
+  "بلو ين شاور جل ف ١٠٠٠مل": "Blue Line Shower Gel F 1000ml",
+  "جريت بادى اسبش رجالى ٢٠٠ مل": "GRT Body Splash for Men 200ml",
+  "روت تو اند بلسم ٤٠٠ مل": "Root To And Conditioner 400ml",
+  "روت تو اند شامبو ٥٠٠ مل": "Root To And Shampoo 500ml",
+  "اكس اسبراى فند ازرق شكل جديد": "X Lavender Spray Blue (New Shape)",
+  "بيرسول طائر ٣٠٠مل اصفر بغطاء": "Persol Taer Yellow 300ml with Lid",
+  "نورمين صن سكرين جل ٥٠مل": "Normine Sunscreen Gel 50ml",
+  "يوليشيس رول اون ١+١بدون رائحة ٥٠مل": "Youlicious Roll-On Unscented 50ml 1+1 (Offer)",
+  "يولشيوس بوستر ماسك ٧٥ملى": "Youlicious Booster Mask 75ml",
+  "يولشيوس شامبو دراى ٢٠٠م فروتى سباركل": "Youlicious Dry Shampoo Fruity Sparkle 200ml",
+  "ازهى ماء ميسر ٢٠٠ مل اصفر": "Azha Micellar Water 200ml (Yellow)",
+  "ازهى(سيرم+رول اون احمر+كريم تفتيح+بدى": "Azha Bundle (Serum + Red Roll-On + Lightening Cream + Body)",
+  "كتويل صبغه اسود مزرق رقم ١٠": "Lactuel Hair Dye Blue-Black No.10",
+  "ترمومتر ديجيتال كاياثيرم شاشة مضيئه موديل": "Kayatherm Digital Thermometer Backlit Display",
+  "سيروبيب حمام كريم ٣٠٠مل شكل جديد": "Seropipe Hair Bath Cream 300ml (New Shape)",
+  "سيروبيب بلسم ليف ان كوندشينر شكل جديد": "Seropipe Leave-In Conditioner (New Shape)",
   "كرسى ستاندر ستانلس مستورد": "Imported Stainless Steel Stander Chair",
   "لبخه كوالينا بالدسته": "Kaolin Poultice (per dozen)",
   "كوجيكس اكياس ١٥كيس": "Cogex Joint & Muscle Support 15 Sachets",
@@ -3516,7 +3544,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,486 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,514 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
