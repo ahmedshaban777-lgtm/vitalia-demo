@@ -92,3 +92,23 @@ Vatika uncertain shades, L'Oreal Prodigy shades, لومى air fresheners, زو b
 - Faster x3 (anwar.store Faster shampoo listings), Vacation x4 (nefroglow.com فاكيشن...Vacation exact wash listing; Argireline serum literal), Easy Sweet x2 (easy-hbc.com official إيزي اسويت), Vaxil x7 (vaxilpharma.com official - skin products + supplements; line names printed transliterations: Maxnagin, Jetashine, Sebofix, Selenovit, Vita Palm KB, Manzafida).
 - Still held: ام x30, جوانتى تكس x11, برفان house brands x6, شيرى x2, جمى ب/بلو ين/جريت/روت تو (unverified transliterations), tail.
 - Coverage: 3,318 keys = 3,314 of 3,597 cards. Remaining 291 strings = 283 cards + 8 sub-names.
+
+## 2026-11-14 pass 4h (v34): +17 - verified-brand tails
+- Verified this pass: Infinity (jumia.com.eg Infinity Treato Anti-Dandruff Shampoo 250ml exact), Isis herbs (isisorganic.com official), Nutrifil (cezma.com exact multivitamin women listing), Capixy (alsaydaliya.com exact tonic spray), Dermatique (lotusonline.com + stuhm.com exact combination-skin gel).
+- Shipped literal descriptors under previously verified brands: Bioblas x3, Bonabella x1. "فور ايش" read as "For Her" (Egyptian shorthand هـ=her, cf. رج=men).
+- Still held: بايوبس سيرم ايش (ايش ambiguous: Her vs Itch), ايليت هاند ووش (no Elite match), بروفين (no Profen wash match), ام x30, جوانتى تكس x11, برفان x6, شيرى x2, فرش فت فوت x4, tail.
+- Coverage: 3,335 keys = 3,331 of 3,597 cards. Remaining 274 strings = 266 cards + 8 sub-names.
+
+## 2026-11-14 pass 4i (v35): +73 - brands, medicines, medical supplies, literal descriptors
+- Verified: Hair Code (chefaa.com), Disaar (disaaregypt.com official), Corega (lotusonline.com exact 20g), Randel 20mg (rosheta.com), Diclac 150mg (vezeeta.com), Lipocomb 10/10 (nahdionline.com), Sucradorf drops (shakshakpharmacy), Purederm hand mask (nahdionline.com).
+- Famous global brands with exact Arabic spellings: Garnier Micellar, Vatika x3, Vichy Dercos, CeraVe x2, La Roche-Posay Hyalu B5, Fogg Dynamic, Femfresh, Lux, Camay, Nabulsi Shaheen.
+- Vee cluster shipped under previously verified veexia.com brand (فى/في spelling variants of فيى).
+- Medical supplies as literal descriptors (no brand): hernia belts x8, varicose stockings x3, shoulder support, transfusion set, pill crusher, urine bag, nail clipper, umbilical clip, hot water bottle, compress, alcohol swab, paraffin/clove oil, glucose 5% (Gipco as printed), scar gel, reading glasses, eyelash comb, oil brush, baby cup, plaster cast, generic anti-dandruff shampoo, green tea wash.
+- Transliterated brand-line names (Fogg Royal precedent): Nobo x2, Rosalia x2, Rose, Go Gel, Candy x5.
+- Coverage: 3,408 keys = 3,404 of 3,597 cards. Remaining 201 strings = 193 cards + 8 sub-names.
+
+## 2026-11-14 pass 4j (v36): +24 - truncation-pattern cracks
+- KEY INSIGHT: Excel truncation drops leading "لا" (لارج->رج, لاتكس->تكس, لايت->يت; earlier لابيلو->بيلو, لارا->را). جوانتى تكس = Latex gloves x11 (sizes S/M/L/XL, blue/black); فيكس يت = Fix Lite (stuhm.com exact 60g sensitive-areas cream match); رج = Large everywhere.
+- Gengigel Teething (nahdionline.com exact جينجيجل التسنين), Clary x8 (reedyph.com/Companies/Clary + stuhm.com/brand/clary), Sparkle (alraya-store.com سباركل kids shampoo).
+- Corrected فاتيكا زيت to "Vatika Mink Hair Oil" (elmadinaeltebia.com confirms فاتيكا بالمينك).
+- Coverage: 3,432 keys = 3,428 of 3,597 cards. Remaining 177 strings = 169 cards + 8 sub-names.
