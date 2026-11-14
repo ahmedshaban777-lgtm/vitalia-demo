@@ -1,8 +1,41 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,232 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,265 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "رافينا حمام كريم البانثينول وارجان ٥٠٠جرام": "RV Hammam Cream Panthenol & Argan 500g",
+  "رافينا حمام كريم بالكرياتين والبروتين ٥٠٠جرام": "RV Hammam Cream Keratin & Protein 500g",
+  "رافينا سيرم الشعر (نو فريز) 125مل": "RV No-Frizz Hair Serum 125ml",
+  "رافينا غسول الوجه ٤*١ ٢٥٠مل": "RV 4-in-1 Face Wash 250ml",
+  "رافينا كريم بالبانثينول للبشرة والجسم٥٠جرام": "RV Panthenol Cream for Skin & Body 50g",
+  "رافينا كريم بالبانثينول للشعر ١٠٠جرام": "RV Panthenol Hair Cream 100g",
+  "رافينا كريم تفتيح الوجه ٥٠جرام": "RV Face Whitening Cream 50g",
+  "رافينا كيم تفتيح اماكن الداكنة والحساسه": "RV Whitening Cream for Dark & Intimate Areas",
+  "لو صبغة برودجى بنى داكن رقم ٠٫٣": "L'Oréal Prodigy Hair Color 3.0 Dark Brown",
+  "لو صبغة برودجى اسود رمادى ١٫٢": "L'Oréal Prodigy Hair Color 2.1 Ash Black",
+  "لو صبغة برودجى اشقر رمادى رقم ١٫٧": "L'Oréal Prodigy Hair Color 7.1 Ash Blonde",
+  "لو صبغة برودجى اشقر رمادى فاتح جدا جدا": "L'Oréal Prodigy Hair Color Very Very Light Ash Blonde",
+  "لو صبغة برودجى رقم ٣٠٫٥ دهبى فاتح": "L'Oréal Prodigy Hair Color 5.03 Light Golden",
+  "لو صبغة برودجى رقم ٠٫٨ اشقر فاتح": "L'Oréal Prodigy Hair Color 8.0 Light Blonde",
+  "لو صبغة اكسنس رمادى فاتح ١٢٫٨": "L'Oréal Excellence Hair Color 8.12 Light Ash",
+  "لو صبغة برودجى اشقر ذهبى غامق ٣٢٫٦": "L'Oréal Prodigy Hair Color 6.23 Dark Golden Blonde",
+  "معطر جو لومى ٤٦٠مل كولومبوس": "Lumi Air Freshener 460ml (Columbus)",
+  "معطر جو لومى ٤٦٠مل اريج": "Lumi Air Freshener 460ml (Areej)",
+  "معطر جو لومى ٤٦٠مل تشيز كيك": "Lumi Air Freshener 460ml (Cheesecake)",
+  "معطر جو لومى ٤٦٠مل سوفت": "Lumi Air Freshener 460ml (Soft)",
+  "معطر جو لومى ٤٦٠مل فندر": "Lumi Air Freshener 460ml (Fender)",
+  "معطر جو لومى ٤٦٠ مل اوركيد": "Lumi Air Freshener 460ml (Orchid)",
+  "جليد معطر جو فاريدا ٤٦٠مل شرق": "Glade Air Freshener Farida 460ml (Oriental)",
+  "سيلفر سبراى معطر احذيه رجالى ١٠٠مل": "Silver Shoe Freshener Spray for Men 100ml",
+  "غارنيه صبغة بنى غامق ٣١٫٧ عرض": "Garnier Color Naturals Hair Color Dark Brown (Offer)",
+  "غارنيه صبغة بنى غامق جدا ٣١٫٦ عرض": "Garnier Color Naturals Hair Color Very Dark Brown (Offer)",
+  "غارنيه صبغة بنى متوسط ٣١٫٨ عرض": "Garnier Color Naturals Hair Color Medium Brown (Offer)",
+  "فيتال كير جل ٣٠٠مل احمر رقم٨": "Vital Care Gel 300ml Red No.8",
+  "فيتال كير جل ٣٠٠مل برتقالى رقم +١٠": "Vital Care Gel 300ml Orange No.+10",
+  "فيتال كير جل ٣٠٠مل فوشيا رقم ٨": "Vital Care Gel 300ml Fuchsia No.8",
+  "عازل طبى فيستا احساس": "Fiesta Condoms (Sensation)",
+  "عازل طبى فيستا روكيت": "Fiesta Condoms (Rocket)",
+  "عازل طبى فيستا فراولة": "Fiesta Condoms (Strawberry)",
   "تيتروا هيدروا غسول كريم للبشرة ٢٠٠ مل": "Tetra Hydro Cream Wash 200ml",
   "تيتروا هيدروا لوشن للجسم كارباميد ٢٥٠مل": "Tetra Hydro Carbamide Body Lotion 250ml",
   "تيتروا هيدروا ماء ميسر ١٥٠ مل": "Tetra Hydro Micellar Water 150ml",
@@ -3258,7 +3291,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,228 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,261 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }

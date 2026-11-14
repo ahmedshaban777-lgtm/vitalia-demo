@@ -72,3 +72,11 @@ Vatika uncertain shades, L'Oreal Prodigy shades, لومى air fresheners, زو b
 - رافينا x6 HELD on conflict: nourpharmacies shows "RV Hair Cream with Panthenol" while amanstores shows "Ravenna Valley" biotin-collagen 500g mask - two candidate Latin identities for the same Arabic brand; unresolved, no guess.
 - Also held: Garnier صبغة shades (٣١٫٧ numbering ambiguous), فيتال كير/ايليت/ام/سينسز (brand unverified), جوانتى تكس x11 + معطر جو x7 + لو صبغة برودجى x8 (policy), remaining transliteration-remnant items.
 - Coverage: 3,232 keys = 3,228 of 3,597 cards + 4 sub-names. Remaining 377 strings = 369 cards + 8 sub-names.
+
+## 2026-11-14 pass 4e (v33): +33 keys (covers 40 cards) - tiebreakers resolved
+- رافينا conflict RESOLVED: nourpharmacies.com/products/rv-hair-mask-with-pantheno-argan-500gm is the exact item (حمام كريم البانثينول وارجان ٥٠٠جرام) - brand Latin is "RV". 8 items shipped; the biotin+كوجين hammam cream stays held (كوجين = caffeine vs collagen unresolved).
+- L'Oréal Prodigy/Excellence x8 shipped (was policy-held pre-class-D): loreal-paris-me.com/ar/hair-color/prodigy confirms بروديجي is the official line. Arabic shade numbers read as reversed decimals (٠٫٣ = 3.0 Dark Brown, ١٫٧ = 7.1 Ash Blonde, ٣٠٫٥ = 5.03, ٠٫٨ = 8.0, ٣٢٫٦ = 6.23, ١٢٫٨ = 8.12 Excellence); shade names literal.
+- Garnier صبغة x3: Garnier Arabia confirms Color Naturals Dark Brown shade 3 (garnierarabia.com, boots.com); the ٣١٫٧/٣١٫٦/٣١٫٨ numbers are internal codes, dropped like other supplier codes; shades literal.
+- Vital Care x3 (chefaa.com/eg-ar/now/brands/vital-care brand page), Lumi air fresheners x6 (alateeqperfume.com Lumi home-fragrance brand; scent names literal transliterations), Glade Farida x1, Eva Senses Body Mist x1 key covering 8 same-named cards (jumia.com.eg Eva Senses line), Fiesta condoms x3 (jumia.com.eg Fiesta فيستا عازل طبى - Sensation confirmed; Rocket/Strawberry literal).
+- Still held: ايليت هاند ووش (search surfaced Milano, not Elite), ام M-brand x30 (unverified), زبدة بيلو x3, مناديل را x3, جوانتى تكس x11 (unverified maker), برفان house brands x9, رافينا كوجين x1, plus transliteration-remnant tail.
+- Coverage: 3,265 keys = 3,261 of 3,597 cards. Remaining 344 strings = 336 cards + 8 sub-names.
