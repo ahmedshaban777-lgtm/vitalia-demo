@@ -1,8 +1,66 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,432 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,490 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "كرسى ستاندر ستانلس مستورد": "Imported Stainless Steel Stander Chair",
+  "لبخه كوالينا بالدسته": "Kaolin Poultice (per dozen)",
+  "كوجيكس اكياس ١٥كيس": "Cogex Joint & Muscle Support 15 Sachets",
+  "جهاز سكر رايت تانجو بدون شرايط": "URight Tango Glucose Meter (No Strips)",
+  "جهاز مساج ريكس توون": "Relax n Tone Massage Device",
+  "سفارى علبة سكاته١٢٥": "Safari Soother Container 125",
+  "ستاركى صنفره ٣٠٠مل برطمان": "Starchy Exfoliating Scrub 300ml Jar",
+  "سويت دريم لوك جامبو+ماء ورد": "Sweet Dream Look Jumbo + Rose Water",
+  "شكاكات اكواتشيك": "Accu-Chek Lancets",
+  "فيش كوب اطفال ينقلب": "Little Fish Kids Flip Cup",
+  "فيل جود ايما ماكس كريم ١٠٠ مل": "Feel Good Ema Max Cream 100ml",
+  "فاجيكلند كريم": "Vagiclind Cream",
+  "معطر فم فريش اورال مشكل": "Fresh Oral Mouth Freshener (Assorted)",
+  "مقشر قدم نسكيتا مستقيم٣٧٢٧": "Nascita Foot File Straight",
+  "مقشره قدم نسكيتا ع كارت ٢٠٦٩": "Nascita Foot File (Carded)",
+  "معطر جو فاريدا٤٦٠مل شيكادى": "Frida Chicka Dee Air Freshener 460ml",
+  "منت فريش منعش اسبراى مناطق حساسه ٢٠": "Mint Fresh Refreshing Spray for Sensitive Areas 20ml",
+  "مووف مساج كريم/روتكس س ق": "Rotex Rotmoov Massage Cream",
+  "نات شل شاور كريم ٤٨٥مل جوزهند": "Nutshell Coconut Shower Cream 485ml",
+  "بلوب واكس كريم صفيح ١٤٠مل": "Blob Wax Styling Cream Tin 140ml",
+  "سيكم درار اللبن س ج": "Sekem Lactation Herbal Blend",
+  "سكر ستيفيا مزن ٢٠٠ جم بودر": "Mozn Stevia Diet Sugar Powder 200g",
+  "سكر ستيفيا مزن٣٠كيس ٢معلقه": "Mozn Stevia Diet Sugar 30 Sachets (2-Spoonful)",
+  "راجون بودره ١٢٠مل حشرات زاحفه": "Ragon Crawling Insect Powder 120ml",
+  "ريرى بالبروتين": "Riri with Protein",
+  "ماكينه ٣كيه بلو٣ بالحصيرة٤٨ق": "Gillette Blue3 Razors with Display Mat 48pcs",
+  "ماليندا كريم س ج": "Malinda Skin Cream",
+  "ريد معجون اسنان ١٠٠جرام": "Dabur Red Toothpaste 100g",
+  "دراى حفاضات ماكسى تريو طويل جدا ٢٦ح": "Dry Maxi Trio Pads Extra Long 26pcs",
+  "دراى غسول فوم نسائى بالمسك ١٥٠مل ٤٥٣٨": "Dry Feminine Foam Wash with Musk 150ml",
+  "بوم شاور جيل س ج": "Boom Shower Gel",
+  "باشون بيبى كريم تغير الحفاضات ١٠٠مل٢٨٣": "Passion Baby Diaper Change Cream 100ml",
+  "بكيني باتر سمايل ٥٠٠مل": "Heaven Smile Bikini Butter 500ml",
+  "يونى مينت برتقال ستاند ١٢علبه": "Uni Mint Orange 12 Boxes (Stand)",
+  "لونا زبدة كاكاو ايس كريم": "Luna Cocoa Butter Ice Cream",
+  "لونا زبدة كاكاو ٤ قطعه مشكلين": "Luna Cocoa Butter 4pcs Assorted",
+  "لونا تشققات للجسم واليد ٧٥ملى": "Luna Anti-Crack Body & Hand Cream 75ml",
+  "لونا ليب ثيربى بالشيا": "Luna Lip Therapy with Shea",
+  "ديفول شاور ٣٠٠ مل فانيليا": "Divol Kids Shower Gel Vanilla 300ml",
+  "ديفول فوطه": "Divol Towel",
+  "ديير بادى ميلك ٣٠٠ مل ٦٤٠": "Dear Body Milk 300ml",
+  "ديير غسول ٢٠٠ مل": "Dear Wash 200ml",
+  "ديزوردى كريم مزيل عرق مشكل امبوبة ٣٠جم": "Dizurde Deodorant Cream Assorted Tube 30g",
+  "سيف هير شامبو وبلسم ٣٠٠مل ثوم": "Safe Hair Shampoo & Conditioner Garlic 300ml",
+  "شان غسول مرطب للجسم ٤٨٠مل زهرة توليب": "Shaan Hydrating Body Wash Tulip 480ml",
+  "شان مرطب ليب بالم شفايف فراوله": "Shaan Lip Balm Strawberry",
+  "بادى لشيوس بادى اسبش توييت٢١٧ مل": "Bodylicious Body Splash Twist 217ml",
+  "بلانكي موستريزينج كريم ١٥٠مل": "Blankie Moisturizing Cream 150ml",
+  "نيتوليك برفنت بلس سبراى": "Nitolic Prevent Plus Spray",
+  "هيدرينسا كريم لليدين ٥٠جرام": "Hydrensa Hand Cream 50g",
+  "هيدرينسا موستريزنج كريم ٢٠٠مل ٠٩٢": "Hydrensa Moisturizing Cream 200ml",
+  "نوفيرا سيبيو كنترول جل كريم مرطب ٥٠مل": "Nuvera Sebio Control Moisturizing Cream Gel 50ml",
+  "كازانوفا سبراى مزيل شعر ١٥٠مل احمر": "Casanova Hair Removal Spray 150ml (Red)",
+  "كازانوفا لوشن ١٥٠مل احمر مزيل للشعر": "Casanova Hair Removal Lotion 150ml (Red)",
+  "داجو شامبو ضد القشرة س ج": "Dago Anti-Dandruff Shampoo",
+  "تيتيلو شامبو ضد القشره ١٥٠ مل١٧٤": "Tettello Anti-Dandruff Shampoo 150ml",
+  "ايلون بلسم ٢٠٠ ملى س ج": "Elone Hair Conditioner 200ml",
+  "ناين تايمز سيرم نياسيناميد ٣٠مل ٣٠٣": "Nine Times Niacinamide Serum 30ml",
   "جوانتى تكس ازرق اكس رج": "Latex Gloves Blue XL",
   "جوانتى تكس ازرق سمول": "Latex Gloves Blue S",
   "جوانتى تكس ازرق رج": "Latex Gloves Blue L",
@@ -3458,7 +3516,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,428 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,486 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
