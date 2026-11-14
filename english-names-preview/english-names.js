@@ -1,8 +1,46 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,135 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,173 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "اليجون كوريكتيف فونديشن ١فاير٥٢٨": "Elegon Corrective Foundation 1 Fair",
+  "اليجون كوريكتيف فونديشن ٢ساند ٥١١": "Elegon Corrective Foundation 2 Sand",
+  "اليس ماكينه سييلكى سموث موف ٣ موس": "Alice Razor Silky Smooth Purple 3 Blade",
+  "اليجون رول اون فريجرانسى": "Elegon Roll-On Fragrance",
+  "اليجون صن سكرين برايم ٥٠مل ٦٣٤": "Elegon Sunscreen Prime 50ml",
+  "اليجون صن سكرين تان اويل ٢٠٠مل": "Elegon Sunscreen Tan Oil 200ml",
+  "اليجون فيشال موسترايزنج جل ٧٥ مل ٤٥٠": "Elegon Facial Moisturizing Gel 75ml",
+  "اليجون فيشال موسترايزنج كريم ٧٥ مل ٣٩٩": "Elegon Facial Moisturizing Cream 75ml",
+  "انرجى سيرم زيت الحية ٦٠ملى": "Energy Serum Snake Oil 60ml",
+  "انرجى سيرم كريستال زيت الحية ١٠٠ملى": "Energy Serum Crystal Snake Oil 100ml",
+  "نسائم بليه برفان كبير حريمى مشكل": "Nasaem Roll-On Perfume Large for Women Assorted",
+  "اكس ستيك ٨٥مل بامبو ٦٨٧": "Axe Stick 85ml Bamboo",
+  "بروفين موستريزنج كريم ١٠٠مل": "Provine Moisturizing Cream 100ml",
+  "بروفين يوريا ١٠% كريم": "Provine Urea 10% Cream",
+  "تيتروا هيدروا يوريا كريم يد ٧٥ جم": "Tetra Hydro Urea Cream Hand 75g",
+  "تكوبو صن بلوك ستيك ٠٤١": "Tocobo Sun Block Stick",
+  "ديير موستريزنج جل٢٠٠مل٣٤٣": "Dear Moisturizing Gel 200ml",
+  "XXL رقبة تراست بستيك بدون بساند": "Trust Plastic Neck Collar XXL (without Strap)",
+  "M رقبة تراست بستيك بدون بساند": "Trust Plastic Neck Collar M (without Strap)",
+  "M رقبة تراست بستيك بساند": "Trust Plastic Neck Collar M (with Strap)",
+  "شان جل مرطب بشرة دهنيه ٢٠٠مل س ج": "Shaan Gel Moisturizing Skin Oily 200ml",
+  "L شراب دوالى تحت الركبه ايطالى": "Italian Compression Stockings Under Knee (L)",
+  "M شراب دوالى تحت الركبه ايطالى": "Italian Compression Stockings Under Knee (M)",
+  "XXL شراب دوالى تحت الركبه ايطالى": "Italian Compression Stockings Under Knee (XXL)",
+  "صابون بيرى ٩٠جرام فحم": "Berry Charcoal Soap 90g",
+  "عسل نحل ايزيس ٧٥٠+٢٥٠هدية عرض": "Isis Bee Honey 750g + 250g Free (Offer)",
+  "فوج برفان بوكيت ١٧ملى رويال": "Fogg Perfume Pocket 17ml Royal",
+  "فيش كوب اطفال شاليموه": "Fish Kids Straw Cup",
+  "كابيكسى تونيك اسبراى ٢٥٠مل ابيض٠٩٠": "Capixy Tonic Spray 250ml (White)",
+  "لونا تشققات صغير": "Luna Cracked Heels Cream (Small)",
+  "لونا تشققات كبير": "Luna Cracked Heels Cream (Large)",
+  "لونا صن بلوك تان جل برطمان": "Luna Sun Block Tan Gel Jar",
+  "موستي غسول بشرة جافة جل ٣٠٠مل ٠٨٩": "Moist Gel Wash for Dry Skin 300ml",
+  "هامر ستيك التراماكس ٧٣جرام اصفر": "Arm & Hammer Stick Ultra Max 73g Yellow",
+  "هيركود جل انبوبة ازرق ٢٥٠مل": "Hair Code Gel Tube Blue 250ml",
+  "هيركود جيل انبوبة ٢٥٠م ازرق": "Hair Code Gel Tube 250ml Blue",
+  "فوج برفان بوكيت ١٧ملى": "Fogg Perfume Pocket 17ml",
+  "هيركود جل انبوبة ٢٥٠مل": "Hair Code Gel Tube 250ml",
   "ارجنتو غسول ١+١ عرض": "Argento Face Wash 1+1 (Offer)",
   "ازهى كريم تفتيح ٣٠مل": "Azha Cream Whitening 30ml",
   "اليس شفرات للوجه بريز موف ٣ق": "Alice Breeze Purple Facial Razors 3pcs",
@@ -3161,7 +3199,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,131 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,169 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
