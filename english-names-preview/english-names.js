@@ -1,8 +1,48 @@
 /* English display names - preview only. Mixed provenance: source-verified identities and literal descriptor translations; per-entry classes and sources in AUDIT.md.
- * Coverage: 3,192 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
+ * Coverage: 3,232 of 3,609 page-visible names (3,444 Excel products + 165 showcase strings). Remaining products stay Arabic. This is a finished review subset, not a claim that all names are complete. */
 (function(){
  
 var MAP={
+  "تيتروا هيدروا غسول كريم للبشرة ٢٠٠ مل": "Tetra Hydro Cream Wash 200ml",
+  "تيتروا هيدروا لوشن للجسم كارباميد ٢٥٠مل": "Tetra Hydro Carbamide Body Lotion 250ml",
+  "تيتروا هيدروا ماء ميسر ١٥٠ مل": "Tetra Hydro Micellar Water 150ml",
+  "تيتروا هيدروا يوريا كريم ترطيب مكثف لبشره": "Tetra Hydro Urea Intensive Moisturizing Cream",
+  "لونا باستليا بالبرتقال": "Luna Pastilles (Orange)",
+  "لونا باستليا بالعسل والليمون": "Luna Pastilles (Honey & Lemon)",
+  "لونا باستليا بطعم الفراولة": "Luna Pastilles (Strawberry)",
+  "لونا باستليا ميكس ٣٠٠ق": "Luna Pastilles Mix 300pcs",
+  "فاتيكا شامبو ١٨٠احمر ١٥% خ": "Vatika Shampoo 180ml Red (+15% Extra)",
+  "فاتيكا شامبو ١٨٠م زيتى ١٥% خ": "Vatika Shampoo 180ml Oily (+15% Extra)",
+  "فاتيكا شامبو ٤٢٥م زيتى ١٥% خ": "Vatika Shampoo 425ml Oily (+15% Extra)",
+  "فاتيكا شامبو ٤٢٥م قشرة اصفر ١٥% خ": "Vatika Shampoo 425ml Anti-Dandruff Yellow (+15% Extra)",
+  "ريديرما سيرم هيالورنيك ٣٠ مل": "Rederma Hyaluronic Serum 30ml",
+  "ريديرما غسول الترا ريش ٢٠٠مل": "Rederma Ultra Rich Wash 200ml",
+  "ريديرما غسول اويلي ٢٠٠مل": "Rederma Oily Wash 200ml",
+  "ريديرما غسول بريجتينج ٢٠٠مل": "Rederma Brightening Wash 200ml",
+  "ريديرما كريم تغذية نورشينج ٦٧٣": "Rederma Nourishing Cream",
+  "فوج اسبراى فائق رجالى": "Fogg Spray Faiq for Men",
+  "فوج اسبراى ماركو": "Fogg Spray Marco",
+  "فوج اسبراى نابليون رجالى": "Fogg Spray Napoleon for Men",
+  "لونا صن بلوك ٥٠درجة كبار ١٣٠مل": "Luna Sun Block SPF50 Adults 130ml",
+  "لونا صن بلوك اطفال ٢١٠مل افتر صن جل": "Luna Kids Sun Block 210ml + After-Sun Gel",
+  "لونا صن بلوك تان أويل سبراى": "Luna Tan Oil Spray",
+  "هيد شامبو ٤٠٠م نظيف وانيق": "Head & Shoulders Shampoo 400ml (Clean & Elegant)",
+  "هيد شامبو ٦٠٠مل انسيابى": "Head & Shoulders Shampoo 600ml (Smooth)",
+  "هيد شامبو ٦٠٠مل نظيف وانيق": "Head & Shoulders Shampoo 600ml (Clean & Elegant)",
+  "بايوبس جل اكستريم لتساقط الشعر ١٥٠مل": "Bioblas Anti-Hair-Loss Styling Gel Extreme 150ml",
+  "بايوبس جل سوفت لتساقط الشعر ١٥٠مل": "Bioblas Anti-Hair-Loss Styling Gel Soft 150ml",
+  "بايوبس جل لتساقط الشعر ١٥٠مل ١٨٢": "Bioblas Anti-Hair-Loss Styling Gel 150ml",
+  "بايوبس سيرم ارجان لتساقط الشعر ٦٥مل": "Bioblas Argan Anti-Hair-Loss Serum 65ml",
+  "بايوبس سيرم فورت ٦٠مل ٧٠٢٥": "Bioblas Forte Serum 60ml",
+  "بونابي حمام كريم ببروتين القمح ٢٥٠مل": "Bonabella Hammam Cream with Wheat Protein 250ml",
+  "بونابي حمام كريم بزيت المشمش ٢٥٠مل": "Bonabella Hammam Cream with Apricot Oil 250ml",
+  "بونابي حمام كريم بزيت المشمش ٤٥٠مل": "Bonabella Hammam Cream with Apricot Oil 450ml",
+  "بونابي شامبو لتساقط الشعر ٢٥٠مل": "Bonabella Anti-Hair-Fall Shampoo 250ml",
+  "ايزيس شاى ريجيم بالقرفة + مج هدية": "Isis Diet Tea with Cinnamon + Free Mug",
+  "ايزيس شاى ريجيم بالليمون + مج هدية": "Isis Diet Tea with Lemon + Free Mug",
+  "ايزيس شاى ريجيم بالنعناع + مج هدية": "Isis Diet Tea with Mint + Free Mug",
+  "بادى لشيوس بادى سبش ٢١٧ مللى حجم كبير": "Bodylicious Body Splash 217ml (Large)",
+  "بادى لشيوس رول اون ٥٠م جوزهند": "Bodylicious Roll-On 50ml Coconut",
   "جاست ريج لبوس": "Gast-Reg Suppositories",
   "فيتونكس اقراص س ج": "Vitonex Tablets",
   "فوناسبير ٢٠مجم ١٤قرص": "Vonaspire 20mg 14 Tablets",
@@ -3218,7 +3258,7 @@ var MAP={
   var b=document.createElement('div');
   b.id='en-coverage';
   b.style.cssText='position:static;margin:10px auto;max-width:94%;background:#1b1b1b;color:#f5efe6;text-align:center;padding:10px 14px;font-size:14px;line-height:1.6;border-radius:10px;font-family:Tajawal,Cairo,sans-serif;';
-  b.textContent='معاينة: 3,188 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
+  b.textContent='معاينة: 3,228 اسم بالإنجليزي من 3,597 منتجاً — باقي المنتجات تظهر بالعربية — والبطاقات الموسومة «صورة توضيحية» تعرض رسماً توضيحياً عاماً لا صورة المنتج الفعلية';
   var t=document.getElementById('products')||document.body.firstChild;
   t.parentNode.insertBefore(b,t);
  }
