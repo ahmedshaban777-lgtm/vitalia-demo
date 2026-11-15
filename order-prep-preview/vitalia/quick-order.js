@@ -244,7 +244,9 @@ function buildMessage(){
  var lines=['*🧾 طلب سريع بالقائمة*','(تجريبي)','','*🛒 الأصناف:*'];
  ok.forEach(function(r,i){
   var it=chosenItem(r);
-  lines.push(SEP,'*'+num(i+1)+'. '+it.name+'*','🔖 '+(it.code?shortCode(it.code)+' · ':'')+'*الكمية: '+num(r.qty)+'*');
+  lines.push(SEP,'*'+num(i+1)+'. '+it.name+'*');
+  if(it.code)lines.push('الكود: '+shortCode(it.code));
+  lines.push('*الكمية: '+num(r.qty)+'*');
  });
  lines.push(SEP);
  if(unk.length){
