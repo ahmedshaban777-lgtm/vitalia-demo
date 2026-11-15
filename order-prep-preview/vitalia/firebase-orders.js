@@ -8,6 +8,10 @@
 'use strict';
 if(!window.VTL_FIREBASE_CONFIG)return;
 firebase.initializeApp(window.VTL_FIREBASE_CONFIG);
+try{
+ firebase.appCheck().activate(
+  new firebase.appCheck.ReCaptchaEnterpriseProvider('6Lfj-CAuAAAAAE3283e8plrQ3iqe3PcGTFzswALA'),true);
+}catch(e){console.warn('App Check activation failed',e);}
 var db=firebase.firestore(),auth=firebase.auth();
 var STEPS=[{k:'new',label:'جديد'},{k:'prep',label:'قيد التجهيز'},{k:'ready',label:'جاهز'},{k:'done',label:'تم التسليم'}];
 var LOCAL_KEY='vitalia-preview-real-orders-v1';
