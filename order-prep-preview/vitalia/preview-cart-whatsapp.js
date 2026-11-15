@@ -98,7 +98,7 @@ if(draft.notes.trim())lines.push('ملاحظات: '+draft.notes);
 lines.push('','*🖼️ صور الأصناف وتفاصيل الطلب:*',link,'','*الطلب يحتاج مراجعة وتأكيد من فيتاليا.*');
 el('vcFormResult').innerHTML='<h4>راجع رسالة طلبك</h4>';
 VitaliaWhatsApp.mount(el('vcFormResult'),lines.join('\n'),'فتح واتساب بالطلب');
-el('vcFormResult').insertAdjacentHTML('beforeend','<div class="vc-note" style="margin-top:12px">أو سجّل الطلب أولًا (محاكاة): يأخذ رقم طلب، تُفرَّغ السلة، ويظهر في «طلباتي» ولوحة المحل التجريبية.</div><button class="vc-btn primary" id="vcRegister" style="width:100%;margin-top:8px">تسجيل الطلب (محاكاة)</button>');
+el('vcFormResult').insertAdjacentHTML('beforeend','<div class="vc-note" style="margin-top:12px">أو سجّل الطلب أولًا في بيئة الاختبار: يأخذ رقم طلب، تُفرَّغ السلة، ويظهر في «طلباتي» ولوحة المحل التجريبية.</div><button class="vc-btn primary" id="vcRegister" style="width:100%;margin-top:8px">تسجيل الطلب في بيئة الاختبار</button>');
 el('vcRegister').onclick=function(){registerOrder(ids,total,count);};
 
 }el('vcFormResult').scrollIntoView({block:'nearest',behavior:'smooth'});};
