@@ -111,6 +111,8 @@ el('vcFormResult').innerHTML='<h4>راجع رسالة طلبك</h4>';
 VitaliaWhatsApp.mount(el('vcFormResult'),text,'فتح واتساب بالطلب');
 el('vcFormResult').insertAdjacentHTML('beforeend','<div class="vc-note" style="margin-top:12px">أو سجّل الطلب أولًا في بيئة الاختبار: يأخذ رقم طلب، تُفرَّغ السلة، ويظهر في «طلباتي» ولوحة المحل التجريبية.</div><button class="vc-btn primary" id="vcRegister" style="width:100%;margin-top:8px">تسجيل الطلب في بيئة الاختبار</button>');
 el('vcRegister').onclick=function(){registerOrder(ids,total,count);};
+el('vcFormResult').insertAdjacentHTML('beforeend','<button class="vc-btn" id="vcClearSent" style="width:100%;margin-top:8px">أرسلت الطلب - فضّي السلة</button>');
+el('vcClearSent').onclick=function(){state.cart={};save();updateCount();view='cart';render();};
 
 }el('vcFormResult').scrollIntoView({block:'nearest',behavior:'smooth'});};
 }
