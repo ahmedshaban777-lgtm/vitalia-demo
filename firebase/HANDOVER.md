@@ -5,7 +5,7 @@ Everything here belongs to the client's own Google account (Vitalia6000@gmail.co
 ## What exists
 
 - Firebase project: `vitalia-orders`
-- Firestore: `(default)` database, Native mode, region `me-west1` (Tel Aviv) - region choice pending client decision (alternatives: me-central1 Doha, me-central2 Dammam, africa-south1 Johannesburg, europe-west1/3). Changing region = delete + recreate the DB (~15 min, loses only fake test orders). DO NOT do it without client approval.
+- Firestore: `(default)` database, Native mode, region `me-central1` (Doha). REGION DECISION (2026-11-15): the client explicitly rejected Tel Aviv (me-west1) permanently («لا مش عاوز المكان ده نهائي») and approved Doha («طيب كمل على الدوحه»). NEVER create resources in me-west1 for this project, and never change the region again without the client's explicit approval - a region change means deleting the (default) DB (all data) and recreating it; the ID is reusable ~5 min after deletion. The old me-west1 DB and its 4 fake orders were deleted on 2026-11-15; current fake orders were re-seeded fresh.
 - Auth: Email/Password. One merchant user (credentials in the owner's vault entry «Vitalia Firebase merchant» - never stored here).
 - Collections:
   - `orders/{id}` - private full order (PII). Create + merchant-only read/update(status)/delete.
@@ -17,12 +17,16 @@ Everything here belongs to the client's own Google account (Vitalia6000@gmail.co
 - Customer tracking: .../orders.html?track=<docId>
 - Merchant panel: .../merchant.html (email+password sign-in)
 
+## Deploy mechanism
+
+The Firebase console rules UI changed on 2026-11-15 (new version-timeline design) and its Publish button no longer renders after edits. Working deploy path: `firebase deploy --only firestore:rules --project vitalia-orders` using firebase-tools at /tmp/fs-emu (logged in as vitalia6000@gmail.com via `firebase login --no-localhost`, OAuth completed in the cloud browser). firestore.rules in this repo is the source of truth; /tmp/fs-emu/firebase.json points at a copy.
+
 ## CURRENT STATE: App Check ENFORCED + creation OPEN (validated)
 
 - App Check: web app «Vitalia preview» registered with the Fraud Defense (reCAPTCHA Enterprise) provider; Firestore API enforcement ON (console > App Check > APIs). Requests without an App Check token are denied (verified).
 - reCAPTCHA Enterprise key «vitalia-demo-preview» created in GCP project vitalia-orders, domain ahmedshaban777-lgtm.github.io, score-based v3. Free tier: 10,000 assessments/month, no credit card. Site key is public (in the HTML); the secret is in the owner's vault entry «Vitalia reCAPTCHA v3 (vitalia-demo-preview)», never here.
 - The 3 pages load firebase-app-check-compat.js and activate ReCaptchaEnterpriseProvider in vitalia/firebase-orders.js.
-- `firestore.rules` (deployed) = the validated version (identical to firestore.rules.unlocked): anonymous creation allowed but strictly validated + atomically linked; verified 11/11 live tests WITH enforcement on (2026-11-15), plus unverified-client denial.
+- `firestore.rules` (deployed) = the validated version (identical to firestore.rules.unlocked): anonymous creation allowed but strictly validated + atomically linked; verified 11/11 live tests WITH enforcement on (2026-11-15 on me-west1; re-verified after the me-central1 recreation: 10/10 applicable tests pass - the 11th referenced a hardcoded old-DB doc id - plus unverified-client REST denial 403 and merchant cross-session sign-in/status propagation).
 
 ## Rules gotcha that cost hours
 
