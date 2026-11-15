@@ -239,21 +239,25 @@ function chosenItem(r){
 function buildMessage(){
  var ok=rows.filter(function(r){return chosenItem(r);});
  var unk=rows.filter(function(r){return !chosenItem(r);});
- var lines=['تجريبي - طلب سريع بالقائمة',''];
+ var SEP='━━━━━━━━━━';
  var coded=ok.filter(function(r){return chosenItem(r).code;});
- if(coded.length)lines.push('معاينة الأصناف بالصور: '+ORDER_PAGE+'?o='+coded.map(function(r){return shortCode(chosenItem(r).code)+'.'+r.qty;}).join(','),'');
+ var lines=['*🧾 طلب سريع بالقائمة*','(تجريبي)','','*🛒 الأصناف:*'];
  ok.forEach(function(r,i){
   var it=chosenItem(r);
-  lines.push(num(i+1)+') '+num(r.qty)+' × '+(it.code?shortCode(it.code)+' - ':'')+it.name);
+  lines.push(SEP,'*'+num(i+1)+'. '+it.name+'*','🔖 '+(it.code?shortCode(it.code)+' · ':'')+'*الكمية: '+num(r.qty)+'*');
  });
+ lines.push(SEP);
  if(unk.length){
-  lines.push('','أصناف تحتاج تأكيد (كتبها العميل):');
-  unk.forEach(function(r){lines.push('- '+r.text+' · الكمية: '+num(r.qty));});
+  lines.push('','*⚠️ أصناف تحتاج تأكيد (كتبها العميل):*');
+  unk.forEach(function(r){lines.push('- '+r.text+' · *الكمية: '+num(r.qty)+'*');});
  }
- lines.push('','الأسعار والمخزون تُؤكد عند مراجعة الطلب.',MIN_NOTE,'',
+ lines.push('','*الأسعار والمخزون تُؤكد عند مراجعة الطلب.*',MIN_NOTE,'',
+  '*👤 بيانات العميل:*',
   'الاسم: '+draft.name,
-  'الاستلام: '+(draft.method==='delivery'?('توصيل - '+draft.address):'استلام من '+draft.branch));
+  'الاستلام: '+(draft.method==='delivery'?'توصيل':'استلام من '+draft.branch));
+ if(draft.method==='delivery')lines.push('العنوان: '+draft.address);
  if(draft.phone)lines.push('رقم تواصل إضافي: '+draft.phone);
+ if(coded.length)lines.push('','*🖼️ صور الأصناف:*',ORDER_PAGE+'?o='+coded.map(function(r){return shortCode(chosenItem(r).code)+'.'+r.qty;}).join(','));
  return lines.join('\n');
 }
 function renderReview(){

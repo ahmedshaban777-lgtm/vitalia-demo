@@ -57,13 +57,17 @@ function renderCheckout(){
  el('vcFillDemo').onclick=function(){draft={name:'عميل تجريبي',phone:'',method:draft.method,address:'منطقة تجريبية - شارع تجريبي، مبنى ١ - عنوان غير حقيقي',branch:'demo',notes:''};renderCheckout();};
  el('vcPreviewOrder').onclick=function(){if(cartTotal()<MINIMUM){enterCheckout();return;}var missing=!draft.name.trim()||(draft.method==='delivery'?!draft.address.trim():!draft.branch);if(missing){el('vcFormResult').textContent='املأ الاسم وبيانات الاستلام، أو اضغط «ملء بيانات وهمية» لتجربة الشكل.';}else{
 var link=ORDER_PAGE+'?o='+ids.map(function(id){return shortCode(products.get(id).code)+'.'+state.cart[id];}).join(',');
-var lines=['طلب تجريبي - فيتاليا | بيانات وأسعار تجريبية فقط','','معاينة الطلب بالصور: '+link,''];
-ids.forEach(function(id,i){var x=products.get(id),q=state.cart[id];lines.push(num(i+1)+') '+num(q)+' × '+shortCode(x.code)+' - '+x.name);});
-lines.push('','الأصناف: '+num(ids.length)+' · إجمالي القطع: '+num(count),'مجموع المنتجات: '+money(total),'الشحن: يُؤكد لاحقًا','الإجمالي النهائي: يُؤكد بعد مراجعة الطلب والشحن','','الاسم: '+draft.name,'الاستلام: '+(draft.method==='delivery'?'توصيل':'استلام من الفرع التجريبي'));
+var SEP='━━━━━━━━━━';
+var lines=['*🧾 طلب جديد من فيتاليا*','(معاينة تجريبية: بيانات وأسعار غير حقيقية)','',
+'*🛒 الأصناف · '+num(ids.length)+' صنف · '+num(count)+' قطعة:*'];
+ids.forEach(function(id,i){var x=products.get(id),q=state.cart[id];lines.push(SEP,'*'+num(i+1)+'. '+x.name+'*','🔖 '+shortCode(x.code)+' · *الكمية: '+num(q)+'* · '+money(q*x.price));});
+lines.push(SEP,'',
+'*💰 الحساب:*','مجموع المنتجات: *'+money(total)+'*','الشحن: يُؤكد لاحقًا','الإجمالي النهائي: يُؤكد بعد مراجعة الطلب والشحن','',
+'*👤 بيانات العميل:*','الاسم: '+draft.name,'الاستلام: '+(draft.method==='delivery'?'توصيل':'استلام من الفرع التجريبي'));
 if(draft.method==='delivery')lines.push('العنوان: '+draft.address);
 if(draft.phone.trim())lines.push('رقم تواصل إضافي: '+draft.phone);
 if(draft.notes.trim())lines.push('ملاحظات: '+draft.notes);
-lines.push('','الطلب يحتاج مراجعة وتأكيد من فيتاليا.');
+lines.push('','*🖼️ صور الأصناف وتفاصيل الطلب:*',link,'','*الطلب يحتاج مراجعة وتأكيد من فيتاليا.*');
 el('vcFormResult').innerHTML='<h4>راجع رسالة طلبك</h4>';
 VitaliaWhatsApp.mount(el('vcFormResult'),lines.join('\n'),'فتح واتساب بالطلب');
 
