@@ -59,7 +59,7 @@ function renderCheckout(){
 var link=ORDER_PAGE+'?o='+ids.map(function(id){return shortCode(products.get(id).code)+'.'+state.cart[id];}).join(',');
 var SEP='━━━━━━━━━━';
 var lines=['*🧾 طلب جديد من فيتاليا*','(معاينة تجريبية: بيانات وأسعار غير حقيقية)','',
-'*🛒 الأصناف · '+num(ids.length)+' أصناف · '+num(count)+' قطع:*'];
+'*🛒 الأصناف · '+num(ids.length)+' أصناف · '+num(count)+' قطع*'];
 ids.forEach(function(id,i){var x=products.get(id),q=state.cart[id];lines.push(SEP,'*'+num(i+1)+'. '+x.name+'*','الكود: '+shortCode(x.code),'*الكمية: '+num(q)+'* · إجمالي الصنف: '+money(q*x.price));});
 lines.push(SEP,'',
 '*💰 الحساب:*','مجموع المنتجات: *'+money(total)+'*','الشحن: يُؤكد لاحقًا','الإجمالي النهائي: يُؤكد بعد مراجعة الطلب والشحن','',
