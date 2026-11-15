@@ -490,3 +490,4 @@ html[data-theme="dark"] .cmp-type.active{background:#3e2a33}
 /* Complaints entry button: dark purple (approved 2026-11-10) */
 .cmp-entry-bar .btn-grad{background:#2A1830;box-shadow:0 4px 14px rgba(42,24,48,.35)}
 .cmp-entry-bar .btn-grad:hover{background:#3A2342;box-shadow:0 8px 20px rgba(42,24,48,.45)}
+.vc-field input.vc-invalid,.vc-field select.vc-invalid,.vc-field textarea.vc-invalid{border-color:#dc2626;box-shadow:0 0 0 1px #dc2626}.vc-field input.vc-invalid:focus,.vc-field select.vc-invalid:focus,.vc-field textarea.vc-invalid:focus{outline-color:#dc2626}
