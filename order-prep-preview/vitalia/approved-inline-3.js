@@ -1,0 +1,1 @@
+CTL_COMPANIES.forEach(function(c){c.ar=c.ar.replace('بقية أصناف الإكسل','أصناف إضافية').replace(' - من الإكسل','');c.products.forEach(function(p){if(p.cat==='أصناف الإكسل')p.cat='أصناف إضافية';});});
