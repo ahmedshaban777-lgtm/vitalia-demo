@@ -40,50 +40,60 @@ footer{color:var(--muted);font-size:.78rem;text-align:center;margin:14px 0 20px;
 <body>
 <header>
 <h1>طلباتي - فيتاليا</h1>
-<span class="demo">محاكاة تجريبية - بيانات وأسعار غير حقيقية</span>
+<span class="demo">بيئة اختبار حقيقية - بيانات وأسعار غير حقيقية</span>
 </header>
-<div class="note">هذه الصفحة <b>محاكاة</b> لما سيراه العميل بعد ربط الطلبات: الطلبات هنا محفوظة على هذا الجهاز فقط، وحالة الطلب تمثيل لما سيحدّثه المحل. في النسخة الحقيقية تُحفظ الطلبات مركزيًا ويظهر تحديث المحل للعميل من أي جهاز.</div>
-<div class="track"><input id="tcode" type="text" inputmode="latin" placeholder="V-0000" aria-label="رقم الطلب"><button id="tgo">تتبع برقم الطلب</button></div>
+<div class="note">هذه <b>بيئة اختبار</b> متصلة بقاعدة بيانات حقيقية: حالة الطلب تُقرأ من التخزين المركزي ويحدّثها المحل من لوحته، وتظهر هنا من أي جهاز بلينك التتبع. البيانات والأسعار وهمية لأغراض الاختبار.</div>
+<div class="track"><input id="tcode" type="text" inputmode="latin" placeholder="معرّف التتبع من رسالة الطلب" aria-label="معرّف التتبع"><button id="tgo">تتبع برقم الطلب</button></div>
 <div id="list"></div>
-<footer>محاكاة داخل معاينة معزولة · الموقع الأساسي لم يتغير · <a href="index.html">العودة للمتجر</a></footer>
+<footer>بيئة اختبار داخل معاينة معزولة · الموقع الأساسي لم يتغير · <a href="index.html">العودة للمتجر</a></footer>
 <script src="vitalia/approved-inline-2.js?v=op4"></script>
 <script src="vitalia/catalog-excel.js?v=op4"></script>
 <script src="vitalia/approved-inline-3.js?v=op4"></script>
-<script src="vitalia/mock-orders.js?v=op4"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script src="vitalia/firebase-config.js?v=op5"></script><script src="vitalia/firebase-orders.js?v=op5"></script>
 <script>
 (function(){
 'use strict';
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function num(n){return Number(n).toLocaleString('ar-EG');}
 function money(n){return num(n)+' ج.م';}
-var MO=window.VTLMockOrders, list=document.getElementById('list');
-MO.seedIfEmpty();
-function stepIndex(k){var i=0;MO.STEPS.forEach(function(s,j){if(s.k===k)i=j;});return i;}
+var FB=window.VTLFbOrders, list=document.getElementById('list');
+function stepIndex(k){var i=0;FB.STEPS.forEach(function(s,j){if(s.k===k)i=j;});return i;}
 function card(o,flash){
  var cur=stepIndex(o.status);
- var steps=MO.STEPS.map(function(s,j){return '<div class="step'+(j<=cur?' on':'')+(j===cur?' now':'')+'">'+esc(s.label)+'</div>';}).join('');
- var sum=MO.itemSummary(o.items);
- var href='order.html?o='+encodeURIComponent(MO.itemsLink(o.items));
- return '<div class="card'+(flash?' flash':'')+'" id="o-'+esc(o.code)+'">'
-  +'<div class="chead"><span class="ocode">'+esc(o.code)+'</span><span class="date">'+new Date(o.ts).toLocaleString('ar-EG')+'</span></div>'
+ var steps=FB.STEPS.map(function(s,j){return '<div class="step'+(j<=cur?' on':'')+(j===cur?' now':'')+'">'+esc(s.label)+'</div>';}).join('');
+ var items=FB.parseItems(o.items);
+ var sum=FB.itemSummary(items);
+ var ts=o.createdAt&&o.createdAt.seconds?o.createdAt.seconds*1000:Date.now();
+ var href='order.html?o='+encodeURIComponent(o.items);
+ return '<div class="card'+(flash?' flash':'')+'" id="o-'+esc(o.id)+'">'
+  +'<div class="chead"><span class="ocode">'+esc(o.code)+'</span><span class="date">'+new Date(ts).toLocaleString('ar-EG')+'</span></div>'
   +'<div class="steps">'+steps+'</div>'
   +'<div class="meta">'+num(sum.kinds)+' أصناف · '+num(sum.count)+' قطع · '+money(sum.total)+' (تجريبي)</div>'
   +'<div class="actions"><a class="btn" href="'+href+'">عرض الأصناف بالصور</a></div>'
   +'</div>';
 }
-function render(flashCode){
- var all=MO.list().slice().reverse();
- list.innerHTML=all.length?all.map(function(o){return card(o,o.code===flashCode);}).join(''):'<div class="empty">لا توجد طلبات بعد.<br>جرّب إضافة أصناف للسلة وتسجيل طلب تجريبي.</div>';
- if(flashCode){var el=document.getElementById('o-'+flashCode);if(el)el.scrollIntoView({block:'center'});}
+function renderAll(flashId){
+ var local=FB.listLocal().slice().reverse();
+ if(!local.length){list.innerHTML='<div class="empty">لا توجد طلبات مسجلة من هذا الجهاز بعد.<br>جرّب إضافة أصناف للسلة وتسجيل طلب في بيئة الاختبار.</div>';return;}
+ list.innerHTML='<div class="empty">جاري قراءة حالة الطلبات من الخادم…</div>';
+ Promise.all(local.map(function(rec){return FB.getStatus(rec.id).catch(function(){return null;});})).then(function(docs){
+  var found=docs.filter(Boolean);
+  list.innerHTML=found.length?found.map(function(o){return card(o,o.id===flashId);}).join(''):'<div class="empty">تعذّر قراءة الطلبات من الخادم.</div>';
+  if(flashId){var el=document.getElementById('o-'+flashId);if(el)el.scrollIntoView({block:'center'});}
+ });
 }
-document.getElementById('tgo').onclick=function(){
- var code=document.getElementById('tcode').value.trim().toUpperCase();
- if(!code)return;
- if(MO.find(code)){render(code);}else{list.innerHTML='<div class="empty">الطلب '+esc(code)+' غير موجود على هذا الجهاز.<br>في المحاكاة تُحفظ الطلبات محليًا فقط؛ في النسخة الحقيقية يعمل التتبع من أي جهاز.</div>';}
-};
+function trackOne(id){
+ id=String(id||'').trim();
+ var m=id.match(/track=([A-Za-z0-9]+)/);if(m)id=m[1];
+ if(!id)return;
+ list.innerHTML='<div class="empty">جاري البحث عن الطلب…</div>';
+ FB.getStatus(id).then(function(o){
+  if(o){list.innerHTML=card(o,true);}else{list.innerHTML='<div class="empty">لم يتم العثور على هذا الطلب. تأكد من لينك التتبع كاملًا من رسالة الطلب.</div>';}
+ }).catch(function(){list.innerHTML='<div class="empty">تعذّر الاتصال بالخادم.</div>';});
+}
+document.getElementById('tgo').onclick=function(){trackOne(document.getElementById('tcode').value);};
 var m=location.search.match(/[?&]track=([^&]+)/);
-if(m){var c=decodeURIComponent(m[1]).toUpperCase();if(MO.find(c)){render(c);}else{render();list.insertAdjacentHTML('afterbegin','<div class="note">الطلب '+esc(c)+' غير موجود على هذا الجهاز؛ المحاكاة محلية فقط، والتتبع الحقيقي يعمل من أي جهاز بعد الربط.</div>');}}
-else render();
+if(m)trackOne(decodeURIComponent(m[1]));else renderAll();
 })();
 </script>
 </body>

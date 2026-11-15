@@ -37,50 +37,68 @@ footer{color:var(--muted);font-size:.78rem;text-align:center;margin:14px 0 20px;
 <body>
 <header>
 <h1>لوحة الطلبات - فيتاليا</h1>
-<span class="demo">محاكاة تجريبية - بيانات وأسعار غير حقيقية</span>
+<span class="demo">بيئة اختبار حقيقية - بيانات وأسعار غير حقيقية</span>
 </header>
-<div class="note">هذه اللوحة <b>محاكاة</b>: بلا تسجيل دخول، والطلبات معروضة من هذا الجهاز فقط. تغيير الحالة هنا يوضّح الفكرة؛ في النسخة الحقيقية الصفحة محمية بدخول خاص بالمحل، والحالة تُحفظ مركزيًا فيراها العميل في «طلباتي» من أي جهاز.</div>
-<div id="list"></div>
-<footer>محاكاة داخل معاينة معزولة · الموقع الأساسي لم يتغير · <a href="index.html">العودة للمتجر</a> · <a href="orders.html">صفحة «طلباتي» كما يراها العميل</a></footer>
+<div class="note">لوحة المحل في <b>بيئة اختبار</b>: محمية بدخول خاص بالمحل (بريد وكلمة سر)، تقرأ الطلبات من التخزين المركزي، وتغيير الحالة هنا يظهر للعميل في «طلباتي» من أي جهاز. البيانات والأسعار وهمية لأغراض الاختبار، واللوحة تعيد حساب مجموع كل طلب من الكتالوج الحالي وتنبّه عند أي اختلاف.</div>
+<div id="auth"><input id="aemail" type="email" dir="ltr" placeholder="بريد المحل" aria-label="بريد المحل"><input id="apass" type="password" dir="ltr" placeholder="كلمة السر" aria-label="كلمة السر"><button id="alogin" class="btn">دخول</button><div id="aerr" class="empty" style="display:none"></div></div><div id="bar" style="display:none"><button id="arefresh" class="btn">تحديث</button> <button id="aout" class="btn">خروج</button></div><div id="list"></div>
+<footer>بيئة اختبار داخل معاينة معزولة · الموقع الأساسي لم يتغير · <a href="index.html">العودة للمتجر</a> · <a href="orders.html">صفحة «طلباتي» كما يراها العميل</a></footer>
 <script src="vitalia/approved-inline-2.js?v=op4"></script>
 <script src="vitalia/catalog-excel.js?v=op4"></script>
 <script src="vitalia/approved-inline-3.js?v=op4"></script>
-<script src="vitalia/mock-orders.js?v=op4"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script src="vitalia/firebase-config.js?v=op5"></script><script src="vitalia/firebase-orders.js?v=op5"></script>
 <script>
 (function(){
 'use strict';
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function num(n){return Number(n).toLocaleString('ar-EG');}
 function money(n){return num(n)+' ج.م';}
-var MO=window.VTLMockOrders, list=document.getElementById('list');
-MO.seedIfEmpty();
+var FB=window.VTLFbOrders, list=document.getElementById('list');
+var authBox=document.getElementById('auth'), bar=document.getElementById('bar');
 function card(o){
- var pm=MO.productsMap();
- var rows=o.items.map(function(it){
+ var pm=FB.productsMap();
+ var items=FB.parseItems(o.items);
+ var rows=items.map(function(it){
   var x=pm.get('VTL-'+it.code);
   return '<div class="irow"><span class="q">× '+num(it.qty)+'</span><span>'+(x?esc(x.name):'صنف غير معروف')+'</span><span class="c">'+esc(it.code)+'</span></div>';
  }).join('');
- var sum=MO.itemSummary(o.items);
- var btns=MO.STEPS.map(function(s){return '<button data-code="'+esc(o.code)+'" data-k="'+s.k+'" class="'+(o.status===s.k?'cur':'')+'">'+esc(s.label)+'</button>';}).join('');
- var href='order.html?o='+encodeURIComponent(MO.itemsLink(o.items));
+ var sum=FB.itemSummary(items);
+ var mismatch=Math.round(sum.total)!==Math.round(o.total);
+ var ts=o.createdAt&&o.createdAt.seconds?o.createdAt.seconds*1000:Date.now();
+ var btns=FB.STEPS.map(function(s){return '<button data-id="'+esc(o.id)+'" data-k="'+s.k+'" class="'+(o.status===s.k?'cur':'')+'">'+esc(s.label)+'</button>';}).join('');
+ var href='order.html?o='+encodeURIComponent(o.items);
  return '<div class="card">'
-  +'<div class="chead"><span class="ocode">'+esc(o.code)+'</span><span class="date">'+new Date(o.ts).toLocaleString('ar-EG')+'</span></div>'
-  +'<div class="who">'+esc(o.name||'عميل تجريبي')+'</div>'
-  +'<div class="addr">'+(o.method==='pickup'?'استلام من الفرع التجريبي':'توصيل - '+esc(o.address||'عنوان تجريبي'))+'</div>'
+  +'<div class="chead"><span class="ocode">'+esc(o.code)+'</span><span class="date">'+new Date(ts).toLocaleString('ar-EG')+'</span></div>'
+  +'<div class="who">'+esc(o.name||'')+(o.phone?' · <span dir="ltr">'+esc(o.phone)+'</span>':'')+'</div>'
+  +'<div class="addr">'+(o.method==='pickup'?'استلام من الفرع التجريبي':'توصيل - '+esc(o.address||''))+'</div>'
+  +(o.notes?'<div class="addr">ملاحظات: '+esc(o.notes)+'</div>':'')
   +'<div class="items">'+rows+'</div>'
-  +'<div class="total"><span>مجموع المنتجات (تجريبي)</span><span>'+money(sum.total)+'</span></div>'
+  +'<div class="total"><span>مجموع المنتجات (تجريبي)</span><span>'+money(o.total)+(mismatch?' <b style="color:#b00">⚠ المسجل '+money(o.total)+' ≠ المحسوب '+money(sum.total)+'</b>':'')+'</span></div>'
   +'<div class="stbar">'+btns+'</div>'
   +'<div class="addr" style="margin-top:8px"><a href="'+href+'">عرض الأصناف بالصور كما يراها العميل</a></div>'
   +'</div>';
 }
 function render(){
- var all=MO.list().slice().reverse();
- list.innerHTML=all.length?all.map(card).join(''):'<div class="empty">لا توجد طلبات بعد.<br>سجّل طلبًا تجريبيًا من سلة المتجر ليظهر هنا.</div>';
- list.querySelectorAll('button[data-code]').forEach(function(b){
-  b.onclick=function(){MO.setStatus(b.dataset.code,b.dataset.k);render();};
- });
+ list.innerHTML='<div class="empty">جاري قراءة الطلبات…</div>';
+ FB.listOrders().then(function(all){
+  list.innerHTML=all.length?all.map(card).join(''):'<div class="empty">لا توجد طلبات بعد.</div>';
+  list.querySelectorAll('button[data-id]').forEach(function(b){
+   b.onclick=function(){b.disabled=true;FB.setStatus(b.dataset.id,b.dataset.k).then(render).catch(function(){render();});};
+  });
+ }).catch(function(e){list.innerHTML='<div class="empty">تعذّر قراءة الطلبات: '+esc(e&&e.code||e)+'</div>';});
 }
-render();
+FB.onAuth(function(u){
+ var ok=!!u;
+ authBox.style.display=ok?'none':'block';
+ bar.style.display=ok?'block':'none';
+ if(ok)render();else list.innerHTML='';
+});
+document.getElementById('alogin').onclick=function(){
+ var e=document.getElementById('aemail').value.trim(),p=document.getElementById('apass').value;
+ var err=document.getElementById('aerr');err.style.display='none';
+ FB.signIn(e,p).catch(function(x){err.style.display='block';err.textContent='فشل الدخول: '+(x&&x.code||x);});
+};
+document.getElementById('aout').onclick=function(){FB.signOut();};
+document.getElementById('arefresh').onclick=render;
 })();
 </script>
 </body>

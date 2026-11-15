@@ -33,25 +33,32 @@ function shortCode(c){return String(c||'').replace(/^VTL-/i,'');}
 var ORDER_TRACK_PAGE='https://ahmedshaban777-lgtm.github.io/vitalia-demo/order-prep-preview/orders.html';
 function registerOrder(ids,total,count){
  var items=ids.map(function(id){return {code:shortCode(products.get(id).code),qty:state.cart[id]};});
- var o=window.VTLMockOrders.add({name:draft.name,method:draft.method,address:draft.method==='delivery'?draft.address:'',items:items});
- var SEP='━━━━━━━━━━';
+ var vcView=el('vcView');
+ vcView.innerHTML='<div class="vc-step"><b>\u062c\u0627\u0631\u064a \u0627\u0644\u062a\u0633\u062c\u064a\u0644</b></div><p class="vc-note">\u062c\u0627\u0631\u064a \u062a\u0633\u062c\u064a\u0644 \u0637\u0644\u0628\u0643 \u0641\u064a \u0628\u064a\u0626\u0629 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u2026</p>';
+ window.VTLFbOrders.createOrder({name:draft.name,method:draft.method,address:draft.method==='delivery'?draft.address:'',phone:draft.phone,notes:draft.notes,items:items,total:total}).then(function(rec){
+ var o={code:rec.code,id:rec.id};
+ var SEP='\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501';
  var link=ORDER_PAGE+'?o='+items.map(function(it){return it.code+'.'+it.qty;}).join(',');
- var lines=['*🧾 طلب جديد من فيتاليا*','(معاينة تجريبية: بيانات وأسعار غير حقيقية)','','*🔖 رقم الطلب: '+o.code+'*','',
- '*🛒 الأصناف · '+num(items.length)+' أصناف · '+num(count)+' قطع*'];
- items.forEach(function(it,i){var x=products.get(ids[i]);lines.push(SEP,'*'+num(i+1)+'. '+x.name+'*','الكود: '+it.code,'*الكمية: '+num(it.qty)+'* · إجمالي الصنف: '+money(it.qty*x.price));});
+ var trackLink=ORDER_TRACK_PAGE+'?track='+o.id;
+ var lines=['*\ud83e\uddfe \u0637\u0644\u0628 \u062c\u062f\u064a\u062f \u0645\u0646 \u0641\u064a\u062a\u0627\u0644\u064a\u0627*','(\u0645\u0639\u0627\u064a\u0646\u0629 \u062a\u062c\u0631\u064a\u0628\u064a\u0629: \u0628\u064a\u0627\u0646\u0627\u062a \u0648\u0623\u0633\u0639\u0627\u0631 \u063a\u064a\u0631 \u062d\u0642\u064a\u0642\u064a\u0629)','','*\ud83d\udd16 \u0631\u0642\u0645 \u0627\u0644\u0637\u0644\u0628: '+o.code+'*','',
+ '*\ud83d\uded2 \u0627\u0644\u0623\u0635\u0646\u0627\u0641 \u00b7 '+num(items.length)+' \u0623\u0635\u0646\u0627\u0641 \u00b7 '+num(count)+' \u0642\u0637\u0639*'];
+ items.forEach(function(it,i){var x=products.get(ids[i]);lines.push(SEP,'*'+num(i+1)+'. '+x.name+'*','\u0627\u0644\u0643\u0648\u062f: '+it.code,'*\u0627\u0644\u0643\u0645\u064a\u0629: '+num(it.qty)+'* \u00b7 \u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u0635\u0646\u0641: '+money(it.qty*x.price));});
  lines.push(SEP,'',
- '*💰 الحساب:*','مجموع المنتجات: *'+money(total)+'*','الشحن: يُؤكد لاحقًا','الإجمالي النهائي: يُؤكد بعد مراجعة الطلب والشحن','',
- '*👤 بيانات العميل:*','الاسم: '+draft.name,'الاستلام: '+(draft.method==='delivery'?'توصيل':'استلام من الفرع التجريبي'));
- if(draft.method==='delivery')lines.push('العنوان: '+draft.address);
- if(draft.phone.trim())lines.push('رقم تواصل إضافي: '+draft.phone);
- if(draft.notes.trim())lines.push('ملاحظات: '+draft.notes);
- lines.push('','*🖼️ صور الأصناف وتفاصيل الطلب:*',link,'','*تابع حالة طلبك:*',ORDER_TRACK_PAGE+'?track='+o.code,'','*الطلب يحتاج مراجعة وتأكيد من فيتاليا.*');
+ '*\ud83d\udcb0 \u0627\u0644\u062d\u0633\u0627\u0628:*','\u0645\u062c\u0645\u0648\u0639 \u0627\u0644\u0645\u0646\u062a\u062c\u0627\u062a: *'+money(total)+'*','\u0627\u0644\u0634\u062d\u0646: \u064a\u064f\u0624\u0643\u062f \u0644\u0627\u062d\u0642\u064b\u0627','\u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u0646\u0647\u0627\u0626\u064a: \u064a\u064f\u0624\u0643\u062f \u0628\u0639\u062f \u0645\u0631\u0627\u062c\u0639\u0629 \u0627\u0644\u0637\u0644\u0628 \u0648\u0627\u0644\u0634\u062d\u0646','',
+ '*\ud83d\udc64 \u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0639\u0645\u064a\u0644:*','\u0627\u0644\u0627\u0633\u0645: '+draft.name,'\u0627\u0644\u0627\u0633\u062a\u0644\u0627\u0645: '+(draft.method==='delivery'?'\u062a\u0648\u0635\u064a\u0644':'\u0627\u0633\u062a\u0644\u0627\u0645 \u0645\u0646 \u0627\u0644\u0641\u0631\u0639 \u0627\u0644\u062a\u062c\u0631\u064a\u0628\u064a'));
+ if(draft.method==='delivery')lines.push('\u0627\u0644\u0639\u0646\u0648\u0627\u0646: '+draft.address);
+ if(draft.phone.trim())lines.push('\u0631\u0642\u0645 \u062a\u0648\u0627\u0635\u0644 \u0625\u0636\u0627\u0641\u064a: '+draft.phone);
+ if(draft.notes.trim())lines.push('\u0645\u0644\u0627\u062d\u0638\u0627\u062a: '+draft.notes);
+ lines.push('','*\ud83d\uddbc\ufe0f \u0635\u0648\u0631 \u0627\u0644\u0623\u0635\u0646\u0627\u0641 \u0648\u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0637\u0644\u0628:*',link,'','*\u062a\u0627\u0628\u0639 \u062d\u0627\u0644\u0629 \u0637\u0644\u0628\u0643:*',trackLink,'','*\u0627\u0644\u0637\u0644\u0628 \u064a\u062d\u062a\u0627\u062c \u0645\u0631\u0627\u062c\u0639\u0629 \u0648\u062a\u0623\u0643\u064a\u062f \u0645\u0646 \u0641\u064a\u062a\u0627\u0644\u064a\u0627.*');
  state.cart={};save();updateCount();
- el('vcView').innerHTML='<div class="vc-step"><b>تم التسجيل</b></div><h3 class="vc-form-title">تم تسجيل طلبك (محاكاة)</h3><p class="vc-note">رقم الطلب: <b dir="ltr">'+o.code+'</b> · احفظه لمتابعة حالة طلبك.</p><p class="vc-muted">هذه محاكاة: الطلب محفوظ على هذا الجهاز فقط، والتسجيل لا يعني أن المحل استلم أو أكّد. في النسخة الحقيقية يُحفظ الطلب مركزيًا وتصل الحالة من المحل.</p><div class="vc-actions"><a class="vc-btn primary" href="orders.html?track='+o.code+'">تتبع حالة الطلب في «طلباتي»</a><button class="vc-btn" id="vcBackHome">متابعة التصفح</button></div><h4 style="margin-top:16px">رسالة الطلب لواتساب (تتضمن رقم الطلب ولينك التتبع)</h4>';
- VitaliaWhatsApp.mount(el('vcView'),lines.join('\n'),'فتح واتساب بالطلب');
+ vcView.innerHTML='<div class="vc-step"><b>\u062a\u0645 \u0627\u0644\u062a\u0633\u062c\u064a\u0644</b></div><h3 class="vc-form-title">\u062a\u0645 \u062a\u0633\u062c\u064a\u0644 \u0637\u0644\u0628\u0643 \u0641\u064a \u0628\u064a\u0626\u0629 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631</h3><p class="vc-note">\u0631\u0642\u0645 \u0627\u0644\u0637\u0644\u0628: <b dir="ltr">'+o.code+'</b></p><p class="vc-muted">\u0628\u064a\u0626\u0629 \u0627\u062e\u062a\u0628\u0627\u0631 \u0628\u0628\u064a\u0627\u0646\u0627\u062a \u0648\u0647\u0645\u064a\u0629: \u0627\u0644\u0637\u0644\u0628 \u064a\u064f\u062d\u0641\u0638 \u0645\u0631\u0643\u0632\u064a\u064b\u0627 \u0627\u0644\u0622\u0646 \u0648\u062a\u064f\u062d\u062f\u0651\u062b \u062d\u0627\u0644\u062a\u0647 \u0645\u0646 \u0644\u0648\u062d\u0629 \u0627\u0644\u0645\u062d\u0644\u060c \u0648\u0627\u0644\u062a\u0633\u062c\u064a\u0644 \u0644\u0627 \u064a\u0639\u0646\u064a \u0623\u0646 \u0627\u0644\u0645\u062d\u0644 \u0627\u0633\u062a\u0644\u0645 \u0623\u0648 \u0623\u0643\u0651\u062f.</p><div class="vc-actions"><a class="vc-btn primary" href="'+trackLink+'">\u062a\u062a\u0628\u0639 \u062d\u0627\u0644\u0629 \u0627\u0644\u0637\u0644\u0628 \u0641\u064a \u00ab\u0637\u0644\u0628\u0627\u062a\u064a\u00bb</a><button class="vc-btn" id="vcBackHome">\u0645\u062a\u0627\u0628\u0639\u0629 \u0627\u0644\u062a\u0635\u0641\u062d</button></div><h4 style="margin-top:16px">\u0631\u0633\u0627\u0644\u0629 \u0627\u0644\u0637\u0644\u0628 \u0644\u0648\u0627\u062a\u0633\u0627\u0628 (\u062a\u062a\u0636\u0645\u0646 \u0631\u0642\u0645 \u0627\u0644\u0637\u0644\u0628 \u0648\u0644\u064a\u0646\u0643 \u0627\u0644\u062a\u062a\u0628\u0639)</h4>';
+ VitaliaWhatsApp.mount(vcView,lines.join('\n'),'\u0641\u062a\u062d \u0648\u0627\u062a\u0633\u0627\u0628 \u0628\u0627\u0644\u0637\u0644\u0628');
  el('vcBackHome').onclick=function(){close();};
+ }).catch(function(err){
+ vcView.innerHTML='<h3 class="vc-form-title">\u062a\u0639\u0630\u0651\u0631 \u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u0637\u0644\u0628</h3><p class="vc-muted">\u062d\u062f\u062b \u062e\u0637\u0623 \u0641\u064a \u0627\u0644\u0627\u062a\u0635\u0627\u0644 \u0628\u0642\u0627\u0639\u062f\u0629 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a\u061b \u0644\u0645 \u064a\u064f\u0633\u062c\u0651\u0644 \u0627\u0644\u0637\u0644\u0628 \u0648\u0627\u0644\u0633\u0644\u0629 \u0643\u0645\u0627 \u0647\u064a. \u062c\u0631\u0651\u0628 \u0645\u0631\u0629 \u0623\u062e\u0631\u0649.</p><p class="vc-muted" dir="ltr" style="font-size:12px">'+String(err&&err.code||err||'')+'</p><div class="vc-actions"><button class="vc-btn primary" id="vcRetryOrder">\u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u0645\u062d\u0627\u0648\u0644\u0629</button></div>';
+ el('vcRetryOrder').onclick=function(){registerOrder(ids,total,count);};
+ });
 }
-
 function cartTotal(){return Object.keys(state.cart).reduce(function(sum,id){return sum+products.get(id).price*state.cart[id];},0);}
 function minimumMessage(){return 'الحد الأدنى لمجموع المنتجات '+money(MINIMUM)+' · متبقي '+money(Math.max(0,MINIMUM-cartTotal()))+' لاستكمال الطلب. لا يشمل الشحن أو الرسوم.';}
 function enterCheckout(){if(cartTotal()<MINIMUM){view='cart';render();return;}view='checkout';render();}
