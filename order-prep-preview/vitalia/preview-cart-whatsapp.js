@@ -30,6 +30,27 @@ el('vcOverlay').onclick=function(e){if(e.target===el('vcOverlay'))close();};docu
 var MINIMUM=1000;
 var ORDER_PAGE='https://ahmedshaban777-lgtm.github.io/vitalia-demo/order-prep-preview/order.html';
 function shortCode(c){return String(c||'').replace(/^VTL-/i,'');}
+var ORDER_TRACK_PAGE='https://ahmedshaban777-lgtm.github.io/vitalia-demo/order-prep-preview/orders.html';
+function registerOrder(ids,total,count){
+ var items=ids.map(function(id){return {code:shortCode(products.get(id).code),qty:state.cart[id]};});
+ var o=window.VTLMockOrders.add({name:draft.name,method:draft.method,address:draft.method==='delivery'?draft.address:'',items:items});
+ var SEP='━━━━━━━━━━';
+ var link=ORDER_PAGE+'?o='+items.map(function(it){return it.code+'.'+it.qty;}).join(',');
+ var lines=['*🧾 طلب جديد من فيتاليا*','(معاينة تجريبية: بيانات وأسعار غير حقيقية)','','*🔖 رقم الطلب: '+o.code+'*','',
+ '*🛒 الأصناف · '+num(items.length)+' أصناف · '+num(count)+' قطع*'];
+ items.forEach(function(it,i){var x=products.get(ids[i]);lines.push(SEP,'*'+num(i+1)+'. '+x.name+'*','الكود: '+it.code,'*الكمية: '+num(it.qty)+'* · إجمالي الصنف: '+money(it.qty*x.price));});
+ lines.push(SEP,'',
+ '*💰 الحساب:*','مجموع المنتجات: *'+money(total)+'*','الشحن: يُؤكد لاحقًا','الإجمالي النهائي: يُؤكد بعد مراجعة الطلب والشحن','',
+ '*👤 بيانات العميل:*','الاسم: '+draft.name,'الاستلام: '+(draft.method==='delivery'?'توصيل':'استلام من الفرع التجريبي'));
+ if(draft.method==='delivery')lines.push('العنوان: '+draft.address);
+ if(draft.phone.trim())lines.push('رقم تواصل إضافي: '+draft.phone);
+ if(draft.notes.trim())lines.push('ملاحظات: '+draft.notes);
+ lines.push('','*🖼️ صور الأصناف وتفاصيل الطلب:*',link,'','*تابع حالة طلبك:*',ORDER_TRACK_PAGE+'?track='+o.code,'','*الطلب يحتاج مراجعة وتأكيد من فيتاليا.*');
+ state.cart={};save();updateCount();
+ el('vcView').innerHTML='<div class="vc-step"><b>تم التسجيل</b></div><h3 class="vc-form-title">تم تسجيل طلبك (محاكاة)</h3><p class="vc-note">رقم الطلب: <b dir="ltr">'+o.code+'</b> · احفظه لمتابعة حالة طلبك.</p><p class="vc-muted">هذه محاكاة: الطلب محفوظ على هذا الجهاز فقط، والتسجيل لا يعني أن المحل استلم أو أكّد. في النسخة الحقيقية يُحفظ الطلب مركزيًا وتصل الحالة من المحل.</p><div class="vc-actions"><a class="vc-btn primary" href="orders.html?track='+o.code+'">تتبع حالة الطلب في «طلباتي»</a><button class="vc-btn" id="vcBackHome">متابعة التصفح</button></div><h4 style="margin-top:16px">رسالة الطلب لواتساب (تتضمن رقم الطلب ولينك التتبع)</h4>';
+ VitaliaWhatsApp.mount(el('vcView'),lines.join('\n'),'فتح واتساب بالطلب');
+ el('vcBackHome').onclick=function(){close();};
+}
 
 function cartTotal(){return Object.keys(state.cart).reduce(function(sum,id){return sum+products.get(id).price*state.cart[id];},0);}
 function minimumMessage(){return 'الحد الأدنى لمجموع المنتجات '+money(MINIMUM)+' · متبقي '+money(Math.max(0,MINIMUM-cartTotal()))+' لاستكمال الطلب. لا يشمل الشحن أو الرسوم.';}
@@ -37,7 +58,7 @@ function enterCheckout(){if(cartTotal()<MINIMUM){view='cart';render();return;}vi
 function render(){document.querySelector('.vc-panel').classList.toggle('vc-checkout-mode',view==='checkout');el('vcTitle').textContent=view==='checkout'?'بيانات الطلب':'السلة والمخزون';el('vcTabCheckout').classList.toggle('active',view==='checkout');el('vcTabCart').classList.toggle('active',view==='cart');el('vcTabStock').classList.toggle('active',view==='stock');if(view==='checkout')renderCheckout();else if(view==='cart')renderCart();else renderStock();document.querySelector('.vc-panel').scrollTop=0;}
 function renderCart(){var ids=Object.keys(state.cart),total=0,count=0;
  var out=ids.map(function(id){var x=products.get(id),q=state.cart[id];total+=q*x.price;count+=q;return '<div class="vc-row"><div class="vc-item">'+(x.img?'<img src="'+esc(x.img)+'" alt="'+esc(x.name)+'">':'<div class="vc-muted">الصورة غير متاحة</div>')+'<div><div class="vc-muted">'+esc(x.brand)+'</div><div class="vc-item-code"">'+esc(shortCode(x.code))+'</div><div class="vc-source-label">'+esc(x.source)+'</div><h3>'+esc(x.name)+'</h3>'+(x.note?'<p class="vc-muted">'+esc(x.note)+'</p>':'')+'<div class="vc-muted">سعر القطعة: '+money(x.price)+'</div></div></div><div class="vc-line"><div class="vc-qty"><button class="vc-btn" data-minus="'+id+'" aria-label="تقليل كمية '+esc(x.name)+'">−</button><input type="number" min="1" max="999" value="'+q+'" data-qty="'+id+'" aria-label="كمية '+esc(x.name)+'"><button class="vc-btn" data-plus="'+id+'" aria-label="زيادة كمية '+esc(x.name)+'">+</button></div><button class="vc-btn" data-remove="'+id+'">حذف من السلة</button></div><div class="vc-line"><span>الإجمالي</span><b>'+money(q*x.price)+'</b></div>'+(q>available(id)?'<p class="vc-status">الكمية أكبر من المتاح الوهمي ('+num(available(id))+')؛ قللها لتجربة الحجز.</p>':'')+'</div>';}).join('');
- el('vcView').innerHTML=ids.length?out+'<div class="vc-muted">'+num(ids.length)+' صنف · '+num(count)+' قطعة</div><div class="vc-line vc-total"><span>الإجمالي</span><span>'+money(total)+'</span></div><p class="vc-muted">لا يشمل الشحن أو الرسوم.</p><div class="vc-actions"><button class="vc-btn primary" id="vcCheckout">استكمال بيانات الطلب</button><button class="vc-btn" id="vcReserve">محاكاة الحجز</button><button class="vc-btn" id="vcContinue">متابعة التصفح</button></div><div class="vc-status" id="vcMessage" role="status"></div>':'<div class="vc-empty"><h3>سلتك لسه فاضية</h3><button class="vc-btn primary" id="vcContinue">تصفح المنتجات</button></div>';
+ el('vcView').innerHTML=ids.length?out+'<div class="vc-muted">'+num(ids.length)+' صنف · '+num(count)+' قطعة</div><div class="vc-line vc-total"><span>الإجمالي</span><span>'+money(total)+'</span></div><p class="vc-muted">لا يشمل الشحن أو الرسوم.</p><div class="vc-actions"><button class="vc-btn primary" id="vcCheckout">استكمال بيانات الطلب</button><button class="vc-btn" id="vcReserve">محاكاة الحجز</button><button class="vc-btn" id="vcContinue">متابعة التصفح</button><a class="vc-btn" href="orders.html">طلباتي (محاكاة)</a></div><div class="vc-status" id="vcMessage" role="status"></div>':'<div class="vc-empty"><h3>سلتك لسه فاضية</h3><button class="vc-btn primary" id="vcContinue">تصفح المنتجات</button></div>';
  if(!persist)el('vcView').insertAdjacentHTML('afterbegin','<p class="vc-note">التخزين غير متاح؛ التجربة تعمل خلال الجلسة الحالية فقط.</p>');
  if(ids.length){el('vcView').insertAdjacentHTML('afterbegin','<div class="vc-form-entry"><p class="vc-note vc-minimum" role="status">'+(total<MINIMUM?minimumMessage():'وصل مجموع المنتجات للحد الأدنى '+money(MINIMUM)+'. يمكنك استكمال بيانات الطلب.')+'</p><button class="vc-btn primary" id="vcFormTop">فتح فورم بيانات الطلب</button></div>');el('vcFormTop').onclick=enterCheckout;[el('vcFormTop'),el('vcCheckout'),el('vcReserve')].forEach(function(b){b.disabled=total<MINIMUM;b.setAttribute('aria-describedby','vcMinimumNote');});el('vcView').querySelector('.vc-minimum').id='vcMinimumNote';}
  el('vcContinue').onclick=function(){close();document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});};
@@ -70,6 +91,8 @@ if(draft.notes.trim())lines.push('ملاحظات: '+draft.notes);
 lines.push('','*🖼️ صور الأصناف وتفاصيل الطلب:*',link,'','*الطلب يحتاج مراجعة وتأكيد من فيتاليا.*');
 el('vcFormResult').innerHTML='<h4>راجع رسالة طلبك</h4>';
 VitaliaWhatsApp.mount(el('vcFormResult'),lines.join('\n'),'فتح واتساب بالطلب');
+el('vcFormResult').insertAdjacentHTML('beforeend','<div class="vc-note" style="margin-top:12px">أو سجّل الطلب أولًا (محاكاة): يأخذ رقم طلب، تُفرَّغ السلة، ويظهر في «طلباتي» ولوحة المحل التجريبية.</div><button class="vc-btn primary" id="vcRegister" style="width:100%;margin-top:8px">تسجيل الطلب (محاكاة)</button>');
+el('vcRegister').onclick=function(){registerOrder(ids,total,count);};
 
 }el('vcFormResult').scrollIntoView({block:'nearest',behavior:'smooth'});};
 }

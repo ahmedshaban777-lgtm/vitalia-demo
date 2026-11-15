@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة الطلبات - فيتاليا (محاكاة تجريبية)</title>
+<meta name="description" content="محاكاة تجريبية للوحة الطلبات: يغيّر المحل حالة كل طلب كما ستعمل بعد الربط الحقيقي.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fdf9f5;--card:#fff;--ink:#2a1830;--muted:#7d7286;--line:#f0e4e2;--rose:#e0457b;--ok:#1d8a5b;--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal','Cairo',sans-serif;background:var(--ivory);color:var(--ink);padding:14px;max-width:720px;margin:0 auto}
+header{text-align:center;margin:8px 0 14px}
+h1{font-family:'Cairo',sans-serif;font-size:1.3rem;font-weight:800}
+.demo{display:inline-block;background:#1b1b1b;color:#f5efe6;border-radius:8px;padding:3px 10px;font-size:.78rem;margin-top:6px}
+.note{background:#fff7e8;border:1px solid #f2dfbc;color:#6b5424;border-radius:12px;padding:9px 12px;font-size:.85rem;line-height:1.7;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin-bottom:12px}
+.chead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.ocode{font-weight:800;font-size:1.05rem;direction:ltr;unicode-bidi:embed;background:#f3e9ee;border-radius:8px;padding:2px 10px}
+.date{color:var(--muted);font-size:.78rem}
+.who{font-weight:700;margin-top:8px}
+.addr{color:var(--muted);font-size:.82rem;margin-top:2px}
+.items{margin:10px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:8px 0}
+.irow{display:flex;justify-content:space-between;gap:8px;font-size:.88rem;padding:2px 0}
+.irow .q{font-weight:700;color:var(--rose);white-space:nowrap}
+.irow .c{color:var(--muted);font-size:.76rem;direction:ltr;unicode-bidi:embed}
+.total{display:flex;justify-content:space-between;font-weight:800;font-size:.95rem;margin-top:6px}
+.stbar{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.stbar button{flex:1;min-width:90px;border:1px solid var(--line);background:#f8f1f4;color:var(--ink);border-radius:10px;padding:8px 6px;font-family:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
+.stbar button.cur{background:var(--ok);border-color:var(--ok);color:#fff}
+.empty{text-align:center;color:var(--muted);padding:30px 10px;line-height:1.9}
+footer{color:var(--muted);font-size:.78rem;text-align:center;margin:14px 0 20px;line-height:1.8}
+</style>
+</head>
+<body>
+<header>
+<h1>لوحة الطلبات - فيتاليا</h1>
+<span class="demo">محاكاة تجريبية - بيانات وأسعار غير حقيقية</span>
+</header>
+<div class="note">هذه اللوحة <b>محاكاة</b>: بلا تسجيل دخول، والطلبات معروضة من هذا الجهاز فقط. تغيير الحالة هنا يوضّح الفكرة؛ في النسخة الحقيقية الصفحة محمية بدخول خاص بالمحل، والحالة تُحفظ مركزيًا فيراها العميل في «طلباتي» من أي جهاز.</div>
+<div id="list"></div>
+<footer>محاكاة داخل معاينة معزولة · الموقع الأساسي لم يتغير · <a href="index.html">العودة للمتجر</a> · <a href="orders.html">صفحة «طلباتي» كما يراها العميل</a></footer>
+<script src="vitalia/approved-inline-2.js?v=op4"></script>
+<script src="vitalia/catalog-excel.js?v=op4"></script>
+<script src="vitalia/approved-inline-3.js?v=op4"></script>
+<script src="vitalia/mock-orders.js?v=op4"></script>
+<script>
+(function(){
+'use strict';
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function num(n){return Number(n).toLocaleString('ar-EG');}
+function money(n){return num(n)+' ج.م';}
+var MO=window.VTLMockOrders, list=document.getElementById('list');
+MO.seedIfEmpty();
+function card(o){
+ var pm=MO.productsMap();
+ var rows=o.items.map(function(it){
+  var x=pm.get('VTL-'+it.code);
+  return '<div class="irow"><span class="q">× '+num(it.qty)+'</span><span>'+(x?esc(x.name):'صنف غير معروف')+'</span><span class="c">'+esc(it.code)+'</span></div>';
+ }).join('');
+ var sum=MO.itemSummary(o.items);
+ var btns=MO.STEPS.map(function(s){return '<button data-code="'+esc(o.code)+'" data-k="'+s.k+'" class="'+(o.status===s.k?'cur':'')+'">'+esc(s.label)+'</button>';}).join('');
+ var href='order.html?o='+encodeURIComponent(MO.itemsLink(o.items));
+ return '<div class="card">'
+  +'<div class="chead"><span class="ocode">'+esc(o.code)+'</span><span class="date">'+new Date(o.ts).toLocaleString('ar-EG')+'</span></div>'
+  +'<div class="who">'+esc(o.name||'عميل تجريبي')+'</div>'
+  +'<div class="addr">'+(o.method==='pickup'?'استلام من الفرع التجريبي':'توصيل - '+esc(o.address||'عنوان تجريبي'))+'</div>'
+  +'<div class="items">'+rows+'</div>'
+  +'<div class="total"><span>مجموع المنتجات (تجريبي)</span><span>'+money(sum.total)+'</span></div>'
+  +'<div class="stbar">'+btns+'</div>'
+  +'<div class="addr" style="margin-top:8px"><a href="'+href+'">عرض الأصناف بالصور كما يراها العميل</a></div>'
+  +'</div>';
+}
+function render(){
+ var all=MO.list().slice().reverse();
+ list.innerHTML=all.length?all.map(card).join(''):'<div class="empty">لا توجد طلبات بعد.<br>سجّل طلبًا تجريبيًا من سلة المتجر ليظهر هنا.</div>';
+ list.querySelectorAll('button[data-code]').forEach(function(b){
+  b.onclick=function(){MO.setStatus(b.dataset.code,b.dataset.k);render();};
+ });
+}
+render();
+})();
+</script>
+</body>
+</html>
