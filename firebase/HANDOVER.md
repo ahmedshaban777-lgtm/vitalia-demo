@@ -17,22 +17,21 @@ Everything here belongs to the client's own Google account (Vitalia6000@gmail.co
 - Customer tracking: .../orders.html?track=<docId>
 - Merchant panel: .../merchant.html (email+password sign-in)
 
-## CURRENT STATE: order creation is LOCKED
+## CURRENT STATE: App Check ENFORCED + creation OPEN (validated)
 
-`firestore.rules` (deployed) denies all creates. Reason: anonymous creation must not stay publicly open until App Check abuse mitigation is enforced.
-
-To re-enable creation AFTER App Check is enforced:
-1. Copy `firebase/firestore.rules.unlocked` over `firebase/firestore.rules`.
-2. Publish in Firebase console: Firestore > Rules tab > paste > Publish.
-The unlocked rules were verified with 11/11 live tests (valid atomic linked create + 10 negative/abuse cases) on 2026-11-15.
+- App Check: web app «Vitalia preview» registered with the Fraud Defense (reCAPTCHA Enterprise) provider; Firestore API enforcement ON (console > App Check > APIs). Requests without an App Check token are denied (verified).
+- reCAPTCHA Enterprise key «vitalia-demo-preview» created in GCP project vitalia-orders, domain ahmedshaban777-lgtm.github.io, score-based v3. Free tier: 10,000 assessments/month, no credit card. Site key is public (in the HTML); the secret is in the owner's vault entry «Vitalia reCAPTCHA v3 (vitalia-demo-preview)», never here.
+- The 3 pages load firebase-app-check-compat.js and activate ReCaptchaEnterpriseProvider in vitalia/firebase-orders.js.
+- `firestore.rules` (deployed) = the validated version (identical to firestore.rules.unlocked): anonymous creation allowed but strictly validated + atomically linked; verified 11/11 live tests WITH enforcement on (2026-11-15), plus unverified-client denial.
 
 ## Rules gotcha that cost hours
 
 In this environment the `firestore.`-prefixed rules functions (firestore.get/getAfter/exists/existsAfter) fail with "Null value error" - on BOTH the live backend and the local emulator - even for valid hardcoded paths. The unprefixed forms work. Never "fix" the rules by re-adding the prefix.
 
-## App Check (pending decision)
+## Notes
 
-Free on Spark via reCAPTCHA provider (10k verifications/month free), but registering a reCAPTCHA key requires accepting reCAPTCHA account terms - not done, needs owner/client approval. After that: register the web app in App Check, add the App Check SDK + site key to the three pages, then enable Firestore enforcement in console > App Check > APIs > Cloud Firestore.
+- Firebase console showed «reCAPTCHA Classic is deprecated, use Fraud Defense» - the Fraud Defense provider path was used. GCP ToS already covered it (accepted when the project was created); no new terms, no billing.
+- 4 fake orders now exist (V-4059, V-9001, V-9002 x2).
 
 ## Fake test data only
 
