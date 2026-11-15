@@ -99,8 +99,8 @@ lines.push('','*🖼️ صور الأصناف وتفاصيل الطلب:*',link,
 var text=lines.join('\n');
 if(VitaliaWhatsApp.url(text).length>VitaliaWhatsApp.limit){var cl=['*🧾 طلب جديد من فيتاليا*','(معاينة تجريبية: بيانات وأسعار غير حقيقية)','',
 '*🛒 الأصناف · '+num(ids.length)+' أصناف · '+num(count)+' قطع*'];
-ids.forEach(function(id,i){var x=products.get(id),q=state.cart[id];cl.push('*'+num(i+1)+'. '+x.name+'* ('+shortCode(x.code)+') ×'+num(q)+' · '+money(q*x.price));});
-cl.push('','*💰 الحساب:*','مجموع المنتجات: *'+money(total)+'*','الشحن: يُؤكد لاحقًا','الإجمالي النهائي: يُؤكد بعد مراجعة الطلب والشحن','',
+ids.forEach(function(id,i){var x=products.get(id),q=state.cart[id];cl.push(SEP,'*'+num(i+1)+'. '+x.name+'* ('+shortCode(x.code)+') ×'+num(q)+' · '+money(q*x.price));});
+cl.push(SEP,'','*💰 الحساب:*','مجموع المنتجات: *'+money(total)+'*','الشحن: يُؤكد لاحقًا','الإجمالي النهائي: يُؤكد بعد مراجعة الطلب والشحن','',
 '*👤 بيانات العميل:*','الاسم: '+draft.name,'الاستلام: '+(draft.method==='delivery'?'توصيل':'استلام من الفرع التجريبي'));
 if(draft.method==='delivery')cl.push('العنوان: '+draft.address);
 if(draft.phone.trim())cl.push('رقم تواصل إضافي: '+draft.phone);
