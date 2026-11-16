@@ -5,6 +5,10 @@
  * placeholder are touched. Reversible (badge class illus-img). */
 (function(){
  var ILLUS = {
+  "بالمرز جل انبوبه احمر": "https://vitalia-current-preview.lovable.app/assets/department-hair-concept.webp",
+  "بالمرز جل انبوبه اصفر": "https://vitalia-current-preview.lovable.app/assets/department-hair-concept.webp",
+  "داكس شورت ازرق مستورد٠٥٩": "https://vitalia-current-preview.lovable.app/assets/department-hair-concept.webp",
+
   "لو صبغة برودجى بنى داكن رقم ٠٫٣": "https://vitalia-current-preview.lovable.app/assets/department-hair-concept.webp",
   "ا سي ام نوفوفان شامبو ١٢٥ ملى ١٨٢": "https://vitalia-current-preview.lovable.app/assets/department-hair-concept.webp",
   "اعشاب الهند زيت شعر ٧ بذور ١٨٠مل اكليل": "https://vitalia-current-preview.lovable.app/assets/department-hair-concept.webp",
